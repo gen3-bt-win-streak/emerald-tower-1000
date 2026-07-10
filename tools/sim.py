@@ -61,7 +61,11 @@ class Mon:
         return s
 
 def our_team():
-    g  = make("Gengar","Timid",{"hp":224,"spa":32,"spe":252},"Lum Berry",
+    if GENGAR_BUILD=="attacker":
+        g = make("Gengar","Timid",{"spa":252,"spe":252,"hp":4},"Lum Berry",
+              ["MOVE_PROTECT","MOVE_PERISH_SONG","MOVE_THUNDERBOLT","MOVE_GIGA_DRAIN"])
+    else:
+        g = make("Gengar","Timid",{"hp":224,"spa":32,"spe":252},"Lum Berry",
               ["MOVE_PROTECT","MOVE_PERISH_SONG","MOVE_SUBSTITUTE","MOVE_GIGA_DRAIN"])
     m  = make("Metagross","Adamant",{"hp":196,"atk":252,"spe":56,"df":4},"Choice Band",
               ["MOVE_EXPLOSION","MOVE_EARTHQUAKE","MOVE_METEOR_MASH","MOVE_SHADOW_BALL"])
@@ -564,7 +568,8 @@ def ai_choose(b, mon):
 # ---------------- our policy bot (playbook encoding) ----------------
 FORTRESS_THRESH=0.50
 POLICY_VARIANT="A"
-PROTECT_CAP=2  # A=baseline / B=T1 sub / C=sub-first doctrine
+PROTECT_CAP=2
+GENGAR_BUILD="support"  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -639,6 +644,13 @@ def our_choose(b):
             other=[f for f in foes if f is not regice]
             acts[gengar]=("move","MOVE_GIGA_DRAIN",other[0]) if other and b.minmax(gengar,other[0],"MOVE_GIGA_DRAIN")[1]>0 else ("move","MOVE_PROTECT",gengar)
             b.flags["branch_regice"]+=1; return acts
+        aggron=next((f for f in foes if f.species=="Aggron"),None)
+        if aggron is not None:
+            acts[gross]=("move","MOVE_EARTHQUAKE",aggron)
+            other=[f for f in foes if f is not aggron]
+            gb=best_attack(b,gengar,other) if other else None
+            acts[gengar]=("move",gb[0],gb[1]) if (gb and gb[3][1]>=0.5) else ("move","MOVE_PROTECT",gengar)
+            b.flags["branch_aggron"]+=1; return acts
         ghosts=[f for f in foes if f.species in GHOST_SP]
         if len(ghosts)==len(foes) and foes:
             ba=best_attack(b,gross,foes)
@@ -751,6 +763,11 @@ def our_choose(b):
             solo,duo=incoming_max(m)
             bench_alive=any(x.alive() for x in b.bench["us"])
             sing_ok = bench_alive and not sung and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes)
+            if POLICY_VARIANT=="H" and foes and sing_ok:
+                foe_bench_h = any(x.alive() for x in b.bench["foe"])
+                no_fire_h = not any(f.species in FIRE_RETREAT for f in foes)
+                if all(fortress(t) for t in foes) and not foe_bench_h and no_fire_h:
+                    acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if POLICY_VARIANT in ("D","DB","E","EB","F","FB","G","GB") and foes and sing_ok:
                 jib_ok = lax_any is not None and not damp_present
                 sweep = jib_ok and all(b.minmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp for t in foes)
@@ -766,10 +783,10 @@ def our_choose(b):
                 acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if sung:
                 if m.protect_streak<PROTECT_CAP: acts[m]=("move","MOVE_PROTECT",m)
-                elif m.hp>m.max_hp//4: acts[m]=("move","MOVE_SUBSTITUTE",m)
+                elif m.hp>m.max_hp//4 and "MOVE_SUBSTITUTE" in m.moves: acts[m]=("move","MOVE_SUBSTITUTE",m)
                 else: acts[m]=("move","MOVE_PROTECT",m)
                 continue
-            ba=best_attack(b,m,foes,only=["MOVE_GIGA_DRAIN"])
+            ba=best_attack(b,m,foes)
             kill_now = ba and ba[2]>=1.0
             danger = (duo>=m.hp) or (solo>=m.hp)
             if POLICY_VARIANT=="C" and not kill_now:
@@ -781,13 +798,13 @@ def our_choose(b):
                 acts[m]=("move","MOVE_GIGA_DRAIN",ba[1])
             elif danger and m.protect_streak==0 and m.sub==0:
                 acts[m]=("move","MOVE_PROTECT",m)
-            elif danger and m.sub==0 and m.hp>m.max_hp//4:
+            elif danger and m.sub==0 and m.hp>m.max_hp//4 and "MOVE_SUBSTITUTE" in m.moves:
                 acts[m]=("move","MOVE_SUBSTITUTE",m)
             elif danger and m.protect_streak<PROTECT_CAP:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba and ba[3][1]>=0.4:
                 acts[m]=("move","MOVE_GIGA_DRAIN",ba[1])
-            elif m.sub==0 and m.hp>m.max_hp//4 and len(foes)>1:
+            elif m.sub==0 and m.hp>m.max_hp//4 and len(foes)>1 and "MOVE_SUBSTITUTE" in m.moves:
                 acts[m]=("move","MOVE_SUBSTITUTE",m)
             elif ba: acts[m]=("move","MOVE_GIGA_DRAIN",ba[1])
             else: acts[m]=("move","MOVE_PROTECT",m)
