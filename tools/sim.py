@@ -562,6 +562,7 @@ def ai_choose(b, mon):
 
 # ---------------- our policy bot (playbook encoding) ----------------
 FORTRESS_THRESH=0.50
+POLICY_VARIANT="A"  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -656,6 +657,8 @@ def our_choose(b):
         ohko_t=next((f for f in foes if any(MOVES[m]["effect"]==OHKO_EFF for m in f.moves if m in MOVES)),None)
         if ohko_t is not None and b.minmax(gengar,ohko_t,"MOVE_GIGA_DRAIN")[1]>0:
             acts[gengar]=("move","MOVE_GIGA_DRAIN",ohko_t)
+        elif POLICY_VARIANT in ("B","C"):
+            acts[gengar]=("move","MOVE_SUBSTITUTE",gengar)
         else:
             acts[gengar]=("move","MOVE_PROTECT",gengar)
         b.flags["branch_boom"]+=1
@@ -755,6 +758,11 @@ def our_choose(b):
             ba=best_attack(b,m,foes,only=["MOVE_GIGA_DRAIN"])
             kill_now = ba and ba[2]>=1.0
             danger = (duo>=m.hp) or (solo>=m.hp)
+            if POLICY_VARIANT=="C" and not kill_now:
+                if m.sub==0 and m.hp>m.max_hp//4:
+                    acts[m]=("move","MOVE_SUBSTITUTE",m); continue
+                if m.sub>0 and ba:
+                    acts[m]=("move","MOVE_GIGA_DRAIN",ba[1]); continue
             if kill_now:
                 acts[m]=("move","MOVE_GIGA_DRAIN",ba[1])
             elif danger and m.protect_streak==0 and m.sub==0:
