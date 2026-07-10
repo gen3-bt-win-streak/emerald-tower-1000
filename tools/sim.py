@@ -53,6 +53,8 @@ class Mon:
         self.took_dmg=False; self.destiny=False
         self.item_used=False  # berries/focus band one-shot flags handled ad hoc
         self.observed=set()   # moves this mon has revealed (set-elimination basis)
+        self.endure=False; self.endure_streak=0; self.recharge=False
+        self.drowsy=0; self.trapped=False; self.invuln=False; self.first_turn=True
     def alive(self): return self.hp>0
     def eff(self):
         s=dict(self.stats)
@@ -141,6 +143,13 @@ class Battle:
 
     # ---------- damage ----------
     def calc(self, att, dfd, move, crit=False, spread=False):
+        eff=MOVES[move]["effect"]
+        if eff=="EFFECT_FLAIL":
+            frac=att.hp/att.max_hp
+            pw=20 if frac>0.6874 else 40 if frac>0.3542 else 80 if frac>0.2083 else 100 if frac>0.1042 else 150 if frac>0.0417 else 200
+            MOVES["__TMP__"]=dict(MOVES[move],power=pw); move="__TMP__"
+        elif eff=="EFFECT_FACADE" and att.status in ("BRN","PSN","TOX","PAR"):
+            MOVES["__TMP__"]=dict(MOVES[move],power=MOVES[move]["power"]*2); move="__TMP__"
         a=dict(species=att.species,stats=att.eff(),types=att.types,ability=att.ability,item=att.item,level=100)
         d=dict(species=dfd.species,stats=dfd.eff(),types=dfd.types,ability=dfd.ability,item=None,level=100)
         lo,hi=damage_range(a,d,move,crit=crit)
@@ -176,7 +185,9 @@ class Battle:
             if dfd.sub<=0: dfd.sub=0; self.lg("%s sub broke"%dfd.species)
             return 0
         real=min(dfd.hp,dmg)
-        if dfd.item=="Focus Band" and real>=dfd.hp and self.rng.random()<0.10:
+        if dfd.endure and real>=dfd.hp:
+            real=dfd.hp-1; self.flags["endure"]+=1
+        elif dfd.item=="Focus Band" and real>=dfd.hp and self.rng.random()<0.10:
             real=dfd.hp-1; self.flags["focus_band"]+=1
         dfd.hp-=real; dfd.took_dmg=True
         if mt in PHYSICAL: dfd.dmg_phys=(real,att)
@@ -228,6 +239,7 @@ class Battle:
 
     # ---------- move execution ----------
     def accuracy_ok(self, att, dfd, move):
+        if dfd.invuln: return False
         acc=MOVES[move]["accuracy"]
         if MOVES[move]["effect"]==OHKO_EFF:
             return self.rng.random()<0.30
@@ -248,10 +260,22 @@ class Battle:
         if att.truant: att.truant=False; self.lg("%s loafing"%att.species); return
         if att.ability=="ABILITY_TRUANT": att.truant=True
         # status checks
+        if att.recharge:
+            att.recharge=False; self.lg("%s recharging"%att.species); return
         if att.status=="SLP":
             att.slp-=1
             if att.slp<=0: att.status=None; self.lg("%s woke"%att.species)
-            else: self.lg("%s sleeping"%att.species); return
+            else:
+                if "MOVE_SLEEP_TALK" in att.moves:
+                    alts=[x for x in att.moves if x!="MOVE_SLEEP_TALK" and x in MOVES and MOVES[x]["power"]>=2]
+                    if alts:
+                        move=self.rng.choice(alts); mvst=MOVES[move]
+                        self.lg("%s sleep-talks %s"%(att.species,move))
+                        target=action[2]
+                    else:
+                        self.lg("%s sleeping"%att.species); return
+                else:
+                    self.lg("%s sleeping"%att.species); return
         if att.status=="FRZ":
             if self.rng.random()<0.20: att.status=None
             else: self.lg("%s frozen"%att.species); return
@@ -340,10 +364,26 @@ class Battle:
                 return
             if eff=="EFFECT_SOLARBEAM" and att.charging is None and self.weather!="sun":
                 att.charging=("MOVE_SOLAR_BEAM",tgt); self.lg("%s charging solarbeam"%att.species); return
+            if eff=="EFFECT_SEMI_INVULNERABLE" and att.charging is None:
+                att.charging=(move,tgt); att.invuln=True; self.lg("%s went up/under (%s)"%(att.species,move)); return
+            if att.charging is not None and att.invuln:
+                att.invuln=False
+            if eff=="EFFECT_DREAM_EATER" and (tgt is None or tgt.status!="SLP"):
+                self.lg("%s dream eater failed"%att.species); att.charging=None; return
+            if eff=="EFFECT_FAKE_OUT" and not att.first_turn:
+                self.lg("%s fake out failed"%att.species); return
             if eff=="EFFECT_FOCUS_PUNCH" and att.took_dmg:
                 self.lg("%s focus punch broken"%att.species); self.flags["fp_broken"]+=1; return
             att.charging=None
             if tgt is None: return
+            if eff=="EFFECT_LEVEL_DAMAGE":
+                if tgt.protected or not self.accuracy_ok(att,tgt,move):
+                    self.lg("%s level-damage missed/blocked"%att.species); return
+                if damage_range(dict(species=att.species,stats=att.eff(),types=att.types,ability=att.ability,item=None,level=100),
+                                dict(species=tgt.species,stats=tgt.eff(),types=tgt.types,ability=tgt.ability,item=None,level=100),
+                                "MOVE_TACKLE")[1]==0 and MOVES[move]["type"] in ("TYPE_NORMAL","TYPE_FIGHTING") and "TYPE_GHOST" in tgt.types:
+                    return
+                self.deal(att,tgt,move,100); return
             if tgt.protected:
                 self.lg("%s protected from %s"%(tgt.species,move)); return
             if eff==OHKO_EFF:
@@ -364,7 +404,8 @@ class Battle:
                 if not self.accuracy_ok(att,t,move):
                     self.lg("%s missed %s on %s"%(att.species,move,t.species)); self.flags["miss_"+att.side]+=1; continue
                 crit_chance=1/16
-                if att.item=="Scope Lens": crit_chance=1/8
+                if MOVES[move]["effect"]=="EFFECT_HIGH_CRITICAL": crit_chance=1/4
+                if att.item=="Scope Lens": crit_chance=1/3 if crit_chance==1/4 else 1/8
                 crit=self.rng.random()<crit_chance
                 if crit: self.flags["crit_"+t.side]+=1
                 dmg=self.calc(att,t,move,crit=crit,spread=(spread and t.side!=att.side))
@@ -374,6 +415,12 @@ class Battle:
                 if move in RECOIL and real>0:
                     att.hp-=min(att.hp,max(1,real//RECOIL[move])); self.lg("%s recoil"%att.species)
                 if eff=="EFFECT_DRAIN" or move=="MOVE_GIGA_DRAIN":
+                    att.hp=min(att.max_hp,att.hp+max(1,real//2))
+                if MOVES[move]["effect"]=="EFFECT_RECHARGE": att.recharge=True
+                if MOVES[move]["effect"]=="EFFECT_FAKE_OUT" and t.alive(): t.flinch=True
+                if MOVES[move]["effect"]=="EFFECT_TRI_ATTACK" and t.alive() and self.rng.random()<0.20:
+                    self.try_status(t,self.rng.choice(["PAR","BRN","FRZ"]))
+                if MOVES[move]["effect"]=="EFFECT_DREAM_EATER":
                     att.hp=min(att.max_hp,att.hp+max(1,real//2))
                 sec=SECONDARY.get(move)
                 if sec and t.alive():
@@ -395,6 +442,36 @@ class Battle:
             self.lg("%s protected from %s"%(tgt.species,move)); return
         if not self.accuracy_ok(att,tgt,move):
             self.lg("%s missed %s"%(att.species,move)); return
+        if eff=="EFFECT_ENDURE":
+            rate=1.0/(2**att.endure_streak)
+            if self.rng.random()<rate: att.endure=True; att.endure_streak+=1
+            else: att.endure_streak=0
+            return
+        if eff=="EFFECT_YAWN":
+            if tgt.status is None and tgt.drowsy==0 and tgt.sub==0: tgt.drowsy=2
+            return
+        if eff=="EFFECT_MEAN_LOOK":
+            tgt.trapped=True; self.lg("%s trapped %s"%(att.species,tgt.species)); return
+        if eff=="EFFECT_TRICK":
+            if tgt.sub==0:
+                att.item,tgt.item=tgt.item,att.item
+                att.choice=None; tgt.choice=None
+                self.lg("%s tricked items with %s"%(att.species,tgt.species)); self.flags["trick"]+=1
+            return
+        if eff=="EFFECT_SKILL_SWAP":
+            att.ability,tgt.ability=tgt.ability,att.ability
+            self.lg("skill swap %s<->%s"%(att.species,tgt.species)); return
+        if eff=="EFFECT_BATON_PASS":
+            bench=[x for x in self.bench[att.side] if x.alive()]
+            if bench:
+                nxt=bench[0]; self.bench[att.side].remove(nxt)
+                idx=self.active[att.side].index(att)
+                self.bench[att.side].append(att)
+                nxt.stages=dict(att.stages); nxt.sub=att.sub
+                att.stages={k:0 for k in STAGE_KEYS}; att.sub=0; att.perish=None
+                self.active[att.side][idx]=nxt; self.on_entry(nxt); nxt.first_turn=True
+                self.lg("%s baton passed to %s"%(att.species,nxt.species))
+            return
         if eff in ("EFFECT_SLEEP",): self.try_status(tgt,"SLP"); self.flags["sleep_try"]+=1
         elif eff=="EFFECT_TOXIC": self.try_status(tgt,"TOX")
         elif eff=="EFFECT_POISON": self.try_status(tgt,"PSN")
@@ -458,6 +535,13 @@ class Battle:
             if self.wturns==0: self.weather=None
         for k in ("foe_reflect","foe_light"):
             if self.screens[k]>0: self.screens[k]-=1
+        for m in self.active["us"]+self.active["foe"]:
+            if m is None or not m.alive(): continue
+            m.first_turn=False
+            if m.drowsy>0:
+                m.drowsy-=1
+                if m.drowsy==0 and m.status is None:
+                    self.try_status(m,"SLP")
         # perish
         for m in self.active["us"]+self.active["foe"]:
             if m is None or not m.alive() or m.perish is None: continue
@@ -478,7 +562,7 @@ class Battle:
                     if nxt:
                         self.bench[side].remove(nxt)
                         self.active[side][i]=nxt; self.on_entry(nxt)
-                        nxt.choice=None
+                        nxt.choice=None; nxt.first_turn=True
                         self.lg("%s sent out %s"%(side,nxt.species))
 
     def result(self):
@@ -525,6 +609,12 @@ def ai_choose(b, mon):
                     _,hi=b.minmax(mon,t,mv)
                     if hi==0: continue
                     cands.append((98+(4 if hi>=t.hp else 0)+b.rng.uniform(-0.5,0.5),mv,t))
+                continue
+            if eff=="EFFECT_DREAM_EATER":
+                for t in foes:
+                    if t.status=="SLP":
+                        _,hi=b.minmax(mon,t,mv)
+                        cands.append((98+(4 if hi>=t.hp else 0)+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,t))
                 continue
             spread = m["target"]=="MOVE_TARGET_BOTH" and len(foes)==2
             for t in foes:
@@ -733,9 +823,11 @@ def our_choose(b):
     # ---- generic mid/endgame ----
     ours=[m for m in b.active["us"] if m and m.alive()]
     # perish rotation: switch out our mons at perish 1
+    shadow_tag=any(f.alive() and f.ability=="ABILITY_SHADOW_TAG" for f in b.active["foe"] if f)
     used_bench=[]
     rotating={}
     for m in ours:
+        if m.trapped or shadow_tag: continue
         if m.perish==1:
             bench=[x for x in b.bench["us"] if x.alive() and x not in used_bench]
             if bench:
@@ -901,13 +993,13 @@ def play_battle(seed=None, verbose=False, event_seed=None):
             b.flags["timeout"]+=1
             return b,"loss"
         for m in b.active["us"]+b.active["foe"]:
-            if m: m.protected=False; m.flinch=False; m.dmg_phys=(0,None); m.dmg_spec=(0,None); m.took_dmg=False; m.destiny=False
+            if m: m.protected=False; m.endure=False; m.flinch=False; m.dmg_phys=(0,None); m.dmg_spec=(0,None); m.took_dmg=False; m.destiny=False
         acts=our_choose(b)
         foe_acts={}
         for m in b.active["foe"]:
             if m and m.alive():
                 # perish final-turn switch (the only reliable AI switch trigger)
-                if m.perish==1:
+                if m.perish==1 and not m.trapped and not any(x is not None and x.alive() and x.ability=="ABILITY_SHADOW_TAG" for x in b.active["us"]):
                     bench=[x for x in b.bench["foe"] if x.alive()]
                     if bench:
                         foe_acts[m]=("switch",m,bench[0]); continue
