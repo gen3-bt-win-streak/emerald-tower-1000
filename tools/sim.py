@@ -657,7 +657,7 @@ def our_choose(b):
         ohko_t=next((f for f in foes if any(MOVES[m]["effect"]==OHKO_EFF for m in f.moves if m in MOVES)),None)
         if ohko_t is not None and b.minmax(gengar,ohko_t,"MOVE_GIGA_DRAIN")[1]>0:
             acts[gengar]=("move","MOVE_GIGA_DRAIN",ohko_t)
-        elif POLICY_VARIANT in ("B","C"):
+        elif POLICY_VARIANT in ("B","C","DB","EB","FB","GB"):
             acts[gengar]=("move","MOVE_SUBSTITUTE",gengar)
         else:
             acts[gengar]=("move","MOVE_PROTECT",gengar)
@@ -748,6 +748,18 @@ def our_choose(b):
             sung=any(f.perish is not None for f in foes)
             solo,duo=incoming_max(m)
             bench_alive=any(x.alive() for x in b.bench["us"])
+            sing_ok = bench_alive and not sung and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes)
+            if POLICY_VARIANT in ("D","DB","E","EB","F","FB","G","GB") and foes and sing_ok:
+                jib_ok = lax_any is not None and not damp_present
+                sweep = jib_ok and all(b.minmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp for t in foes)
+                foe_bench = any(x.alive() for x in b.bench["foe"])
+                need_no_bench = POLICY_VARIANT in ("E","EB","F","FB","G","GB")
+                need_slow = POLICY_VARIANT in ("F","FB")
+                slow_exists = any(fortress(t) for t in foes)
+                no_fire = not any(f.species in FIRE_RETREAT for f in foes)
+                fire_veto = POLICY_VARIANT in ("G","GB") and not no_fire
+                if not sweep and (not need_no_bench or not foe_bench) and (not need_slow or slow_exists) and not fire_veto:
+                    acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if foes and all(fortress(t) for t in foes) and not sung and bench_alive and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes):
                 acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if sung:
