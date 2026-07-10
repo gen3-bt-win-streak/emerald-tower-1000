@@ -1,0 +1,31 @@
+{
+ "n": 20000,
+ "win": 18911,
+ "loss": 1089,
+ "loss_rate": 0.05445,
+ "avg_turns": 4.6122,
+ "loss_by_category": {
+  "default_boom": 478,
+  "fortress_lead": 201,
+  "fire": 167,
+  "regi": 150,
+  "ghost": 83,
+  "damp": 8,
+  "wobbuffet": 2
+ },
+ "loss_flag_incidence": {
+  "protect_fail_us": 738,
+  "crit_us": 587,
+  "miss_us": 168,
+  "attract_us": 37,
+  "timeout": 24,
+  "fp_broken": 41,
+  "twave_us": 180,
+  "full_para_us": 100,
+  "focus_band": 49,
+  "sleep_try": 23,
+  "perish_kill_us": 13,
+  "ohko_hit_us": 4,
+  "confusion_self": 10
+ }
+}

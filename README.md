@@ -33,6 +33,7 @@
 | [**05-final-team.md**](05-final-team.md) | **最終編成確定版**：4匹の完全スペック・初手決定木・エンドゲーム手順・禁止事項・成績見積もり | ✅ **確定** |
 | [06-no-boom-playbook.md](06-no-boom-playbook.md) | 爆発できないパターン（全体の19.6%）の頻度・勝ち筋・負け筋・対策 | ✅ |
 | [07-hardware-proof.md](07-hardware-proof.md) | 機材相場（2026-07）と記録証明計画（GC＋GBプレーヤー録画構成） | ✅ |
+| [08-simulation.md](08-simulation.md) | 模擬想定戦シミュレータv0：2万戦の負け筋分布・発見2件・まもる依存の定量化 | ✅ v0 |
 | [data/](data/README.md) | 敵全882セット・トレーナー300人・危険レポート（オープン基準）のCSV/JSON | ✅ 独立監査済み |
 | [sources.md](sources.md) | 出典・検証記録・残る実機検証キュー | ✅ |
 
