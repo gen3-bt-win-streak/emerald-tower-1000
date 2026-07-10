@@ -266,6 +266,7 @@ class Battle:
         if att.item=="Choice Band": att.choice=move
         # protect
         if eff=="EFFECT_PROTECT":
+            if att.side=="us" and att.protect_streak>=1: self.flags["protect2_try_us"]+=1
             rate=1.0/(2**att.protect_streak)
             if self.rng.random()<rate:
                 att.protected=True; att.protect_streak+=1; self.lg("%s protected"%att.species)
@@ -562,7 +563,8 @@ def ai_choose(b, mon):
 
 # ---------------- our policy bot (playbook encoding) ----------------
 FORTRESS_THRESH=0.50
-POLICY_VARIANT="A"  # A=baseline / B=T1 sub / C=sub-first doctrine
+POLICY_VARIANT="A"
+PROTECT_CAP=2  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -727,7 +729,7 @@ def our_choose(b):
             last_mon = len(ours)==1 and not any(x.alive() for x in b.bench["us"])
             if ba and (ba[2]>=1.0 or (duo<m.hp and (ba[3][1]>=0.25 or last_mon))):
                 acts[m]=("move",ba[0],ba[1])
-            elif duo>=m.hp and m.protect_streak<2 and not last_mon:
+            elif duo>=m.hp and m.protect_streak<PROTECT_CAP and not last_mon:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba: acts[m]=("move",ba[0],ba[1])
             else: acts[m]=("move","MOVE_PROTECT",m)
@@ -763,7 +765,7 @@ def our_choose(b):
             if foes and all(fortress(t) for t in foes) and not sung and bench_alive and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes):
                 acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if sung:
-                if m.protect_streak<2: acts[m]=("move","MOVE_PROTECT",m)
+                if m.protect_streak<PROTECT_CAP: acts[m]=("move","MOVE_PROTECT",m)
                 elif m.hp>m.max_hp//4: acts[m]=("move","MOVE_SUBSTITUTE",m)
                 else: acts[m]=("move","MOVE_PROTECT",m)
                 continue
@@ -781,7 +783,7 @@ def our_choose(b):
                 acts[m]=("move","MOVE_PROTECT",m)
             elif danger and m.sub==0 and m.hp>m.max_hp//4:
                 acts[m]=("move","MOVE_SUBSTITUTE",m)
-            elif danger and m.protect_streak<2:
+            elif danger and m.protect_streak<PROTECT_CAP:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba and ba[3][1]>=0.4:
                 acts[m]=("move","MOVE_GIGA_DRAIN",ba[1])
@@ -799,7 +801,7 @@ def our_choose(b):
             ally_alive = ally is not None
             if kill_now:
                 acts[m]=("move",ba[0],ba[1])
-            elif solo>=m.hp and m.protect_streak<2 and ally_alive:
+            elif solo>=m.hp and m.protect_streak<PROTECT_CAP and ally_alive:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba:
                 acts[m]=("move",ba[0],ba[1])
