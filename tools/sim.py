@@ -105,10 +105,11 @@ def enemy_team(rng):
 
 # ---------------- battle state ----------------
 class Battle:
-    def __init__(self, seed=None):
-        self.rng=random.Random(seed)
+    def __init__(self, seed=None, event_seed=None):
+        rngd=random.Random(seed)
+        self.rng=random.Random(event_seed) if event_seed is not None else rngd
         self.us=our_team()
-        self.tid,self.foe=enemy_team(self.rng)
+        self.tid,self.foe=enemy_team(rngd)
         self.active={"us":[self.us[0],self.us[1]],"foe":[self.foe[0],self.foe[1]]}
         self.bench={"us":[self.us[2],self.us[3]],"foe":self.foe[2:]}
         self.weather=None; self.wturns=0
@@ -687,7 +688,15 @@ def our_choose(b):
                 acts[gross]=("move","MOVE_EARTHQUAKE",dampmon)
             acts[gengar]=("move","MOVE_GIGA_DRAIN",dampmon)
             b.flags["branch_damp"]+=1; return acts
-        # default: boom (+ giga overlay on Rhydon etc.)
+        # default: boom (+ giga overlay on Rhydon etc.) — but only if it guarantees >=1 kill
+        kills_boom=sum(1 for f in foes if b.minmax(gross,f,"MOVE_EXPLOSION")[0]>=f.hp)
+        if kills_boom==0:
+            gb2=best_attack(b,gross,foes)
+            acts[gross]=("move",gb2[0],gb2[1]) if gb2 else ("move","MOVE_METEOR_MASH",foes[0])
+            gg=best_attack(b,gengar,foes)
+            acts[gengar]=("move",gg[0],gg[1]) if (gg and gg[3][1]>=0.4) else ("move","MOVE_PROTECT",gengar)
+            b.flags["branch_noboom_wall"]+=1
+            return acts
         acts[gross]=("move","MOVE_EXPLOSION",None)
         ohko_t=next((f for f in foes if cand_has_ohko(f)),None)
         if ohko_t is not None and b.minmax(gengar,ohko_t,"MOVE_GIGA_DRAIN")[1]>0:
@@ -853,10 +862,10 @@ def our_choose(b):
     return acts
 
 # ---------------- turn loop ----------------
-def play_battle(seed=None, verbose=False):
+def play_battle(seed=None, verbose=False, event_seed=None):
     global VERBOSE
     VERBOSE=verbose
-    b=Battle(seed)
+    b=Battle(seed, event_seed=event_seed)
     while True:
         b.turn+=1
         if b.turn>120:
