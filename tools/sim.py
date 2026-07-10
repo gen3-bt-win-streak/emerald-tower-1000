@@ -595,7 +595,9 @@ GENGAR_BUILD="support"
 FIRE_T1_MODE="default"
 AI_JITTER=0.5
 AI_KILL_BONUS=4
-AI_STATUS_BONUS=0.0  # A=baseline / B=T1 sub / C=sub-first doctrine
+AI_STATUS_BONUS=0.0
+GENGAR_OVERLAY="ohko"
+STEEL_LEAD_EQ=1  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -678,6 +680,14 @@ def our_choose(b):
             other=[f for f in foes if f is not regice]
             acts[gengar]=("move","MOVE_GIGA_DRAIN",other[0]) if other and b.minmax(gengar,other[0],"MOVE_GIGA_DRAIN")[1]>0 else ("move","MOVE_PROTECT",gengar)
             b.flags["branch_regice"]+=1; return acts
+        STEELS={"Aggron","Steelix","Registeel","Metagross","Scizor","Forretress"}
+        steel_t=next((f for f in foes if f.species in STEELS and b.minmax(gross,f,"MOVE_EXPLOSION")[0]<f.hp and b.minmax(gross,f,"MOVE_EARTHQUAKE")[1]>0),None)
+        if STEEL_LEAD_EQ and steel_t is not None:
+            acts[gross]=("move","MOVE_EARTHQUAKE",steel_t)
+            other=[f for f in foes if f is not steel_t]
+            gb=best_attack(b,gengar,other) if other else None
+            acts[gengar]=("move",gb[0],gb[1]) if (gb and gb[3][1]>=0.5) else ("move","MOVE_PROTECT",gengar)
+            b.flags["branch_steel_eq"]+=1; return acts
         aggron=next((f for f in foes if f.species=="Aggron"),None)
         if aggron is not None:
             acts[gross]=("move","MOVE_EARTHQUAKE",aggron)
