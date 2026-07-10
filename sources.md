@@ -1,62 +1,78 @@
-# 出典・今後のデータ採掘先
+# 出典・検証記録
 
-> 注意：この作業環境からは一部サイトへの直接アクセスが制限されていたため、検索経由で確認した。
-> 【要検証】タグの解消には下記の一次資料を直接参照すること。
+## 一次資料（最優先。data/ のCSVはここから機械抽出）
 
-## 今回の裏取りで使用した情報源
+**pret/pokeemerald**（エメラルド逆コンパイル。raw.githubusercontent.com/pret/pokeemerald/master/...）
+- `src/data/battle_frontier/battle_frontier_mons.h` — 敵全882セット
+- `src/data/battle_frontier/battle_frontier_trainers.h` ＋ `battle_frontier_trainer_mons.h` — トレーナー300人と使用プール
+- `src/battle_tower.c` — 抽選・IV・レベル・重複禁止・Lv50プールカット（FRONTIER_MONS_HIGH_TIER=849）
+- `src/battle_ai_switch_items.c` — 交代AI（6トリガー）
+- `data/battle_ai_scripts.s` ＋ `src/battle_ai_script_commands.c` — 技スコアリングAI・AIフラグ・AIの情報アクセス
+- `src/battle_main.c` — クイッククロー20%・同速50/50・バッジ補正無効
+- `src/pokemon.c` — 敵個体生成（特性＝性格値偶奇で1/2、努力値＝2ステ255/3ステ170）
+- `src/data/pokemon/{species_info,level_up_learnsets,tmhm_learnsets,egg_moves,tutor_learnsets}.h` — 習得・特性・卵グループ
+- `src/data/items.h` — 持ち物発動率（QC20/ハチマキ10/おうじゃ10/こな10/おこう5）
+- `src/frontier_util.c` — 連勝カウント・ブレーン出現条件（シングル限定）
 
-### ルール・仕様
-- Bulbapedia「Battle Tower (Generation III)」 https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III)
-  - ダブルは4匹編成、オープンレベル、禁止ポケモン10種
-- Serebii「Pokémon Emerald - Battle Tower」 https://www.serebii.net/emerald/tower.shtml
-- アイテムクローズ・禁止リスト（GameFAQs/Serebii フォーラム複数ソース一致）
+## 検証済み事項の要約（2026-07 ワークフロー14エージェント）
 
-### 敵トレーナー・セットデータ（Phase 1/2 の本命データ源）
-- altissimo1 のトレーナー表 https://altissimo1.github.io/Main-Series/RSE/battle-tower-trainers.html
-  - トレーナー番号→出現戦数帯、個体値スケーリング（3/6/9/12/15/21/31）
-- Bulbapedia「List of Battle Frontier Pokémon in Generation III」 https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Pok%C3%A9mon_in_Generation_III
-  - 敵全セット（種族・技・持ち物・努力値）
-- Bulbapedia「List of Battle Frontier Trainers in Generation III」 https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III
-- Buried Relic「Emerald Battle Frontier Sets」 https://buriedrelic.neocities.org/pages/emerald_battle_frontier_sets
-- pokeemerald 逆コンパイル（一次資料）
-  - `src/data/battle_frontier/battle_frontier_trainer_mons.h`（全セット）
-  - `src/data/battle_frontier/battle_frontier_trainers.h`（トレーナー→セット範囲）
-  - `data/battle_ai_scripts.s`（AI行動スコアリング）
-  - `src/battle_tower.c`（タワーの抽選ロジック）
-
-### 記録・戦略（先行研究）
-- Smogon「Gen III Battle Frontier Discussion and Records」 https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/
-  - **ダブル既知最高：799連勝（Lv100・エミュ）**
-  - シングル：1090連勝、2500連勝超（IRIDESCENCE）
-  - ほろびのうたゲンガー（ほろび/みちづれ/まもる/くろいまなざし）で1036連勝の記録
-  - **AIはほろびのうたを受けたときのみ交代（カウント1で交代）**という仕様報告
-- Smogon「Dans Macabre」（タワーシングル記録チーム） https://www.smogon.com/forums/threads/dans-macabre-a-record-breaking-gen-3-battle-tower-singles-team.3651964/
-- Smogon「IRIDESCENCE: Emerald Battle Tower 2500+ wins」 https://www.smogon.com/forums/threads/iridescence-emerald-battle-tower-2500-wins-team.3674437/
-- Smogon「frontier & tower information pile」 https://www.smogon.com/forums/threads/frontier-tower-information-pile.60119/
-
-### 育成・習得情報
-- ほろびのうた遺伝：♂ムウマ×♀ゴース系（PokémonDB/Serebii 一致） https://pokemondb.net/pokedex/gengar/moves/3
-- ムウマ Lv46 ほろびのうた習得（第3世代） https://pokemondb.net/pokedex/misdreavus/moves/3
-- エメラルド教え技（だいばくはつ＝キナギタウン・1回限り） https://www.serebii.net/emerald/movetutor.shtml
-- メタグロス第3世代学習セット https://bulbapedia.bulbagarden.net/wiki/Metagross_(Pok%C3%A9mon)/Generation_III_learnset
-
-### AI解析
-- Bulbapedia「Battle Frontier (Generation III)」（ダブルのターゲット選択：技×対象のスコアリング）
-- PokéCommunity「Research: Emerald's Battle Frontier」 https://www.pokecommunity.com/threads/emeralds-battle-frontier.289974/
-
-## 未解決の【要検証】一覧（次回作業キュー）
-
-| # | 項目 | 当たる資料 |
+| # | 項目 | 結果 |
 |---|---|---|
-| 1 | 中間セットの個体値（15/21のゆれ） | altissimo1 表 or pokeemerald |
-| 2 | 敵の二特性個体の特性決定方法（しめりけ率） | pokeemerald `battle_tower.c` |
-| 3 | 一撃技持ちの全セット洗い出し（クイッククロー併用の有無） | 敵セット一覧 |
-| 4 | 敵のほろびのうた/じばく/だいばくはつ所持セット一覧 | 敵セット一覧 |
-| 5 | ぼうおん持ちの出現セット | 敵セット一覧 |
-| 6 | トリック持ちの有無（いなければ負け筋から削除） | 敵セット一覧 |
-| 7 | AIのまもる使用条件 | `battle_ai_scripts.s`＋実機 |
-| 8 | クイッククロー発動率（第3世代） | データ解析 |
-| 9 | 徘徊ラティオスへのシンクロ有効性（エメラルド） | 検証記事 |
-| 10 | トレーナータイプ→セット番号帯の対応表 | `battle_frontier_trainers.h` |
-| 11 | シャドーボールTM30の入手場所・個数（エメラルド） | 攻略サイト |
-| 12 | みちづれ状態の敵を爆発で倒した際の判定 | 実機 |
+| 1 | 敵IVスケーリング | ✅トレーナーID基準で確定（3/6/9/12/15/18/21/31）。「セット単位」ではなくID単位 |
+| 2 | 敵の二特性の決定 | ✅性格値bit0で**ちょうど1/2**（しめりけゴルダック=50%） |
+| 3 | 一撃技セット | ✅23セット完全列挙（01参照） |
+| 4 | 敵のほろび/じばく/爆発 | ✅3/0/24セット完全列挙 |
+| 5 | ぼうおん持ち | ✅12セット（+プール外3）完全列挙 |
+| 6 | トリック持ち | ✅**実在**。3セット全て@こだわりハチマキ |
+| 7 | AIのまもる条件 | ✅コード確定（CV+2デフォルト、連続で−2など。03参照） |
+| 8 | クイッククロー発動率 | ✅20%（13107/65536）。ターン内で乱数共有 |
+| 9 | 徘徊ラティオスのシンクロ | ✅**無効**。個体はテレビ回答の瞬間に固定。エメラルドはIVバグ修正済み |
+| 10 | トレーナータイプ→プール | ✅data/trainer_classes_battle50plus.csv 完成（cpp展開でパーサバグ修正済み） |
+| 11 | TM30入手 | ✅おくりびやま6Fで**1個のみ**。ゲームコーナー景品に無し |
+| 12 | ダブルの複数対象補正 | ✅**じしん/爆発は減衰なし**。0.5倍は相手2体対象技のみ（重大訂正） |
+| 13 | 引き分け仕様 | ✅相打ち全滅=プレイヤー負け（Dans Macabreスレ明記）。※コードレベルの条件は未読 |
+| 14 | ムウマ入手 | ✅**エメラルド不可**。リーフグリーン・ななしのどうくつ限定（重大訂正） |
+| 15 | ほろびのうた遺伝 | ✅♂ムウマLv45×♀ゴース系（両者とも不定形グループ）。ゴース遺伝技にだいばくはつも存在 |
+| 16 | メタグロスのシャドボ | ✅TM30適性あり（メタングも可、ダンバル不可）。だいばくはつはキナギ教え技1回のみ |
+| 17 | AI交代仕様 | ✅6トリガー確定。ほろびのうた=唯一の100%トリガー、最終ターンに交代 |
+| 18 | AIの情報アクセス | ✅ダメージ計算は実ステ実持ち物（チート）、こちらの技は使用するまで不可視、急所/命中は無視 |
+
+## 残る未解決（実機検証キュー）
+
+1. みちづれ状態の敵を爆発で倒した際の判定と引き分け仕様の正確な発動条件（コード：`battle_script_commands.c` の勝敗判定読解 or 実機）
+2. ダブル799連勝チームの一次確認（Smogon discussionスレ page 22/64 近辺。この環境からはフォーラム本文へ直接アクセス不可）
+3. ありじごく判定バグ（飛行/ふゆうにも有効）の実害確認
+
+## 二次資料・先行研究
+
+### 記録（2026-07時点の調査）
+- **シングルLv50世界記録: 3010連勝**（Adedede氏 IRIDESCENCE: エアームド/ハピナス/ラティオス）
+  https://www.smogon.com/forums/threads/iridescence-emerald-battle-tower-2500-wins-team.3674437/
+- **シングルオープン記録: 1090連勝**（同氏 Dans Macabre: ハチマキケッキング/ソーナンス/ゲンガー@ラム
+  みちづれ/ほろびのうた/まもる/くろいまなざし）
+  https://www.smogon.com/forums/threads/dans-macabre-a-record-breaking-gen-3-battle-tower-singles-team.3651964/
+- **ダブル最高: 799連勝**（オープンLv100・エミュ。ラティアス/ラグラージ/カビゴン/ラティオス説が有力）
+  https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/
+- 日本語圏ダブル: オープン70連勝（ハチマキメタグロス/みちづれゲンガー/カビゴン/スイクン）
+  https://ameblo.jp/almond-taka/entry-12079164575.html
+- 日本語シングル: 2303連勝解説 https://baobaopoke.hatenadiary.com/entry/worldrecord ／ 802連勝 https://note.com/takep_r/n/n2515b4f948f4
+- 本プロジェクトは**オープン・ダブル**採用 → 目標1000連勝は現行世界記録799の正面更新（Lv50ダブルは自己申告80連勝程度しか存在しない）
+
+### QC+一撃技への先行対策（記録者の実践）
+1. がんじょう持ち（エアームド等）による一撃技無効化
+2. ふゆう/飛行によるじわれ無効（ラティオス・ゲンガーは適合）
+3. まもる/いちゃもんでのセット判別スカウト
+4. ソーナンスみちづれによる1:1交換の受け入れ
+5. ダブル特有：初手集中攻撃（focus fire）での2vs1化
+※ IRIDESCENCE作者も「QC+こな+ぜったいれいどは完全対策不可能」と明言＝確率圧縮の思想で挑む
+
+### 仕様の裏取りに使ったページ
+- Bulbapedia: Battle Tower (Generation III) / Battle Frontier (Generation III) / Sleep / Confusion / Paralysis /
+  Critical hit / Damage / Explosion / King's Rock / Synchronize / Roaming Pokémon / Lost Cave
+- Serebii: emerald/tower.shtml / emerald/movetutor.shtml / ItemDex TM30 / Pokéarth
+- Glitch City Wiki: Roaming Pokémon IV glitch（エメラルドで修正済みの根拠）
+- Smogon: Introduction to ADV Doubles（複数対象補正）/ RS dex
+
+※ この作業環境からは bulbapedia/serebii/smogon 等への直接アクセスがプロキシで遮断されているため、
+検索経由スニペット＋pokeemeraldコードで照合した。ユーザーのリンク2件（Serebiiタワー・Bulbapediaトレーナー一覧）の
+内容は、それぞれ 00-rules.md のルール表と data/trainers.csv（一次データ由来でより正確）でカバー済み。

@@ -1,0 +1,10831 @@
+{
+ "pool_size_battle50plus_total": 546,
+ "pool_size_battle50plus_lv50": 514,
+ "report_pool": "open_level_546",
+ "open_only_sets_in_pool": [
+  850,
+  851,
+  852,
+  853,
+  854,
+  855,
+  856,
+  857,
+  858,
+  859,
+  860,
+  861,
+  862,
+  863,
+  864,
+  865,
+  866,
+  867,
+  868,
+  869,
+  870,
+  871,
+  872,
+  873,
+  874,
+  875,
+  876,
+  877,
+  878,
+  879,
+  880,
+  881
+ ],
+ "move_OHKO": [
+  {
+   "set_id": 333,
+   "species": "Seaking",
+   "item": "Quick Claw",
+   "moves": [
+    "Horn Drill",
+    "Megahorn",
+    "Sleep Talk",
+    "Rest"
+   ],
+   "abilities": [
+    "Swift Swim",
+    "Water Veil"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 354,
+   "species": "Crawdaunt",
+   "item": "Quick Claw",
+   "moves": [
+    "Guillotine",
+    "Frustration",
+    "Ancient Power",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Hyper Cutter",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 358,
+   "species": "Kingler",
+   "item": "Salac Berry",
+   "moves": [
+    "Guillotine",
+    "Rock Tomb",
+    "Flail",
+    "Endure"
+   ],
+   "abilities": [
+    "Hyper Cutter",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 369,
+   "species": "Pinsir",
+   "item": "Salac Berry",
+   "moves": [
+    "Guillotine",
+    "Swords Dance",
+    "Flail",
+    "Endure"
+   ],
+   "abilities": [
+    "Hyper Cutter"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 414,
+   "species": "Nidoking",
+   "item": "Quick Claw",
+   "moves": [
+    "Horn Drill",
+    "Double Kick",
+    "Body Slam",
+    "Counter"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 499,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Horn Drill",
+    "Rock Slide",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 564,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Sludge Bomb",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 576,
+   "species": "Whiscash",
+   "item": "Chesto Berry",
+   "moves": [
+    "Sleep Talk",
+    "Rest",
+    "Surf",
+    "Fissure"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 584,
+   "species": "Dewgong",
+   "item": "Chesto Berry",
+   "moves": [
+    "Horn Drill",
+    "Sheer Cold",
+    "Sleep Talk",
+    "Rest"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 595,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Megahorn",
+    "Crush Claw",
+    "Earthquake",
+    "Horn Drill"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 606,
+   "species": "Nidoking",
+   "item": "Leppa Berry",
+   "moves": [
+    "Horn Drill",
+    "Fire Blast",
+    "Blizzard",
+    "Surf"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 619,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Secret Power"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 621,
+   "species": "Wailord",
+   "item": "Chesto Berry",
+   "moves": [
+    "Hydro Pump",
+    "Fissure",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Water Veil",
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 644,
+   "species": "Walrein",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Fissure",
+    "Surf",
+    "Attract"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 660,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Rock Slide",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 672,
+   "species": "Whiscash",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Surf",
+    "Earthquake",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 680,
+   "species": "Dewgong",
+   "item": "Lum Berry",
+   "moves": [
+    "Sheer Cold",
+    "Ice Beam",
+    "Surf",
+    "Signal Beam"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 691,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Megahorn",
+    "Earthquake",
+    "Rock Slide",
+    "Horn Drill"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 715,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Iron Tail"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 717,
+   "species": "Wailord",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Earthquake",
+    "Fissure"
+   ],
+   "abilities": [
+    "Water Veil",
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 740,
+   "species": "Walrein",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Earthquake",
+    "Sheer Cold"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 822,
+   "species": "Lapras",
+   "item": "Leppa Berry",
+   "moves": [
+    "Sheer Cold",
+    "Horn Drill",
+    "Rest",
+    "Sleep Talk"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 823,
+   "species": "Lapras",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Horn Drill",
+    "Sing",
+    "Attract"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  }
+ ],
+ "move_SLEEP": [
+  {
+   "set_id": 267,
+   "species": "Delcatty",
+   "item": "Quick Claw",
+   "moves": [
+    "Fake Tears",
+    "Sing",
+    "Thunderbolt",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 282,
+   "species": "Parasect",
+   "item": "Leftovers",
+   "moves": [
+    "Spore",
+    "Giga Drain",
+    "Dig",
+    "Double Team"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 312,
+   "species": "Wigglytuff",
+   "item": "Sitrus Berry",
+   "moves": [
+    "Fake Tears",
+    "Sing",
+    "Dream Eater",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 313,
+   "species": "Sunflora",
+   "item": "Leftovers",
+   "moves": [
+    "Giga Drain",
+    "Grass Whistle",
+    "Growth",
+    "Double Team"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 334,
+   "species": "Jumpluff",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Sleep Powder",
+    "Giga Drain",
+    "Double Team"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 377,
+   "species": "Jynx",
+   "item": "Shell Bell",
+   "moves": [
+    "Ice Beam",
+    "Fake Out",
+    "Lovely Kiss",
+    "Attract"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 395,
+   "species": "Victreebel",
+   "item": "Sitrus Berry",
+   "moves": [
+    "Giga Drain",
+    "Sleep Powder",
+    "Sweet Scent",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 401,
+   "species": "Hypno",
+   "item": "Twisted Spoon",
+   "moves": [
+    "Thunder Punch",
+    "Fire Punch",
+    "Ice Punch",
+    "Hypnosis"
+   ],
+   "abilities": [
+    "Insomnia"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 421,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Dream Eater",
+    "Hypnosis",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 437,
+   "species": "Gardevoir",
+   "item": "Leftovers",
+   "moves": [
+    "Dream Eater",
+    "Hypnosis",
+    "Magical Leaf",
+    "Reflect"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 441,
+   "species": "Venusaur",
+   "item": "Chesto Berry",
+   "moves": [
+    "Giga Drain",
+    "Sunny Day",
+    "Synthesis",
+    "Sleep Powder"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 452,
+   "species": "Walrein",
+   "item": "Leftovers",
+   "moves": [
+    "Blizzard",
+    "Hail",
+    "Yawn",
+    "Protect"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 456,
+   "species": "Lapras",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Attract",
+    "Confuse Ray",
+    "Sing"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 462,
+   "species": "Blissey",
+   "item": "Bright Powder",
+   "moves": [
+    "Toxic",
+    "Double Team",
+    "Sing",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 467,
+   "species": "Slaking",
+   "item": "Scope Lens",
+   "moves": [
+    "Yawn",
+    "Bulk Up",
+    "Swagger",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Truant"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 471,
+   "species": "Quagsire",
+   "item": "Leftovers",
+   "moves": [
+    "Curse",
+    "Attract",
+    "Yawn",
+    "Ancient Power"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 475,
+   "species": "Jynx",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Lovely Kiss",
+    "Protect"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 480,
+   "species": "Breloom",
+   "item": "Bright Powder",
+   "moves": [
+    "Giga Drain",
+    "Leech Seed",
+    "Focus Punch",
+    "Spore"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 491,
+   "species": "Victreebel",
+   "item": "Leftovers",
+   "moves": [
+    "Giga Drain",
+    "Sludge Bomb",
+    "Sleep Powder",
+    "Attract"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 497,
+   "species": "Hypno",
+   "item": "Twisted Spoon",
+   "moves": [
+    "Hypnosis",
+    "Nightmare",
+    "Dream Eater",
+    "Psychic"
+   ],
+   "abilities": [
+    "Insomnia"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 505,
+   "species": "Slowbro",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Calm Mind",
+    "Yawn"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 506,
+   "species": "Slowking",
+   "item": "Shell Bell",
+   "moves": [
+    "Yawn",
+    "Thunder Wave",
+    "Surf",
+    "Psychic"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 534,
+   "species": "Exeggutor",
+   "item": "Chesto Berry",
+   "moves": [
+    "Return",
+    "Curse",
+    "Sleep Powder",
+    "Rest"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 541,
+   "species": "Meganium",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Substitute",
+    "Double Team",
+    "Grass Whistle"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 558,
+   "species": "Blissey",
+   "item": "Leftovers",
+   "moves": [
+    "Seismic Toss",
+    "Sing",
+    "Attract",
+    "Substitute"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 563,
+   "species": "Slaking",
+   "item": "Leftovers",
+   "moves": [
+    "Mega Kick",
+    "Shadow Ball",
+    "Yawn",
+    "Amnesia"
+   ],
+   "abilities": [
+    "Truant"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 569,
+   "species": "Jynx",
+   "item": "Quick Claw",
+   "moves": [
+    "Dream Eater",
+    "Lovely Kiss",
+    "Attract",
+    "Substitute"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 574,
+   "species": "Breloom",
+   "item": "Leftovers",
+   "moves": [
+    "Iron Tail",
+    "Focus Punch",
+    "Attract",
+    "Spore"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 604,
+   "species": "Altaria",
+   "item": "Lum Berry",
+   "moves": [
+    "Sing",
+    "Dragon Dance",
+    "Earthquake",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 611,
+   "species": "Rapidash",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Solar Beam",
+    "Sunny Day",
+    "Hypnosis"
+   ],
+   "abilities": [
+    "Run Away",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 633,
+   "species": "Venusaur",
+   "item": "Scope Lens",
+   "moves": [
+    "Double Edge",
+    "Sludge Bomb",
+    "Earthquake",
+    "Sleep Powder"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 665,
+   "species": "Jynx",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Ice Beam",
+    "Lovely Kiss",
+    "Fake Tears"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 29
+  },
+  {
+   "set_id": 670,
+   "species": "Breloom",
+   "item": "Quick Claw",
+   "moves": [
+    "Focus Punch",
+    "Sludge Bomb",
+    "Spore",
+    "Double Team"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 755,
+   "species": "Slaking",
+   "item": "Lum Berry",
+   "moves": [
+    "Thunderbolt",
+    "Flamethrower",
+    "Ice Beam",
+    "Yawn"
+   ],
+   "abilities": [
+    "Truant"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 805,
+   "species": "Ursaring",
+   "item": "Focus Band",
+   "moves": [
+    "Hyper Beam",
+    "Yawn",
+    "Swords Dance",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 823,
+   "species": "Lapras",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Horn Drill",
+    "Sing",
+    "Attract"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  }
+ ],
+ "move_EXPLOSION": [
+  {
+   "set_id": 495,
+   "species": "Glalie",
+   "item": "Salac Berry",
+   "moves": [
+    "Explosion",
+    "Endure",
+    "Body Slam",
+    "Icy Wind"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 575,
+   "species": "Forretress",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Giga Drain",
+    "Zap Cannon"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 588,
+   "species": "Electrode",
+   "item": "Liechi Berry",
+   "moves": [
+    "Explosion",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Endure"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 590,
+   "species": "Shiftry",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Explosion",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 594,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Flamethrower",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 597,
+   "species": "Weezing",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Sludge Bomb",
+    "Flamethrower",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 625,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 630,
+   "species": "Exeggutor",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Giga Drain",
+    "Toxic",
+    "Explosion"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 671,
+   "species": "Forretress",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 684,
+   "species": "Electrode",
+   "item": "Lum Berry",
+   "moves": [
+    "Explosion",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 686,
+   "species": "Shiftry",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Giga Drain",
+    "Mega Kick",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Chlorophyll",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 690,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 693,
+   "species": "Weezing",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Sludge Bomb",
+    "Frustration",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 708,
+   "species": "Muk",
+   "item": "Quick Claw",
+   "moves": [
+    "Sludge Bomb",
+    "Brick Break",
+    "Giga Drain",
+    "Explosion"
+   ],
+   "abilities": [
+    "Stench",
+    "Sticky Hold"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 716,
+   "species": "Claydol",
+   "item": "Focus Band",
+   "moves": [
+    "Psychic",
+    "Earthquake",
+    "Shadow Ball",
+    "Explosion"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 721,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Iron Tail",
+    "Double Edge",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 726,
+   "species": "Exeggutor",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Giga Drain",
+    "Sludge Bomb",
+    "Explosion"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 762,
+   "species": "Regirock",
+   "item": "White Herb",
+   "moves": [
+    "Superpower",
+    "Earthquake",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 773,
+   "species": "Regirock",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 785,
+   "species": "Regice",
+   "item": "Lum Berry",
+   "moves": [
+    "Ice Beam",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 786,
+   "species": "Registeel",
+   "item": "Quick Claw",
+   "moves": [
+    "Ancient Power",
+    "Amnesia",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 832,
+   "species": "Metagross",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 835,
+   "species": "Metagross",
+   "item": "Quick Claw",
+   "moves": [
+    "Meteor Mash",
+    "Earthquake",
+    "Brick Break",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 837,
+   "species": "Regirock",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  }
+ ],
+ "move_DESTINY_BOND": [
+  {
+   "set_id": 21,
+   "species": "Shedinja",
+   "item": "Lax Incense",
+   "moves": [
+    "Shadow Ball",
+    "Confuse Ray",
+    "Silver Wind",
+    "Grudge"
+   ],
+   "abilities": [
+    "Wonder Guard"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 290,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Encore",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 501,
+   "species": "Weezing",
+   "item": "Sitrus Berry",
+   "moves": [
+    "Memento",
+    "Sludge Bomb",
+    "Facade",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 526,
+   "species": "Ninetales",
+   "item": "Lum Berry",
+   "moves": [
+    "Heat Wave",
+    "Body Slam",
+    "Grudge",
+    "Sunny Day"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 662,
+   "species": "Misdreavus",
+   "item": "Lum Berry",
+   "moves": [
+    "Destiny Bond",
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 709,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Fire Punch",
+    "Ice Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 802,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Fire Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 803,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 812,
+   "species": "Gardevoir",
+   "item": "Salac Berry",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Endure",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 813,
+   "species": "Gardevoir",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Will O Wisp",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 814,
+   "species": "Gardevoir",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Calm Mind",
+    "Will O Wisp",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  }
+ ],
+ "move_PERISH_SONG": [
+  {
+   "set_id": 475,
+   "species": "Jynx",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Lovely Kiss",
+    "Protect"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 508,
+   "species": "Altaria",
+   "item": "Leftovers",
+   "moves": [
+    "Perish Song",
+    "Dragon Breath",
+    "Pursuit",
+    "Attract"
+   ],
+   "abilities": [
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 566,
+   "species": "Misdreavus",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  }
+ ],
+ "move_PROTECT": [
+  {
+   "set_id": 371,
+   "species": "Cloyster",
+   "item": "Leftovers",
+   "moves": [
+    "Dive",
+    "Toxic",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 396,
+   "species": "Electrode",
+   "item": "Focus Band",
+   "moves": [
+    "Thunderbolt",
+    "Swift",
+    "Light Screen",
+    "Protect"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 399,
+   "species": "Glalie",
+   "item": "Petaya Berry",
+   "moves": [
+    "Ice Beam",
+    "Crunch",
+    "Hail",
+    "Protect"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 417,
+   "species": "Armaldo",
+   "item": "Scope Lens",
+   "moves": [
+    "Slash",
+    "Aerial Ace",
+    "Ancient Power",
+    "Protect"
+   ],
+   "abilities": [
+    "Battle Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 419,
+   "species": "Rapidash",
+   "item": "Charcoal",
+   "moves": [
+    "Flamethrower",
+    "Double Kick",
+    "Quick Attack",
+    "Protect"
+   ],
+   "abilities": [
+    "Run Away",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 443,
+   "species": "Jolteon",
+   "item": "Cheri Berry",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Attract",
+    "Protect"
+   ],
+   "abilities": [
+    "Volt Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 452,
+   "species": "Walrein",
+   "item": "Leftovers",
+   "moves": [
+    "Blizzard",
+    "Hail",
+    "Yawn",
+    "Protect"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 453,
+   "species": "Sceptile",
+   "item": "Leftovers",
+   "moves": [
+    "Leaf Blade",
+    "Leech Seed",
+    "Aerial Ace",
+    "Detect"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 475,
+   "species": "Jynx",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Lovely Kiss",
+    "Protect"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 476,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Confuse Ray",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 477,
+   "species": "Dodrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Drill Peck",
+    "Double Edge",
+    "Faint Attack",
+    "Protect"
+   ],
+   "abilities": [
+    "Run Away",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 481,
+   "species": "Forretress",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Counter",
+    "Protect"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 561,
+   "species": "Salamence",
+   "item": "Leftovers",
+   "moves": [
+    "Double Edge",
+    "Crunch",
+    "Swagger",
+    "Protect"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 610,
+   "species": "Golduck",
+   "item": "Shell Bell",
+   "moves": [
+    "Hydro Pump",
+    "Cross Chop",
+    "Blizzard",
+    "Protect"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 679,
+   "species": "Raichu",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Protect",
+    "Mega Kick"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 769,
+   "species": "Moltres",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Aerial Ace",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 772,
+   "species": "Suicune",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Dive",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 778,
+   "species": "Articuno",
+   "item": "Bright Powder",
+   "moves": [
+    "Ice Beam",
+    "Facade",
+    "Aerial Ace",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  }
+ ],
+ "move_COUNTER": [
+  {
+   "set_id": 185,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Charm",
+    "Safeguard"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 290,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Encore",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 382,
+   "species": "Breloom",
+   "item": "Kings Rock",
+   "moves": [
+    "Sky Uppercut",
+    "Mach Punch",
+    "Headbutt",
+    "Counter"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 386,
+   "species": "Skarmory",
+   "item": "Scope Lens",
+   "moves": [
+    "Steel Wing",
+    "Air Cutter",
+    "Counter",
+    "Agility"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 388,
+   "species": "Quagsire",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Brick Break",
+    "Counter",
+    "Mud Slap"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 390,
+   "species": "Hariyama",
+   "item": "Focus Band",
+   "moves": [
+    "Cross Chop",
+    "Rock Slide",
+    "Counter",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Thick Fat",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 402,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Counter",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 406,
+   "species": "Kangaskhan",
+   "item": "Focus Band",
+   "moves": [
+    "Dizzy Punch",
+    "Brick Break",
+    "Counter",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 411,
+   "species": "Miltank",
+   "item": "Focus Band",
+   "moves": [
+    "Facade",
+    "Shadow Ball",
+    "Counter",
+    "Milk Drink"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 413,
+   "species": "Nidoqueen",
+   "item": "Focus Band",
+   "moves": [
+    "Sludge Bomb",
+    "Double Kick",
+    "Body Slam",
+    "Counter"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 414,
+   "species": "Nidoking",
+   "item": "Quick Claw",
+   "moves": [
+    "Horn Drill",
+    "Double Kick",
+    "Body Slam",
+    "Counter"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 423,
+   "species": "Scizor",
+   "item": "Focus Band",
+   "moves": [
+    "Metal Claw",
+    "Aerial Ace",
+    "Counter",
+    "Quick Attack"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 424,
+   "species": "Heracross",
+   "item": "Focus Band",
+   "moves": [
+    "Megahorn",
+    "Brick Break",
+    "Rock Tomb",
+    "Counter"
+   ],
+   "abilities": [
+    "Swarm",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 425,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Crunch",
+    "Aerial Ace",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 426,
+   "species": "Houndoom",
+   "item": "Focus Band",
+   "moves": [
+    "Flamethrower",
+    "Shadow Ball",
+    "Counter",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Early Bird",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 431,
+   "species": "Machamp",
+   "item": "Scope Lens",
+   "moves": [
+    "Cross Chop",
+    "Rock Slide",
+    "Counter",
+    "Scary Face"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 458,
+   "species": "Swampert",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Counter",
+    "Rest",
+    "Curse"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 463,
+   "species": "Milotic",
+   "item": "Lum Berry",
+   "moves": [
+    "Hydro Pump",
+    "Icy Wind",
+    "Recover",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Marvel Scale"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 481,
+   "species": "Forretress",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Counter",
+    "Protect"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 493,
+   "species": "Exploud",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Earthquake",
+    "Counter"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 521,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Brick Break",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 544,
+   "species": "Blastoise",
+   "item": "Shell Bell",
+   "moves": [
+    "Hydro Pump",
+    "Mega Kick",
+    "Brick Break",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 554,
+   "species": "Swampert",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Counter",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 559,
+   "species": "Milotic",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Safeguard",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Marvel Scale"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 607,
+   "species": "Magmar",
+   "item": "Scope Lens",
+   "moves": [
+    "Mega Kick",
+    "Cross Chop",
+    "Iron Tail",
+    "Counter"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 626,
+   "species": "Tentacruel",
+   "item": "Shell Bell",
+   "moves": [
+    "Surf",
+    "Giga Drain",
+    "Ice Beam",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Clear Body",
+    "Liquid Ooze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 640,
+   "species": "Blastoise",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Counter"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 650,
+   "species": "Swampert",
+   "item": "Shell Bell",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Counter"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 674,
+   "species": "Skarmory",
+   "item": "Quick Claw",
+   "moves": [
+    "Drill Peck",
+    "Steel Wing",
+    "Counter",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 684,
+   "species": "Electrode",
+   "item": "Lum Berry",
+   "moves": [
+    "Explosion",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 704,
+   "species": "Cradily",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Ingrain",
+    "Mirror Coat",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Suction Cups"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 722,
+   "species": "Tentacruel",
+   "item": "Shell Bell",
+   "moves": [
+    "Hydro Pump",
+    "Sludge Bomb",
+    "Ice Beam",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Clear Body",
+    "Liquid Ooze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 736,
+   "species": "Blastoise",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 746,
+   "species": "Swampert",
+   "item": "Shell Bell",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 750,
+   "species": "Blissey",
+   "item": "Focus Band",
+   "moves": [
+    "Ice Beam",
+    "Calm Mind",
+    "Counter",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 751,
+   "species": "Milotic",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Recover",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Marvel Scale"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 26
+  },
+  {
+   "set_id": 773,
+   "species": "Regirock",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 786,
+   "species": "Registeel",
+   "item": "Quick Claw",
+   "moves": [
+    "Ancient Power",
+    "Amnesia",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 809,
+   "species": "Machamp",
+   "item": "Focus Band",
+   "moves": [
+    "Cross Chop",
+    "Earthquake",
+    "Counter",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 811,
+   "species": "Machamp",
+   "item": "Focus Band",
+   "moves": [
+    "Revenge",
+    "Rock Slide",
+    "Facade",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 824,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Shadow Ball",
+    "Brick Break",
+    "Counter"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 825,
+   "species": "Snorlax",
+   "item": "Leftovers",
+   "moves": [
+    "Earthquake",
+    "Shadow Ball",
+    "Brick Break",
+    "Counter"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 838,
+   "species": "Regice",
+   "item": "Leftovers",
+   "moves": [
+    "Earthquake",
+    "Ice Beam",
+    "Curse",
+    "Counter"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 862,
+   "species": "Tyranitar",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  }
+ ],
+ "move_TRICK": [
+  {
+   "set_id": 325,
+   "species": "Kecleon",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Brick Break",
+    "Shadow Ball",
+    "Skill Swap"
+   ],
+   "abilities": [
+    "Color Change"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 572,
+   "species": "Mr Mime",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Torment",
+    "Psychic",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 596,
+   "species": "Alakazam",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Disable",
+    "Psychic",
+    "Skill Swap"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  }
+ ],
+ "move_EVASION": [
+  {
+   "set_id": 282,
+   "species": "Parasect",
+   "item": "Leftovers",
+   "moves": [
+    "Spore",
+    "Giga Drain",
+    "Dig",
+    "Double Team"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 313,
+   "species": "Sunflora",
+   "item": "Leftovers",
+   "moves": [
+    "Giga Drain",
+    "Grass Whistle",
+    "Growth",
+    "Double Team"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 332,
+   "species": "Chansey",
+   "item": "Leftovers",
+   "moves": [
+    "Seismic Toss",
+    "Shadow Ball",
+    "Double Team",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 334,
+   "species": "Jumpluff",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Sleep Powder",
+    "Giga Drain",
+    "Double Team"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 368,
+   "species": "Scyther",
+   "item": "Bright Powder",
+   "moves": [
+    "Silver Wind",
+    "Aerial Ace",
+    "Swords Dance",
+    "Double Team"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 371,
+   "species": "Cloyster",
+   "item": "Leftovers",
+   "moves": [
+    "Dive",
+    "Toxic",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 389,
+   "species": "Clefable",
+   "item": "Leftovers",
+   "moves": [
+    "Metronome",
+    "Double Team",
+    "Reflect",
+    "Follow Me"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 391,
+   "species": "Raichu",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Quick Attack",
+    "Light Screen",
+    "Double Team"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 420,
+   "species": "Muk",
+   "item": "Poison Barb",
+   "moves": [
+    "Sludge Bomb",
+    "Body Slam",
+    "Screech",
+    "Minimize"
+   ],
+   "abilities": [
+    "Stench",
+    "Sticky Hold"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 447,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Confuse Ray",
+    "Faint Attack",
+    "Double Team",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 460,
+   "species": "Snorlax",
+   "item": "Leftovers",
+   "moves": [
+    "Facade",
+    "Shadow Ball",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 462,
+   "species": "Blissey",
+   "item": "Bright Powder",
+   "moves": [
+    "Toxic",
+    "Double Team",
+    "Sing",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 476,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Confuse Ray",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 485,
+   "species": "Clefable",
+   "item": "Focus Band",
+   "moves": [
+    "Meteor Mash",
+    "Cosmic Power",
+    "Double Team",
+    "Follow Me"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 490,
+   "species": "Vileplume",
+   "item": "Bright Powder",
+   "moves": [
+    "Ingrain",
+    "Double Team",
+    "Toxic",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 492,
+   "species": "Electrode",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Swagger"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 494,
+   "species": "Shiftry",
+   "item": "Chesto Berry",
+   "moves": [
+    "Leech Seed",
+    "Dig",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Chlorophyll",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 498,
+   "species": "Golem",
+   "item": "Chesto Berry",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 504,
+   "species": "Tauros",
+   "item": "Chesto Berry",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 515,
+   "species": "Rapidash",
+   "item": "Leftovers",
+   "moves": [
+    "Fire Blast",
+    "Bounce",
+    "Double Team",
+    "Attract"
+   ],
+   "abilities": [
+    "Run Away",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 524,
+   "species": "Claydol",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Earthquake",
+    "Double Team",
+    "Cosmic Power"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 528,
+   "species": "Shuckle",
+   "item": "Leftovers",
+   "moves": [
+    "Sandstorm",
+    "Dig",
+    "Flash",
+    "Double Team"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 533,
+   "species": "Gardevoir",
+   "item": "Chesto Berry",
+   "moves": [
+    "Psychic",
+    "Calm Mind",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 537,
+   "species": "Venusaur",
+   "item": "Bright Powder",
+   "moves": [
+    "Leech Seed",
+    "Giga Drain",
+    "Double Team",
+    "Light Screen"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 541,
+   "species": "Meganium",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Substitute",
+    "Double Team",
+    "Grass Whistle"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 543,
+   "species": "Umbreon",
+   "item": "Leftovers",
+   "moves": [
+    "Curse",
+    "Screech",
+    "Double Team",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 548,
+   "species": "Walrein",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Ice Beam",
+    "Curse",
+    "Double Team"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 549,
+   "species": "Sceptile",
+   "item": "Lum Berry",
+   "moves": [
+    "Leaf Blade",
+    "Thunder Punch",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 553,
+   "species": "Crobat",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Giga Drain",
+    "Confuse Ray",
+    "Double Team"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 592,
+   "species": "Ludicolo",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Rain Dance",
+    "Double Team",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Swift Swim",
+    "Rain Dish"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 621,
+   "species": "Wailord",
+   "item": "Chesto Berry",
+   "moves": [
+    "Hydro Pump",
+    "Fissure",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Water Veil",
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 624,
+   "species": "Shuckle",
+   "item": "Leftovers",
+   "moves": [
+    "Substitute",
+    "Attract",
+    "Toxic",
+    "Double Team"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 658,
+   "species": "Metagross",
+   "item": "Chesto Berry",
+   "moves": [
+    "Earthquake",
+    "Meteor Mash",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 670,
+   "species": "Breloom",
+   "item": "Quick Claw",
+   "moves": [
+    "Focus Punch",
+    "Sludge Bomb",
+    "Spore",
+    "Double Team"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 688,
+   "species": "Ludicolo",
+   "item": "Leftovers",
+   "moves": [
+    "Leech Seed",
+    "Rain Dance",
+    "Double Team",
+    "Toxic"
+   ],
+   "abilities": [
+    "Swift Swim",
+    "Rain Dish"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 27
+  },
+  {
+   "set_id": 699,
+   "species": "Miltank",
+   "item": "Lum Berry",
+   "moves": [
+    "Double Edge",
+    "Curse",
+    "Double Team",
+    "Milk Drink"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 720,
+   "species": "Shuckle",
+   "item": "Chesto Berry",
+   "moves": [
+    "Toxic",
+    "Double Team",
+    "Wrap",
+    "Rest"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 735,
+   "species": "Umbreon",
+   "item": "Leftovers",
+   "moves": [
+    "Confuse Ray",
+    "Toxic",
+    "Faint Attack",
+    "Double Team"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 760,
+   "species": "Entei",
+   "item": "Chesto Berry",
+   "moves": [
+    "Flamethrower",
+    "Double Team",
+    "Calm Mind",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 761,
+   "species": "Suicune",
+   "item": "Chesto Berry",
+   "moves": [
+    "Surf",
+    "Double Team",
+    "Calm Mind",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 767,
+   "species": "Articuno",
+   "item": "Leftovers",
+   "moves": [
+    "Substitute",
+    "Toxic",
+    "Blizzard",
+    "Double Team"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 768,
+   "species": "Zapdos",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Drill Peck",
+    "Double Team"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 769,
+   "species": "Moltres",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Aerial Ace",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 770,
+   "species": "Raikou",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 772,
+   "species": "Suicune",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Dive",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 780,
+   "species": "Moltres",
+   "item": "Chesto Berry",
+   "moves": [
+    "Fire Blast",
+    "Sunny Day",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 793,
+   "species": "Entei",
+   "item": "Kings Rock",
+   "moves": [
+    "Flamethrower",
+    "Bite",
+    "Double Team",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 795,
+   "species": "Regirock",
+   "item": "Leftovers",
+   "moves": [
+    "Rock Slide",
+    "Brick Break",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 796,
+   "species": "Regice",
+   "item": "Leftovers",
+   "moves": [
+    "Ice Beam",
+    "Hail",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 797,
+   "species": "Registeel",
+   "item": "Leftovers",
+   "moves": [
+    "Ancient Power",
+    "Earthquake",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 805,
+   "species": "Ursaring",
+   "item": "Focus Band",
+   "moves": [
+    "Hyper Beam",
+    "Yawn",
+    "Swords Dance",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 810,
+   "species": "Machamp",
+   "item": "Bright Powder",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 815,
+   "species": "Gardevoir",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Magical Leaf",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 836,
+   "species": "Regirock",
+   "item": "Quick Claw",
+   "moves": [
+    "Hyper Beam",
+    "Focus Punch",
+    "Rock Slide",
+    "Double Team"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 840,
+   "species": "Registeel",
+   "item": "Leftovers",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Toxic",
+    "Double Team"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 852,
+   "species": "Dragonite",
+   "item": "Leftovers",
+   "moves": [
+    "Hyper Beam",
+    "Attract",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  }
+ ],
+ "move_ATTRACT": [
+  {
+   "set_id": 360,
+   "species": "Bellossom",
+   "item": "Bright Powder",
+   "moves": [
+    "Solar Beam",
+    "Attract",
+    "Sunny Day",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 377,
+   "species": "Jynx",
+   "item": "Shell Bell",
+   "moves": [
+    "Ice Beam",
+    "Fake Out",
+    "Lovely Kiss",
+    "Attract"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 381,
+   "species": "Lanturn",
+   "item": "Cheri Berry",
+   "moves": [
+    "Surf",
+    "Confuse Ray",
+    "Attract",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Volt Absorb",
+    "Illuminate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 410,
+   "species": "Slowking",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Brick Break",
+    "Amnesia",
+    "Attract"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 421,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Dream Eater",
+    "Hypnosis",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 422,
+   "species": "Ampharos",
+   "item": "Magnet",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Thunder Wave",
+    "Attract"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 443,
+   "species": "Jolteon",
+   "item": "Cheri Berry",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Attract",
+    "Protect"
+   ],
+   "abilities": [
+    "Volt Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 456,
+   "species": "Lapras",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Attract",
+    "Confuse Ray",
+    "Sing"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 460,
+   "species": "Snorlax",
+   "item": "Leftovers",
+   "moves": [
+    "Facade",
+    "Shadow Ball",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 461,
+   "species": "Kingdra",
+   "item": "Lum Berry",
+   "moves": [
+    "Hydro Pump",
+    "Dragon Breath",
+    "Icy Wind",
+    "Attract"
+   ],
+   "abilities": [
+    "Swift Swim"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 471,
+   "species": "Quagsire",
+   "item": "Leftovers",
+   "moves": [
+    "Curse",
+    "Attract",
+    "Yawn",
+    "Ancient Power"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 472,
+   "species": "Misdreavus",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Attract",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 473,
+   "species": "Fearow",
+   "item": "Focus Band",
+   "moves": [
+    "Drill Peck",
+    "Tri Attack",
+    "Attract",
+    "Pursuit"
+   ],
+   "abilities": [
+    "Keen Eye"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 484,
+   "species": "Xatu",
+   "item": "Leftovers",
+   "moves": [
+    "Fly",
+    "Toxic",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 491,
+   "species": "Victreebel",
+   "item": "Leftovers",
+   "moves": [
+    "Giga Drain",
+    "Sludge Bomb",
+    "Sleep Powder",
+    "Attract"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 502,
+   "species": "Kangaskhan",
+   "item": "Lum Berry",
+   "moves": [
+    "Crush Claw",
+    "Shadow Ball",
+    "Attract",
+    "Rest"
+   ],
+   "abilities": [
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 503,
+   "species": "Electabuzz",
+   "item": "Leftovers",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Attract",
+    "Focus Punch"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 507,
+   "species": "Miltank",
+   "item": "Leftovers",
+   "moves": [
+    "Focus Punch",
+    "Shadow Ball",
+    "Attract",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 508,
+   "species": "Altaria",
+   "item": "Leftovers",
+   "moves": [
+    "Perish Song",
+    "Dragon Breath",
+    "Pursuit",
+    "Attract"
+   ],
+   "abilities": [
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 515,
+   "species": "Rapidash",
+   "item": "Leftovers",
+   "moves": [
+    "Fire Blast",
+    "Bounce",
+    "Double Team",
+    "Attract"
+   ],
+   "abilities": [
+    "Run Away",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 520,
+   "species": "Heracross",
+   "item": "Lum Berry",
+   "moves": [
+    "Megahorn",
+    "Earthquake",
+    "Attract",
+    "Bulk Up"
+   ],
+   "abilities": [
+    "Swarm",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 540,
+   "species": "Flareon",
+   "item": "Quick Claw",
+   "moves": [
+    "Curse",
+    "Attract",
+    "Double Edge",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 549,
+   "species": "Sceptile",
+   "item": "Lum Berry",
+   "moves": [
+    "Leaf Blade",
+    "Thunder Punch",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 558,
+   "species": "Blissey",
+   "item": "Leftovers",
+   "moves": [
+    "Seismic Toss",
+    "Sing",
+    "Attract",
+    "Substitute"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 569,
+   "species": "Jynx",
+   "item": "Quick Claw",
+   "moves": [
+    "Dream Eater",
+    "Lovely Kiss",
+    "Attract",
+    "Substitute"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 574,
+   "species": "Breloom",
+   "item": "Leftovers",
+   "moves": [
+    "Iron Tail",
+    "Focus Punch",
+    "Attract",
+    "Spore"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 583,
+   "species": "Raichu",
+   "item": "Cheri Berry",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Iron Tail",
+    "Attract"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 586,
+   "species": "Vileplume",
+   "item": "Leftovers",
+   "moves": [
+    "Attract",
+    "Stun Spore",
+    "Sludge Bomb",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 601,
+   "species": "Slowbro",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Psychic",
+    "Shadow Ball",
+    "Attract"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 622,
+   "species": "Ninetales",
+   "item": "Bright Powder",
+   "moves": [
+    "Fire Blast",
+    "Iron Tail",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 624,
+   "species": "Shuckle",
+   "item": "Leftovers",
+   "moves": [
+    "Substitute",
+    "Attract",
+    "Toxic",
+    "Double Team"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 639,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Attract",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 644,
+   "species": "Walrein",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Fissure",
+    "Surf",
+    "Attract"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 655,
+   "species": "Milotic",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Blizzard",
+    "Attract",
+    "Recover"
+   ],
+   "abilities": [
+    "Marvel Scale"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 734,
+   "species": "Espeon",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Bite",
+    "Attract",
+    "Calm Mind"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 25
+  },
+  {
+   "set_id": 810,
+   "species": "Machamp",
+   "item": "Bright Powder",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 815,
+   "species": "Gardevoir",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Magical Leaf",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 823,
+   "species": "Lapras",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Horn Drill",
+    "Sing",
+    "Attract"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 831,
+   "species": "Salamence",
+   "item": "Leftovers",
+   "moves": [
+    "Flamethrower",
+    "Dragon Claw",
+    "Crunch",
+    "Attract"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 843,
+   "species": "Latias",
+   "item": "Shell Bell",
+   "moves": [
+    "Mist Ball",
+    "Dragon Claw",
+    "Attract",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 852,
+   "species": "Dragonite",
+   "item": "Leftovers",
+   "moves": [
+    "Hyper Beam",
+    "Attract",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 868,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Crunch",
+    "Earthquake",
+    "Aerial Ace",
+    "Attract"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  }
+ ],
+ "move_CONFUSE_RAY": [
+  {
+   "set_id": 21,
+   "species": "Shedinja",
+   "item": "Lax Incense",
+   "moves": [
+    "Shadow Ball",
+    "Confuse Ray",
+    "Silver Wind",
+    "Grudge"
+   ],
+   "abilities": [
+    "Wonder Guard"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 350,
+   "species": "Mantine",
+   "item": "Shell Bell",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Rain Dance",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Swift Swim",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 359,
+   "species": "Cacturne",
+   "item": "Persim Berry",
+   "moves": [
+    "Mega Kick",
+    "Teeter Dance",
+    "Faint Attack",
+    "Sandstorm"
+   ],
+   "abilities": [
+    "Sand Veil"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 374,
+   "species": "Misdreavus",
+   "item": "Focus Band",
+   "moves": [
+    "Pain Split",
+    "Shadow Ball",
+    "Confuse Ray",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 378,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Will O Wisp",
+    "Seismic Toss",
+    "Pain Split",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 381,
+   "species": "Lanturn",
+   "item": "Cheri Berry",
+   "moves": [
+    "Surf",
+    "Confuse Ray",
+    "Attract",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Volt Absorb",
+    "Illuminate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 408,
+   "species": "Tauros",
+   "item": "Persim Berry",
+   "moves": [
+    "Earthquake",
+    "Thrash",
+    "Swagger",
+    "Facade"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 416,
+   "species": "Cradily",
+   "item": "Leftovers",
+   "moves": [
+    "Giga Drain",
+    "Rock Slide",
+    "Barrier",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Suction Cups"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 421,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Dream Eater",
+    "Hypnosis",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 427,
+   "species": "Donphan",
+   "item": "Chesto Berry",
+   "moves": [
+    "Earthquake",
+    "Ancient Power",
+    "Swagger",
+    "Rest"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 428,
+   "species": "Claydol",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 430,
+   "species": "Ninetales",
+   "item": "Rawst Berry",
+   "moves": [
+    "Flamethrower",
+    "Roar",
+    "Confuse Ray",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 434,
+   "species": "Tentacruel",
+   "item": "Persim Berry",
+   "moves": [
+    "Sludge Bomb",
+    "Icy Wind",
+    "Barrier",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Clear Body",
+    "Liquid Ooze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 439,
+   "species": "Starmie",
+   "item": "Shell Bell",
+   "moves": [
+    "Psychic",
+    "Confuse Ray",
+    "Thunder Wave",
+    "Recover"
+   ],
+   "abilities": [
+    "Illuminate",
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 447,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Confuse Ray",
+    "Faint Attack",
+    "Double Team",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 456,
+   "species": "Lapras",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Attract",
+    "Confuse Ray",
+    "Sing"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 467,
+   "species": "Slaking",
+   "item": "Scope Lens",
+   "moves": [
+    "Yawn",
+    "Bulk Up",
+    "Swagger",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Truant"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 472,
+   "species": "Misdreavus",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Attract",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 476,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Confuse Ray",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 478,
+   "species": "Mr Mime",
+   "item": "Liechi Berry",
+   "moves": [
+    "Baton Pass",
+    "Swagger",
+    "Psych Up",
+    "Psychic"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 484,
+   "species": "Xatu",
+   "item": "Leftovers",
+   "moves": [
+    "Fly",
+    "Toxic",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 492,
+   "species": "Electrode",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Swagger"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 511,
+   "species": "Magmar",
+   "item": "Quick Claw",
+   "moves": [
+    "Fire Blast",
+    "Smokescreen",
+    "Thunder Punch",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 512,
+   "species": "Cradily",
+   "item": "Sitrus Berry",
+   "moves": [
+    "Earthquake",
+    "Ancient Power",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Suction Cups"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 514,
+   "species": "Golduck",
+   "item": "Lum Berry",
+   "moves": [
+    "Cross Chop",
+    "Surf",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 517,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Sludge Bomb",
+    "Shadow Ball",
+    "Confuse Ray",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 530,
+   "species": "Tentacruel",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Giga Drain",
+    "Confuse Ray",
+    "Surf"
+   ],
+   "abilities": [
+    "Clear Body",
+    "Liquid Ooze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 553,
+   "species": "Crobat",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Giga Drain",
+    "Confuse Ray",
+    "Double Team"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 561,
+   "species": "Salamence",
+   "item": "Leftovers",
+   "moves": [
+    "Double Edge",
+    "Crunch",
+    "Swagger",
+    "Protect"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 562,
+   "species": "Metagross",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Meteor Mash",
+    "Psych Up",
+    "Swagger"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 566,
+   "species": "Misdreavus",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 570,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Psych Up",
+    "Swagger",
+    "Shadow Ball",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 573,
+   "species": "Lanturn",
+   "item": "Bright Powder",
+   "moves": [
+    "Hydro Pump",
+    "Thunder",
+    "Confuse Ray",
+    "Rain Dance"
+   ],
+   "abilities": [
+    "Volt Absorb",
+    "Illuminate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 593,
+   "species": "Hypno",
+   "item": "Lum Berry",
+   "moves": [
+    "Psych Up",
+    "Swagger",
+    "Mega Kick",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Insomnia"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 622,
+   "species": "Ninetales",
+   "item": "Bright Powder",
+   "moves": [
+    "Fire Blast",
+    "Iron Tail",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 639,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Attract",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 648,
+   "species": "Lapras",
+   "item": "Bright Powder",
+   "moves": [
+    "Double Edge",
+    "Psychic",
+    "Confuse Ray",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 652,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Shadow Ball",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 669,
+   "species": "Lanturn",
+   "item": "Lum Berry",
+   "moves": [
+    "Surf",
+    "Thunderbolt",
+    "Ice Beam",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Volt Absorb",
+    "Illuminate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 673,
+   "species": "Xatu",
+   "item": "Petaya Berry",
+   "moves": [
+    "Psychic",
+    "Drill Peck",
+    "Shadow Ball",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 703,
+   "species": "Magmar",
+   "item": "Scope Lens",
+   "moves": [
+    "Flamethrower",
+    "Psychic",
+    "Cross Chop",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 718,
+   "species": "Ninetales",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Double Edge",
+    "Confuse Ray",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 735,
+   "species": "Umbreon",
+   "item": "Leftovers",
+   "moves": [
+    "Confuse Ray",
+    "Toxic",
+    "Faint Attack",
+    "Double Team"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 745,
+   "species": "Crobat",
+   "item": "Bright Powder",
+   "moves": [
+    "Sludge Bomb",
+    "Aerial Ace",
+    "Shadow Ball",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 782,
+   "species": "Entei",
+   "item": "Lum Berry",
+   "moves": [
+    "Flamethrower",
+    "Double Edge",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 817,
+   "species": "Starmie",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Confuse Ray",
+    "Thunder Wave",
+    "Recover"
+   ],
+   "abilities": [
+    "Illuminate",
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 837,
+   "species": "Regirock",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 841,
+   "species": "Registeel",
+   "item": "White Herb",
+   "moves": [
+    "Superpower",
+    "Aerial Ace",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 844,
+   "species": "Latias",
+   "item": "Leftovers",
+   "moves": [
+    "Earthquake",
+    "Shadow Ball",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 870,
+   "species": "Articuno",
+   "item": "Focus Band",
+   "moves": [
+    "Blizzard",
+    "Double Edge",
+    "Agility",
+    "Swagger"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 874,
+   "species": "Moltres",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Sunny Day",
+    "Swagger",
+    "Facade"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  }
+ ],
+ "move_CURSE_GHOST_TRAP": [
+  {
+   "set_id": 475,
+   "species": "Jynx",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Lovely Kiss",
+    "Protect"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 529,
+   "species": "Steelix",
+   "item": "Leftovers",
+   "moves": [
+    "Earthquake",
+    "Dragon Breath",
+    "Sandstorm",
+    "Block"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 566,
+   "species": "Misdreavus",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  }
+ ],
+ "move_ENCORE_TAUNT": [
+  {
+   "set_id": 290,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Encore",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 488,
+   "species": "Dewgong",
+   "item": "Shell Bell",
+   "moves": [
+    "Blizzard",
+    "Double Edge",
+    "Encore",
+    "Disable"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 572,
+   "species": "Mr Mime",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Torment",
+    "Psychic",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 596,
+   "species": "Alakazam",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Disable",
+    "Psychic",
+    "Skill Swap"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  }
+ ],
+ "item_QUICK_CLAW": [
+  {
+   "set_id": 267,
+   "species": "Delcatty",
+   "item": "Quick Claw",
+   "moves": [
+    "Fake Tears",
+    "Sing",
+    "Thunderbolt",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 333,
+   "species": "Seaking",
+   "item": "Quick Claw",
+   "moves": [
+    "Horn Drill",
+    "Megahorn",
+    "Sleep Talk",
+    "Rest"
+   ],
+   "abilities": [
+    "Swift Swim",
+    "Water Veil"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 344,
+   "species": "Seviper",
+   "item": "Quick Claw",
+   "moves": [
+    "Sludge Bomb",
+    "Earthquake",
+    "Crunch",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Shed Skin"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 354,
+   "species": "Crawdaunt",
+   "item": "Quick Claw",
+   "moves": [
+    "Guillotine",
+    "Frustration",
+    "Ancient Power",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Hyper Cutter",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 402,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Counter",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 403,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Rock Tomb",
+    "Scary Face",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 414,
+   "species": "Nidoking",
+   "item": "Quick Claw",
+   "moves": [
+    "Horn Drill",
+    "Double Kick",
+    "Body Slam",
+    "Counter"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 425,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Crunch",
+    "Aerial Ace",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 438,
+   "species": "Exeggutor",
+   "item": "Quick Claw",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Synthesis",
+    "Light Screen"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 450,
+   "species": "Aggron",
+   "item": "Quick Claw",
+   "moves": [
+    "Iron Tail",
+    "Earthquake",
+    "Aerial Ace",
+    "Roar"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 451,
+   "species": "Blaziken",
+   "item": "Quick Claw",
+   "moves": [
+    "Flamethrower",
+    "Sunny Day",
+    "Double Kick",
+    "Roar"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 486,
+   "species": "Hariyama",
+   "item": "Quick Claw",
+   "moves": [
+    "Cross Chop",
+    "Fire Punch",
+    "Ice Punch",
+    "Thunder Punch"
+   ],
+   "abilities": [
+    "Thick Fat",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 499,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Horn Drill",
+    "Rock Slide",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 511,
+   "species": "Magmar",
+   "item": "Quick Claw",
+   "moves": [
+    "Fire Blast",
+    "Smokescreen",
+    "Thunder Punch",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 513,
+   "species": "Armaldo",
+   "item": "Quick Claw",
+   "moves": [
+    "Iron Tail",
+    "Ancient Power",
+    "Brick Break",
+    "Knock Off"
+   ],
+   "abilities": [
+    "Battle Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 519,
+   "species": "Scizor",
+   "item": "Quick Claw",
+   "moves": [
+    "Silver Wind",
+    "Steel Wing",
+    "Swords Dance",
+    "Light Screen"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 521,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Brick Break",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 523,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Flail",
+    "Endure",
+    "Earthquake",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 540,
+   "species": "Flareon",
+   "item": "Quick Claw",
+   "moves": [
+    "Curse",
+    "Attract",
+    "Double Edge",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 545,
+   "species": "Feraligatr",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Dragon Claw",
+    "Brick Break",
+    "Scary Face"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 552,
+   "species": "Lapras",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Body Slam",
+    "Roar"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 554,
+   "species": "Swampert",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Counter",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 568,
+   "species": "Granbull",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Sludge Bomb",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Intimidate",
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 569,
+   "species": "Jynx",
+   "item": "Quick Claw",
+   "moves": [
+    "Dream Eater",
+    "Lovely Kiss",
+    "Attract",
+    "Substitute"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 580,
+   "species": "Quagsire",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Sludge Bomb",
+    "Double Edge",
+    "Curse"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 582,
+   "species": "Hariyama",
+   "item": "Quick Claw",
+   "moves": [
+    "Cross Chop",
+    "Earthquake",
+    "Rock Slide",
+    "Facade"
+   ],
+   "abilities": [
+    "Thick Fat",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 594,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Flamethrower",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 595,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Megahorn",
+    "Crush Claw",
+    "Earthquake",
+    "Horn Drill"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 601,
+   "species": "Slowbro",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Psychic",
+    "Shadow Ball",
+    "Attract"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 602,
+   "species": "Slowking",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Surf",
+    "Ice Beam",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 609,
+   "species": "Armaldo",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Brick Break",
+    "Swords Dance"
+   ],
+   "abilities": [
+    "Battle Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 613,
+   "species": "Gengar",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Giga Drain",
+    "Skill Swap"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 619,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Secret Power"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 623,
+   "species": "Machamp",
+   "item": "Quick Claw",
+   "moves": [
+    "Cross Chop",
+    "Fire Blast",
+    "Thunder Punch",
+    "Ice Punch"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 625,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 634,
+   "species": "Vaporeon",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Acid Armor",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 636,
+   "species": "Flareon",
+   "item": "Quick Claw",
+   "moves": [
+    "Shadow Ball",
+    "Flail",
+    "Endure",
+    "Overheat"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 644,
+   "species": "Walrein",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Fissure",
+    "Surf",
+    "Attract"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 651,
+   "species": "Gyarados",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Thunder",
+    "Rain Dance",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 652,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Shadow Ball",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 670,
+   "species": "Breloom",
+   "item": "Quick Claw",
+   "moves": [
+    "Focus Punch",
+    "Sludge Bomb",
+    "Spore",
+    "Double Team"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 671,
+   "species": "Forretress",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 672,
+   "species": "Whiscash",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Surf",
+    "Earthquake",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 674,
+   "species": "Skarmory",
+   "item": "Quick Claw",
+   "moves": [
+    "Drill Peck",
+    "Steel Wing",
+    "Counter",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 682,
+   "species": "Vileplume",
+   "item": "Quick Claw",
+   "moves": [
+    "Solar Beam",
+    "Sludge Bomb",
+    "Sunny Day",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 690,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 691,
+   "species": "Rhydon",
+   "item": "Quick Claw",
+   "moves": [
+    "Megahorn",
+    "Earthquake",
+    "Rock Slide",
+    "Horn Drill"
+   ],
+   "abilities": [
+    "Lightning Rod",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 697,
+   "species": "Slowbro",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Surf",
+    "Earthquake",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 31
+  },
+  {
+   "set_id": 698,
+   "species": "Slowking",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Surf",
+    "Ice Beam",
+    "Flamethrower"
+   ],
+   "abilities": [
+    "Oblivious",
+    "Own Tempo"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 31
+  },
+  {
+   "set_id": 708,
+   "species": "Muk",
+   "item": "Quick Claw",
+   "moves": [
+    "Sludge Bomb",
+    "Brick Break",
+    "Giga Drain",
+    "Explosion"
+   ],
+   "abilities": [
+    "Stench",
+    "Sticky Hold"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 715,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Iron Tail"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 717,
+   "species": "Wailord",
+   "item": "Quick Claw",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Earthquake",
+    "Fissure"
+   ],
+   "abilities": [
+    "Water Veil",
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 721,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Iron Tail",
+    "Double Edge",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 732,
+   "species": "Flareon",
+   "item": "Quick Claw",
+   "moves": [
+    "Overheat",
+    "Sunny Day",
+    "Double Edge",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 738,
+   "species": "Aggron",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Rock Slide",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 748,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Shadow Ball",
+    "Brick Break",
+    "Curse"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 24
+  },
+  {
+   "set_id": 754,
+   "species": "Metagross",
+   "item": "Quick Claw",
+   "moves": [
+    "Meteor Mash",
+    "Psychic",
+    "Earthquake",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 28
+  },
+  {
+   "set_id": 773,
+   "species": "Regirock",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 776,
+   "species": "Latias",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Beam",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 777,
+   "species": "Latios",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Beam",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 786,
+   "species": "Registeel",
+   "item": "Quick Claw",
+   "moves": [
+    "Ancient Power",
+    "Amnesia",
+    "Counter",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 806,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Facade",
+    "Earthquake",
+    "Crunch",
+    "Bulk Up"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 807,
+   "species": "Ursaring",
+   "item": "Quick Claw",
+   "moves": [
+    "Facade",
+    "Earthquake",
+    "Crunch",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 814,
+   "species": "Gardevoir",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Calm Mind",
+    "Will O Wisp",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 823,
+   "species": "Lapras",
+   "item": "Quick Claw",
+   "moves": [
+    "Sheer Cold",
+    "Horn Drill",
+    "Sing",
+    "Attract"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 824,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Mega Kick",
+    "Shadow Ball",
+    "Brick Break",
+    "Counter"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 826,
+   "species": "Snorlax",
+   "item": "Quick Claw",
+   "moves": [
+    "Hyper Beam",
+    "Shadow Ball",
+    "Earthquake",
+    "Curse"
+   ],
+   "abilities": [
+    "Immunity",
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 832,
+   "species": "Metagross",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 835,
+   "species": "Metagross",
+   "item": "Quick Claw",
+   "moves": [
+    "Meteor Mash",
+    "Earthquake",
+    "Brick Break",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 836,
+   "species": "Regirock",
+   "item": "Quick Claw",
+   "moves": [
+    "Hyper Beam",
+    "Focus Punch",
+    "Rock Slide",
+    "Double Team"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 858,
+   "species": "Dragonite",
+   "item": "Quick Claw",
+   "moves": [
+    "Thunder",
+    "Surf",
+    "Rain Dance",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 859,
+   "species": "Dragonite",
+   "item": "Quick Claw",
+   "moves": [
+    "Fire Blast",
+    "Blizzard",
+    "Sunny Day",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 863,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Crunch",
+    "Ice Beam",
+    "Thunderbolt",
+    "Flamethrower"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 866,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Rock Slide",
+    "Aerial Ace",
+    "Brick Break",
+    "Curse"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 868,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Crunch",
+    "Earthquake",
+    "Aerial Ace",
+    "Attract"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  }
+ ],
+ "item_BRIGHT_POWDER_LAX": [
+  {
+   "set_id": 21,
+   "species": "Shedinja",
+   "item": "Lax Incense",
+   "moves": [
+    "Shadow Ball",
+    "Confuse Ray",
+    "Silver Wind",
+    "Grudge"
+   ],
+   "abilities": [
+    "Wonder Guard"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 303,
+   "species": "Masquerain",
+   "item": "Lax Incense",
+   "moves": [
+    "Hydro Pump",
+    "Ice Beam",
+    "Giga Drain",
+    "Stun Spore"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 305,
+   "species": "Dunsparce",
+   "item": "Lax Incense",
+   "moves": [
+    "Ice Beam",
+    "Rock Tomb",
+    "Bite",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Serene Grace",
+    "Run Away"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 360,
+   "species": "Bellossom",
+   "item": "Bright Powder",
+   "moves": [
+    "Solar Beam",
+    "Attract",
+    "Sunny Day",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 361,
+   "species": "Octillery",
+   "item": "Lax Incense",
+   "moves": [
+    "Octazooka",
+    "Fire Blast",
+    "Thunder Wave",
+    "Mud Slap"
+   ],
+   "abilities": [
+    "Suction Cups"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 368,
+   "species": "Scyther",
+   "item": "Bright Powder",
+   "moves": [
+    "Silver Wind",
+    "Aerial Ace",
+    "Swords Dance",
+    "Double Team"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 391,
+   "species": "Raichu",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Quick Attack",
+    "Light Screen",
+    "Double Team"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 405,
+   "species": "Weezing",
+   "item": "Bright Powder",
+   "moves": [
+    "Sludge Bomb",
+    "Will O Wisp",
+    "Shadow Ball",
+    "Smokescreen"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 440,
+   "species": "Flygon",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Steel Wing",
+    "Faint Attack",
+    "Facade"
+   ],
+   "abilities": [
+    "Levitate",
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 445,
+   "species": "Meganium",
+   "item": "Bright Powder",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Light Screen",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 447,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Confuse Ray",
+    "Faint Attack",
+    "Double Team",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 462,
+   "species": "Blissey",
+   "item": "Bright Powder",
+   "moves": [
+    "Toxic",
+    "Double Team",
+    "Sing",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 475,
+   "species": "Jynx",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Lovely Kiss",
+    "Protect"
+   ],
+   "abilities": [
+    "Oblivious"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 480,
+   "species": "Breloom",
+   "item": "Bright Powder",
+   "moves": [
+    "Giga Drain",
+    "Leech Seed",
+    "Focus Punch",
+    "Spore"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 482,
+   "species": "Skarmory",
+   "item": "Bright Powder",
+   "moves": [
+    "Spikes",
+    "Roar",
+    "Drill Peck",
+    "Toxic"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 490,
+   "species": "Vileplume",
+   "item": "Bright Powder",
+   "moves": [
+    "Ingrain",
+    "Double Team",
+    "Toxic",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 492,
+   "species": "Electrode",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Swagger"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 518,
+   "species": "Ampharos",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder Punch",
+    "Fire Punch",
+    "Focus Punch",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 536,
+   "species": "Flygon",
+   "item": "Bright Powder",
+   "moves": [
+    "Solar Beam",
+    "Fire Blast",
+    "Crunch",
+    "Sunny Day"
+   ],
+   "abilities": [
+    "Levitate",
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 537,
+   "species": "Venusaur",
+   "item": "Bright Powder",
+   "moves": [
+    "Leech Seed",
+    "Giga Drain",
+    "Double Team",
+    "Light Screen"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 550,
+   "species": "Charizard",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Aerial Ace",
+    "Dragon Dance",
+    "Smokescreen"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 566,
+   "species": "Misdreavus",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 573,
+   "species": "Lanturn",
+   "item": "Bright Powder",
+   "moves": [
+    "Hydro Pump",
+    "Thunder",
+    "Confuse Ray",
+    "Rain Dance"
+   ],
+   "abilities": [
+    "Volt Absorb",
+    "Illuminate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 587,
+   "species": "Victreebel",
+   "item": "Bright Powder",
+   "moves": [
+    "Stun Spore",
+    "Ingrain",
+    "Giga Drain",
+    "Sludge Bomb"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 616,
+   "species": "Heracross",
+   "item": "Bright Powder",
+   "moves": [
+    "Megahorn",
+    "Earthquake",
+    "Rock Slide",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Swarm",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 622,
+   "species": "Ninetales",
+   "item": "Bright Powder",
+   "moves": [
+    "Fire Blast",
+    "Iron Tail",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 9
+  },
+  {
+   "set_id": 635,
+   "species": "Jolteon",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Agility",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Volt Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 639,
+   "species": "Umbreon",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Attract",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 642,
+   "species": "Aggron",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Thunder",
+    "Fire Blast",
+    "Blizzard"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 648,
+   "species": "Lapras",
+   "item": "Bright Powder",
+   "moves": [
+    "Double Edge",
+    "Psychic",
+    "Confuse Ray",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 668,
+   "species": "Mr Mime",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Punch",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 679,
+   "species": "Raichu",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Protect",
+    "Mega Kick"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 683,
+   "species": "Victreebel",
+   "item": "Bright Powder",
+   "moves": [
+    "Giga Drain",
+    "Double Edge",
+    "Sludge Bomb",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 692,
+   "species": "Alakazam",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Thunder Punch",
+    "Fire Punch",
+    "Ice Punch"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 694,
+   "species": "Kangaskhan",
+   "item": "Bright Powder",
+   "moves": [
+    "Mega Kick",
+    "Earthquake",
+    "Aerial Ace",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 696,
+   "species": "Tauros",
+   "item": "Bright Powder",
+   "moves": [
+    "Double Edge",
+    "Rock Tomb",
+    "Thunderbolt",
+    "Surf"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 711,
+   "species": "Scizor",
+   "item": "Bright Powder",
+   "moves": [
+    "Silver Wind",
+    "Swords Dance",
+    "Agility",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 713,
+   "species": "Ursaring",
+   "item": "Bright Powder",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Rock Slide",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 724,
+   "species": "Porygon2",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Beam",
+    "Recover"
+   ],
+   "abilities": [
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 725,
+   "species": "Gardevoir",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Punch",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 26
+  },
+  {
+   "set_id": 726,
+   "species": "Exeggutor",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Giga Drain",
+    "Sludge Bomb",
+    "Explosion"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 733,
+   "species": "Meganium",
+   "item": "Bright Powder",
+   "moves": [
+    "Giga Drain",
+    "Earthquake",
+    "Ancient Power",
+    "Body Slam"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 734,
+   "species": "Espeon",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Bite",
+    "Attract",
+    "Calm Mind"
+   ],
+   "abilities": [
+    "Synchronize"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 25
+  },
+  {
+   "set_id": 740,
+   "species": "Walrein",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Earthquake",
+    "Sheer Cold"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 741,
+   "species": "Sceptile",
+   "item": "Bright Powder",
+   "moves": [
+    "Leaf Blade",
+    "Dragon Claw",
+    "Crunch",
+    "Thunder Punch"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 745,
+   "species": "Crobat",
+   "item": "Bright Powder",
+   "moves": [
+    "Sludge Bomb",
+    "Aerial Ace",
+    "Shadow Ball",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 753,
+   "species": "Salamence",
+   "item": "Bright Powder",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Aerial Ace",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 768,
+   "species": "Zapdos",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Drill Peck",
+    "Double Team"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 770,
+   "species": "Raikou",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 771,
+   "species": "Entei",
+   "item": "Bright Powder",
+   "moves": [
+    "Fire Blast",
+    "Sunny Day",
+    "Solar Beam",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 774,
+   "species": "Regice",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Blizzard",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 775,
+   "species": "Registeel",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Ice Punch",
+    "Earthquake",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 778,
+   "species": "Articuno",
+   "item": "Bright Powder",
+   "moves": [
+    "Ice Beam",
+    "Facade",
+    "Aerial Ace",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 794,
+   "species": "Suicune",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Bite",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 800,
+   "species": "Gengar",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 801,
+   "species": "Gengar",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt",
+    "Ice Punch"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 810,
+   "species": "Machamp",
+   "item": "Bright Powder",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 815,
+   "species": "Gardevoir",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Magical Leaf",
+    "Attract",
+    "Double Team"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Trace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 818,
+   "species": "Starmie",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Ice Beam",
+    "Cosmic Power",
+    "Recover"
+   ],
+   "abilities": [
+    "Illuminate",
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 819,
+   "species": "Starmie",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Thunderbolt",
+    "Cosmic Power",
+    "Recover"
+   ],
+   "abilities": [
+    "Illuminate",
+    "Natural Cure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 821,
+   "species": "Lapras",
+   "item": "Bright Powder",
+   "moves": [
+    "Hydro Pump",
+    "Thunder",
+    "Rain Dance",
+    "Blizzard"
+   ],
+   "abilities": [
+    "Water Absorb",
+    "Shell Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 828,
+   "species": "Salamence",
+   "item": "Bright Powder",
+   "moves": [
+    "Facade",
+    "Earthquake",
+    "Rock Slide",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 833,
+   "species": "Metagross",
+   "item": "Bright Powder",
+   "moves": [
+    "Meteor Mash",
+    "Psychic",
+    "Ice Punch",
+    "Thunder Punch"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 837,
+   "species": "Regirock",
+   "item": "Bright Powder",
+   "moves": [
+    "Swagger",
+    "Psych Up",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Clear Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 842,
+   "species": "Latias",
+   "item": "Bright Powder",
+   "moves": [
+    "Dragon Claw",
+    "Thunder Wave",
+    "Calm Mind",
+    "Recover"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 846,
+   "species": "Latios",
+   "item": "Bright Powder",
+   "moves": [
+    "Dragon Claw",
+    "Thunder Wave",
+    "Calm Mind",
+    "Recover"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 848,
+   "species": "Latios",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Shadow Ball",
+    "Dragon Dance",
+    "Recover"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 850,
+   "species": "Dragonite",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Aerial Ace",
+    "Brick Break",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 851,
+   "species": "Dragonite",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Aerial Ace",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 860,
+   "species": "Tyranitar",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Aerial Ace",
+    "Thunderbolt",
+    "Surf"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 861,
+   "species": "Tyranitar",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Crunch",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 876,
+   "species": "Raikou",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Double Edge",
+    "Roar",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  }
+ ],
+ "item_FOCUS_BAND": [
+  {
+   "set_id": 185,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Charm",
+    "Safeguard"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 290,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Encore",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 343,
+   "species": "Ninjask",
+   "item": "Focus Band",
+   "moves": [
+    "Slash",
+    "Shadow Ball",
+    "Swords Dance",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Speed Boost"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 348,
+   "species": "Tropius",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Synthesis",
+    "Body Slam"
+   ],
+   "abilities": [
+    "Chlorophyll"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 373,
+   "species": "Medicham",
+   "item": "Focus Band",
+   "moves": [
+    "Psychic",
+    "Hi Jump Kick",
+    "Calm Mind",
+    "Baton Pass"
+   ],
+   "abilities": [
+    "Pure Power"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 374,
+   "species": "Misdreavus",
+   "item": "Focus Band",
+   "moves": [
+    "Pain Split",
+    "Shadow Ball",
+    "Confuse Ray",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 383,
+   "species": "Forretress",
+   "item": "Focus Band",
+   "moves": [
+    "Double Edge",
+    "Rock Slide",
+    "Light Screen",
+    "Spikes"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 388,
+   "species": "Quagsire",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Brick Break",
+    "Counter",
+    "Mud Slap"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 390,
+   "species": "Hariyama",
+   "item": "Focus Band",
+   "moves": [
+    "Cross Chop",
+    "Rock Slide",
+    "Counter",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Thick Fat",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 396,
+   "species": "Electrode",
+   "item": "Focus Band",
+   "moves": [
+    "Thunderbolt",
+    "Swift",
+    "Light Screen",
+    "Protect"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 404,
+   "species": "Alakazam",
+   "item": "Focus Band",
+   "moves": [
+    "Thunder Punch",
+    "Fire Punch",
+    "Ice Punch",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 406,
+   "species": "Kangaskhan",
+   "item": "Focus Band",
+   "moves": [
+    "Dizzy Punch",
+    "Brick Break",
+    "Counter",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 411,
+   "species": "Miltank",
+   "item": "Focus Band",
+   "moves": [
+    "Facade",
+    "Shadow Ball",
+    "Counter",
+    "Milk Drink"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 413,
+   "species": "Nidoqueen",
+   "item": "Focus Band",
+   "moves": [
+    "Sludge Bomb",
+    "Double Kick",
+    "Body Slam",
+    "Counter"
+   ],
+   "abilities": [
+    "Poison Point"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 423,
+   "species": "Scizor",
+   "item": "Focus Band",
+   "moves": [
+    "Metal Claw",
+    "Aerial Ace",
+    "Counter",
+    "Quick Attack"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 424,
+   "species": "Heracross",
+   "item": "Focus Band",
+   "moves": [
+    "Megahorn",
+    "Brick Break",
+    "Rock Tomb",
+    "Counter"
+   ],
+   "abilities": [
+    "Swarm",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 426,
+   "species": "Houndoom",
+   "item": "Focus Band",
+   "moves": [
+    "Flamethrower",
+    "Shadow Ball",
+    "Counter",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Early Bird",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 454,
+   "species": "Charizard",
+   "item": "Focus Band",
+   "moves": [
+    "Fire Blast",
+    "Sunny Day",
+    "Roar",
+    "Scary Face"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 455,
+   "species": "Typhlosion",
+   "item": "Focus Band",
+   "moves": [
+    "Fire Blast",
+    "Sunny Day",
+    "Smokescreen",
+    "Roar"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 473,
+   "species": "Fearow",
+   "item": "Focus Band",
+   "moves": [
+    "Drill Peck",
+    "Tri Attack",
+    "Attract",
+    "Pursuit"
+   ],
+   "abilities": [
+    "Keen Eye"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 485,
+   "species": "Clefable",
+   "item": "Focus Band",
+   "moves": [
+    "Meteor Mash",
+    "Cosmic Power",
+    "Double Team",
+    "Follow Me"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 493,
+   "species": "Exploud",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Earthquake",
+    "Counter"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 548,
+   "species": "Walrein",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Ice Beam",
+    "Curse",
+    "Double Team"
+   ],
+   "abilities": [
+    "Thick Fat"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 559,
+   "species": "Milotic",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Safeguard",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Marvel Scale"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 575,
+   "species": "Forretress",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Giga Drain",
+    "Zap Cannon"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 590,
+   "species": "Shiftry",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Explosion",
+    "Synthesis"
+   ],
+   "abilities": [
+    "Chlorophyll",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 597,
+   "species": "Weezing",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Sludge Bomb",
+    "Flamethrower",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 614,
+   "species": "Ampharos",
+   "item": "Focus Band",
+   "moves": [
+    "Thunderbolt",
+    "Mega Kick",
+    "Iron Tail",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 615,
+   "species": "Scizor",
+   "item": "Focus Band",
+   "moves": [
+    "Reversal",
+    "Endure",
+    "Agility",
+    "Slash"
+   ],
+   "abilities": [
+    "Swarm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 640,
+   "species": "Blastoise",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Counter"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 654,
+   "species": "Blissey",
+   "item": "Focus Band",
+   "moves": [
+    "Fire Blast",
+    "Blizzard",
+    "Calm Mind",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 677,
+   "species": "Clefable",
+   "item": "Focus Band",
+   "moves": [
+    "Mega Kick",
+    "Psychic",
+    "Shadow Ball",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Cute Charm"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 686,
+   "species": "Shiftry",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Giga Drain",
+    "Mega Kick",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Chlorophyll",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 693,
+   "species": "Weezing",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Sludge Bomb",
+    "Frustration",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 716,
+   "species": "Claydol",
+   "item": "Focus Band",
+   "moves": [
+    "Psychic",
+    "Earthquake",
+    "Shadow Ball",
+    "Explosion"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 736,
+   "species": "Blastoise",
+   "item": "Focus Band",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 750,
+   "species": "Blissey",
+   "item": "Focus Band",
+   "moves": [
+    "Ice Beam",
+    "Calm Mind",
+    "Counter",
+    "Soft Boiled"
+   ],
+   "abilities": [
+    "Natural Cure",
+    "Serene Grace"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 787,
+   "species": "Latias",
+   "item": "Focus Band",
+   "moves": [
+    "Dragon Claw",
+    "Thunderbolt",
+    "Ice Beam",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 788,
+   "species": "Latios",
+   "item": "Focus Band",
+   "moves": [
+    "Dragon Claw",
+    "Thunderbolt",
+    "Ice Beam",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 805,
+   "species": "Ursaring",
+   "item": "Focus Band",
+   "moves": [
+    "Hyper Beam",
+    "Yawn",
+    "Swords Dance",
+    "Double Team"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 809,
+   "species": "Machamp",
+   "item": "Focus Band",
+   "moves": [
+    "Cross Chop",
+    "Earthquake",
+    "Counter",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 811,
+   "species": "Machamp",
+   "item": "Focus Band",
+   "moves": [
+    "Revenge",
+    "Rock Slide",
+    "Facade",
+    "Counter"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 862,
+   "species": "Tyranitar",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 870,
+   "species": "Articuno",
+   "item": "Focus Band",
+   "moves": [
+    "Blizzard",
+    "Double Edge",
+    "Agility",
+    "Swagger"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  }
+ ],
+ "item_KINGS_ROCK": [
+  {
+   "set_id": 317,
+   "species": "Sneasel",
+   "item": "Kings Rock",
+   "moves": [
+    "Crush Claw",
+    "Brick Break",
+    "Aerial Ace",
+    "Screech"
+   ],
+   "abilities": [
+    "Inner Focus",
+    "Keen Eye"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 4
+  },
+  {
+   "set_id": 382,
+   "species": "Breloom",
+   "item": "Kings Rock",
+   "moves": [
+    "Sky Uppercut",
+    "Mach Punch",
+    "Headbutt",
+    "Counter"
+   ],
+   "abilities": [
+    "Effect Spore"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 435,
+   "species": "Aerodactyl",
+   "item": "Kings Rock",
+   "moves": [
+    "Ancient Power",
+    "Dragon Breath",
+    "Aerial Ace",
+    "Roar"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 457,
+   "species": "Crobat",
+   "item": "Kings Rock",
+   "moves": [
+    "Sludge Bomb",
+    "Bite",
+    "Astonish",
+    "Screech"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 464,
+   "species": "Arcanine",
+   "item": "Kings Rock",
+   "moves": [
+    "Flamethrower",
+    "Extreme Speed",
+    "Crunch",
+    "Body Slam"
+   ],
+   "abilities": [
+    "Intimidate",
+    "Flash Fire"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 465,
+   "species": "Salamence",
+   "item": "Kings Rock",
+   "moves": [
+    "Dragon Claw",
+    "Aerial Ace",
+    "Headbutt",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Intimidate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 468,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Ancient Power",
+    "Aerial Ace",
+    "Tri Attack"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 477,
+   "species": "Dodrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Drill Peck",
+    "Double Edge",
+    "Faint Attack",
+    "Protect"
+   ],
+   "abilities": [
+    "Run Away",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 564,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Sludge Bomb",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 577,
+   "species": "Xatu",
+   "item": "Kings Rock",
+   "moves": [
+    "Drill Peck",
+    "Psychic",
+    "Giga Drain",
+    "Steel Wing"
+   ],
+   "abilities": [
+    "Synchronize",
+    "Early Bird"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 627,
+   "species": "Aerodactyl",
+   "item": "Kings Rock",
+   "moves": [
+    "Double Edge",
+    "Rock Slide",
+    "Fire Blast",
+    "Dragon Claw"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 660,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Rock Slide",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 723,
+   "species": "Aerodactyl",
+   "item": "Kings Rock",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Fire Blast",
+    "Bite"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 731,
+   "species": "Jolteon",
+   "item": "Kings Rock",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Bite",
+    "Shadow Ball"
+   ],
+   "abilities": [
+    "Volt Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 781,
+   "species": "Raikou",
+   "item": "Kings Rock",
+   "moves": [
+    "Thunderbolt",
+    "Thunder Wave",
+    "Quick Attack",
+    "Roar"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 793,
+   "species": "Entei",
+   "item": "Kings Rock",
+   "moves": [
+    "Flamethrower",
+    "Bite",
+    "Double Team",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 845,
+   "species": "Latias",
+   "item": "Kings Rock",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Earthquake",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 849,
+   "species": "Latios",
+   "item": "Kings Rock",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Earthquake",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  }
+ ],
+ "item_SCOPE_LENS": [
+  {
+   "set_id": 345,
+   "species": "Zangoose",
+   "item": "Scope Lens",
+   "moves": [
+    "Crush Claw",
+    "Shadow Ball",
+    "Brick Break",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Immunity"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 3
+  },
+  {
+   "set_id": 347,
+   "species": "Sharpedo",
+   "item": "Scope Lens",
+   "moves": [
+    "Double Edge",
+    "Crunch",
+    "Earthquake",
+    "Surf"
+   ],
+   "abilities": [
+    "Rough Skin"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 355,
+   "species": "Pidgeot",
+   "item": "Scope Lens",
+   "moves": [
+    "Return",
+    "Aerial Ace",
+    "Steel Wing",
+    "Mud Slap"
+   ],
+   "abilities": [
+    "Keen Eye"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 386,
+   "species": "Skarmory",
+   "item": "Scope Lens",
+   "moves": [
+    "Steel Wing",
+    "Air Cutter",
+    "Counter",
+    "Agility"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 417,
+   "species": "Armaldo",
+   "item": "Scope Lens",
+   "moves": [
+    "Slash",
+    "Aerial Ace",
+    "Ancient Power",
+    "Protect"
+   ],
+   "abilities": [
+    "Battle Armor"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 431,
+   "species": "Machamp",
+   "item": "Scope Lens",
+   "moves": [
+    "Cross Chop",
+    "Rock Slide",
+    "Counter",
+    "Scary Face"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 467,
+   "species": "Slaking",
+   "item": "Scope Lens",
+   "moves": [
+    "Yawn",
+    "Bulk Up",
+    "Swagger",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Truant"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 539,
+   "species": "Jolteon",
+   "item": "Scope Lens",
+   "moves": [
+    "Thunderbolt",
+    "Dig",
+    "Double Kick",
+    "Roar"
+   ],
+   "abilities": [
+    "Volt Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 546,
+   "species": "Aggron",
+   "item": "Scope Lens",
+   "moves": [
+    "Focus Punch",
+    "Earthquake",
+    "Rock Slide",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 547,
+   "species": "Blaziken",
+   "item": "Scope Lens",
+   "moves": [
+    "Blaze Kick",
+    "Mega Kick",
+    "Thunder Punch",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 551,
+   "species": "Typhlosion",
+   "item": "Scope Lens",
+   "moves": [
+    "Flamethrower",
+    "Thunder Punch",
+    "Aerial Ace",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Blaze"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 565,
+   "species": "Medicham",
+   "item": "Scope Lens",
+   "moves": [
+    "Dynamic Punch",
+    "Thunder Punch",
+    "Ice Punch",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Pure Power"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 567,
+   "species": "Fearow",
+   "item": "Scope Lens",
+   "moves": [
+    "Drill Peck",
+    "Return",
+    "Steel Wing",
+    "Faint Attack"
+   ],
+   "abilities": [
+    "Keen Eye"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 607,
+   "species": "Magmar",
+   "item": "Scope Lens",
+   "moves": [
+    "Mega Kick",
+    "Cross Chop",
+    "Iron Tail",
+    "Counter"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 632,
+   "species": "Flygon",
+   "item": "Scope Lens",
+   "moves": [
+    "Earthquake",
+    "Dragon Claw",
+    "Flamethrower",
+    "Giga Drain"
+   ],
+   "abilities": [
+    "Levitate",
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 633,
+   "species": "Venusaur",
+   "item": "Scope Lens",
+   "moves": [
+    "Double Edge",
+    "Sludge Bomb",
+    "Earthquake",
+    "Sleep Powder"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 641,
+   "species": "Feraligatr",
+   "item": "Scope Lens",
+   "moves": [
+    "Hydro Pump",
+    "Crunch",
+    "Earthquake",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 645,
+   "species": "Sceptile",
+   "item": "Scope Lens",
+   "moves": [
+    "Leaf Blade",
+    "Earthquake",
+    "Crush Claw",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Overgrow"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 649,
+   "species": "Crobat",
+   "item": "Scope Lens",
+   "moves": [
+    "Air Cutter",
+    "Double Edge",
+    "Shadow Ball",
+    "Screech"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 678,
+   "species": "Hariyama",
+   "item": "Scope Lens",
+   "moves": [
+    "Cross Chop",
+    "Earthquake",
+    "Rock Slide",
+    "Fake Out"
+   ],
+   "abilities": [
+    "Thick Fat",
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 695,
+   "species": "Electabuzz",
+   "item": "Scope Lens",
+   "moves": [
+    "Thunderbolt",
+    "Psychic",
+    "Mega Kick",
+    "Cross Chop"
+   ],
+   "abilities": [
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 703,
+   "species": "Magmar",
+   "item": "Scope Lens",
+   "moves": [
+    "Flamethrower",
+    "Psychic",
+    "Cross Chop",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Flame Body"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 706,
+   "species": "Golduck",
+   "item": "Scope Lens",
+   "moves": [
+    "Surf",
+    "Cross Chop",
+    "Ice Beam",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 719,
+   "species": "Machamp",
+   "item": "Scope Lens",
+   "moves": [
+    "Cross Chop",
+    "Earthquake",
+    "Flamethrower",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 28
+  },
+  {
+   "set_id": 728,
+   "species": "Flygon",
+   "item": "Scope Lens",
+   "moves": [
+    "Earthquake",
+    "Dragon Claw",
+    "Double Edge",
+    "Crunch"
+   ],
+   "abilities": [
+    "Levitate",
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 737,
+   "species": "Feraligatr",
+   "item": "Scope Lens",
+   "moves": [
+    "Hydro Pump",
+    "Ice Beam",
+    "Earthquake",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Torrent"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 808,
+   "species": "Machamp",
+   "item": "Scope Lens",
+   "moves": [
+    "Cross Chop",
+    "Double Edge",
+    "Earthquake",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Guts"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  },
+  {
+   "set_id": 872,
+   "species": "Zapdos",
+   "item": "Scope Lens",
+   "moves": [
+    "Thunderbolt",
+    "Drill Peck",
+    "Double Edge",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  }
+ ],
+ "abil_DAMP": [
+  {
+   "set_id": 388,
+   "species": "Quagsire",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Brick Break",
+    "Counter",
+    "Mud Slap"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 418,
+   "species": "Golduck",
+   "item": "Shell Bell",
+   "moves": [
+    "Hydro Pump",
+    "Dig",
+    "Brick Break",
+    "Light Screen"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 471,
+   "species": "Quagsire",
+   "item": "Leftovers",
+   "moves": [
+    "Curse",
+    "Attract",
+    "Yawn",
+    "Ancient Power"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 514,
+   "species": "Golduck",
+   "item": "Lum Berry",
+   "moves": [
+    "Cross Chop",
+    "Surf",
+    "Swagger",
+    "Psych Up"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 580,
+   "species": "Quagsire",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Sludge Bomb",
+    "Double Edge",
+    "Curse"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 610,
+   "species": "Golduck",
+   "item": "Shell Bell",
+   "moves": [
+    "Hydro Pump",
+    "Cross Chop",
+    "Blizzard",
+    "Protect"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 676,
+   "species": "Quagsire",
+   "item": "Leftovers",
+   "moves": [
+    "Surf",
+    "Earthquake",
+    "Ice Beam",
+    "Amnesia"
+   ],
+   "abilities": [
+    "Damp",
+    "Water Absorb"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 706,
+   "species": "Golduck",
+   "item": "Scope Lens",
+   "moves": [
+    "Surf",
+    "Cross Chop",
+    "Ice Beam",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Damp",
+    "Cloud Nine"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 17
+  }
+ ],
+ "abil_SOUNDPROOF": [
+  {
+   "set_id": 380,
+   "species": "Mr Mime",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Magical Leaf",
+    "Fake Out",
+    "Reflect"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 396,
+   "species": "Electrode",
+   "item": "Focus Band",
+   "moves": [
+    "Thunderbolt",
+    "Swift",
+    "Light Screen",
+    "Protect"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 397,
+   "species": "Exploud",
+   "item": "Chesto Berry",
+   "moves": [
+    "Hyper Voice",
+    "Shadow Ball",
+    "Sleep Talk",
+    "Rest"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 478,
+   "species": "Mr Mime",
+   "item": "Liechi Berry",
+   "moves": [
+    "Baton Pass",
+    "Swagger",
+    "Psych Up",
+    "Psychic"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 492,
+   "species": "Electrode",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunder",
+    "Rain Dance",
+    "Double Team",
+    "Swagger"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 493,
+   "species": "Exploud",
+   "item": "Focus Band",
+   "moves": [
+    "Solar Beam",
+    "Sunny Day",
+    "Earthquake",
+    "Counter"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 572,
+   "species": "Mr Mime",
+   "item": "Choice Band",
+   "moves": [
+    "Trick",
+    "Torment",
+    "Psychic",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 588,
+   "species": "Electrode",
+   "item": "Liechi Berry",
+   "moves": [
+    "Explosion",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Endure"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 589,
+   "species": "Exploud",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Ice Beam",
+    "Thunder Punch",
+    "Extrasensory"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 5
+  },
+  {
+   "set_id": 668,
+   "species": "Mr Mime",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Punch",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 21
+  },
+  {
+   "set_id": 684,
+   "species": "Electrode",
+   "item": "Lum Berry",
+   "moves": [
+    "Explosion",
+    "Thunderbolt",
+    "Thunder Wave",
+    "Mirror Coat"
+   ],
+   "abilities": [
+    "Soundproof",
+    "Static"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 685,
+   "species": "Exploud",
+   "item": "White Herb",
+   "moves": [
+    "Mega Kick",
+    "Earthquake",
+    "Shadow Ball",
+    "Overheat"
+   ],
+   "abilities": [
+    "Soundproof"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  }
+ ],
+ "abil_STURDY": [
+  {
+   "set_id": 383,
+   "species": "Forretress",
+   "item": "Focus Band",
+   "moves": [
+    "Double Edge",
+    "Rock Slide",
+    "Light Screen",
+    "Spikes"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 386,
+   "species": "Skarmory",
+   "item": "Scope Lens",
+   "moves": [
+    "Steel Wing",
+    "Air Cutter",
+    "Counter",
+    "Agility"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 402,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Counter",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 427,
+   "species": "Donphan",
+   "item": "Chesto Berry",
+   "moves": [
+    "Earthquake",
+    "Ancient Power",
+    "Swagger",
+    "Rest"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 432,
+   "species": "Shuckle",
+   "item": "Chesto Berry",
+   "moves": [
+    "Rollout",
+    "Defense Curl",
+    "Sleep Talk",
+    "Rest"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 433,
+   "species": "Steelix",
+   "item": "Sitrus Berry",
+   "moves": [
+    "Earthquake",
+    "Dragon Breath",
+    "Rock Tomb",
+    "Roar"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 450,
+   "species": "Aggron",
+   "item": "Quick Claw",
+   "moves": [
+    "Iron Tail",
+    "Earthquake",
+    "Aerial Ace",
+    "Roar"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 481,
+   "species": "Forretress",
+   "item": "Lum Berry",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Counter",
+    "Protect"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 482,
+   "species": "Skarmory",
+   "item": "Bright Powder",
+   "moves": [
+    "Spikes",
+    "Roar",
+    "Drill Peck",
+    "Toxic"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 498,
+   "species": "Golem",
+   "item": "Chesto Berry",
+   "moves": [
+    "Focus Punch",
+    "Substitute",
+    "Double Team",
+    "Rest"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 523,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Flail",
+    "Endure",
+    "Earthquake",
+    "Rock Tomb"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 528,
+   "species": "Shuckle",
+   "item": "Leftovers",
+   "moves": [
+    "Sandstorm",
+    "Dig",
+    "Flash",
+    "Double Team"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 529,
+   "species": "Steelix",
+   "item": "Leftovers",
+   "moves": [
+    "Earthquake",
+    "Dragon Breath",
+    "Sandstorm",
+    "Block"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 546,
+   "species": "Aggron",
+   "item": "Scope Lens",
+   "moves": [
+    "Focus Punch",
+    "Earthquake",
+    "Rock Slide",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 575,
+   "species": "Forretress",
+   "item": "Focus Band",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Giga Drain",
+    "Zap Cannon"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 578,
+   "species": "Skarmory",
+   "item": "Chesto Berry",
+   "moves": [
+    "Toxic",
+    "Curse",
+    "Rest",
+    "Fly"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 594,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Flamethrower",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 619,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Secret Power"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 624,
+   "species": "Shuckle",
+   "item": "Leftovers",
+   "moves": [
+    "Substitute",
+    "Attract",
+    "Toxic",
+    "Double Team"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 625,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Body Slam",
+    "Rock Slide",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 642,
+   "species": "Aggron",
+   "item": "Bright Powder",
+   "moves": [
+    "Surf",
+    "Thunder",
+    "Fire Blast",
+    "Blizzard"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 671,
+   "species": "Forretress",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 674,
+   "species": "Skarmory",
+   "item": "Quick Claw",
+   "moves": [
+    "Drill Peck",
+    "Steel Wing",
+    "Counter",
+    "Rock Slide"
+   ],
+   "abilities": [
+    "Keen Eye",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 690,
+   "species": "Golem",
+   "item": "Quick Claw",
+   "moves": [
+    "Explosion",
+    "Earthquake",
+    "Rock Slide",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 16
+  },
+  {
+   "set_id": 715,
+   "species": "Donphan",
+   "item": "Quick Claw",
+   "moves": [
+    "Fissure",
+    "Earthquake",
+    "Rock Slide",
+    "Iron Tail"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 13
+  },
+  {
+   "set_id": 720,
+   "species": "Shuckle",
+   "item": "Chesto Berry",
+   "moves": [
+    "Toxic",
+    "Double Team",
+    "Wrap",
+    "Rest"
+   ],
+   "abilities": [
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 22
+  },
+  {
+   "set_id": 721,
+   "species": "Steelix",
+   "item": "Quick Claw",
+   "moves": [
+    "Earthquake",
+    "Iron Tail",
+    "Double Edge",
+    "Explosion"
+   ],
+   "abilities": [
+    "Rock Head",
+    "Sturdy"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  },
+  {
+   "set_id": 738,
+   "species": "Aggron",
+   "item": "Quick Claw",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Rock Slide",
+    "Aerial Ace"
+   ],
+   "abilities": [
+    "Sturdy",
+    "Rock Head"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 23
+  }
+ ],
+ "abil_WONDER_GUARD": [
+  {
+   "set_id": 21,
+   "species": "Shedinja",
+   "item": "Lax Incense",
+   "moves": [
+    "Shadow Ball",
+    "Confuse Ray",
+    "Silver Wind",
+    "Grudge"
+   ],
+   "abilities": [
+    "Wonder Guard"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  }
+ ],
+ "abil_SHADOW_TAG_ARENA_TRAP": [
+  {
+   "set_id": 185,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Charm",
+    "Safeguard"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 290,
+   "species": "Wobbuffet",
+   "item": "Focus Band",
+   "moves": [
+    "Counter",
+    "Mirror Coat",
+    "Encore",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Shadow Tag"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 372,
+   "species": "Dugtrio",
+   "item": "Soft Sand",
+   "moves": [
+    "Earthquake",
+    "Tri Attack",
+    "Slash",
+    "Sand Tomb"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 468,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Ancient Power",
+    "Aerial Ace",
+    "Tri Attack"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 564,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Sludge Bomb",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 6
+  },
+  {
+   "set_id": 660,
+   "species": "Dugtrio",
+   "item": "Kings Rock",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Rock Slide",
+    "Fissure"
+   ],
+   "abilities": [
+    "Sand Veil",
+    "Arena Trap"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  }
+ ],
+ "type_GHOST": [
+  {
+   "set_id": 21,
+   "species": "Shedinja",
+   "item": "Lax Incense",
+   "moves": [
+    "Shadow Ball",
+    "Confuse Ray",
+    "Silver Wind",
+    "Grudge"
+   ],
+   "abilities": [
+    "Wonder Guard"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 2
+  },
+  {
+   "set_id": 374,
+   "species": "Misdreavus",
+   "item": "Focus Band",
+   "moves": [
+    "Pain Split",
+    "Shadow Ball",
+    "Confuse Ray",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 378,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Will O Wisp",
+    "Seismic Toss",
+    "Pain Split",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 421,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Dream Eater",
+    "Hypnosis",
+    "Confuse Ray",
+    "Attract"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 472,
+   "species": "Misdreavus",
+   "item": "Leftovers",
+   "moves": [
+    "Psychic",
+    "Attract",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 12
+  },
+  {
+   "set_id": 476,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Toxic",
+    "Confuse Ray",
+    "Double Team",
+    "Protect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 517,
+   "species": "Gengar",
+   "item": "Leftovers",
+   "moves": [
+    "Sludge Bomb",
+    "Shadow Ball",
+    "Confuse Ray",
+    "Will O Wisp"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 566,
+   "species": "Misdreavus",
+   "item": "Bright Powder",
+   "moves": [
+    "Perish Song",
+    "Mean Look",
+    "Thunder Wave",
+    "Confuse Ray"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 11
+  },
+  {
+   "set_id": 570,
+   "species": "Dusclops",
+   "item": "Leftovers",
+   "moves": [
+    "Psych Up",
+    "Swagger",
+    "Shadow Ball",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 613,
+   "species": "Gengar",
+   "item": "Quick Claw",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Giga Drain",
+    "Skill Swap"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 14
+  },
+  {
+   "set_id": 662,
+   "species": "Misdreavus",
+   "item": "Lum Berry",
+   "moves": [
+    "Destiny Bond",
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 666,
+   "species": "Dusclops",
+   "item": "Chesto Berry",
+   "moves": [
+    "Double Edge",
+    "Shadow Ball",
+    "Curse",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 15
+  },
+  {
+   "set_id": 709,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Fire Punch",
+    "Ice Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 19
+  },
+  {
+   "set_id": 800,
+   "species": "Gengar",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt",
+    "Fire Punch"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 801,
+   "species": "Gengar",
+   "item": "Bright Powder",
+   "moves": [
+    "Psychic",
+    "Shadow Ball",
+    "Thunderbolt",
+    "Ice Punch"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 802,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Fire Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  },
+  {
+   "set_id": 803,
+   "species": "Gengar",
+   "item": "Lum Berry",
+   "moves": [
+    "Psychic",
+    "Thunderbolt",
+    "Ice Punch",
+    "Destiny Bond"
+   ],
+   "abilities": [
+    "Levitate"
+   ],
+   "lv50": true,
+   "n_lategame_trainers": 10
+  }
+ ],
+ "open_only_described": [
+  {
+   "set_id": 850,
+   "species": "Dragonite",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Aerial Ace",
+    "Brick Break",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 851,
+   "species": "Dragonite",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Double Edge",
+    "Aerial Ace",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 852,
+   "species": "Dragonite",
+   "item": "Leftovers",
+   "moves": [
+    "Hyper Beam",
+    "Attract",
+    "Double Team",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 853,
+   "species": "Dragonite",
+   "item": "Chesto Berry",
+   "moves": [
+    "Hyper Beam",
+    "Thunder Wave",
+    "Dragon Dance",
+    "Rest"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 854,
+   "species": "Dragonite",
+   "item": "Lum Berry",
+   "moves": [
+    "Outrage",
+    "Double Edge",
+    "Thunder Wave",
+    "Roar"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 855,
+   "species": "Dragonite",
+   "item": "Shell Bell",
+   "moves": [
+    "Dragon Claw",
+    "Thunderbolt",
+    "Surf",
+    "Flamethrower"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 856,
+   "species": "Dragonite",
+   "item": "Shell Bell",
+   "moves": [
+    "Dragon Claw",
+    "Thunderbolt",
+    "Surf",
+    "Ice Beam"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 857,
+   "species": "Dragonite",
+   "item": "Shell Bell",
+   "moves": [
+    "Dragon Claw",
+    "Flamethrower",
+    "Ice Beam",
+    "Brick Break"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 858,
+   "species": "Dragonite",
+   "item": "Quick Claw",
+   "moves": [
+    "Thunder",
+    "Surf",
+    "Rain Dance",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 859,
+   "species": "Dragonite",
+   "item": "Quick Claw",
+   "moves": [
+    "Fire Blast",
+    "Blizzard",
+    "Sunny Day",
+    "Earthquake"
+   ],
+   "abilities": [
+    "Inner Focus"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 18
+  },
+  {
+   "set_id": 860,
+   "species": "Tyranitar",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Aerial Ace",
+    "Thunderbolt",
+    "Surf"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 861,
+   "species": "Tyranitar",
+   "item": "Bright Powder",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Crunch",
+    "Thunderbolt"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 862,
+   "species": "Tyranitar",
+   "item": "Focus Band",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Counter",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 863,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Crunch",
+    "Ice Beam",
+    "Thunderbolt",
+    "Flamethrower"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 864,
+   "species": "Tyranitar",
+   "item": "Chesto Berry",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Dragon Dance",
+    "Rest"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 865,
+   "species": "Tyranitar",
+   "item": "Chesto Berry",
+   "moves": [
+    "Earthquake",
+    "Rock Slide",
+    "Curse",
+    "Rest"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 866,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Rock Slide",
+    "Aerial Ace",
+    "Brick Break",
+    "Curse"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 867,
+   "species": "Tyranitar",
+   "item": "Lum Berry",
+   "moves": [
+    "Rock Slide",
+    "Thunder Wave",
+    "Dragon Dance",
+    "Rest"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 868,
+   "species": "Tyranitar",
+   "item": "Quick Claw",
+   "moves": [
+    "Crunch",
+    "Earthquake",
+    "Aerial Ace",
+    "Attract"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 869,
+   "species": "Tyranitar",
+   "item": "Lum Berry",
+   "moves": [
+    "Double Edge",
+    "Earthquake",
+    "Rock Slide",
+    "Dragon Dance"
+   ],
+   "abilities": [
+    "Sand Stream"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 20
+  },
+  {
+   "set_id": 870,
+   "species": "Articuno",
+   "item": "Focus Band",
+   "moves": [
+    "Blizzard",
+    "Double Edge",
+    "Agility",
+    "Swagger"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 871,
+   "species": "Articuno",
+   "item": "Chesto Berry",
+   "moves": [
+    "Ice Beam",
+    "Aerial Ace",
+    "Reflect",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 872,
+   "species": "Zapdos",
+   "item": "Scope Lens",
+   "moves": [
+    "Thunderbolt",
+    "Drill Peck",
+    "Double Edge",
+    "Thunder Wave"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 873,
+   "species": "Zapdos",
+   "item": "Lum Berry",
+   "moves": [
+    "Thunder",
+    "Drill Peck",
+    "Rain Dance",
+    "Double Edge"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 874,
+   "species": "Moltres",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Sunny Day",
+    "Swagger",
+    "Facade"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 875,
+   "species": "Moltres",
+   "item": "White Herb",
+   "moves": [
+    "Overheat",
+    "Double Edge",
+    "Aerial Ace",
+    "Steel Wing"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 8
+  },
+  {
+   "set_id": 876,
+   "species": "Raikou",
+   "item": "Bright Powder",
+   "moves": [
+    "Thunderbolt",
+    "Double Edge",
+    "Roar",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 877,
+   "species": "Raikou",
+   "item": "Chesto Berry",
+   "moves": [
+    "Thunderbolt",
+    "Calm Mind",
+    "Substitute",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 878,
+   "species": "Entei",
+   "item": "Salac Berry",
+   "moves": [
+    "Fire Blast",
+    "Double Edge",
+    "Endure",
+    "Reflect"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 879,
+   "species": "Entei",
+   "item": "Chesto Berry",
+   "moves": [
+    "Flamethrower",
+    "Calm Mind",
+    "Roar",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 880,
+   "species": "Suicune",
+   "item": "Lum Berry",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Calm Mind",
+    "Icy Wind"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  },
+  {
+   "set_id": 881,
+   "species": "Suicune",
+   "item": "Chesto Berry",
+   "moves": [
+    "Surf",
+    "Ice Beam",
+    "Calm Mind",
+    "Rest"
+   ],
+   "abilities": [
+    "Pressure"
+   ],
+   "lv50": false,
+   "n_lategame_trainers": 7
+  }
+ ]
+}

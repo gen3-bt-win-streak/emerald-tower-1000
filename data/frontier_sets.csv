@@ -1,0 +1,883 @@
+set_id,species,type1,type2,ability1,ability2,base_speed,item,nature,ev_spread,move1,move2,move3,move4,lv50_allowed,in_pool_battle50plus,lategame_trainer_count
+0,Sunkern,Grass,Grass,Chlorophyll,None,30,Lax Incense,Relaxed,SP_ATTACK|HP,Mega Drain,Helping Hand,Sunny Day,Light Screen,1,0,0
+1,Azurill,Normal,Normal,Thick Fat,Huge Power,20,Cheri Berry,Rash,SP_ATTACK|HP,Water Pulse,Attract,Sing,Charm,1,0,0
+2,Caterpie,Bug,Bug,Shield Dust,None,45,Focus Band,Quirky,ATTACK|HP,Tackle,String Shot,None,None,1,0,0
+3,Weedle,Bug,Poison,Shield Dust,None,50,Focus Band,Quirky,ATTACK|HP,Poison Sting,String Shot,None,None,1,0,0
+4,Wurmple,Bug,Bug,Shield Dust,None,20,Lax Incense,Quirky,ATTACK|HP,Tackle,String Shot,Poison Sting,None,1,0,0
+5,Ralts,Psychic,Psychic,Synchronize,Trace,40,Twisted Spoon,Docile,SP_ATTACK|HP,Confusion,Imprison,Double Team,Light Screen,1,0,0
+6,Magikarp,Water,Water,Swift Swim,None,80,Focus Band,Hardy,ATTACK|HP,Flail,None,None,None,1,0,0
+7,Feebas,Water,Water,Swift Swim,None,80,Focus Band,Lonely,ATTACK|HP,Flail,Mirror Coat,None,None,1,0,0
+8,Metapod,Bug,Bug,Shed Skin,None,30,Lax Incense,Bashful,SP_DEFENSE|HP,Harden,None,None,None,1,0,0
+9,Kakuna,Bug,Poison,Shed Skin,None,35,Lax Incense,Bashful,SP_DEFENSE|HP,Harden,None,None,None,1,0,0
+10,Pichu,Electric,Electric,Static,None,60,Sitrus Berry,Rash,SP_ATTACK|HP,Sweet Kiss,Thunder Wave,Attract,Shock Wave,1,0,0
+11,Silcoon,Bug,Bug,Shed Skin,None,15,Lax Incense,Bashful,SP_DEFENSE|HP,Harden,None,None,None,1,0,0
+12,Cascoon,Bug,Bug,Shed Skin,None,15,Lax Incense,Bashful,SP_DEFENSE|HP,Harden,None,None,None,1,0,0
+13,Igglybuff,Normal,Normal,Cute Charm,None,15,Focus Band,Docile,ATTACK|HP,Sweet Kiss,Sing,Attract,Seismic Toss,1,0,0
+14,Wooper,Water,Ground,Damp,Water Absorb,15,Sitrus Berry,Docile,ATTACK|HP,Yawn,Dig,Water Pulse,Rain Dance,1,0,0
+15,Tyrogue,Fighting,Fighting,Guts,None,35,Focus Band,Docile,ATTACK|HP,Mach Punch,Protect,Double Team,Facade,1,0,0
+16,Sentret,Normal,Normal,Run Away,Keen Eye,20,Kings Rock,Docile,ATTACK|HP,Quick Attack,Follow Me,Helping Hand,Assist,1,0,0
+17,Cleffa,Normal,Normal,Cute Charm,None,15,Lax Incense,Serious,SP_ATTACK|HP,Sweet Kiss,Sing,Attract,Metronome,1,0,0
+18,Seedot,Grass,Grass,Chlorophyll,Early Bird,30,Focus Band,Docile,ATTACK|HP,Bullet Seed,Bide,Defense Curl,Rollout,1,0,0
+19,Lotad,Water,Grass,Swift Swim,Rain Dish,30,Lax Incense,Docile,SP_ATTACK|HP,Rain Dance,Water Pulse,Sunny Day,Mega Drain,1,0,0
+20,Poochyena,Dark,Dark,Run Away,None,35,Petaya Berry,Relaxed,SP_ATTACK|HP,Crunch,Swagger,Roar,Sand Attack,1,0,0
+21,Shedinja,Bug,Ghost,Wonder Guard,None,40,Lax Incense,Naive,SPEED|HP,Shadow Ball,Confuse Ray,Silver Wind,Grudge,1,1,2
+22,Makuhita,Fighting,Fighting,Thick Fat,Guts,25,Scope Lens,Docile,ATTACK|HP,Fake Out,Seismic Toss,Detect,Whirlwind,1,0,0
+23,Whismur,Normal,Normal,Soundproof,None,28,Cheri Berry,Relaxed,ATTACK|HP,Uproar,Swagger,Body Slam,Smelling Salt,1,0,0
+24,Zigzagoon,Normal,Normal,Pickup,None,60,Silk Scarf,Timid,ATTACK|HP,Headbutt,Pin Missile,Swift,Sand Attack,1,0,0
+25,Zubat,Poison,Flying,Inner Focus,None,55,Cheri Berry,Sassy,ATTACK|HP,Poison Fang,Whirlwind,Confuse Ray,Aerial Ace,1,0,0
+26,Togepi,Normal,Normal,Hustle,Serene Grace,20,Lax Incense,Relaxed,ATTACK|HP,Return,Yawn,Wish,Sweet Kiss,1,0,0
+27,Spinarak,Bug,Poison,Swarm,Insomnia,30,Liechi Berry,Quirky,ATTACK|HP,Signal Beam,Night Shade,Spider Web,Scary Face,1,0,0
+28,Marill,Water,Water,Thick Fat,Huge Power,40,Mystic Water,Gentle,ATTACK|HP,Water Pulse,Rain Dance,Light Screen,Return,1,0,0
+29,Hoppip,Grass,Flying,Chlorophyll,None,50,Lax Incense,Lax,SP_DEFENSE|DEFENSE,Mega Drain,Leech Seed,Sleep Powder,Stun Spore,1,0,0
+30,Slugma,Fire,Fire,Magma Armor,Flame Body,20,Sitrus Berry,Sassy,SP_DEFENSE|DEFENSE|HP,Ember,Rock Slide,Yawn,Body Slam,1,0,0
+31,Swinub,Ice,Ground,Oblivious,None,50,Sitrus Berry,Gentle,SP_ATTACK|ATTACK,Icy Wind,Dig,Rock Tomb,Endure,1,0,0
+32,Smeargle,Normal,Normal,Own Tempo,None,75,Kings Rock,Hardy,ATTACK|HP,Extreme Speed,Fake Out,Quick Attack,Mach Punch,1,0,0
+33,Pidgey,Normal,Flying,Keen Eye,None,56,Sharp Beak,Lonely,ATTACK|HP,Gust,Sand Attack,Whirlwind,Quick Attack,1,0,0
+34,Rattata,Normal,Normal,Run Away,Guts,72,Kings Rock,Docile,ATTACK|HP,Hyper Fang,Pursuit,Quick Attack,Swagger,1,0,0
+35,Wynaut,Psychic,Psychic,Shadow Tag,None,23,Lax Incense,Jolly,SP_DEFENSE|DEFENSE,Encore,Counter,Mirror Coat,Charm,1,0,0
+36,Skitty,Normal,Normal,Cute Charm,None,50,Bright Powder,Docile,ATTACK|HP,Sing,Attract,Charm,Double Slap,1,0,0
+37,Spearow,Normal,Flying,Keen Eye,None,70,Liechi Berry,Docile,SPEED|HP,Fury Attack,Pursuit,Mirror Move,Protect,1,0,0
+38,Hoothoot,Normal,Flying,Insomnia,Keen Eye,50,Persim Berry,Quirky,SP_ATTACK|HP,Confusion,Hypnosis,Supersonic,Reflect,1,0,0
+39,Diglett,Ground,Ground,Sand Veil,Arena Trap,95,Kings Rock,Naive,SPEED|ATTACK,Magnitude,Slash,Rock Tomb,Sand Attack,1,0,0
+40,Ledyba,Bug,Flying,Swarm,Early Bird,55,Sitrus Berry,Bashful,SP_ATTACK|HP,Psybeam,Agility,Baton Pass,Light Screen,1,0,0
+41,Nincada,Bug,Ground,Compound Eyes,None,40,Pecha Berry,Calm,ATTACK|HP,Mud Slap,Dig,Toxic,Protect,1,0,0
+42,Surskit,Bug,Water,Swift Swim,None,65,Mystic Water,Relaxed,SP_ATTACK|HP,Bubble Beam,Rain Dance,Sweet Scent,Quick Attack,1,0,0
+43,Jigglypuff,Normal,Normal,Cute Charm,None,20,Lax Incense,Relaxed,SP_DEFENSE|DEFENSE|HP,Sing,Wish,Mimic,Double Slap,1,0,0
+44,Taillow,Normal,Flying,Guts,None,85,Salac Berry,Gentle,SPEED|ATTACK|HP,Fly,Quick Attack,Endeavor,Focus Energy,1,0,0
+45,Wingull,Water,Flying,Keen Eye,None,85,Persim Berry,Hardy,SP_ATTACK|HP,Water Pulse,Fly,Quick Attack,Steel Wing,1,0,0
+46,Nidoran M,Poison,Poison,Poison Point,None,50,Sitrus Berry,Quirky,ATTACK|HP,Double Kick,Poison Sting,Disable,Helping Hand,1,0,0
+47,Nidoran F,Poison,Poison,Poison Point,None,41,Sitrus Berry,Quirky,ATTACK|HP,Crunch,Double Kick,Flatter,Helping Hand,1,0,0
+48,Kirlia,Psychic,Psychic,Synchronize,Trace,50,White Herb,Docile,SPEED|HP,Confusion,Will O Wisp,Future Sight,Light Screen,1,0,0
+49,Mareep,Electric,Electric,Static,None,35,Cheri Berry,Relaxed,SP_ATTACK|HP,Shock Wave,Flash,Reflect,Cotton Spore,1,0,0
+50,Meditite,Fighting,Psychic,Pure Power,None,60,Mental Herb,Naughty,ATTACK|HP,Hi Jump Kick,Meditate,Swagger,Psych Up,1,0,0
+51,Slakoth,Normal,Normal,Truant,None,30,Leftovers,Quirky,ATTACK|HP,Yawn,Scratch,Encore,Counter,1,0,0
+52,Paras,Bug,Grass,Effect Spore,None,25,Sitrus Berry,Relaxed,SP_ATTACK|HP,Spore,Leech Life,Slash,Light Screen,1,0,0
+53,Ekans,Poison,Poison,Intimidate,Shed Skin,55,Poison Barb,Docile,ATTACK|HP,Acid,Dig,Screech,Torment,1,0,0
+54,Ditto,Normal,Normal,Limber,None,48,Metal Powder,Hardy,SPEED|HP,Transform,None,None,None,1,0,0
+55,Barboach,Water,Ground,Oblivious,None,60,Focus Band,Bashful,SP_ATTACK|ATTACK,Magnitude,Water Pulse,Spark,Future Sight,1,0,0
+56,Meowth,Normal,Normal,Pickup,None,90,Persim Berry,Quirky,ATTACK|HP,Slash,Bite,Screech,Fake Out,1,0,0
+57,Pineco,Bug,Bug,Sturdy,None,15,Focus Band,Quirky,ATTACK|HP,Self Destruct,Take Down,Reflect,Light Screen,1,0,0
+58,Trapinch,Ground,Ground,Hyper Cutter,Arena Trap,10,Lax Incense,Serious,ATTACK|HP,Toxic,Dig,Sandstorm,Sand Attack,1,0,0
+59,Spheal,Ice,Water,Thick Fat,None,25,Never Melt Ice,Docile,SP_ATTACK|HP,Ice Ball,Water Pulse,Hail,Mud Slap,1,0,0
+60,Horsea,Water,Water,Swift Swim,None,60,Petaya Berry,Relaxed,SP_ATTACK|HP,Water Gun,Agility,Icy Wind,Twister,1,0,0
+61,Shroomish,Grass,Grass,Effect Spore,None,35,Miracle Seed,Relaxed,SP_ATTACK|HP,Spore,Bullet Seed,Leech Seed,Headbutt,1,0,0
+62,Shuppet,Ghost,Ghost,Insomnia,None,45,Rawst Berry,Rash,ATTACK|HP,Will O Wisp,Night Shade,Grudge,Knock Off,1,0,0
+63,Duskull,Ghost,Ghost,Levitate,None,25,Persim Berry,Quirky,SPEED|HP,Skill Swap,Night Shade,Disable,Confuse Ray,1,0,0
+64,Electrike,Electric,Electric,Static,Lightning Rod,65,Cheri Berry,Docile,SPEED|HP,Spark,Thunder Wave,Roar,Quick Attack,1,0,0
+65,Vulpix,Fire,Fire,Flash Fire,None,65,Rawst Berry,Docile,SPEED|HP,Will O Wisp,Confuse Ray,Fire Spin,Quick Attack,1,0,0
+66,Pikachu,Electric,Electric,Static,None,90,Light Ball,Docile,SPEED|HP,Thunder Punch,Thunder Wave,Double Team,Quick Attack,1,0,0
+67,Sandshrew,Ground,Ground,Sand Veil,None,40,Soft Sand,Docile,ATTACK|HP,Dig,Rock Tomb,Sandstorm,Sand Attack,1,0,0
+68,Poliwag,Water,Water,Water Absorb,Damp,90,Mystic Water,Relaxed,SPEED|HP,Hypnosis,Icy Wind,Water Gun,Rain Dance,1,0,0
+69,Bellsprout,Grass,Poison,Chlorophyll,None,40,Sitrus Berry,Lax,SP_DEFENSE|DEFENSE|HP,Razor Leaf,Acid,Stun Spore,Wrap,1,0,0
+70,Geodude,Rock,Ground,Rock Head,Sturdy,20,Focus Band,Brave,ATTACK|HP,Magnitude,Rock Blast,Strength,Protect,1,0,0
+71,Dratini,Dragon,Dragon,Shed Skin,None,50,Persim Berry,Docile,SP_ATTACK|HP,Outrage,Thunder Wave,Supersonic,Water Pulse,1,0,0
+72,Snubbull,Normal,Normal,Intimidate,Run Away,30,Scope Lens,Relaxed,ATTACK|HP,Bite,Charm,Swagger,Scary Face,1,0,0
+73,Remoraid,Water,Water,Hustle,None,65,Petaya Berry,Quirky,SP_ATTACK|SPEED,Bubble Beam,Aurora Beam,Psybeam,Protect,1,0,0
+74,Larvitar,Rock,Ground,Guts,None,41,Persim Berry,Naughty,ATTACK|HP,Thrash,Rock Slide,Dig,Dragon Dance,1,0,0
+75,Baltoy,Ground,Psychic,Levitate,None,55,Persim Berry,Naughty,SP_ATTACK|ATTACK,Psybeam,Ancient Power,Light Screen,Mud Slap,1,0,0
+76,Snorunt,Ice,Ice,Inner Focus,None,50,Persim Berry,Brave,ATTACK|HP,Icy Wind,Headbutt,Leer,Bite,1,0,0
+77,Bagon,Dragon,Dragon,Rock Head,None,50,Liechi Berry,Naughty,ATTACK|HP,Dragon Breath,Headbutt,Brick Break,Scary Face,1,0,0
+78,Beldum,Steel,Psychic,Clear Body,None,30,Choice Band,Hardy,ATTACK|HP,Take Down,None,None,None,1,0,0
+79,Gulpin,Poison,Poison,Liquid Ooze,Sticky Hold,40,Lax Incense,Serious,SP_DEFENSE|DEFENSE|HP,Toxic,Yawn,Pain Split,Attract,1,0,0
+80,Venonat,Bug,Poison,Compound Eyes,None,45,Sitrus Berry,Relaxed,SP_ATTACK|HP,Psybeam,Supersonic,Stun Spore,Skill Swap,1,0,0
+81,Mankey,Fighting,Fighting,Vital Spirit,None,70,Black Belt,Naughty,ATTACK|HP,Karate Chop,Low Kick,Screech,Swagger,1,0,0
+82,Machop,Fighting,Fighting,Guts,None,35,Scope Lens,Adamant,ATTACK|HP,Seismic Toss,Revenge,Rock Tomb,Scary Face,1,0,0
+83,Shellder,Water,Water,Shell Armor,None,40,Cheri Berry,Relaxed,SP_ATTACK|HP,Icicle Spear,Supersonic,Clamp,Withdraw,1,0,0
+84,Smoochum,Ice,Psychic,Oblivious,None,65,Bright Powder,Docile,ATTACK|HP,Sweet Kiss,Sing,Mud Slap,Fake Out,1,0,0
+85,Numel,Fire,Ground,Oblivious,None,35,Lax Incense,Hardy,ATTACK|HP,Ember,Magnitude,Rock Tomb,Sandstorm,1,0,0
+86,Carvanha,Water,Dark,Rough Skin,None,65,Shell Bell,Quiet,SP_ATTACK|HP,Bite,Screech,Scary Face,Swagger,1,0,0
+87,Corphish,Water,Water,Hyper Cutter,Shell Armor,35,Mystic Water,Brave,SP_ATTACK|HP,Crabhammer,Water Pulse,Mud Slap,Protect,1,0,0
+88,Charmander,Fire,Fire,Blaze,None,65,Focus Band,Docile,SP_ATTACK|HP,Fire Spin,Metal Claw,Smokescreen,Scary Face,1,0,0
+89,Cyndaquil,Fire,Fire,Blaze,None,65,Sitrus Berry,Docile,SP_ATTACK|HP,Ember,Swift,Quick Attack,Smokescreen,1,0,0
+90,Abra,Psychic,Psychic,Synchronize,Inner Focus,90,Twisted Spoon,Lonely,SPEED|HP,Mimic,Metronome,Flash,Seismic Toss,1,0,0
+91,Doduo,Normal,Flying,Run Away,Early Bird,75,Liechi Berry,Lonely,SPEED|HP,Fury Attack,Uproar,Mud Slap,Faint Attack,1,0,0
+92,Gastly,Ghost,Poison,Levitate,None,80,Lax Incense,Lonely,SPEED|HP,Dream Eater,Hypnosis,Night Shade,Confuse Ray,1,0,0
+93,Swablu,Normal,Flying,Natural Cure,None,50,Mental Herb,Lonely,SP_ATTACK|HP,Take Down,Dream Eater,Sing,Attract,1,0,0
+94,Treecko,Grass,Grass,Overgrow,None,70,Scope Lens,Lonely,SP_ATTACK|ATTACK,Bullet Seed,Aerial Ace,Quick Attack,Double Team,1,0,0
+95,Torchic,Fire,Fire,Blaze,None,45,Bright Powder,Lonely,SP_ATTACK|HP,Fire Spin,Quick Attack,Sand Attack,Double Team,1,0,0
+96,Mudkip,Water,Water,Torrent,None,40,Focus Band,Docile,SP_ATTACK|HP,Whirlpool,Endeavor,Mud Sport,Mud Slap,1,0,0
+97,Squirtle,Water,Water,Torrent,None,43,Sitrus Berry,Docile,SP_ATTACK|HP,Water Pulse,Bite,Withdraw,Protect,1,0,0
+98,Totodile,Water,Water,Torrent,None,43,Scope Lens,Docile,SP_ATTACK|HP,Slash,Water Pulse,Screech,Icy Wind,1,0,0
+99,Slowpoke,Water,Psychic,Oblivious,Own Tempo,15,Sitrus Berry,Brave,SP_ATTACK|HP,Confusion,Disable,Water Pulse,Yawn,1,0,0
+100,Bulbasaur,?,?,?,?,,Bright Powder,Relaxed,SP_ATTACK|HP,Razor Leaf,Sweet Scent,Sleep Powder,Light Screen,1,0,0
+101,Chikorita,Grass,Grass,Overgrow,None,45,Bright Powder,Relaxed,SP_ATTACK|HP,Secret Power,Bullet Seed,Mud Slap,Light Screen,1,0,0
+102,Oddish,Grass,Poison,Chlorophyll,None,30,Pecha Berry,Relaxed,ATTACK|HP,Acid,Stun Spore,Sweet Scent,Moonlight,1,0,0
+103,Psyduck,Water,Water,Damp,Cloud Nine,55,Persim Berry,Hasty,SP_ATTACK|ATTACK,Confusion,Fury Swipes,Aerial Ace,Disable,1,0,0
+104,Cubone,Ground,Ground,Rock Head,Lightning Rod,35,Soft Sand,Hardy,ATTACK|HP,Bone Club,Headbutt,Brick Break,Aerial Ace,1,0,0
+105,Goldeen,Water,Water,Swift Swim,Water Veil,63,Petaya Berry,Docile,SP_ATTACK|HP,Waterfall,Fury Attack,Agility,Psybeam,1,0,0
+106,Natu,Psychic,Flying,Synchronize,Early Bird,70,Twisted Spoon,Relaxed,SP_ATTACK|HP,Night Shade,Future Sight,Confuse Ray,Flash,1,0,0
+107,Clefairy,Normal,Normal,Cute Charm,None,35,Lax Incense,Lonely,ATTACK|HP,Follow Me,Return,Encore,Sing,1,0,0
+108,Magnemite,Electric,Steel,Magnet Pull,Sturdy,45,Rawst Berry,Gentle,SP_ATTACK|SPEED,Shock Wave,Supersonic,Metal Sound,Reflect,1,0,0
+109,Seel,Water,Water,Thick Fat,None,45,Aspear Berry,Hardy,SP_ATTACK|HP,Aurora Beam,Dive,Body Slam,Fake Out,1,0,0
+110,Grimer,Poison,Poison,Stench,Sticky Hold,25,Pecha Berry,Quirky,SP_DEFENSE|DEFENSE|HP,Sludge,Rock Tomb,Acid Armor,Minimize,1,0,0
+111,Krabby,Water,Water,Hyper Cutter,Shell Armor,50,Focus Band,Hardy,ATTACK|HP,Crabhammer,Mud Shot,Flail,Knock Off,1,0,0
+112,Exeggcute,Grass,Psychic,Chlorophyll,None,40,Persim Berry,Naughty,SP_ATTACK|HP,Confusion,Ancient Power,Leech Seed,Light Screen,1,0,0
+113,Eevee,Normal,Normal,Run Away,None,55,Salac Berry,Docile,SPEED|HP,Charm,Attract,Flail,Endure,1,0,0
+114,Drowzee,Psychic,Psychic,Insomnia,None,42,Sitrus Berry,Quirky,SP_ATTACK|ATTACK|HP,Confusion,Headbutt,Disable,Barrier,1,0,0
+115,Voltorb,Electric,Electric,Soundproof,Static,100,Lax Incense,Docile,SP_ATTACK|HP,Spark,Screech,Rollout,Light Screen,1,0,0
+116,Chinchou,Water,Electric,Volt Absorb,Illuminate,67,Lax Incense,Hardy,SP_ATTACK|ATTACK,Spark,Dive,Confuse Ray,Take Down,1,0,0
+117,Teddiursa,Normal,Normal,Pickup,None,40,Chesto Berry,Relaxed,ATTACK|HP,Secret Power,Fake Tears,Faint Attack,Rest,1,0,0
+118,Delibird,Ice,Flying,Vital Spirit,Hustle,75,Never Melt Ice,Docile,SP_ATTACK|HP,Present,Ice Ball,Aerial Ace,Hail,1,0,0
+119,Houndour,Dark,Fire,Early Bird,Flash Fire,65,Charcoal,Docile,SP_ATTACK|HP,Crunch,Ember,Roar,Protect,1,0,0
+120,Phanpy,Ground,Ground,Pickup,None,40,Lax Incense,Naughty,ATTACK|HP,Rollout,Defense Curl,Rock Tomb,Sandstorm,1,0,0
+121,Spoink,Psychic,Psychic,Thick Fat,Own Tempo,60,Sitrus Berry,Relaxed,SP_ATTACK|HP,Psywave,Bounce,Magic Coat,Confuse Ray,1,0,0
+122,Aron,Steel,Rock,Sturdy,Rock Head,30,Persim Berry,Docile,ATTACK|HP,Metal Claw,Aerial Ace,Metal Sound,Roar,1,0,0
+123,Luvdisc,Water,Water,Swift Swim,None,97,Quick Claw,Relaxed,SP_ATTACK|HP,Sweet Kiss,Attract,Dive,Rain Dance,1,0,0
+124,Tentacool,Water,Poison,Clear Body,Liquid Ooze,70,Pecha Berry,Hardy,SP_ATTACK|ATTACK|HP,Bubble Beam,Acid,Barrier,Wrap,1,0,0
+125,Cacnea,Grass,Grass,Sand Veil,None,35,Sitrus Berry,Quirky,ATTACK|HP,Needle Arm,Faint Attack,Cotton Spore,Sand Attack,1,0,0
+126,Unown,Psychic,Psychic,Levitate,None,48,Lax Incense,Hardy,SP_ATTACK|ATTACK|HP,Hidden Power,None,None,None,1,0,0
+127,Koffing,Poison,Poison,Levitate,None,35,Poison Barb,Quirky,ATTACK|HP,Sludge,Smokescreen,Torment,Haze,1,0,0
+128,Staryu,Water,Water,Illuminate,Natural Cure,85,Shell Bell,Quirky,SP_ATTACK|HP,Bubble Beam,Minimize,Swift,Light Screen,1,0,0
+129,Skiploom,Grass,Flying,Chlorophyll,None,80,Persim Berry,Docile,SP_ATTACK|HP,Mega Drain,Confusion,Cotton Spore,Synthesis,1,0,0
+130,Nuzleaf,Grass,Dark,Chlorophyll,Early Bird,60,Sitrus Berry,Hardy,SP_ATTACK|HP,Extrasensory,Fake Out,Razor Wind,Faint Attack,1,0,0
+131,Lombre,Water,Grass,Swift Swim,Rain Dish,50,Lax Incense,Quirky,ATTACK|HP,Water Pulse,Fake Out,Brick Break,Absorb,1,0,0
+132,Vibrava,Ground,Dragon,Levitate,Levitate,70,Cheri Berry,Quirky,ATTACK|HP,Dragon Breath,Dig,Screech,Rock Tomb,1,0,0
+133,Rhyhorn,Ground,Rock,Lightning Rod,Rock Head,25,Focus Band,Hardy,ATTACK|HP,Rock Blast,Dig,Scary Face,Roar,1,0,0
+134,Clamperl,Water,Water,Shell Armor,None,32,Deep Sea Scale,Docile,SP_DEFENSE|DEFENSE|HP,Dive,Toxic,Iron Defense,Double Team,1,0,0
+135,Pidgeotto,Normal,Flying,Keen Eye,None,71,White Herb,Quirky,ATTACK|HP,Aerial Ace,Quick Attack,Feather Dance,Sand Attack,1,0,0
+136,Growlithe,Fire,Fire,Intimidate,Flash Fire,60,Rawst Berry,Docile,SP_ATTACK|HP,Flame Wheel,Bite,Roar,Agility,1,0,0
+137,Farfetchd,Normal,Flying,Keen Eye,Inner Focus,60,Stick,Relaxed,SP_DEFENSE|DEFENSE|HP,Slash,Knock Off,Swords Dance,Agility,1,0,0
+138,Omanyte,Rock,Water,Swift Swim,Shell Armor,35,Sitrus Berry,Quirky,SP_ATTACK|ATTACK|HP,Mud Shot,Water Gun,Ancient Power,Tickle,1,0,0
+139,Kabuto,Rock,Water,Swift Swim,Battle Armor,55,Sitrus Berry,Hardy,SP_ATTACK|ATTACK,Mega Drain,Ancient Power,Sand Attack,Protect,1,0,0
+140,Lileep,Rock,Grass,Suction Cups,None,23,Lax Incense,Docile,ATTACK|HP,Ancient Power,Acid,Ingrain,Confuse Ray,1,0,0
+141,Anorith,Rock,Bug,Battle Armor,None,75,Scope Lens,Hardy,ATTACK|HP,Metal Claw,Fury Cutter,Ancient Power,Water Gun,1,0,0
+142,Aipom,Normal,Normal,Run Away,Pickup,85,Silk Scarf,Relaxed,ATTACK|HP,Fury Swipes,Sand Attack,Baton Pass,Agility,1,0,0
+143,Elekid,Electric,Electric,Static,None,95,Cheri Berry,Naive,SP_ATTACK|HP,Thunder Punch,Quick Attack,Swift,Light Screen,1,0,0
+144,Loudred,Normal,Normal,Soundproof,None,48,Focus Band,Relaxed,ATTACK|HP,Stomp,Howl,Astonish,Supersonic,1,0,0
+145,Spinda,Normal,Normal,Own Tempo,None,60,Sitrus Berry,Relaxed,ATTACK|HP,Dizzy Punch,Teeter Dance,Psybeam,Faint Attack,1,0,0
+146,Nidorina,Poison,Poison,Poison Point,None,56,Focus Band,Quirky,ATTACK|HP,Double Kick,Bite,Aerial Ace,Flatter,1,0,0
+147,Nidorino,Poison,Poison,Poison Point,None,65,Focus Band,Quirky,ATTACK|HP,Double Kick,Water Pulse,Mud Slap,Flatter,1,0,0
+148,Flaaffy,Electric,Electric,Static,None,45,Magnet,Mild,SP_ATTACK|HP,Shock Wave,Thunder Wave,Cotton Spore,Light Screen,1,0,0
+149,Magby,Fire,Fire,Flame Body,None,83,Lax Incense,Docile,SP_ATTACK|HP,Fire Punch,Smokescreen,Confuse Ray,Smog,1,0,0
+150,Nosepass,Rock,Rock,Sturdy,Magnet Pull,30,Hard Stone,Sassy,SP_DEFENSE|HP,Rock Slide,Shock Wave,Thunder Wave,Sandstorm,1,0,0
+151,Corsola,Water,Rock,Hustle,Natural Cure,35,Sitrus Berry,Impish,SP_DEFENSE|DEFENSE|HP,Bubble Beam,Mirror Coat,Attract,Ancient Power,1,0,0
+152,Mawile,Steel,Steel,Hyper Cutter,Intimidate,50,Bright Powder,Docile,SP_ATTACK|HP,Crunch,Fake Tears,Iron Defense,Baton Pass,1,0,0
+153,Butterfree,Bug,Flying,Compound Eyes,None,70,Pecha Berry,Quirky,SP_ATTACK|HP,Silver Wind,Psybeam,Toxic,Whirlwind,1,0,0
+154,Beedrill,Bug,Poison,Swarm,None,75,Scope Lens,Naughty,SPEED|ATTACK,Twineedle,Pursuit,Endeavor,Agility,1,0,0
+155,Poliwhirl,Water,Water,Water Absorb,Damp,90,Petaya Berry,Quirky,SP_ATTACK|HP,Water Pulse,Double Slap,Icy Wind,Rain Dance,1,0,0
+156,Onix,Rock,Ground,Rock Head,Sturdy,70,Sitrus Berry,Hardy,SP_DEFENSE|DEFENSE|HP,Rock Slide,Bind,Dragon Breath,Sandstorm,1,0,0
+157,Beautifly,Bug,Flying,Swarm,None,65,Mental Herb,Docile,SPEED|HP,Silver Wind,Mega Drain,Attract,Whirlwind,1,0,0
+158,Dustox,Bug,Poison,Shield Dust,None,65,Silver Powder,Docile,SPEED|HP,Silver Wind,Toxic,Psybeam,Whirlwind,1,0,0
+159,Ledian,Bug,Flying,Swarm,Early Bird,85,Focus Band,Bashful,SPEED|ATTACK,Comet Punch,Baton Pass,Swords Dance,Agility,1,0,0
+160,Ariados,Bug,Poison,Swarm,Insomnia,40,Lax Incense,Serious,ATTACK|HP,Signal Beam,Spider Web,Night Shade,Toxic,1,0,0
+161,Yanma,Bug,Flying,Speed Boost,Compound Eyes,95,Lax Incense,Relaxed,SP_DEFENSE|DEFENSE,Signal Beam,Aerial Ace,Double Team,Detect,1,0,0
+162,Delcatty,Normal,Normal,Cute Charm,None,70,Sitrus Berry,Lonely,ATTACK|HP,Secret Power,Faint Attack,Double Team,Heal Bell,1,0,0
+163,Sableye,Dark,Ghost,Keen Eye,None,50,Black Glasses,Lonely,ATTACK|HP,Faint Attack,Confuse Ray,Knock Off,Fake Out,1,0,0
+164,Lickitung,Normal,Normal,Own Tempo,Oblivious,30,Sitrus Berry,Quirky,ATTACK|HP,Slam,Brick Break,Lick,Mud Slap,1,0,0
+165,Weepinbell,Grass,Poison,Chlorophyll,None,55,Scope Lens,Quiet,SP_ATTACK|HP,Razor Leaf,Acid,Wrap,Sweet Scent,1,0,0
+166,Graveler,Rock,Ground,Rock Head,Sturdy,35,Focus Band,Adamant,SP_DEFENSE|ATTACK|HP,Magnitude,Rock Throw,Defense Curl,Brick Break,1,0,0
+167,Gloom,Grass,Poison,Chlorophyll,None,40,Persim Berry,Quirky,SP_ATTACK|HP,Petal Dance,Acid,Stun Spore,Moonlight,1,0,0
+168,Porygon,Normal,Normal,Trace,None,40,Sitrus Berry,Relaxed,SP_ATTACK|HP,Psybeam,Icy Wind,Recycle,Agility,1,0,0
+169,Kadabra,Psychic,Psychic,Synchronize,Inner Focus,105,Twisted Spoon,Impish,DEFENSE|HP,Confusion,Role Play,Future Sight,Disable,1,0,0
+170,Wailmer,Water,Water,Water Veil,Oblivious,60,Lax Incense,Docile,SP_DEFENSE|DEFENSE,Whirlpool,Roar,Defense Curl,Rollout,1,0,0
+171,Roselia,Grass,Poison,Natural Cure,Poison Point,65,Pecha Berry,Docile,DEFENSE|HP,Magical Leaf,Toxic,Grass Whistle,Cotton Spore,1,0,0
+172,Volbeat,Bug,Bug,Illuminate,Swarm,85,Liechi Berry,Quirky,SPEED|ATTACK,Silver Wind,Confuse Ray,Quick Attack,Helping Hand,1,0,0
+173,Illumise,Bug,Bug,Oblivious,None,85,Liechi Berry,Quirky,ATTACK|HP,Silver Wind,Wish,Quick Attack,Helping Hand,1,0,0
+174,Ivysaur,Grass,Poison,Overgrow,None,60,Persim Berry,Gentle,SP_ATTACK|HP,Petal Dance,Growth,Sweet Scent,Fury Cutter,1,0,0
+175,Charmeleon,Fire,Fire,Blaze,None,80,Scope Lens,Naughty,ATTACK|HP,Slash,Fire Spin,Swords Dance,Aerial Ace,1,0,0
+176,Wartortle,Water,Water,Torrent,None,58,Focus Band,Docile,SP_ATTACK|HP,Water Pulse,Bite,Mud Slap,Yawn,1,0,0
+177,Parasect,Bug,Grass,Effect Spore,None,30,Sitrus Berry,Rash,SP_DEFENSE|DEFENSE,Slash,Psybeam,Stun Spore,Flash,1,0,0
+178,Machoke,Fighting,Fighting,Guts,None,45,Focus Band,Adamant,SP_DEFENSE|HP,Low Kick,Rock Tomb,Foresight,Scary Face,1,0,0
+179,Haunter,Ghost,Poison,Levitate,None,95,Persim Berry,Rash,ATTACK|HP,Shadow Punch,Confuse Ray,Spite,Grudge,1,0,0
+180,Bayleef,Grass,Grass,Overgrow,None,60,Bright Powder,Docile,SP_ATTACK|HP,Razor Leaf,Toxic,Safeguard,Light Screen,1,0,0
+181,Quilava,Fire,Fire,Blaze,None,80,Focus Band,Docile,SP_ATTACK|HP,Flame Wheel,Fury Swipes,Swift,Smokescreen,1,0,0
+182,Croconaw,Water,Water,Torrent,None,58,Scope Lens,Docile,SP_ATTACK|ATTACK,Slash,Water Pulse,Bite,Scary Face,1,0,0
+183,Togetic,Normal,Flying,Hustle,Serene Grace,40,Lax Incense,Relaxed,DEFENSE|HP,Aerial Ace,Magical Leaf,Wish,Follow Me,1,0,0
+184,Murkrow,Dark,Flying,Insomnia,None,91,Lax Incense,Quirky,SP_DEFENSE|DEFENSE|HP,Faint Attack,Fly,Torment,Taunt,1,0,0
+185,Wobbuffet,Psychic,Psychic,Shadow Tag,None,33,Focus Band,Careful,SP_DEFENSE|DEFENSE|HP,Counter,Mirror Coat,Charm,Safeguard,1,1,8
+186,Plusle,Electric,Electric,Plus,None,95,Petaya Berry,Docile,DEFENSE|HP,Spark,Fake Tears,Quick Attack,Helping Hand,1,0,0
+187,Minun,Electric,Electric,Minus,None,95,Salac Berry,Docile,DEFENSE|HP,Spark,Charm,Encore,Helping Hand,1,0,0
+188,Grovyle,Grass,Grass,Overgrow,None,95,Bright Powder,Relaxed,ATTACK|HP,Fury Cutter,Endeavor,Brick Break,Double Team,1,0,0
+189,Combusken,Fire,Fighting,Blaze,None,55,Scope Lens,Docile,SP_ATTACK|ATTACK,Ember,Double Kick,Quick Attack,Sand Attack,1,0,0
+190,Marshtomp,Water,Ground,Torrent,None,50,Focus Band,Hardy,SP_ATTACK|ATTACK,Mud Shot,Water Gun,Rock Tomb,Mud Slap,1,0,0
+191,Ponyta,Fire,Fire,Run Away,Flash Fire,90,Rawst Berry,Hardy,ATTACK|HP,Fire Spin,Bounce,Quick Attack,Tail Whip,1,0,0
+192,Azumarill,Water,Water,Thick Fat,Huge Power,50,Sitrus Berry,Docile,SP_DEFENSE|DEFENSE,Bubble Beam,Facade,Dig,Protect,1,0,0
+193,Sudowoodo,Rock,Rock,Sturdy,Rock Head,30,Hard Stone,Hardy,SP_DEFENSE|HP,Rock Slide,Faint Attack,Sandstorm,Block,1,0,0
+194,Magcargo,Fire,Rock,Magma Armor,Flame Body,30,Lax Incense,Gentle,SP_DEFENSE|HP,Rock Slide,Ember,Acid Armor,Sandstorm,1,0,0
+195,Pupitar,Rock,Ground,Shed Skin,None,51,Soft Sand,Hardy,SPEED|HP,Dig,Bite,Scary Face,Sandstorm,1,0,0
+196,Sealeo,Ice,Water,Thick Fat,None,45,Persim Berry,Quirky,SP_DEFENSE|DEFENSE|HP,Ice Ball,Hail,Snore,Rest,1,0,0
+197,Raticate,Normal,Normal,Run Away,Guts,97,Silk Scarf,Naive,SPEED|ATTACK|HP,Endeavor,Pursuit,Scary Face,Quick Attack,1,0,0
+198,Masquerain,Bug,Flying,Intimidate,None,60,Cheri Berry,Relaxed,DEFENSE|ATTACK,Silver Wind,Aerial Ace,Icy Wind,Stun Spore,1,0,0
+199,Furret,Normal,Normal,Run Away,Keen Eye,90,Liechi Berry,Serious,SP_DEFENSE|DEFENSE,Slam,Protect,Helping Hand,Follow Me,1,0,0
+200,Dunsparce,Normal,Normal,Serene Grace,Run Away,45,Lax Incense,Docile,ATTACK|HP,Headbutt,Glare,Defense Curl,Rollout,1,0,0
+201,Dragonair,Dragon,Dragon,Shed Skin,None,70,Cheri Berry,Docile,SP_DEFENSE|HP,Dragon Breath,Leer,Wrap,Safeguard,1,0,0
+202,Mightyena,Dark,Dark,Intimidate,None,70,Mental Herb,Timid,SP_ATTACK|ATTACK,Bite,Poison Fang,Taunt,Roar,1,0,0
+203,Linoone,Normal,Normal,Pickup,None,100,White Herb,Adamant,ATTACK|HP,Secret Power,Sand Attack,Covet,Tickle,1,0,0
+204,Castform,Normal,Normal,Forecast,None,70,Petaya Berry,Hasty,SP_ATTACK|HP,Ember,Water Pulse,Shock Wave,Icy Wind,1,0,0
+205,Shelgon,Dragon,Dragon,Rock Head,None,50,Cheri Berry,Hardy,SP_DEFENSE|ATTACK|HP,Headbutt,Dragon Breath,Protect,Scary Face,1,0,0
+206,Metang,Steel,Psychic,Clear Body,None,50,Focus Band,Hardy,SP_DEFENSE|ATTACK,Metal Claw,Confusion,Pursuit,Scary Face,1,0,0
+207,Wigglytuff,Normal,Normal,Cute Charm,None,45,Silk Scarf,Relaxed,SP_DEFENSE|DEFENSE,Sing,Disable,Wish,Secret Power,1,0,0
+208,Sunflora,Grass,Grass,Chlorophyll,None,30,Persim Berry,Quirky,DEFENSE|HP,Petal Dance,Ingrain,Leech Seed,Light Screen,1,0,0
+209,Chimecho,Psychic,Psychic,Levitate,None,65,Twisted Spoon,Sassy,SP_ATTACK|HP,Psywave,Take Down,Heal Bell,Safeguard,1,0,0
+210,Gligar,Ground,Flying,Hyper Cutter,Sand Veil,85,Scope Lens,Hasty,SP_DEFENSE|HP,Metal Claw,Dig,Aerial Ace,Quick Attack,1,0,0
+211,Qwilfish,Water,Poison,Poison Point,Swift Swim,85,Cheri Berry,Impish,SP_DEFENSE|SP_ATTACK,Bubble Beam,Pin Missile,Spikes,Minimize,1,0,0
+212,Sneasel,Dark,Ice,Inner Focus,Keen Eye,115,Persim Berry,Relaxed,SP_DEFENSE|DEFENSE|HP,Faint Attack,Fake Out,Icy Wind,Quick Attack,1,0,0
+213,Pelipper,Water,Flying,Keen Eye,None,65,Sitrus Berry,Quiet,SP_DEFENSE|HP,Water Pulse,Aerial Ace,Stockpile,Swallow,1,0,0
+214,Swellow,Normal,Flying,Guts,None,125,Kings Rock,Adamant,SP_DEFENSE|HP,Fly,Endeavor,Facade,Quick Attack,1,0,0
+215,Lairon,Steel,Rock,Sturdy,Rock Head,40,Metal Coat,Sassy,SP_DEFENSE|HP,Metal Claw,Rock Tomb,Iron Defense,Protect,1,0,0
+216,Tangela,Grass,Grass,Chlorophyll,None,60,Lax Incense,Hardy,SP_DEFENSE|HP,Mega Drain,Slam,Toxic,Bind,1,0,0
+217,Arbok,Poison,Poison,Intimidate,Shed Skin,80,Persim Berry,Adamant,ATTACK|HP,Poison Fang,Dig,Bite,Glare,1,0,0
+218,Persian,Normal,Normal,Limber,None,115,Silk Scarf,Quirky,SP_DEFENSE|DEFENSE|HP,Fake Out,Slash,Torment,Swagger,1,0,0
+219,Seadra,Water,Water,Poison Point,None,85,Mystic Water,Sassy,SP_ATTACK|HP,Aurora Beam,Smokescreen,Water Gun,Rain Dance,1,0,0
+220,Kecleon,Normal,Normal,Color Change,None,40,Focus Band,Naive,DEFENSE|ATTACK|HP,Secret Power,Psybeam,Magic Coat,Seismic Toss,1,0,0
+221,Vigoroth,Normal,Normal,Vital Spirit,None,90,Focus Band,Lonely,ATTACK|HP,Slash,Counter,Encore,Uproar,1,0,0
+222,Lunatone,Rock,Psychic,Levitate,None,70,Sitrus Berry,Quiet,DEFENSE|HP,Confusion,Cosmic Power,Light Screen,Sandstorm,1,0,0
+223,Solrock,Rock,Psychic,Levitate,None,70,Sitrus Berry,Quiet,SP_DEFENSE|HP,Confusion,Fire Spin,Light Screen,Sandstorm,1,0,0
+224,Noctowl,Normal,Flying,Insomnia,Keen Eye,70,Persim Berry,Relaxed,DEFENSE|HP,Confusion,Aerial Ace,Faint Attack,Reflect,1,0,0
+225,Sandslash,Ground,Ground,Sand Veil,None,65,Sitrus Berry,Adamant,SP_DEFENSE|HP,Crush Claw,Rock Slide,Swift,Sandstorm,1,0,0
+226,Venomoth,Bug,Poison,Shield Dust,None,90,Persim Berry,Quirky,SPEED|HP,Silver Wind,Psybeam,Sleep Powder,Skill Swap,1,0,0
+227,Chansey,Normal,Normal,Natural Cure,Serene Grace,50,Sitrus Berry,Relaxed,SP_DEFENSE|DEFENSE,Metronome,Refresh,Defense Curl,Minimize,1,0,0
+228,Seaking,Water,Water,Swift Swim,Water Veil,68,Sitrus Berry,Docile,SP_DEFENSE|HP,Water Pulse,Psybeam,Swift,Agility,1,0,0
+229,Jumpluff,Grass,Flying,Chlorophyll,None,110,Lax Incense,Docile,SPEED|HP,Aerial Ace,Swagger,Psych Up,Synthesis,1,0,0
+230,Piloswine,Ice,Ground,Oblivious,None,50,Soft Sand,Quirky,ATTACK|HP,Dig,Ancient Power,Hail,Light Screen,1,0,0
+231,Golbat,Poison,Flying,Inner Focus,None,90,Scope Lens,Relaxed,ATTACK|HP,Air Cutter,Confuse Ray,Toxic,Steel Wing,1,0,0
+232,Primeape,Fighting,Fighting,Vital Spirit,None,95,Scope Lens,Quirky,SP_DEFENSE|DEFENSE|HP,Karate Chop,Counter,Swagger,Screech,1,0,0
+233,Hitmonlee,Fighting,Fighting,Limber,None,87,Black Belt,Adamant,DEFENSE|HP,Rolling Kick,Brick Break,Focus Energy,Facade,1,0,0
+234,Hitmonchan,Fighting,Fighting,Keen Eye,None,76,Kings Rock,Adamant,DEFENSE|HP,Mach Punch,Sky Uppercut,Detect,Counter,1,0,0
+235,Girafarig,Normal,Psychic,Inner Focus,Early Bird,85,Petaya Berry,Quiet,SP_ATTACK|HP,Psybeam,Stomp,Wish,Skill Swap,1,0,0
+236,Hitmontop,Fighting,Fighting,Intimidate,None,70,Liechi Berry,Hardy,ATTACK|HP,Triple Kick,Dig,Mach Punch,Quick Attack,1,0,0
+237,Banette,Ghost,Ghost,Insomnia,None,65,Rawst Berry,Sassy,SP_DEFENSE|DEFENSE|HP,Night Shade,Will O Wisp,Spite,Knock Off,1,0,0
+238,Ninjask,Bug,Flying,Speed Boost,None,160,Petaya Berry,Mild,SP_DEFENSE|DEFENSE|HP,Baton Pass,Swords Dance,Endure,Dig,1,1,2
+239,Seviper,Poison,Poison,Shed Skin,None,65,Scope Lens,Hardy,ATTACK|HP,Poison Tail,Bite,Glare,Screech,1,0,0
+240,Zangoose,Normal,Normal,Immunity,None,90,Persim Berry,Hardy,ATTACK|HP,Slash,Double Kick,Roar,Quick Attack,1,0,0
+241,Camerupt,Fire,Ground,Magma Armor,None,40,Focus Band,Quirky,ATTACK|HP,Magnitude,Protect,Sandstorm,Rock Slide,1,0,0
+242,Sharpedo,Water,Dark,Rough Skin,None,95,Scope Lens,Adamant,SP_DEFENSE|ATTACK,Slash,Bite,Water Pulse,Scary Face,1,0,0
+243,Tropius,Grass,Flying,Chlorophyll,None,51,Sitrus Berry,Hardy,ATTACK|HP,Magical Leaf,Whirlwind,Aerial Ace,Steel Wing,1,0,0
+244,Magneton,Electric,Steel,Magnet Pull,Sturdy,70,Cheri Berry,Lonely,SP_ATTACK|SPEED,Shock Wave,Sonic Boom,Thunder Wave,Supersonic,1,0,0
+245,Mantine,Water,Flying,Swift Swim,Water Absorb,70,Mystic Water,Docile,SP_DEFENSE|HP,Bubble Beam,Aerial Ace,Rain Dance,Icy Wind,1,0,0
+246,Stantler,Normal,Normal,Intimidate,None,85,Twisted Spoon,Gentle,SP_ATTACK|HP,Extrasensory,Confuse Ray,Stomp,Sand Attack,1,0,0
+247,Absol,Dark,Dark,Pressure,None,75,Bright Powder,Adamant,ATTACK|HP,Bite,Razor Wind,Future Sight,Quick Attack,1,0,0
+248,Swalot,Poison,Poison,Liquid Ooze,Sticky Hold,55,Lax Incense,Quirky,SP_DEFENSE|DEFENSE,Stockpile,Swallow,Spit Up,Sludge,1,0,0
+249,Crawdaunt,Water,Dark,Hyper Cutter,Shell Armor,55,Persim Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Bubble Beam,Vice Grip,Knock Off,Protect,1,0,0
+250,Pidgeot,Normal,Flying,Keen Eye,None,91,Sharp Beak,Hardy,ATTACK|HP,Aerial Ace,Feather Dance,Mud Slap,Faint Attack,1,0,0
+251,Grumpig,Psychic,Psychic,Thick Fat,Own Tempo,80,Petaya Berry,Relaxed,SP_ATTACK|HP,Psybeam,Confuse Ray,Future Sight,Magic Coat,1,0,0
+252,Torkoal,Fire,Fire,White Smoke,None,20,Sitrus Berry,Relaxed,SP_DEFENSE|HP,Ember,Fire Spin,Smokescreen,Amnesia,1,0,0
+253,Kingler,Water,Water,Hyper Cutter,Shell Armor,75,Scope Lens,Hardy,SP_DEFENSE|HP,Crabhammer,Metal Claw,Mud Shot,Protect,1,0,0
+254,Cacturne,Grass,Dark,Sand Veil,None,55,Scope Lens,Hasty,SPEED|HP,Needle Arm,Faint Attack,Acid,Mega Punch,1,0,0
+255,Bellossom,Grass,Grass,Chlorophyll,None,50,Persim Berry,Quiet,SP_ATTACK|HP,Petal Dance,Safeguard,Sunny Day,Synthesis,1,0,0
+256,Octillery,Water,Water,Suction Cups,None,45,Shell Bell,Hardy,SP_ATTACK|ATTACK,Octazooka,Aurora Beam,Psybeam,Rock Blast,1,0,0
+257,Huntail,Water,Water,Swift Swim,None,52,Persim Berry,Quiet,ATTACK|HP,Whirlpool,Scary Face,Mud Slap,Bite,1,0,0
+258,Gorebyss,Water,Water,Swift Swim,None,52,Persim Berry,Brave,SP_ATTACK|HP,Whirlpool,Amnesia,Icy Wind,Confusion,1,0,0
+259,Relicanth,Water,Rock,Swift Swim,Rock Head,55,Liechi Berry,Sassy,SP_DEFENSE|SP_ATTACK|HP,Ancient Power,Water Pulse,Harden,Amnesia,1,0,0
+260,Omastar,Rock,Water,Swift Swim,Shell Armor,55,Shell Bell,Quirky,SP_ATTACK|HP,Bubble Beam,Spike Cannon,Tickle,Ancient Power,1,0,0
+261,Kabutops,Rock,Water,Swift Swim,Battle Armor,80,Scope Lens,Adamant,ATTACK|HP,Slash,Dig,Fury Cutter,Knock Off,1,0,0
+262,Poliwrath,Water,Fighting,Water Absorb,Damp,70,Black Belt,Adamant,ATTACK|HP,Submission,Dig,Rock Tomb,Bubble Beam,1,0,0
+263,Scyther,Bug,Flying,Swarm,None,105,Liechi Berry,Relaxed,ATTACK|HP,Fury Cutter,Aerial Ace,Light Screen,Double Team,1,0,0
+264,Pinsir,Bug,Bug,Hyper Cutter,None,85,Black Belt,Naughty,ATTACK|HP,Submission,Focus Energy,Swords Dance,Revenge,1,0,0
+265,Politoed,Water,Water,Water Absorb,Damp,70,Shell Bell,Relaxed,SP_DEFENSE|DEFENSE,Dive,Dig,Hypnosis,Swagger,1,0,0
+266,Cloyster,Water,Ice,Shell Armor,None,70,Never Melt Ice,Sassy,SP_DEFENSE|HP,Aurora Beam,Spike Cannon,Supersonic,Protect,1,0,0
+267,Delcatty,Normal,Normal,Cute Charm,None,70,Quick Claw,Modest,SP_ATTACK|SPEED,Fake Tears,Sing,Thunderbolt,Ice Beam,1,1,4
+268,Sableye,Dark,Ghost,Keen Eye,None,50,Lum Berry,Quirky,SP_ATTACK|ATTACK|HP,Shadow Ball,Faint Attack,Confuse Ray,Recover,1,0,0
+269,Lickitung,Normal,Normal,Own Tempo,Oblivious,30,Cheri Berry,Adamant,SP_DEFENSE|DEFENSE|ATTACK,Earthquake,Body Slam,Shadow Ball,Rock Slide,1,0,0
+270,Weepinbell,Grass,Poison,Chlorophyll,None,55,Scope Lens,Quirky,SP_DEFENSE|DEFENSE,Sludge Bomb,Razor Leaf,Sleep Powder,Reflect,1,0,0
+271,Graveler,Rock,Ground,Rock Head,Sturdy,35,Focus Band,Adamant,SP_DEFENSE|HP,Earthquake,Rock Slide,Brick Break,Counter,1,0,0
+272,Gloom,Grass,Poison,Chlorophyll,None,40,Pecha Berry,Quirky,SP_ATTACK|ATTACK,Solar Beam,Sunny Day,Sludge Bomb,Moonlight,1,0,0
+273,Porygon,Normal,Normal,Trace,None,40,Cheri Berry,Quiet,SP_ATTACK|ATTACK,Tri Attack,Psychic,Thunder Wave,Recover,1,1,4
+274,Kadabra,Psychic,Psychic,Synchronize,Inner Focus,105,Twisted Spoon,Modest,DEFENSE|HP,Psychic,Thunder Wave,Reflect,Recover,1,0,0
+275,Wailmer,Water,Water,Water Veil,Oblivious,60,Chesto Berry,Docile,SP_DEFENSE|DEFENSE,Water Spout,Earthquake,Body Slam,Rest,1,0,0
+276,Roselia,Grass,Poison,Natural Cure,Poison Point,65,Quick Claw,Docile,DEFENSE|HP,Giga Drain,Sludge Bomb,Grass Whistle,Synthesis,1,0,0
+277,Volbeat,Bug,Bug,Illuminate,Swarm,85,Petaya Berry,Quirky,SP_ATTACK|SPEED,Signal Beam,Thunderbolt,Ice Punch,Tail Glow,1,0,0
+278,Illumise,Bug,Bug,Oblivious,None,85,Petaya Berry,Quirky,SP_ATTACK|SPEED,Silver Wind,Thunderbolt,Ice Punch,Giga Drain,1,0,0
+279,Ivysaur,Grass,Poison,Overgrow,None,60,Bright Powder,Quirky,SP_ATTACK|ATTACK,Giga Drain,Sludge Bomb,Sleep Powder,Leech Seed,1,0,0
+280,Charmeleon,Fire,Fire,Blaze,None,80,Scope Lens,Hardy,SPEED|ATTACK,Flamethrower,Slash,Ancient Power,Dragon Rage,1,0,0
+281,Wartortle,Water,Water,Torrent,None,58,Shell Bell,Docile,SP_ATTACK|HP,Surf,Ice Beam,Rapid Spin,Protect,1,0,0
+282,Parasect,Bug,Grass,Effect Spore,None,30,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Spore,Giga Drain,Dig,Double Team,1,1,2
+283,Machoke,Fighting,Fighting,Guts,None,45,Scope Lens,Adamant,ATTACK|HP,Cross Chop,Rock Slide,Foresight,Scary Face,1,0,0
+284,Haunter,Ghost,Poison,Levitate,None,95,Lum Berry,Relaxed,SP_DEFENSE|DEFENSE|HP,Psychic,Hypnosis,Nightmare,Confuse Ray,1,0,0
+285,Bayleef,Grass,Grass,Overgrow,None,60,Chesto Berry,Docile,SP_DEFENSE|DEFENSE|HP,Giga Drain,Body Slam,Grass Whistle,Rest,1,0,0
+286,Quilava,Fire,Fire,Blaze,None,80,Bright Powder,Docile,SP_ATTACK|ATTACK,Flamethrower,Crush Claw,Body Slam,Smokescreen,1,0,0
+287,Croconaw,Water,Water,Torrent,None,58,Focus Band,Adamant,ATTACK|HP,Mega Kick,Aerial Ace,Rock Slide,Dig,1,0,0
+288,Togetic,Normal,Flying,Hustle,Serene Grace,40,Scope Lens,Relaxed,DEFENSE|HP,Return,Sweet Kiss,Aerial Ace,Yawn,1,0,0
+289,Murkrow,Dark,Flying,Insomnia,None,91,Bright Powder,Quirky,SP_DEFENSE|DEFENSE|HP,Perish Song,Mean Look,Double Team,Thunder Wave,1,0,0
+290,Wobbuffet,Psychic,Psychic,Shadow Tag,None,33,Focus Band,Careful,SP_DEFENSE|DEFENSE,Counter,Mirror Coat,Encore,Destiny Bond,1,1,8
+291,Plusle,Electric,Electric,Plus,None,95,Petaya Berry,Docile,SP_ATTACK|SPEED,Thunderbolt,Thunder Wave,Seismic Toss,Wish,1,0,0
+292,Minun,Electric,Electric,Minus,None,95,Salac Berry,Docile,SP_ATTACK|SPEED,Thunderbolt,Attract,Charm,Wish,1,0,0
+293,Grovyle,Grass,Grass,Overgrow,None,95,Lum Berry,Docile,SPEED|ATTACK,Giga Drain,Crush Claw,Screech,Rock Tomb,1,0,0
+294,Combusken,Fire,Fighting,Blaze,None,55,Scope Lens,Docile,SP_ATTACK|SPEED|ATTACK,Flamethrower,Sky Uppercut,Slash,Sand Attack,1,0,0
+295,Marshtomp,Water,Ground,Torrent,None,50,Focus Band,Docile,SP_ATTACK|ATTACK,Muddy Water,Earthquake,Mud Slap,Protect,1,0,0
+296,Ponyta,Fire,Fire,Run Away,Flash Fire,90,Sitrus Berry,Quirky,SP_ATTACK|SPEED,Flamethrower,Body Slam,Double Kick,Double Team,1,0,0
+297,Azumarill,Water,Water,Thick Fat,Huge Power,50,Shell Bell,Adamant,SP_DEFENSE|HP,Mega Kick,Brick Break,Iron Tail,Dig,1,0,0
+298,Sudowoodo,Rock,Rock,Sturdy,Rock Head,30,Focus Band,Hardy,SP_DEFENSE|HP,Mega Kick,Earthquake,Low Kick,Self Destruct,1,0,0
+299,Magcargo,Fire,Rock,Magma Armor,Flame Body,30,Quick Claw,Quiet,SP_DEFENSE|HP,Overheat,Earthquake,Rock Slide,Body Slam,1,0,0
+300,Pupitar,Rock,Ground,Shed Skin,None,51,Scope Lens,Hardy,ATTACK|HP,Earthquake,Rock Slide,Crunch,Scary Face,1,0,0
+301,Sealeo,Ice,Water,Thick Fat,None,45,Sitrus Berry,Quiet,SP_ATTACK|HP,Ice Beam,Surf,Body Slam,Hail,1,0,0
+302,Raticate,Normal,Normal,Run Away,Guts,97,Focus Band,Adamant,SPEED|ATTACK,Super Fang,Hyper Fang,Shadow Ball,Scary Face,1,0,0
+303,Masquerain,Bug,Flying,Intimidate,None,60,Lax Incense,Quiet,SP_ATTACK|DEFENSE,Hydro Pump,Ice Beam,Giga Drain,Stun Spore,1,1,2
+304,Furret,Normal,Normal,Run Away,Keen Eye,90,Choice Band,Adamant,SPEED|ATTACK,Trick,Frustration,Shadow Ball,Follow Me,1,0,0
+305,Dunsparce,Normal,Normal,Serene Grace,Run Away,45,Lax Incense,Quiet,SP_DEFENSE|DEFENSE,Ice Beam,Rock Tomb,Bite,Shadow Ball,1,1,4
+306,Dragonair,Dragon,Dragon,Shed Skin,None,70,Chesto Berry,Adamant,SP_DEFENSE|HP,Return,Rest,Thunder Wave,Dragon Dance,1,0,0
+307,Mightyena,Dark,Dark,Intimidate,None,70,Kings Rock,Quirky,SP_ATTACK|DEFENSE,Crunch,Shadow Ball,Frustration,Scary Face,1,0,0
+308,Linoone,Normal,Normal,Pickup,None,100,Choice Band,Jolly,SPEED|ATTACK,Trick,Frustration,Thunder Wave,Sand Attack,1,0,0
+309,Castform,Normal,Normal,Forecast,None,70,Lax Incense,Modest,SP_ATTACK|HP,Thunderbolt,Flamethrower,Ice Beam,Water Pulse,1,0,0
+310,Shelgon,Dragon,Dragon,Rock Head,None,50,Focus Band,Hardy,SP_DEFENSE|HP,Frustration,Dragon Dance,Crunch,Scary Face,1,0,0
+311,Metang,Steel,Psychic,Clear Body,None,50,Focus Band,Quirky,SP_ATTACK|HP,Meteor Mash,Psychic,Body Slam,Scary Face,1,0,0
+312,Wigglytuff,Normal,Normal,Cute Charm,None,45,Sitrus Berry,Docile,SP_DEFENSE|DEFENSE,Fake Tears,Sing,Dream Eater,Brick Break,1,1,4
+313,Sunflora,Grass,Grass,Chlorophyll,None,30,Leftovers,Quiet,DEFENSE|HP,Giga Drain,Grass Whistle,Growth,Double Team,1,1,2
+314,Chimecho,Psychic,Psychic,Levitate,None,65,Twisted Spoon,Quiet,SP_DEFENSE|DEFENSE|HP,Psychic,Hypnosis,Dream Eater,Heal Bell,1,0,0
+315,Gligar,Ground,Flying,Hyper Cutter,Sand Veil,85,Quick Claw,Adamant,SP_DEFENSE|HP,Earthquake,Aerial Ace,Guillotine,Screech,1,0,0
+316,Qwilfish,Water,Poison,Poison Point,Swift Swim,85,Focus Band,Adamant,SP_DEFENSE|HP,Revenge,Sludge Bomb,Shadow Ball,Destiny Bond,1,0,0
+317,Sneasel,Dark,Ice,Inner Focus,Keen Eye,115,Kings Rock,Jolly,SPEED|DEFENSE|HP,Crush Claw,Brick Break,Aerial Ace,Screech,1,1,4
+318,Pelipper,Water,Flying,Keen Eye,None,65,Shell Bell,Quiet,SP_DEFENSE|HP,Surf,Blizzard,Aerial Ace,Protect,1,0,0
+319,Swellow,Normal,Flying,Guts,None,125,Kings Rock,Adamant,SP_DEFENSE|HP,Facade,Aerial Ace,Pursuit,Double Team,1,0,0
+320,Lairon,Steel,Rock,Sturdy,Rock Head,40,Sitrus Berry,Sassy,SP_DEFENSE|HP,Earthquake,Iron Tail,Roar,Protect,1,0,0
+321,Tangela,Grass,Grass,Chlorophyll,None,60,Chesto Berry,Calm,SP_DEFENSE|HP,Giga Drain,Stun Spore,Rest,Amnesia,1,0,0
+322,Arbok,Poison,Poison,Intimidate,Shed Skin,80,Lum Berry,Adamant,DEFENSE|HP,Sludge Bomb,Earthquake,Iron Tail,Glare,1,0,0
+323,Persian,Normal,Normal,Limber,None,115,Silk Scarf,Quirky,SP_DEFENSE|DEFENSE|HP,Frustration,Shadow Ball,Roar,Fake Out,1,0,0
+324,Seadra,Water,Water,Poison Point,None,85,Shell Bell,Docile,SP_DEFENSE|HP,Hydro Pump,Frustration,Dragon Breath,Dragon Dance,1,0,0
+325,Kecleon,Normal,Normal,Color Change,None,40,Choice Band,Docile,DEFENSE|HP,Trick,Brick Break,Shadow Ball,Skill Swap,1,1,4
+326,Vigoroth,Normal,Normal,Vital Spirit,None,90,Salac Berry,Adamant,SP_DEFENSE|ATTACK,Crush Claw,Reversal,Endure,Shadow Ball,1,0,0
+327,Lunatone,Rock,Psychic,Levitate,None,70,Lax Incense,Quiet,DEFENSE|HP,Psychic,Ice Beam,Cosmic Power,Calm Mind,1,0,0
+328,Solrock,Rock,Psychic,Levitate,None,70,White Herb,Hardy,SP_DEFENSE|HP,Earthquake,Rock Slide,Cosmic Power,Overheat,1,0,0
+329,Noctowl,Normal,Flying,Insomnia,Keen Eye,70,Persim Berry,Quiet,SP_ATTACK|DEFENSE,Psychic,Faint Attack,Aerial Ace,Reflect,1,0,0
+330,Sandslash,Ground,Ground,Sand Veil,None,65,Quick Claw,Adamant,SP_DEFENSE|HP,Earthquake,Rock Slide,Crush Claw,Sandstorm,1,0,0
+331,Venomoth,Bug,Poison,Shield Dust,None,90,Lum Berry,Docile,SPEED|HP,Signal Beam,Psychic,Sludge Bomb,Giga Drain,1,1,2
+332,Chansey,Normal,Normal,Natural Cure,Serene Grace,50,Leftovers,Relaxed,SP_DEFENSE|DEFENSE,Seismic Toss,Shadow Ball,Double Team,Soft Boiled,1,1,4
+333,Seaking,Water,Water,Swift Swim,Water Veil,68,Quick Claw,Impish,SP_DEFENSE|DEFENSE|HP,Horn Drill,Megahorn,Sleep Talk,Rest,1,1,2
+334,Jumpluff,Grass,Flying,Chlorophyll,None,110,Leftovers,Bold,SP_DEFENSE|DEFENSE,Leech Seed,Sleep Powder,Giga Drain,Double Team,1,1,2
+335,Piloswine,Ice,Ground,Oblivious,None,50,Shell Bell,Adamant,SP_DEFENSE|DEFENSE,Earthquake,Rock Slide,Body Slam,Roar,1,0,0
+336,Golbat,Poison,Flying,Inner Focus,None,90,Scope Lens,Adamant,ATTACK|HP,Sludge Bomb,Shadow Ball,Confuse Ray,Air Cutter,1,0,0
+337,Primeape,Fighting,Fighting,Vital Spirit,None,95,Scope Lens,Quirky,SP_DEFENSE|DEFENSE|HP,Cross Chop,Rock Tomb,Overheat,Bulk Up,1,0,0
+338,Hitmonlee,Fighting,Fighting,Limber,None,87,Lax Incense,Adamant,DEFENSE|HP,Mega Kick,Brick Break,Foresight,Rock Tomb,1,0,0
+339,Hitmonchan,Fighting,Fighting,Keen Eye,None,76,Kings Rock,Adamant,DEFENSE|HP,Dynamic Punch,Mach Punch,Detect,Counter,1,0,0
+340,Girafarig,Normal,Psychic,Inner Focus,Early Bird,85,Lum Berry,Modest,SP_DEFENSE|DEFENSE,Psychic,Crunch,Baton Pass,Agility,1,0,0
+341,Hitmontop,Fighting,Fighting,Intimidate,None,70,Focus Band,Adamant,DEFENSE|HP,Double Edge,Seismic Toss,Rock Slide,Counter,1,0,0
+342,Banette,Ghost,Ghost,Insomnia,None,65,Lax Incense,Adamant,SP_DEFENSE|DEFENSE,Shadow Ball,Frustration,Screech,Will O Wisp,1,0,0
+343,Ninjask,Bug,Flying,Speed Boost,None,160,Focus Band,Quirky,SP_DEFENSE|DEFENSE|HP,Slash,Shadow Ball,Swords Dance,Baton Pass,1,1,2
+344,Seviper,Poison,Poison,Shed Skin,None,65,Quick Claw,Quirky,SP_DEFENSE|DEFENSE|HP,Sludge Bomb,Earthquake,Crunch,Giga Drain,1,1,2
+345,Zangoose,Normal,Normal,Immunity,None,90,Scope Lens,Adamant,SPEED|ATTACK,Crush Claw,Shadow Ball,Brick Break,Aerial Ace,1,1,3
+346,Camerupt,Fire,Ground,Magma Armor,None,40,Lax Incense,Quirky,SP_ATTACK|ATTACK,Earthquake,Eruption,Body Slam,Scary Face,1,0,0
+347,Sharpedo,Water,Dark,Rough Skin,None,95,Scope Lens,Quirky,SP_ATTACK|SPEED|ATTACK,Double Edge,Crunch,Earthquake,Surf,1,1,6
+348,Tropius,Grass,Flying,Chlorophyll,None,51,Focus Band,Quiet,SP_ATTACK|ATTACK,Solar Beam,Sunny Day,Synthesis,Body Slam,1,1,2
+349,Magneton,Electric,Steel,Magnet Pull,Sturdy,70,Lum Berry,Hardy,SP_DEFENSE|HP,Thunder,Rain Dance,Thunder Wave,Metal Sound,1,0,0
+350,Mantine,Water,Flying,Swift Swim,Water Absorb,70,Shell Bell,Modest,DEFENSE|HP,Surf,Ice Beam,Rain Dance,Confuse Ray,1,1,2
+351,Stantler,Normal,Normal,Intimidate,None,85,Lax Incense,Adamant,SPEED|ATTACK,Frustration,Shadow Ball,Thunder Wave,Confuse Ray,1,0,0
+352,Absol,Dark,Dark,Pressure,None,75,Choice Band,Adamant,SPEED|ATTACK,Double Edge,Shadow Ball,Aerial Ace,Iron Tail,1,1,7
+353,Swalot,Poison,Poison,Liquid Ooze,Sticky Hold,55,Leftovers,Adamant,ATTACK|HP,Sludge Bomb,Shadow Ball,Body Slam,Counter,1,0,0
+354,Crawdaunt,Water,Dark,Hyper Cutter,Shell Armor,55,Quick Claw,Adamant,SP_DEFENSE|HP,Guillotine,Frustration,Ancient Power,Aerial Ace,1,1,2
+355,Pidgeot,Normal,Flying,Keen Eye,None,91,Scope Lens,Adamant,SPEED|ATTACK,Return,Aerial Ace,Steel Wing,Mud Slap,1,1,2
+356,Grumpig,Psychic,Psychic,Thick Fat,Own Tempo,80,Lum Berry,Modest,SP_ATTACK|DEFENSE,Psychic,Ice Punch,Thunder Punch,Fire Punch,1,0,0
+357,Torkoal,Fire,Fire,White Smoke,None,20,White Herb,Sassy,SP_DEFENSE|HP,Overheat,Body Slam,Smokescreen,Protect,1,0,0
+358,Kingler,Water,Water,Hyper Cutter,Shell Armor,75,Salac Berry,Adamant,SP_DEFENSE|HP,Guillotine,Rock Tomb,Flail,Endure,1,1,2
+359,Cacturne,Grass,Dark,Sand Veil,None,55,Persim Berry,Hardy,SP_DEFENSE|DEFENSE,Mega Kick,Teeter Dance,Faint Attack,Sandstorm,1,1,2
+360,Bellossom,Grass,Grass,Chlorophyll,None,50,Bright Powder,Modest,SP_ATTACK|DEFENSE,Solar Beam,Attract,Sunny Day,Synthesis,1,1,2
+361,Octillery,Water,Water,Suction Cups,None,45,Lax Incense,Quirky,SP_DEFENSE|DEFENSE|HP,Octazooka,Fire Blast,Thunder Wave,Mud Slap,1,1,2
+362,Huntail,Water,Water,Swift Swim,None,52,Shell Bell,Quiet,SP_DEFENSE|HP,Surf,Rain Dance,Crunch,Body Slam,1,1,2
+363,Gorebyss,Water,Water,Swift Swim,None,52,Shell Bell,Quiet,SP_DEFENSE|HP,Surf,Rain Dance,Psychic,Body Slam,1,1,2
+364,Relicanth,Water,Rock,Swift Swim,Rock Head,55,Chesto Berry,Sassy,SP_DEFENSE|HP,Earthquake,Rock Slide,Amnesia,Rest,1,1,2
+365,Omastar,Rock,Water,Swift Swim,Shell Armor,55,Sitrus Berry,Modest,SP_DEFENSE|HP,Hydro Pump,Rain Dance,Ice Beam,Protect,1,0,0
+366,Kabutops,Rock,Water,Swift Swim,Battle Armor,80,Salac Berry,Adamant,SP_DEFENSE|ATTACK,Slash,Rock Slide,Flail,Endure,1,0,0
+367,Poliwrath,Water,Fighting,Water Absorb,Damp,70,Chesto Berry,Adamant,ATTACK|HP,Brick Break,Hypnosis,Rest,Belly Drum,1,0,0
+368,Scyther,Bug,Flying,Swarm,None,105,Bright Powder,Adamant,SPEED|ATTACK,Silver Wind,Aerial Ace,Swords Dance,Double Team,1,1,2
+369,Pinsir,Bug,Bug,Hyper Cutter,None,85,Salac Berry,Jolly,SPEED|HP,Guillotine,Swords Dance,Flail,Endure,1,1,2
+370,Politoed,Water,Water,Water Absorb,Damp,70,Lax Incense,Modest,SP_ATTACK|DEFENSE,Surf,Psychic,Mud Slap,Swagger,1,0,0
+371,Cloyster,Water,Ice,Shell Armor,None,70,Leftovers,Careful,SP_DEFENSE|HP,Dive,Toxic,Double Team,Protect,1,1,6
+372,Dugtrio,Ground,Ground,Sand Veil,Arena Trap,120,Soft Sand,Adamant,SPEED|ATTACK,Earthquake,Tri Attack,Slash,Sand Tomb,1,1,6
+373,Medicham,Fighting,Psychic,Pure Power,None,80,Focus Band,Docile,SPEED|ATTACK,Psychic,Hi Jump Kick,Calm Mind,Baton Pass,1,1,16
+374,Misdreavus,Ghost,Ghost,Levitate,None,85,Focus Band,Impish,DEFENSE|HP,Pain Split,Shadow Ball,Confuse Ray,Thunder Wave,1,1,11
+375,Fearow,Normal,Flying,Keen Eye,None,100,Sharp Beak,Adamant,SPEED|ATTACK,Drill Peck,Tri Attack,Facade,Mud Slap,1,1,6
+376,Granbull,Normal,Normal,Intimidate,Intimidate,45,Cheri Berry,Adamant,ATTACK|HP,Mega Kick,Smelling Salt,Thunder Wave,Roar,1,1,6
+377,Jynx,Ice,Psychic,Oblivious,None,95,Shell Bell,Modest,SP_ATTACK|HP,Ice Beam,Fake Out,Lovely Kiss,Attract,1,1,19
+378,Dusclops,Ghost,Ghost,Pressure,None,25,Leftovers,Impish,SP_DEFENSE|DEFENSE|HP,Will O Wisp,Seismic Toss,Pain Split,Confuse Ray,1,1,10
+379,Dodrio,Normal,Flying,Run Away,Early Bird,100,Chesto Berry,Adamant,SPEED|ATTACK,Drill Peck,Tri Attack,Sleep Talk,Rest,1,1,6
+380,Mr Mime,Psychic,Psychic,Soundproof,None,90,Leftovers,Relaxed,DEFENSE|HP,Psychic,Magical Leaf,Fake Out,Reflect,1,1,12
+381,Lanturn,Water,Electric,Volt Absorb,Illuminate,67,Cheri Berry,Quiet,SP_ATTACK|DEFENSE,Surf,Confuse Ray,Attract,Thunder Wave,1,1,11
+382,Breloom,Grass,Fighting,Effect Spore,None,70,Kings Rock,Jolly,SPEED|ATTACK,Sky Uppercut,Mach Punch,Headbutt,Counter,1,1,14
+383,Forretress,Bug,Steel,Sturdy,None,40,Focus Band,Adamant,SP_DEFENSE|ATTACK,Double Edge,Rock Slide,Light Screen,Spikes,1,1,10
+384,Whiscash,Water,Ground,Oblivious,None,60,Chesto Berry,Adamant,ATTACK|HP,Earthquake,Rock Slide,Amnesia,Rest,1,1,8
+385,Xatu,Psychic,Flying,Synchronize,Early Bird,95,Sharp Beak,Hardy,SP_ATTACK|ATTACK|HP,Drill Peck,Night Shade,Wish,Future Sight,1,1,14
+386,Skarmory,Steel,Flying,Keen Eye,Sturdy,70,Scope Lens,Adamant,SP_DEFENSE|ATTACK|HP,Steel Wing,Air Cutter,Counter,Agility,1,1,11
+387,Marowak,Ground,Ground,Rock Head,Lightning Rod,45,Thick Club,Adamant,ATTACK|HP,Bonemerang,Rock Slide,Icy Wind,Headbutt,1,1,10
+388,Quagsire,Water,Ground,Damp,Water Absorb,35,Focus Band,Adamant,SP_DEFENSE|ATTACK,Earthquake,Brick Break,Counter,Mud Slap,1,1,10
+389,Clefable,Normal,Normal,Cute Charm,None,60,Leftovers,Brave,SP_DEFENSE|DEFENSE,Metronome,Double Team,Reflect,Follow Me,1,1,4
+390,Hariyama,Fighting,Fighting,Thick Fat,Guts,50,Focus Band,Adamant,SP_DEFENSE|DEFENSE|HP,Cross Chop,Rock Slide,Counter,Fake Out,1,1,16
+391,Raichu,Electric,Electric,Static,None,100,Bright Powder,Modest,SP_ATTACK|SPEED|DEFENSE,Thunderbolt,Quick Attack,Light Screen,Double Team,1,1,5
+392,Dewgong,Water,Ice,Thick Fat,None,70,Never Melt Ice,Quiet,SP_ATTACK|HP,Ice Beam,Icy Wind,Headbutt,Fake Out,1,1,10
+393,Manectric,Electric,Electric,Static,Lightning Rod,105,Magnet,Modest,SP_ATTACK|SPEED,Thunderbolt,Flash,Quick Attack,Roar,1,1,5
+394,Vileplume,Grass,Poison,Chlorophyll,None,50,Persim Berry,Impish,ATTACK|HP,Sludge Bomb,Petal Dance,Moonlight,Aromatherapy,1,1,8
+395,Victreebel,Grass,Poison,Chlorophyll,None,70,Sitrus Berry,Quiet,SP_DEFENSE|DEFENSE,Giga Drain,Sleep Powder,Sweet Scent,Synthesis,1,1,8
+396,Electrode,Electric,Electric,Soundproof,Static,140,Focus Band,Quiet,SP_ATTACK|HP,Thunderbolt,Swift,Light Screen,Protect,1,1,5
+397,Exploud,Normal,Normal,Soundproof,None,68,Chesto Berry,Impish,ATTACK|HP,Hyper Voice,Shadow Ball,Sleep Talk,Rest,1,1,5
+398,Shiftry,Grass,Dark,Chlorophyll,Early Bird,80,Miracle Seed,Quiet,SP_DEFENSE|SP_ATTACK|DEFENSE,Giga Drain,Faint Attack,Quick Attack,Fake Out,1,1,9
+399,Glalie,Ice,Ice,Inner Focus,None,80,Petaya Berry,Modest,SP_ATTACK|HP,Ice Beam,Crunch,Hail,Protect,1,1,11
+400,Ludicolo,Water,Grass,Swift Swim,Rain Dish,70,Shell Bell,Quiet,SP_ATTACK|DEFENSE|HP,Surf,Rain Dance,Thunder Punch,Fire Punch,1,1,14
+401,Hypno,Psychic,Psychic,Insomnia,None,67,Twisted Spoon,Quiet,SP_ATTACK|DEFENSE,Thunder Punch,Fire Punch,Ice Punch,Hypnosis,1,1,12
+402,Golem,Rock,Ground,Rock Head,Sturdy,45,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Earthquake,Body Slam,Counter,Rock Tomb,1,1,11
+403,Rhydon,Ground,Rock,Lightning Rod,Rock Head,40,Quick Claw,Adamant,SP_DEFENSE|ATTACK|HP,Earthquake,Rock Tomb,Scary Face,Brick Break,1,1,16
+404,Alakazam,Psychic,Psychic,Synchronize,Inner Focus,120,Focus Band,Modest,SP_ATTACK|DEFENSE,Thunder Punch,Fire Punch,Ice Punch,Thunder Wave,1,1,15
+405,Weezing,Poison,Poison,Levitate,None,60,Bright Powder,Adamant,ATTACK|HP,Sludge Bomb,Will O Wisp,Shadow Ball,Smokescreen,1,1,6
+406,Kangaskhan,Normal,Normal,Early Bird,None,90,Focus Band,Adamant,ATTACK|HP,Dizzy Punch,Brick Break,Counter,Fake Out,1,1,5
+407,Electabuzz,Electric,Electric,Static,None,105,Cheri Berry,Relaxed,SP_ATTACK|DEFENSE|HP,Thunderbolt,Thunder Wave,Brick Break,Light Screen,1,1,6
+408,Tauros,Normal,Normal,Intimidate,None,110,Persim Berry,Adamant,SPEED|ATTACK,Earthquake,Thrash,Swagger,Facade,1,1,5
+409,Slowbro,Water,Psychic,Oblivious,Own Tempo,30,Shell Bell,Quiet,SP_DEFENSE|HP,Surf,Rain Dance,Headbutt,Ice Punch,1,1,20
+410,Slowking,Water,Psychic,Oblivious,Own Tempo,30,Leftovers,Quiet,DEFENSE|HP,Psychic,Brick Break,Amnesia,Attract,1,1,19
+411,Miltank,Normal,Normal,Thick Fat,None,100,Focus Band,Careful,SP_DEFENSE|DEFENSE|HP,Facade,Shadow Ball,Counter,Milk Drink,1,1,7
+412,Altaria,Dragon,Flying,Natural Cure,None,80,Cheri Berry,Docile,ATTACK|HP,Dragon Claw,Aerial Ace,Refresh,Body Slam,1,1,9
+413,Nidoqueen,Poison,Ground,Poison Point,None,76,Focus Band,Adamant,ATTACK|HP,Sludge Bomb,Double Kick,Body Slam,Counter,1,1,13
+414,Nidoking,Poison,Ground,Poison Point,None,85,Quick Claw,Adamant,ATTACK|HP,Horn Drill,Double Kick,Body Slam,Counter,1,1,13
+415,Magmar,Fire,Fire,Flame Body,None,93,Rawst Berry,Relaxed,SP_ATTACK|DEFENSE|HP,Flamethrower,Smokescreen,Brick Break,Barrier,1,1,8
+416,Cradily,Rock,Grass,Suction Cups,None,43,Leftovers,Relaxed,SP_DEFENSE|DEFENSE|HP,Giga Drain,Rock Slide,Barrier,Confuse Ray,1,1,13
+417,Armaldo,Rock,Bug,Battle Armor,None,45,Scope Lens,Adamant,ATTACK|HP,Slash,Aerial Ace,Ancient Power,Protect,1,1,11
+418,Golduck,Water,Water,Damp,Cloud Nine,85,Shell Bell,Quiet,SP_ATTACK|ATTACK,Hydro Pump,Dig,Brick Break,Light Screen,1,1,8
+419,Rapidash,Fire,Fire,Run Away,Flash Fire,105,Charcoal,Quiet,SP_ATTACK|SPEED,Flamethrower,Double Kick,Quick Attack,Protect,1,1,8
+420,Muk,Poison,Poison,Stench,Sticky Hold,50,Poison Barb,Adamant,ATTACK|HP,Sludge Bomb,Body Slam,Screech,Minimize,1,1,6
+421,Gengar,Ghost,Poison,Levitate,None,110,Leftovers,Timid,SP_ATTACK|SPEED|HP,Dream Eater,Hypnosis,Confuse Ray,Attract,1,1,15
+422,Ampharos,Electric,Electric,Static,None,55,Magnet,Relaxed,SP_ATTACK|HP,Thunder,Rain Dance,Thunder Wave,Attract,1,1,11
+423,Scizor,Bug,Steel,Swarm,None,65,Focus Band,Adamant,SP_DEFENSE|ATTACK,Metal Claw,Aerial Ace,Counter,Quick Attack,1,1,12
+424,Heracross,Bug,Fighting,Swarm,Guts,85,Focus Band,Adamant,DEFENSE|ATTACK,Megahorn,Brick Break,Rock Tomb,Counter,1,1,14
+425,Ursaring,Normal,Normal,Guts,None,55,Quick Claw,Docile,SP_ATTACK|ATTACK|HP,Mega Kick,Crunch,Aerial Ace,Counter,1,1,11
+426,Houndoom,Dark,Fire,Early Bird,Flash Fire,95,Focus Band,Quirky,SP_ATTACK|SPEED|ATTACK,Flamethrower,Shadow Ball,Counter,Will O Wisp,1,1,13
+427,Donphan,Ground,Ground,Sturdy,None,50,Chesto Berry,Adamant,ATTACK|HP,Earthquake,Ancient Power,Swagger,Rest,1,1,8
+428,Claydol,Ground,Psychic,Levitate,None,75,Lum Berry,Adamant,ATTACK|HP,Earthquake,Rock Slide,Swagger,Psych Up,1,1,12
+429,Wailord,Water,Water,Water Veil,Oblivious,60,Shell Bell,Sassy,SP_DEFENSE|DEFENSE|HP,Surf,Icy Wind,Body Slam,Roar,1,1,11
+430,Ninetales,Fire,Fire,Flash Fire,None,100,Rawst Berry,Modest,SP_ATTACK|SPEED,Flamethrower,Roar,Confuse Ray,Will O Wisp,1,1,8
+431,Machamp,Fighting,Fighting,Guts,None,55,Scope Lens,Adamant,ATTACK|HP,Cross Chop,Rock Slide,Counter,Scary Face,1,1,21
+432,Shuckle,Bug,Rock,Sturdy,None,5,Chesto Berry,Brave,SP_DEFENSE|DEFENSE,Rollout,Defense Curl,Sleep Talk,Rest,1,1,13
+433,Steelix,Steel,Ground,Rock Head,Sturdy,30,Sitrus Berry,Adamant,SP_DEFENSE|ATTACK,Earthquake,Dragon Breath,Rock Tomb,Roar,1,1,18
+434,Tentacruel,Water,Poison,Clear Body,Liquid Ooze,100,Persim Berry,Impish,DEFENSE|ATTACK,Sludge Bomb,Icy Wind,Barrier,Confuse Ray,1,1,10
+435,Aerodactyl,Rock,Flying,Rock Head,Pressure,130,Kings Rock,Adamant,SPEED|ATTACK|HP,Ancient Power,Dragon Breath,Aerial Ace,Roar,1,1,18
+436,Porygon2,Normal,Normal,Trace,None,60,Leftovers,Adamant,ATTACK|HP,Tri Attack,Aerial Ace,Shadow Ball,Recover,1,1,4
+437,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Leftovers,Timid,SPEED|DEFENSE|HP,Dream Eater,Hypnosis,Magical Leaf,Reflect,1,1,17
+438,Exeggutor,Grass,Psychic,Chlorophyll,None,55,Quick Claw,Quiet,SP_DEFENSE|DEFENSE,Solar Beam,Sunny Day,Synthesis,Light Screen,1,1,16
+439,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Shell Bell,Modest,SP_ATTACK|HP,Psychic,Confuse Ray,Thunder Wave,Recover,1,1,22
+440,Flygon,Ground,Dragon,Levitate,Levitate,100,Bright Powder,Adamant,SPEED|ATTACK,Earthquake,Steel Wing,Faint Attack,Facade,1,1,12
+441,Venusaur,Grass,Poison,Overgrow,None,80,Chesto Berry,Quiet,SP_ATTACK|HP,Giga Drain,Sunny Day,Synthesis,Sleep Powder,1,1,13
+442,Vaporeon,Water,Water,Water Absorb,None,65,Mystic Water,Modest,SP_DEFENSE|SP_ATTACK|DEFENSE,Surf,Roar,Bite,Quick Attack,1,1,9
+443,Jolteon,Electric,Electric,Volt Absorb,None,130,Cheri Berry,Modest,SP_ATTACK|SPEED,Thunderbolt,Thunder Wave,Attract,Protect,1,1,8
+444,Flareon,Fire,Fire,Flash Fire,None,65,Sitrus Berry,Modest,SP_ATTACK|DEFENSE,Flamethrower,Roar,Bite,Sand Attack,1,1,9
+445,Meganium,Grass,Grass,Overgrow,None,80,Bright Powder,Modest,SP_ATTACK|HP,Solar Beam,Sunny Day,Light Screen,Synthesis,1,1,12
+446,Espeon,Psychic,Psychic,Synchronize,None,110,Lum Berry,Modest,SP_DEFENSE|SPEED|DEFENSE,Psychic,Charm,Calm Mind,Baton Pass,1,1,15
+447,Umbreon,Dark,Dark,Synchronize,None,65,Bright Powder,Bold,SP_DEFENSE|DEFENSE|HP,Confuse Ray,Faint Attack,Double Team,Baton Pass,1,1,10
+448,Blastoise,Water,Water,Torrent,None,78,Shell Bell,Modest,SP_ATTACK|HP,Hydro Pump,Rain Dance,Bite,Seismic Toss,1,1,13
+449,Feraligatr,Water,Water,Torrent,None,78,Lum Berry,Quiet,SP_DEFENSE|SP_ATTACK|HP,Surf,Rain Dance,Aerial Ace,Roar,1,1,13
+450,Aggron,Steel,Rock,Sturdy,Rock Head,50,Quick Claw,Adamant,ATTACK|HP,Iron Tail,Earthquake,Aerial Ace,Roar,1,1,18
+451,Blaziken,Fire,Fighting,Blaze,None,80,Quick Claw,Docile,SP_ATTACK|ATTACK,Flamethrower,Sunny Day,Double Kick,Roar,1,1,18
+452,Walrein,Ice,Water,Thick Fat,None,65,Leftovers,Quiet,SP_DEFENSE|DEFENSE|HP,Blizzard,Hail,Yawn,Protect,1,1,15
+453,Sceptile,Grass,Grass,Overgrow,None,120,Leftovers,Modest,SP_ATTACK|SPEED,Leaf Blade,Leech Seed,Aerial Ace,Detect,1,1,10
+454,Charizard,Fire,Flying,Blaze,None,100,Focus Band,Modest,SP_ATTACK|SPEED,Fire Blast,Sunny Day,Roar,Scary Face,1,1,19
+455,Typhlosion,Fire,Fire,Blaze,None,100,Focus Band,Modest,SP_ATTACK|SPEED,Fire Blast,Sunny Day,Smokescreen,Roar,1,1,12
+456,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Leftovers,Bold,SP_DEFENSE|DEFENSE,Surf,Attract,Confuse Ray,Sing,1,1,21
+457,Crobat,Poison,Flying,Inner Focus,None,130,Kings Rock,Quirky,SP_ATTACK|ATTACK|HP,Sludge Bomb,Bite,Astonish,Screech,1,1,10
+458,Swampert,Water,Ground,Torrent,None,60,Lum Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Counter,Rest,Curse,1,1,14
+459,Gyarados,Water,Flying,Intimidate,None,81,Lum Berry,Careful,SP_DEFENSE|HP,Return,Bite,Thunder Wave,Dragon Dance,1,1,18
+460,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Leftovers,Adamant,DEFENSE|ATTACK,Facade,Shadow Ball,Attract,Double Team,1,1,12
+461,Kingdra,Water,Dragon,Swift Swim,None,85,Lum Berry,Modest,SP_ATTACK|HP,Hydro Pump,Dragon Breath,Icy Wind,Attract,1,1,14
+462,Blissey,Normal,Normal,Natural Cure,Serene Grace,55,Bright Powder,Bold,SP_DEFENSE|DEFENSE,Toxic,Double Team,Sing,Soft Boiled,1,1,7
+463,Milotic,Water,Water,Marvel Scale,None,81,Lum Berry,Modest,SP_ATTACK|DEFENSE|HP,Hydro Pump,Icy Wind,Recover,Mirror Coat,1,1,13
+464,Arcanine,Fire,Fire,Intimidate,Flash Fire,95,Kings Rock,Adamant,SPEED|ATTACK,Flamethrower,Extreme Speed,Crunch,Body Slam,1,1,8
+465,Salamence,Dragon,Flying,Intimidate,None,100,Kings Rock,Hardy,SPEED|ATTACK,Dragon Claw,Aerial Ace,Headbutt,Rock Slide,1,1,16
+466,Metagross,Steel,Psychic,Clear Body,None,70,Leftovers,Adamant,SP_DEFENSE|SPEED|ATTACK,Meteor Mash,Aerial Ace,Facade,Light Screen,1,1,23
+467,Slaking,Normal,Normal,Truant,None,100,Scope Lens,Adamant,SP_DEFENSE|DEFENSE|HP,Yawn,Bulk Up,Swagger,Aerial Ace,1,1,5
+468,Dugtrio,Ground,Ground,Sand Veil,Arena Trap,120,Kings Rock,Adamant,SPEED|ATTACK,Earthquake,Ancient Power,Aerial Ace,Tri Attack,1,1,6
+469,Medicham,Fighting,Psychic,Pure Power,None,80,Salac Berry,Hardy,SPEED|ATTACK,Reversal,Endure,Psychic,Fake Out,1,1,16
+470,Marowak,Ground,Ground,Rock Head,Lightning Rod,45,Thick Club,Adamant,SPEED|ATTACK,Earthquake,Rock Slide,Swords Dance,Icy Wind,1,1,10
+471,Quagsire,Water,Ground,Damp,Water Absorb,35,Leftovers,Sassy,SP_DEFENSE|DEFENSE,Curse,Attract,Yawn,Ancient Power,1,1,11
+472,Misdreavus,Ghost,Ghost,Levitate,None,85,Leftovers,Bold,SP_ATTACK|DEFENSE,Psychic,Attract,Thunder Wave,Confuse Ray,1,1,12
+473,Fearow,Normal,Flying,Keen Eye,None,100,Focus Band,Adamant,SPEED|ATTACK,Drill Peck,Tri Attack,Attract,Pursuit,1,1,7
+474,Granbull,Normal,Normal,Intimidate,Intimidate,45,White Herb,Quiet,SP_DEFENSE|SP_ATTACK,Overheat,Thunderbolt,Ice Punch,Facade,1,1,5
+475,Jynx,Ice,Psychic,Oblivious,None,95,Bright Powder,Impish,DEFENSE|HP,Perish Song,Mean Look,Lovely Kiss,Protect,1,1,18
+476,Dusclops,Ghost,Ghost,Pressure,None,25,Leftovers,Impish,SP_DEFENSE|DEFENSE|HP,Toxic,Confuse Ray,Double Team,Protect,1,1,10
+477,Dodrio,Normal,Flying,Run Away,Early Bird,100,Kings Rock,Adamant,SPEED|ATTACK,Drill Peck,Double Edge,Faint Attack,Protect,1,1,6
+478,Mr Mime,Psychic,Psychic,Soundproof,None,90,Liechi Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Baton Pass,Swagger,Psych Up,Psychic,1,1,12
+479,Lanturn,Water,Electric,Volt Absorb,Illuminate,67,Salac Berry,Docile,SP_ATTACK|ATTACK,Flail,Endure,Thunderbolt,Surf,1,1,9
+480,Breloom,Grass,Fighting,Effect Spore,None,70,Bright Powder,Docile,SP_ATTACK|SPEED,Giga Drain,Leech Seed,Focus Punch,Spore,1,1,14
+481,Forretress,Bug,Steel,Sturdy,None,40,Lum Berry,Adamant,SP_DEFENSE|ATTACK,Earthquake,Double Edge,Counter,Protect,1,1,10
+482,Skarmory,Steel,Flying,Keen Eye,Sturdy,70,Bright Powder,Careful,SP_DEFENSE|ATTACK|HP,Spikes,Roar,Drill Peck,Toxic,1,1,11
+483,Whiscash,Water,Ground,Oblivious,None,60,Shell Bell,Hardy,SP_ATTACK|ATTACK,Surf,Earthquake,Spark,Future Sight,1,1,8
+484,Xatu,Psychic,Flying,Synchronize,Early Bird,95,Leftovers,Impish,SP_DEFENSE|DEFENSE|HP,Fly,Toxic,Confuse Ray,Attract,1,1,15
+485,Clefable,Normal,Normal,Cute Charm,None,60,Focus Band,Adamant,DEFENSE|ATTACK,Meteor Mash,Cosmic Power,Double Team,Follow Me,1,1,4
+486,Hariyama,Fighting,Fighting,Thick Fat,Guts,50,Quick Claw,Quiet,SP_ATTACK|ATTACK,Cross Chop,Fire Punch,Ice Punch,Thunder Punch,1,1,16
+487,Raichu,Electric,Electric,Static,None,100,Lum Berry,Adamant,SPEED|ATTACK,Thunderbolt,Reversal,Endure,Agility,1,1,5
+488,Dewgong,Water,Ice,Thick Fat,None,70,Shell Bell,Docile,SP_ATTACK|ATTACK,Blizzard,Double Edge,Encore,Disable,1,1,10
+489,Manectric,Electric,Electric,Static,Lightning Rod,105,Petaya Berry,Modest,SP_ATTACK|SPEED,Thunder,Rain Dance,Crunch,Roar,1,1,7
+490,Vileplume,Grass,Poison,Chlorophyll,None,50,Bright Powder,Bold,SP_DEFENSE|DEFENSE|HP,Ingrain,Double Team,Toxic,Giga Drain,1,1,8
+491,Victreebel,Grass,Poison,Chlorophyll,None,70,Leftovers,Serious,SP_ATTACK|ATTACK,Giga Drain,Sludge Bomb,Sleep Powder,Attract,1,1,9
+492,Electrode,Electric,Electric,Soundproof,Static,140,Bright Powder,Modest,SP_DEFENSE|DEFENSE|HP,Thunder,Rain Dance,Double Team,Swagger,1,1,7
+493,Exploud,Normal,Normal,Soundproof,None,68,Focus Band,Quirky,SP_ATTACK|ATTACK,Solar Beam,Sunny Day,Earthquake,Counter,1,1,7
+494,Shiftry,Grass,Dark,Chlorophyll,Early Bird,80,Chesto Berry,Impish,SP_DEFENSE|DEFENSE,Leech Seed,Dig,Double Team,Rest,1,1,9
+495,Glalie,Ice,Ice,Inner Focus,None,80,Salac Berry,Quirky,SPEED|ATTACK,Explosion,Endure,Body Slam,Icy Wind,1,1,9
+496,Ludicolo,Water,Grass,Swift Swim,Rain Dish,70,Shell Bell,Modest,SP_ATTACK|HP,Surf,Ice Beam,Thunder Punch,Fire Punch,1,1,12
+497,Hypno,Psychic,Psychic,Insomnia,None,67,Twisted Spoon,Modest,SP_DEFENSE|DEFENSE,Hypnosis,Nightmare,Dream Eater,Psychic,1,1,12
+498,Golem,Rock,Ground,Rock Head,Sturdy,45,Chesto Berry,Adamant,ATTACK|HP,Focus Punch,Substitute,Double Team,Rest,1,1,11
+499,Rhydon,Ground,Rock,Lightning Rod,Rock Head,40,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Earthquake,Horn Drill,Rock Slide,Brick Break,1,1,16
+500,Alakazam,Psychic,Psychic,Synchronize,Inner Focus,120,Lum Berry,Modest,SP_ATTACK|DEFENSE,Psychic,Calm Mind,Thunder Wave,Recover,1,1,15
+501,Weezing,Poison,Poison,Levitate,None,60,Sitrus Berry,Adamant,ATTACK|HP,Memento,Sludge Bomb,Facade,Destiny Bond,1,1,6
+502,Kangaskhan,Normal,Normal,Early Bird,None,90,Lum Berry,Adamant,ATTACK|HP,Crush Claw,Shadow Ball,Attract,Rest,1,1,6
+503,Electabuzz,Electric,Electric,Static,None,105,Leftovers,Quirky,SP_ATTACK|SPEED|ATTACK,Thunder,Rain Dance,Attract,Focus Punch,1,1,8
+504,Tauros,Normal,Normal,Intimidate,None,110,Chesto Berry,Adamant,ATTACK|HP,Double Edge,Earthquake,Double Team,Rest,1,1,5
+505,Slowbro,Water,Psychic,Oblivious,Own Tempo,30,Leftovers,Modest,SP_DEFENSE|ATTACK,Surf,Ice Beam,Calm Mind,Yawn,1,1,18
+506,Slowking,Water,Psychic,Oblivious,Own Tempo,30,Shell Bell,Modest,SP_ATTACK|DEFENSE,Yawn,Thunder Wave,Surf,Psychic,1,1,19
+507,Miltank,Normal,Normal,Thick Fat,None,100,Leftovers,Careful,SP_DEFENSE|ATTACK|HP,Focus Punch,Shadow Ball,Attract,Thunder Wave,1,1,9
+508,Altaria,Dragon,Flying,Natural Cure,None,80,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Perish Song,Dragon Breath,Pursuit,Attract,1,1,10
+509,Nidoqueen,Poison,Ground,Poison Point,None,76,Shell Bell,Adamant,ATTACK|HP,Double Edge,Earthquake,Aerial Ace,Rock Slide,1,1,13
+510,Nidoking,Poison,Ground,Poison Point,None,85,Shell Bell,Adamant,ATTACK|HP,Mega Kick,Earthquake,Shadow Ball,Brick Break,1,1,13
+511,Magmar,Fire,Fire,Flame Body,None,93,Quick Claw,Modest,SP_ATTACK|SPEED,Fire Blast,Smokescreen,Thunder Punch,Confuse Ray,1,1,8
+512,Cradily,Rock,Grass,Suction Cups,None,43,Sitrus Berry,Adamant,ATTACK|HP,Earthquake,Ancient Power,Swagger,Psych Up,1,1,13
+513,Armaldo,Rock,Bug,Battle Armor,None,45,Quick Claw,Adamant,ATTACK|HP,Iron Tail,Ancient Power,Brick Break,Knock Off,1,1,11
+514,Golduck,Water,Water,Damp,Cloud Nine,85,Lum Berry,Quirky,SP_ATTACK|SPEED|ATTACK,Cross Chop,Surf,Swagger,Psych Up,1,1,8
+515,Rapidash,Fire,Fire,Run Away,Flash Fire,105,Leftovers,Docile,SP_ATTACK|SPEED|ATTACK,Fire Blast,Bounce,Double Team,Attract,1,1,9
+516,Muk,Poison,Poison,Stench,Sticky Hold,50,Chesto Berry,Hardy,DEFENSE|ATTACK,Curse,Rest,Sludge Bomb,Dynamic Punch,1,1,6
+517,Gengar,Ghost,Poison,Levitate,None,110,Leftovers,Adamant,SPEED|ATTACK,Sludge Bomb,Shadow Ball,Confuse Ray,Will O Wisp,1,1,14
+518,Ampharos,Electric,Electric,Static,None,55,Bright Powder,Hardy,SP_ATTACK|ATTACK,Thunder Punch,Fire Punch,Focus Punch,Thunder Wave,1,1,8
+519,Scizor,Bug,Steel,Swarm,None,65,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Silver Wind,Steel Wing,Swords Dance,Light Screen,1,1,12
+520,Heracross,Bug,Fighting,Swarm,Guts,85,Lum Berry,Jolly,SPEED|HP,Megahorn,Earthquake,Attract,Bulk Up,1,1,15
+521,Ursaring,Normal,Normal,Guts,None,55,Quick Claw,Adamant,ATTACK|HP,Double Edge,Earthquake,Brick Break,Counter,1,1,11
+522,Houndoom,Dark,Fire,Early Bird,Flash Fire,95,Lum Berry,Modest,SP_ATTACK|SPEED,Fire Blast,Crunch,Roar,Rest,1,1,13
+523,Donphan,Ground,Ground,Sturdy,None,50,Quick Claw,Jolly,SPEED|ATTACK,Flail,Endure,Earthquake,Rock Tomb,1,1,8
+524,Claydol,Ground,Psychic,Levitate,None,75,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Psychic,Earthquake,Double Team,Cosmic Power,1,1,12
+525,Wailord,Water,Water,Water Veil,Oblivious,60,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Double Edge,Rest,Curse,Amnesia,1,1,11
+526,Ninetales,Fire,Fire,Flash Fire,None,100,Lum Berry,Quirky,SP_ATTACK|SPEED,Heat Wave,Body Slam,Grudge,Sunny Day,1,1,10
+527,Machamp,Fighting,Fighting,Guts,None,55,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Cross Chop,Earthquake,Bulk Up,Rest,1,1,21
+528,Shuckle,Bug,Rock,Sturdy,None,5,Leftovers,Careful,SP_DEFENSE|DEFENSE,Sandstorm,Dig,Flash,Double Team,1,1,13
+529,Steelix,Steel,Ground,Rock Head,Sturdy,30,Leftovers,Hardy,SP_DEFENSE|ATTACK,Earthquake,Dragon Breath,Sandstorm,Block,1,1,18
+530,Tentacruel,Water,Poison,Clear Body,Liquid Ooze,100,Leftovers,Hardy,SP_ATTACK|DEFENSE|HP,Toxic,Giga Drain,Confuse Ray,Surf,1,1,10
+531,Aerodactyl,Rock,Flying,Rock Head,Pressure,130,Choice Band,Adamant,SPEED|ATTACK|HP,Hyper Beam,Earthquake,Aerial Ace,Ancient Power,1,1,18
+532,Porygon2,Normal,Normal,Trace,None,60,Lum Berry,Modest,SP_ATTACK|HP,Solar Beam,Sunny Day,Thunder Wave,Recover,1,1,7
+533,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Chesto Berry,Modest,DEFENSE|HP,Psychic,Calm Mind,Double Team,Rest,1,1,17
+534,Exeggutor,Grass,Psychic,Chlorophyll,None,55,Chesto Berry,Hardy,SP_DEFENSE|ATTACK,Return,Curse,Sleep Powder,Rest,1,1,14
+535,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Shell Bell,Modest,SP_DEFENSE|DEFENSE|HP,Hydro Pump,Thunder,Rain Dance,Recover,1,1,23
+536,Flygon,Ground,Dragon,Levitate,Levitate,100,Bright Powder,Modest,SP_ATTACK|SPEED,Solar Beam,Fire Blast,Crunch,Sunny Day,1,1,14
+537,Venusaur,Grass,Poison,Overgrow,None,80,Bright Powder,Bold,SP_DEFENSE|DEFENSE|HP,Leech Seed,Giga Drain,Double Team,Light Screen,1,1,11
+538,Vaporeon,Water,Water,Water Absorb,None,65,Shell Bell,Docile,SP_DEFENSE|DEFENSE|HP,Surf,Ice Beam,Body Slam,Shadow Ball,1,1,9
+539,Jolteon,Electric,Electric,Volt Absorb,None,130,Scope Lens,Hardy,SP_ATTACK|ATTACK,Thunderbolt,Dig,Double Kick,Roar,1,1,6
+540,Flareon,Fire,Fire,Flash Fire,None,65,Quick Claw,Relaxed,SP_DEFENSE|DEFENSE|HP,Curse,Attract,Double Edge,Shadow Ball,1,1,10
+541,Meganium,Grass,Grass,Overgrow,None,80,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Leech Seed,Substitute,Double Team,Grass Whistle,1,1,10
+542,Espeon,Psychic,Psychic,Synchronize,None,110,Chesto Berry,Docile,SPEED|ATTACK,Psychic,Shadow Ball,Calm Mind,Rest,1,1,15
+543,Umbreon,Dark,Dark,Synchronize,None,65,Leftovers,Adamant,SP_DEFENSE|ATTACK|HP,Curse,Screech,Double Team,Double Edge,1,1,10
+544,Blastoise,Water,Water,Torrent,None,78,Shell Bell,Brave,SP_ATTACK|ATTACK|HP,Hydro Pump,Mega Kick,Brick Break,Mirror Coat,1,1,11
+545,Feraligatr,Water,Water,Torrent,None,78,Quick Claw,Sassy,SP_DEFENSE|SP_ATTACK|HP,Surf,Dragon Claw,Brick Break,Scary Face,1,1,11
+546,Aggron,Steel,Rock,Sturdy,Rock Head,50,Scope Lens,Adamant,ATTACK|HP,Focus Punch,Earthquake,Rock Slide,Thunder Wave,1,1,19
+547,Blaziken,Fire,Fighting,Blaze,None,80,Scope Lens,Docile,SP_ATTACK|ATTACK,Blaze Kick,Mega Kick,Thunder Punch,Brick Break,1,1,16
+548,Walrein,Ice,Water,Thick Fat,None,65,Focus Band,Quirky,SP_DEFENSE|DEFENSE|HP,Earthquake,Ice Beam,Curse,Double Team,1,1,13
+549,Sceptile,Grass,Grass,Overgrow,None,120,Lum Berry,Modest,SP_ATTACK|SPEED,Leaf Blade,Thunder Punch,Attract,Double Team,1,1,11
+550,Charizard,Fire,Flying,Blaze,None,100,Bright Powder,Adamant,SPEED|ATTACK,Earthquake,Aerial Ace,Dragon Dance,Smokescreen,1,1,17
+551,Typhlosion,Fire,Fire,Blaze,None,100,Scope Lens,Hardy,SP_ATTACK|SPEED|ATTACK,Flamethrower,Thunder Punch,Aerial Ace,Rock Slide,1,1,10
+552,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Quick Claw,Timid,SP_ATTACK|SPEED,Surf,Ice Beam,Body Slam,Roar,1,1,20
+553,Crobat,Poison,Flying,Inner Focus,None,130,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Toxic,Giga Drain,Confuse Ray,Double Team,1,1,10
+554,Swampert,Water,Ground,Torrent,None,60,Quick Claw,Docile,SP_DEFENSE|DEFENSE|HP,Surf,Earthquake,Counter,Mirror Coat,1,1,14
+555,Gyarados,Water,Flying,Intimidate,None,81,Shell Bell,Modest,SP_ATTACK|SPEED,Hydro Pump,Thunderbolt,Fire Blast,Blizzard,1,1,17
+556,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Rock Slide,Curse,Rest,1,1,11
+557,Kingdra,Water,Dragon,Swift Swim,None,85,Chesto Berry,Modest,SP_DEFENSE|DEFENSE|HP,Surf,Ice Beam,Dragon Breath,Rest,1,1,13
+558,Blissey,Normal,Normal,Natural Cure,Serene Grace,55,Leftovers,Bold,SP_DEFENSE|DEFENSE,Seismic Toss,Sing,Attract,Substitute,1,1,7
+559,Milotic,Water,Water,Marvel Scale,None,81,Focus Band,Modest,SP_ATTACK|HP,Surf,Ice Beam,Safeguard,Mirror Coat,1,1,13
+560,Arcanine,Fire,Fire,Intimidate,Flash Fire,95,Lum Berry,Docile,SP_ATTACK|SPEED,Fire Blast,Sunny Day,Crunch,Roar,1,1,10
+561,Salamence,Dragon,Flying,Intimidate,None,100,Leftovers,Hardy,SP_ATTACK|SPEED|ATTACK,Double Edge,Crunch,Swagger,Protect,1,1,16
+562,Metagross,Steel,Psychic,Clear Body,None,70,Lum Berry,Adamant,SP_DEFENSE|SPEED|HP,Earthquake,Meteor Mash,Psych Up,Swagger,1,1,23
+563,Slaking,Normal,Normal,Truant,None,100,Leftovers,Adamant,SP_DEFENSE|DEFENSE,Mega Kick,Shadow Ball,Yawn,Amnesia,1,1,5
+564,Dugtrio,Ground,Ground,Sand Veil,Arena Trap,120,Kings Rock,Adamant,SPEED|ATTACK,Earthquake,Double Edge,Sludge Bomb,Fissure,1,1,6
+565,Medicham,Fighting,Psychic,Pure Power,None,80,Scope Lens,Hardy,SP_ATTACK|SPEED,Dynamic Punch,Thunder Punch,Ice Punch,Fire Punch,1,1,16
+566,Misdreavus,Ghost,Ghost,Levitate,None,85,Bright Powder,Bold,DEFENSE|HP,Perish Song,Mean Look,Thunder Wave,Confuse Ray,1,1,11
+567,Fearow,Normal,Flying,Keen Eye,None,100,Scope Lens,Hardy,SPEED|ATTACK,Drill Peck,Return,Steel Wing,Faint Attack,1,1,6
+568,Granbull,Normal,Normal,Intimidate,Intimidate,45,Quick Claw,Adamant,ATTACK|HP,Double Edge,Earthquake,Sludge Bomb,Rock Slide,1,1,5
+569,Jynx,Ice,Psychic,Oblivious,None,95,Quick Claw,Hardy,DEFENSE|HP,Dream Eater,Lovely Kiss,Attract,Substitute,1,1,19
+570,Dusclops,Ghost,Ghost,Pressure,None,25,Leftovers,Adamant,SP_DEFENSE|DEFENSE|HP,Psych Up,Swagger,Shadow Ball,Earthquake,1,1,10
+571,Dodrio,Normal,Flying,Run Away,Early Bird,100,Lum Berry,Adamant,SPEED|ATTACK,Double Edge,Drill Peck,Steel Wing,Faint Attack,1,1,6
+572,Mr Mime,Psychic,Psychic,Soundproof,None,90,Choice Band,Modest,SP_ATTACK|HP,Trick,Torment,Psychic,Thunderbolt,1,1,12
+573,Lanturn,Water,Electric,Volt Absorb,Illuminate,67,Bright Powder,Modest,SP_ATTACK|SPEED,Hydro Pump,Thunder,Confuse Ray,Rain Dance,1,1,11
+574,Breloom,Grass,Fighting,Effect Spore,None,70,Leftovers,Adamant,SPEED|ATTACK,Iron Tail,Focus Punch,Attract,Spore,1,1,15
+575,Forretress,Bug,Steel,Sturdy,None,40,Focus Band,Quiet,SP_DEFENSE|SP_ATTACK|ATTACK,Explosion,Earthquake,Giga Drain,Zap Cannon,1,1,10
+576,Whiscash,Water,Ground,Oblivious,None,60,Chesto Berry,Hardy,SP_DEFENSE|DEFENSE,Sleep Talk,Rest,Surf,Fissure,1,1,8
+577,Xatu,Psychic,Flying,Synchronize,Early Bird,95,Kings Rock,Jolly,SP_ATTACK|SPEED|ATTACK,Drill Peck,Psychic,Giga Drain,Steel Wing,1,1,14
+578,Skarmory,Steel,Flying,Keen Eye,Sturdy,70,Chesto Berry,Careful,SP_DEFENSE|HP,Toxic,Curse,Rest,Fly,1,1,11
+579,Marowak,Ground,Ground,Rock Head,Lightning Rod,45,Thick Club,Adamant,SPEED|ATTACK,Earthquake,Rock Slide,Swords Dance,Brick Break,1,1,10
+580,Quagsire,Water,Ground,Damp,Water Absorb,35,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Earthquake,Sludge Bomb,Double Edge,Curse,1,1,10
+581,Clefable,Normal,Normal,Cute Charm,None,60,Lum Berry,Modest,SP_ATTACK|DEFENSE,Thunderbolt,Ice Beam,Flamethrower,Magical Leaf,1,1,4
+582,Hariyama,Fighting,Fighting,Thick Fat,Guts,50,Quick Claw,Adamant,ATTACK|HP,Cross Chop,Earthquake,Rock Slide,Facade,1,1,16
+583,Raichu,Electric,Electric,Static,None,100,Cheri Berry,Docile,SP_ATTACK|SPEED,Thunder,Rain Dance,Iron Tail,Attract,1,1,8
+584,Dewgong,Water,Ice,Thick Fat,None,70,Chesto Berry,Bold,DEFENSE|HP,Horn Drill,Sheer Cold,Sleep Talk,Rest,1,1,10
+585,Manectric,Electric,Electric,Static,Lightning Rod,105,Lum Berry,Quirky,SP_ATTACK|SPEED,Thunderbolt,Iron Tail,Thunder Wave,Roar,1,1,6
+586,Vileplume,Grass,Poison,Chlorophyll,None,50,Leftovers,Quirky,SP_ATTACK|ATTACK,Attract,Stun Spore,Sludge Bomb,Giga Drain,1,1,9
+587,Victreebel,Grass,Poison,Chlorophyll,None,70,Bright Powder,Quirky,SP_ATTACK|ATTACK,Stun Spore,Ingrain,Giga Drain,Sludge Bomb,1,1,8
+588,Electrode,Electric,Electric,Soundproof,Static,140,Liechi Berry,Naughty,SP_ATTACK|ATTACK,Explosion,Thunderbolt,Thunder Wave,Endure,1,1,6
+589,Exploud,Normal,Normal,Soundproof,None,68,White Herb,Modest,SP_ATTACK|SPEED,Overheat,Ice Beam,Thunder Punch,Extrasensory,1,1,5
+590,Shiftry,Grass,Dark,Chlorophyll,Early Bird,80,Focus Band,Quirky,SP_ATTACK|ATTACK,Solar Beam,Sunny Day,Explosion,Synthesis,1,1,11
+591,Glalie,Ice,Ice,Inner Focus,None,80,Shell Bell,Hardy,SP_ATTACK|SPEED|ATTACK,Blizzard,Earthquake,Double Edge,Shadow Ball,1,1,9
+592,Ludicolo,Water,Grass,Swift Swim,Rain Dish,70,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Leech Seed,Rain Dance,Double Team,Giga Drain,1,1,14
+593,Hypno,Psychic,Psychic,Insomnia,None,67,Lum Berry,Adamant,ATTACK|HP,Psych Up,Swagger,Mega Kick,Shadow Ball,1,1,12
+594,Golem,Rock,Ground,Rock Head,Sturdy,45,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Explosion,Earthquake,Flamethrower,Brick Break,1,1,11
+595,Rhydon,Ground,Rock,Lightning Rod,Rock Head,40,Quick Claw,Adamant,ATTACK|HP,Megahorn,Crush Claw,Earthquake,Horn Drill,1,1,16
+596,Alakazam,Psychic,Psychic,Synchronize,Inner Focus,120,Choice Band,Modest,SP_ATTACK|DEFENSE,Trick,Disable,Psychic,Skill Swap,1,1,14
+597,Weezing,Poison,Poison,Levitate,None,60,Focus Band,Quirky,SP_ATTACK|ATTACK,Explosion,Sludge Bomb,Flamethrower,Thunderbolt,1,1,6
+598,Kangaskhan,Normal,Normal,Early Bird,None,90,Salac Berry,Jolly,SPEED|ATTACK,Reversal,Endure,Thunderbolt,Earthquake,1,1,5
+599,Electabuzz,Electric,Electric,Static,None,105,Lum Berry,Quirky,SP_ATTACK|SPEED,Fire Punch,Ice Punch,Thunderbolt,Cross Chop,1,1,5
+600,Tauros,Normal,Normal,Intimidate,None,110,Leftovers,Docile,SP_ATTACK|ATTACK,Double Edge,Earthquake,Flamethrower,Ice Beam,1,1,5
+601,Slowbro,Water,Psychic,Oblivious,Own Tempo,30,Quick Claw,Quiet,SP_DEFENSE|SP_ATTACK,Surf,Psychic,Shadow Ball,Attract,1,1,19
+602,Slowking,Water,Psychic,Oblivious,Own Tempo,30,Quick Claw,Quiet,SP_ATTACK|DEFENSE|ATTACK,Psychic,Surf,Ice Beam,Earthquake,1,1,18
+603,Miltank,Normal,Normal,Thick Fat,None,100,Salac Berry,Adamant,SP_DEFENSE|ATTACK,Reversal,Endure,Earthquake,Shadow Ball,1,1,7
+604,Altaria,Dragon,Flying,Natural Cure,None,80,Lum Berry,Adamant,ATTACK|HP,Sing,Dragon Dance,Earthquake,Aerial Ace,1,1,9
+605,Nidoqueen,Poison,Ground,Poison Point,None,76,Lum Berry,Modest,SP_ATTACK|HP,Thunderbolt,Flamethrower,Ice Beam,Crunch,1,1,13
+606,Nidoking,Poison,Ground,Poison Point,None,85,Leppa Berry,Modest,SP_ATTACK|HP,Horn Drill,Fire Blast,Blizzard,Surf,1,1,13
+607,Magmar,Fire,Fire,Flame Body,None,93,Scope Lens,Impish,DEFENSE|ATTACK,Mega Kick,Cross Chop,Iron Tail,Counter,1,1,8
+608,Cradily,Rock,Grass,Suction Cups,None,43,Leftovers,Modest,SP_DEFENSE|SP_ATTACK|DEFENSE,Substitute,Solar Beam,Sunny Day,Recover,1,1,15
+609,Armaldo,Rock,Bug,Battle Armor,None,45,Quick Claw,Adamant,ATTACK|HP,Earthquake,Rock Slide,Brick Break,Swords Dance,1,1,11
+610,Golduck,Water,Water,Damp,Cloud Nine,85,Shell Bell,Docile,SP_ATTACK|ATTACK,Hydro Pump,Cross Chop,Blizzard,Protect,1,1,8
+611,Rapidash,Fire,Fire,Run Away,Flash Fire,105,White Herb,Modest,SP_ATTACK|SPEED|HP,Overheat,Solar Beam,Sunny Day,Hypnosis,1,1,10
+612,Muk,Poison,Poison,Stench,Sticky Hold,50,Lum Berry,Quiet,SP_ATTACK|DEFENSE,Sludge Bomb,Thunderbolt,Flamethrower,Ice Punch,1,1,6
+613,Gengar,Ghost,Poison,Levitate,None,110,Quick Claw,Modest,SP_ATTACK|SPEED,Psychic,Thunderbolt,Giga Drain,Skill Swap,1,1,14
+614,Ampharos,Electric,Electric,Static,None,55,Focus Band,Hardy,SP_ATTACK|ATTACK,Thunderbolt,Mega Kick,Iron Tail,Brick Break,1,1,7
+615,Scizor,Bug,Steel,Swarm,None,65,Focus Band,Careful,SP_DEFENSE|ATTACK,Reversal,Endure,Agility,Slash,1,1,12
+616,Heracross,Bug,Fighting,Swarm,Guts,85,Bright Powder,Adamant,SPEED|ATTACK,Megahorn,Earthquake,Rock Slide,Brick Break,1,1,14
+617,Ursaring,Normal,Normal,Guts,None,55,Lum Berry,Modest,SP_ATTACK|SPEED|HP,Fire Punch,Thunder Punch,Ice Punch,Crunch,1,1,11
+618,Houndoom,Dark,Fire,Early Bird,Flash Fire,95,White Herb,Quirky,SPEED|ATTACK,Overheat,Shadow Ball,Sludge Bomb,Double Edge,1,1,13
+619,Donphan,Ground,Ground,Sturdy,None,50,Quick Claw,Adamant,ATTACK|HP,Fissure,Earthquake,Rock Slide,Secret Power,1,1,8
+620,Claydol,Ground,Psychic,Levitate,None,75,Shell Bell,Modest,SP_ATTACK|HP,Psychic,Ice Beam,Solar Beam,Sunny Day,1,1,14
+621,Wailord,Water,Water,Water Veil,Oblivious,60,Chesto Berry,Modest,SP_DEFENSE|DEFENSE|HP,Hydro Pump,Fissure,Double Team,Rest,1,1,11
+622,Ninetales,Fire,Fire,Flash Fire,None,100,Bright Powder,Quirky,SP_ATTACK|SPEED,Fire Blast,Iron Tail,Confuse Ray,Attract,1,1,9
+623,Machamp,Fighting,Fighting,Guts,None,55,Quick Claw,Hardy,SP_ATTACK|ATTACK,Cross Chop,Fire Blast,Thunder Punch,Ice Punch,1,1,21
+624,Shuckle,Bug,Rock,Sturdy,None,5,Leftovers,Careful,SP_DEFENSE|DEFENSE,Substitute,Attract,Toxic,Double Team,1,1,14
+625,Steelix,Steel,Ground,Rock Head,Sturdy,30,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Earthquake,Body Slam,Rock Slide,Explosion,1,1,18
+626,Tentacruel,Water,Poison,Clear Body,Liquid Ooze,100,Shell Bell,Modest,SP_ATTACK|SPEED|DEFENSE,Surf,Giga Drain,Ice Beam,Mirror Coat,1,1,10
+627,Aerodactyl,Rock,Flying,Rock Head,Pressure,130,Kings Rock,Hardy,SP_ATTACK|ATTACK,Double Edge,Rock Slide,Fire Blast,Dragon Claw,1,1,18
+628,Porygon2,Normal,Normal,Trace,None,60,Lum Berry,Modest,SP_ATTACK|HP,Psychic,Tri Attack,Thunder Wave,Recover,1,1,5
+629,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Ice Punch,Fire Punch,Magical Leaf,1,1,17
+630,Exeggutor,Grass,Psychic,Chlorophyll,None,55,Leftovers,Hardy,SP_DEFENSE|DEFENSE|HP,Leech Seed,Giga Drain,Toxic,Explosion,1,1,14
+631,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Lum Berry,Modest,SP_ATTACK|SPEED,Surf,Psychic,Thunderbolt,Ice Beam,1,1,21
+632,Flygon,Ground,Dragon,Levitate,Levitate,100,Scope Lens,Hardy,SP_ATTACK|SPEED|ATTACK,Earthquake,Dragon Claw,Flamethrower,Giga Drain,1,1,12
+633,Venusaur,Grass,Poison,Overgrow,None,80,Scope Lens,Adamant,SP_DEFENSE|DEFENSE|ATTACK,Double Edge,Sludge Bomb,Earthquake,Sleep Powder,1,1,11
+634,Vaporeon,Water,Water,Water Absorb,None,65,Quick Claw,Calm,SP_DEFENSE|DEFENSE|HP,Surf,Ice Beam,Acid Armor,Baton Pass,1,1,9
+635,Jolteon,Electric,Electric,Volt Absorb,None,130,Bright Powder,Bold,SP_DEFENSE|DEFENSE|HP,Thunderbolt,Thunder Wave,Agility,Baton Pass,1,1,7
+636,Flareon,Fire,Fire,Flash Fire,None,65,Quick Claw,Jolly,SPEED|ATTACK,Shadow Ball,Flail,Endure,Overheat,1,1,9
+637,Meganium,Grass,Grass,Overgrow,None,80,Salac Berry,Jolly,SPEED|ATTACK,Earthquake,Flail,Endure,Giga Drain,1,1,10
+638,Espeon,Psychic,Psychic,Synchronize,None,110,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Bite,Wish,Reflect,1,1,15
+639,Umbreon,Dark,Dark,Synchronize,None,65,Bright Powder,Bold,SP_DEFENSE|DEFENSE|HP,Swagger,Psych Up,Attract,Shadow Ball,1,1,11
+640,Blastoise,Water,Water,Torrent,None,78,Focus Band,Docile,SP_ATTACK|ATTACK|HP,Surf,Earthquake,Ice Beam,Counter,1,1,11
+641,Feraligatr,Water,Water,Torrent,None,78,Scope Lens,Hardy,SP_ATTACK|ATTACK|HP,Hydro Pump,Crunch,Earthquake,Rock Slide,1,1,11
+642,Aggron,Steel,Rock,Sturdy,Rock Head,50,Bright Powder,Modest,SP_ATTACK|HP,Surf,Thunder,Fire Blast,Blizzard,1,1,18
+643,Blaziken,Fire,Fighting,Blaze,None,80,Salac Berry,Hardy,SPEED|ATTACK,Overheat,Earthquake,Endure,Reversal,1,1,16
+644,Walrein,Ice,Water,Thick Fat,None,65,Quick Claw,Hardy,SP_DEFENSE|DEFENSE|HP,Sheer Cold,Fissure,Surf,Attract,1,1,14
+645,Sceptile,Grass,Grass,Overgrow,None,120,Scope Lens,Docile,SP_ATTACK|SPEED|ATTACK,Leaf Blade,Earthquake,Crush Claw,Aerial Ace,1,1,10
+646,Charizard,Fire,Flying,Blaze,None,100,Lum Berry,Modest,SP_ATTACK|SPEED,Flamethrower,Dragon Claw,Bite,Brick Break,1,1,17
+647,Typhlosion,Fire,Fire,Blaze,None,100,Salac Berry,Adamant,SPEED|ATTACK,Earthquake,Overheat,Endure,Reversal,1,1,10
+648,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Bright Powder,Docile,SP_DEFENSE|DEFENSE|HP,Double Edge,Psychic,Confuse Ray,Dragon Dance,1,1,20
+649,Crobat,Poison,Flying,Inner Focus,None,130,Scope Lens,Adamant,SPEED|ATTACK,Air Cutter,Double Edge,Shadow Ball,Screech,1,1,10
+650,Swampert,Water,Ground,Torrent,None,60,Shell Bell,Brave,SP_ATTACK|ATTACK,Surf,Earthquake,Ice Beam,Counter,1,1,14
+651,Gyarados,Water,Flying,Intimidate,None,81,Quick Claw,Quirky,SP_ATTACK|ATTACK,Surf,Thunder,Rain Dance,Earthquake,1,1,19
+652,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Quick Claw,Adamant,SP_DEFENSE|DEFENSE,Mega Kick,Shadow Ball,Swagger,Psych Up,1,1,11
+653,Kingdra,Water,Dragon,Swift Swim,None,85,Salac Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Flail,Hydro Pump,Dragon Dance,Endure,1,1,13
+654,Blissey,Normal,Normal,Natural Cure,Serene Grace,55,Focus Band,Bold,SP_DEFENSE|DEFENSE,Fire Blast,Blizzard,Calm Mind,Soft Boiled,1,1,7
+655,Milotic,Water,Water,Marvel Scale,None,81,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Surf,Blizzard,Attract,Recover,1,1,14
+656,Arcanine,Fire,Fire,Intimidate,Flash Fire,95,White Herb,Modest,SP_ATTACK|SPEED,Overheat,Extreme Speed,Crunch,Aerial Ace,1,1,8
+657,Salamence,Dragon,Flying,Intimidate,None,100,Salac Berry,Hardy,SP_ATTACK|ATTACK,Double Edge,Earthquake,Crunch,Endure,1,1,16
+658,Metagross,Steel,Psychic,Clear Body,None,70,Chesto Berry,Adamant,SPEED|ATTACK|HP,Earthquake,Meteor Mash,Double Team,Rest,1,1,23
+659,Slaking,Normal,Normal,Truant,None,100,Choice Band,Adamant,SP_DEFENSE|DEFENSE,Earthquake,Shadow Ball,Aerial Ace,Brick Break,1,1,5
+660,Dugtrio,Ground,Ground,Sand Veil,Arena Trap,120,Kings Rock,Adamant,SPEED|ATTACK,Earthquake,Double Edge,Rock Slide,Fissure,1,1,11
+661,Medicham,Fighting,Psychic,Pure Power,None,80,Lum Berry,Hardy,SP_ATTACK|ATTACK,Mega Kick,Psychic,Shadow Ball,Rock Slide,1,1,23
+662,Misdreavus,Ghost,Ghost,Levitate,None,85,Lum Berry,Timid,SP_ATTACK|SPEED,Destiny Bond,Psychic,Shadow Ball,Thunderbolt,1,1,19
+663,Fearow,Normal,Flying,Keen Eye,None,100,Lum Berry,Hardy,SP_ATTACK|ATTACK,Drill Peck,Double Edge,Steel Wing,Sky Attack,1,1,11
+664,Granbull,Normal,Normal,Intimidate,Intimidate,45,Choice Band,Brave,SP_ATTACK|ATTACK,Mega Kick,Earthquake,Crunch,Shadow Ball,1,1,14
+665,Jynx,Ice,Psychic,Oblivious,None,95,Lum Berry,Modest,SP_ATTACK|HP,Psychic,Ice Beam,Lovely Kiss,Fake Tears,1,1,29
+666,Dusclops,Ghost,Ghost,Pressure,None,25,Chesto Berry,Adamant,ATTACK|HP,Double Edge,Shadow Ball,Curse,Rest,1,1,15
+667,Dodrio,Normal,Flying,Run Away,Early Bird,100,Salac Berry,Adamant,SPEED|ATTACK,Flail,Endure,Drill Peck,Facade,1,1,11
+668,Mr Mime,Psychic,Psychic,Soundproof,None,90,Bright Powder,Modest,SP_ATTACK|HP,Psychic,Thunderbolt,Ice Punch,Fire Punch,1,1,21
+669,Lanturn,Water,Electric,Volt Absorb,Illuminate,67,Lum Berry,Modest,SP_ATTACK|SPEED,Surf,Thunderbolt,Ice Beam,Confuse Ray,1,1,22
+670,Breloom,Grass,Fighting,Effect Spore,None,70,Quick Claw,Adamant,SPEED|ATTACK,Focus Punch,Sludge Bomb,Spore,Double Team,1,1,23
+671,Forretress,Bug,Steel,Sturdy,None,40,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Explosion,Earthquake,Rock Slide,Double Edge,1,1,15
+672,Whiscash,Water,Ground,Oblivious,None,60,Quick Claw,Quiet,SP_ATTACK|ATTACK,Fissure,Surf,Earthquake,Ice Beam,1,1,21
+673,Xatu,Psychic,Flying,Synchronize,Early Bird,95,Petaya Berry,Docile,SP_ATTACK|ATTACK,Psychic,Drill Peck,Shadow Ball,Confuse Ray,1,1,23
+674,Skarmory,Steel,Flying,Keen Eye,Sturdy,70,Quick Claw,Adamant,ATTACK|HP,Drill Peck,Steel Wing,Counter,Rock Slide,1,1,16
+675,Marowak,Ground,Ground,Rock Head,Lightning Rod,45,Thick Club,Adamant,SPEED|ATTACK,Earthquake,Rock Slide,Swords Dance,Mega Kick,1,1,15
+676,Quagsire,Water,Ground,Damp,Water Absorb,35,Leftovers,Sassy,SP_DEFENSE|SP_ATTACK|ATTACK,Surf,Earthquake,Ice Beam,Amnesia,1,1,23
+677,Clefable,Normal,Normal,Cute Charm,None,60,Focus Band,Docile,DEFENSE|ATTACK,Mega Kick,Psychic,Shadow Ball,Soft Boiled,1,1,17
+678,Hariyama,Fighting,Fighting,Thick Fat,Guts,50,Scope Lens,Adamant,ATTACK|HP,Cross Chop,Earthquake,Rock Slide,Fake Out,1,1,23
+679,Raichu,Electric,Electric,Static,None,100,Bright Powder,Docile,SP_ATTACK|ATTACK,Thunderbolt,Thunder Wave,Protect,Mega Kick,1,1,15
+680,Dewgong,Water,Ice,Thick Fat,None,70,Lum Berry,Docile,SP_ATTACK|ATTACK,Sheer Cold,Ice Beam,Surf,Signal Beam,1,1,23
+681,Manectric,Electric,Electric,Static,Lightning Rod,105,Lum Berry,Modest,SP_ATTACK|SPEED,Thunderbolt,Crunch,Thunder Wave,Roar,1,1,11
+682,Vileplume,Grass,Poison,Chlorophyll,None,50,Quick Claw,Quiet,SP_ATTACK|ATTACK,Solar Beam,Sludge Bomb,Sunny Day,Synthesis,1,1,19
+683,Victreebel,Grass,Poison,Chlorophyll,None,70,Bright Powder,Quirky,SP_ATTACK|ATTACK,Giga Drain,Double Edge,Sludge Bomb,Synthesis,1,1,13
+684,Electrode,Electric,Electric,Soundproof,Static,140,Lum Berry,Naughty,SP_ATTACK|ATTACK,Explosion,Thunderbolt,Thunder Wave,Mirror Coat,1,1,11
+685,Exploud,Normal,Normal,Soundproof,None,68,White Herb,Hardy,SP_ATTACK|ATTACK,Mega Kick,Earthquake,Shadow Ball,Overheat,1,1,14
+686,Shiftry,Grass,Dark,Chlorophyll,Early Bird,80,Focus Band,Hardy,SP_ATTACK|ATTACK,Explosion,Giga Drain,Mega Kick,Fake Out,1,1,14
+687,Glalie,Ice,Ice,Inner Focus,None,80,Leftovers,Hardy,SP_ATTACK|ATTACK|HP,Ice Beam,Earthquake,Crunch,Shadow Ball,1,1,16
+688,Ludicolo,Water,Grass,Swift Swim,Rain Dish,70,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Leech Seed,Rain Dance,Double Team,Toxic,1,1,27
+689,Hypno,Psychic,Psychic,Insomnia,None,67,Lum Berry,Modest,SP_ATTACK|HP,Psychic,Thunder Punch,Fire Punch,Ice Punch,1,1,17
+690,Golem,Rock,Ground,Rock Head,Sturdy,45,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Explosion,Earthquake,Rock Slide,Double Edge,1,1,16
+691,Rhydon,Ground,Rock,Lightning Rod,Rock Head,40,Quick Claw,Adamant,ATTACK|HP,Megahorn,Earthquake,Rock Slide,Horn Drill,1,1,21
+692,Alakazam,Psychic,Psychic,Synchronize,Inner Focus,120,Bright Powder,Modest,SP_ATTACK|DEFENSE,Psychic,Thunder Punch,Fire Punch,Ice Punch,1,1,19
+693,Weezing,Poison,Poison,Levitate,None,60,Focus Band,Adamant,ATTACK|HP,Explosion,Sludge Bomb,Frustration,Shadow Ball,1,1,11
+694,Kangaskhan,Normal,Normal,Early Bird,None,90,Bright Powder,Adamant,SPEED|ATTACK,Mega Kick,Earthquake,Aerial Ace,Shadow Ball,1,1,14
+695,Electabuzz,Electric,Electric,Static,None,105,Scope Lens,Docile,SP_ATTACK|ATTACK,Thunderbolt,Psychic,Mega Kick,Cross Chop,1,1,10
+696,Tauros,Normal,Normal,Intimidate,None,110,Bright Powder,Docile,SP_ATTACK|ATTACK,Double Edge,Rock Tomb,Thunderbolt,Surf,1,1,14
+697,Slowbro,Water,Psychic,Oblivious,Own Tempo,30,Quick Claw,Sassy,SP_DEFENSE|SP_ATTACK,Psychic,Surf,Earthquake,Ice Beam,1,1,31
+698,Slowking,Water,Psychic,Oblivious,Own Tempo,30,Quick Claw,Modest,SP_ATTACK|DEFENSE,Psychic,Surf,Ice Beam,Flamethrower,1,1,31
+699,Miltank,Normal,Normal,Thick Fat,None,100,Lum Berry,Adamant,SP_DEFENSE|ATTACK,Double Edge,Curse,Double Team,Milk Drink,1,1,20
+700,Altaria,Dragon,Flying,Natural Cure,None,80,Shell Bell,Docile,SP_ATTACK|ATTACK,Dragon Claw,Earthquake,Flamethrower,Ice Beam,1,1,18
+701,Nidoqueen,Poison,Ground,Poison Point,None,76,White Herb,Adamant,ATTACK|HP,Superpower,Sludge Bomb,Earthquake,Shadow Ball,1,1,18
+702,Nidoking,Poison,Ground,Poison Point,None,85,Lum Berry,Docile,SP_ATTACK|ATTACK,Megahorn,Sludge Bomb,Earthquake,Thunder,1,1,18
+703,Magmar,Fire,Fire,Flame Body,None,93,Scope Lens,Docile,DEFENSE|HP,Flamethrower,Psychic,Cross Chop,Confuse Ray,1,1,13
+704,Cradily,Rock,Grass,Suction Cups,None,43,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Toxic,Ingrain,Mirror Coat,Giga Drain,1,1,18
+705,Armaldo,Rock,Bug,Battle Armor,None,45,Choice Band,Adamant,ATTACK|HP,Double Edge,Earthquake,Aerial Ace,Rock Slide,1,1,16
+706,Golduck,Water,Water,Damp,Cloud Nine,85,Scope Lens,Docile,SPEED|ATTACK,Surf,Cross Chop,Ice Beam,Aerial Ace,1,1,17
+707,Rapidash,Fire,Fire,Run Away,Flash Fire,105,White Herb,Docile,SP_ATTACK|SPEED|ATTACK,Overheat,Double Edge,Iron Tail,Double Kick,1,1,17
+708,Muk,Poison,Poison,Stench,Sticky Hold,50,Quick Claw,Brave,DEFENSE|ATTACK,Sludge Bomb,Brick Break,Giga Drain,Explosion,1,1,11
+709,Gengar,Ghost,Poison,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Fire Punch,Ice Punch,Destiny Bond,1,1,19
+710,Ampharos,Electric,Electric,Static,None,55,Lum Berry,Modest,SP_ATTACK|DEFENSE,Thunderbolt,Fire Punch,Thunder Wave,Reflect,1,1,17
+711,Scizor,Bug,Steel,Swarm,None,65,Bright Powder,Careful,SP_DEFENSE|HP,Silver Wind,Swords Dance,Agility,Baton Pass,1,1,17
+712,Heracross,Bug,Fighting,Swarm,Guts,85,Salac Berry,Adamant,SPEED|ATTACK,Megahorn,Earthquake,Reversal,Endure,1,1,19
+713,Ursaring,Normal,Normal,Guts,None,55,Bright Powder,Adamant,ATTACK|HP,Double Edge,Earthquake,Rock Slide,Aerial Ace,1,1,20
+714,Houndoom,Dark,Fire,Early Bird,Flash Fire,95,White Herb,Modest,SP_ATTACK|SPEED,Overheat,Solar Beam,Crunch,Sunny Day,1,1,20
+715,Donphan,Ground,Ground,Sturdy,None,50,Quick Claw,Adamant,ATTACK|HP,Fissure,Earthquake,Rock Slide,Iron Tail,1,1,13
+716,Claydol,Ground,Psychic,Levitate,None,75,Focus Band,Adamant,ATTACK|HP,Psychic,Earthquake,Shadow Ball,Explosion,1,1,17
+717,Wailord,Water,Water,Water Veil,Oblivious,60,Quick Claw,Hardy,SP_DEFENSE|DEFENSE|HP,Surf,Ice Beam,Earthquake,Fissure,1,1,20
+718,Ninetales,Fire,Fire,Flash Fire,None,100,White Herb,Quirky,SP_ATTACK|SPEED,Overheat,Double Edge,Confuse Ray,Will O Wisp,1,1,17
+719,Machamp,Fighting,Fighting,Guts,None,55,Scope Lens,Hardy,SP_ATTACK|ATTACK,Cross Chop,Earthquake,Flamethrower,Rock Slide,1,1,28
+720,Shuckle,Bug,Rock,Sturdy,None,5,Chesto Berry,Careful,SP_DEFENSE|DEFENSE,Toxic,Double Team,Wrap,Rest,1,1,22
+721,Steelix,Steel,Ground,Rock Head,Sturdy,30,Quick Claw,Adamant,SP_DEFENSE|ATTACK,Earthquake,Iron Tail,Double Edge,Explosion,1,1,23
+722,Tentacruel,Water,Poison,Clear Body,Liquid Ooze,100,Shell Bell,Quirky,SP_ATTACK|DEFENSE|ATTACK,Hydro Pump,Sludge Bomb,Ice Beam,Mirror Coat,1,1,19
+723,Aerodactyl,Rock,Flying,Rock Head,Pressure,130,Kings Rock,Hardy,SP_ATTACK|ATTACK,Double Edge,Earthquake,Fire Blast,Bite,1,1,23
+724,Porygon2,Normal,Normal,Trace,None,60,Bright Powder,Modest,SP_ATTACK|HP,Psychic,Thunderbolt,Ice Beam,Recover,1,1,17
+725,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Thunderbolt,Ice Punch,Fire Punch,1,1,26
+726,Exeggutor,Grass,Psychic,Chlorophyll,None,55,Bright Powder,Hardy,SP_ATTACK|ATTACK,Psychic,Giga Drain,Sludge Bomb,Explosion,1,1,19
+727,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Thunderbolt,Ice Beam,Recover,1,1,30
+728,Flygon,Ground,Dragon,Levitate,Levitate,100,Scope Lens,Hardy,SP_ATTACK|SPEED|ATTACK,Earthquake,Dragon Claw,Double Edge,Crunch,1,1,21
+729,Venusaur,Grass,Poison,Overgrow,None,80,Lum Berry,Docile,SP_DEFENSE|SP_ATTACK|ATTACK,Solar Beam,Sludge Bomb,Sunny Day,Earthquake,1,1,18
+730,Vaporeon,Water,Water,Water Absorb,None,65,Lum Berry,Calm,SP_DEFENSE|SP_ATTACK|HP,Surf,Ice Beam,Acid Armor,Rest,1,1,22
+731,Jolteon,Electric,Electric,Volt Absorb,None,130,Kings Rock,Timid,SP_ATTACK|SPEED,Thunderbolt,Thunder Wave,Bite,Shadow Ball,1,1,16
+732,Flareon,Fire,Fire,Flash Fire,None,65,Quick Claw,Quiet,SP_ATTACK|ATTACK,Overheat,Sunny Day,Double Edge,Shadow Ball,1,1,20
+733,Meganium,Grass,Grass,Overgrow,None,80,Bright Powder,Hardy,SP_ATTACK|ATTACK|HP,Giga Drain,Earthquake,Ancient Power,Body Slam,1,1,15
+734,Espeon,Psychic,Psychic,Synchronize,None,110,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Bite,Attract,Calm Mind,1,1,25
+735,Umbreon,Dark,Dark,Synchronize,None,65,Leftovers,Bold,SP_DEFENSE|DEFENSE|HP,Confuse Ray,Toxic,Faint Attack,Double Team,1,1,19
+736,Blastoise,Water,Water,Torrent,None,78,Focus Band,Docile,SP_ATTACK|ATTACK|HP,Surf,Earthquake,Ice Beam,Mirror Coat,1,1,20
+737,Feraligatr,Water,Water,Torrent,None,78,Scope Lens,Hardy,SP_ATTACK|ATTACK|HP,Hydro Pump,Ice Beam,Earthquake,Aerial Ace,1,1,20
+738,Aggron,Steel,Rock,Sturdy,Rock Head,50,Quick Claw,Adamant,ATTACK|HP,Double Edge,Earthquake,Rock Slide,Aerial Ace,1,1,23
+739,Blaziken,Fire,Fighting,Blaze,None,80,White Herb,Hardy,SP_ATTACK|ATTACK,Overheat,Earthquake,Thunder Punch,Rock Slide,1,1,21
+740,Walrein,Ice,Water,Thick Fat,None,65,Bright Powder,Quiet,SP_ATTACK|ATTACK,Surf,Ice Beam,Earthquake,Sheer Cold,1,1,22
+741,Sceptile,Grass,Grass,Overgrow,None,120,Bright Powder,Modest,SP_ATTACK|SPEED,Leaf Blade,Dragon Claw,Crunch,Thunder Punch,1,1,15
+742,Charizard,Fire,Flying,Blaze,None,100,White Herb,Hardy,SP_ATTACK|SPEED|ATTACK,Overheat,Earthquake,Aerial Ace,Rock Slide,1,1,22
+743,Typhlosion,Fire,Fire,Blaze,None,100,White Herb,Hardy,SP_ATTACK|SPEED|ATTACK,Overheat,Thunder Punch,Earthquake,Crush Claw,1,1,15
+744,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Lum Berry,Modest,SP_ATTACK|HP,Surf,Ice Beam,Thunderbolt,Psychic,1,1,33
+745,Crobat,Poison,Flying,Inner Focus,None,130,Bright Powder,Adamant,SPEED|ATTACK,Sludge Bomb,Aerial Ace,Shadow Ball,Confuse Ray,1,1,15
+746,Swampert,Water,Ground,Torrent,None,60,Shell Bell,Quiet,SP_ATTACK|ATTACK,Surf,Earthquake,Ice Beam,Mirror Coat,1,1,23
+747,Gyarados,Water,Flying,Intimidate,None,81,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Return,Earthquake,Dragon Dance,Rest,1,1,26
+748,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Quick Claw,Adamant,DEFENSE|ATTACK,Double Edge,Shadow Ball,Brick Break,Curse,1,1,24
+749,Kingdra,Water,Dragon,Swift Swim,None,85,Chesto Berry,Hardy,SP_DEFENSE|DEFENSE|HP,Double Edge,Ice Beam,Dragon Dance,Rest,1,1,22
+750,Blissey,Normal,Normal,Natural Cure,Serene Grace,55,Focus Band,Bold,SP_DEFENSE|DEFENSE,Ice Beam,Calm Mind,Counter,Soft Boiled,1,1,20
+751,Milotic,Water,Water,Marvel Scale,None,81,Leftovers,Modest,SP_DEFENSE|SP_ATTACK|DEFENSE,Surf,Ice Beam,Recover,Mirror Coat,1,1,26
+752,Arcanine,Fire,Fire,Intimidate,Flash Fire,95,White Herb,Docile,SP_ATTACK|SPEED,Overheat,Extreme Speed,Crunch,Double Edge,1,1,13
+753,Salamence,Dragon,Flying,Intimidate,None,100,Bright Powder,Adamant,ATTACK|HP,Double Edge,Earthquake,Aerial Ace,Dragon Dance,1,1,21
+754,Metagross,Steel,Psychic,Clear Body,None,70,Quick Claw,Hardy,SP_ATTACK|ATTACK,Meteor Mash,Psychic,Earthquake,Shadow Ball,1,1,28
+755,Slaking,Normal,Normal,Truant,None,100,Lum Berry,Modest,SP_DEFENSE|SP_ATTACK,Thunderbolt,Flamethrower,Ice Beam,Yawn,1,1,14
+756,Articuno,Ice,Flying,Pressure,None,85,Lum Berry,Modest,SP_ATTACK|SPEED,Ice Beam,Water Pulse,Icy Wind,Roar,1,1,10
+757,Zapdos,Electric,Flying,Pressure,None,100,Lum Berry,Docile,SP_ATTACK|SPEED,Thunderbolt,Drill Peck,Thunder Wave,Roar,1,1,10
+758,Moltres,Fire,Flying,Pressure,None,90,Lum Berry,Docile,SP_ATTACK|ATTACK,Flamethrower,Aerial Ace,Mud Slap,Roar,1,1,10
+759,Raikou,Electric,Electric,Pressure,None,115,Chesto Berry,Modest,SP_ATTACK|SPEED,Thunderbolt,Thunder Wave,Calm Mind,Rest,1,1,7
+760,Entei,Fire,Fire,Pressure,None,100,Chesto Berry,Modest,SP_ATTACK|SPEED,Flamethrower,Double Team,Calm Mind,Rest,1,1,7
+761,Suicune,Water,Water,Pressure,None,85,Chesto Berry,Modest,SP_ATTACK|SPEED,Surf,Double Team,Calm Mind,Rest,1,1,7
+762,Regirock,Rock,Rock,Clear Body,None,50,White Herb,Adamant,ATTACK|HP,Superpower,Earthquake,Rock Slide,Explosion,1,1,15
+763,Regice,Ice,Ice,Clear Body,None,50,Chesto Berry,Modest,SP_ATTACK|HP,Ice Beam,Thunderbolt,Amnesia,Rest,1,1,15
+764,Registeel,Steel,Steel,Clear Body,None,50,Chesto Berry,Adamant,ATTACK|HP,Metal Claw,Curse,Amnesia,Rest,1,1,15
+765,Latias,Dragon,Psychic,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|HP,Psychic,Thunderbolt,Ice Beam,Dragon Claw,1,1,12
+766,Latios,Dragon,Psychic,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|HP,Psychic,Thunderbolt,Ice Beam,Dragon Claw,1,1,12
+767,Articuno,Ice,Flying,Pressure,None,85,Leftovers,Impish,SP_DEFENSE|DEFENSE|HP,Substitute,Toxic,Blizzard,Double Team,1,1,10
+768,Zapdos,Electric,Flying,Pressure,None,100,Bright Powder,Docile,SPEED|ATTACK,Thunder,Rain Dance,Drill Peck,Double Team,1,1,10
+769,Moltres,Fire,Flying,Pressure,None,90,White Herb,Hardy,SP_ATTACK|ATTACK,Overheat,Aerial Ace,Double Team,Protect,1,1,10
+770,Raikou,Electric,Electric,Pressure,None,115,Bright Powder,Modest,SP_ATTACK|SPEED,Thunder,Rain Dance,Double Team,Reflect,1,1,7
+771,Entei,Fire,Fire,Pressure,None,100,Bright Powder,Modest,SP_ATTACK|SPEED,Fire Blast,Sunny Day,Solar Beam,Reflect,1,1,7
+772,Suicune,Water,Water,Pressure,None,85,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Toxic,Dive,Double Team,Protect,1,1,7
+773,Regirock,Rock,Rock,Clear Body,None,50,Quick Claw,Adamant,ATTACK|HP,Earthquake,Rock Slide,Counter,Explosion,1,1,15
+774,Regice,Ice,Ice,Clear Body,None,50,Bright Powder,Quiet,SP_ATTACK|HP,Thunder,Rain Dance,Blizzard,Brick Break,1,1,15
+775,Registeel,Steel,Steel,Clear Body,None,50,Bright Powder,Quiet,SP_ATTACK|ATTACK|HP,Thunderbolt,Ice Punch,Earthquake,Aerial Ace,1,1,15
+776,Latias,Dragon,Psychic,Levitate,None,110,Quick Claw,Docile,SP_ATTACK|ATTACK,Psychic,Thunderbolt,Ice Beam,Earthquake,1,1,12
+777,Latios,Dragon,Psychic,Levitate,None,110,Quick Claw,Docile,SP_ATTACK|ATTACK,Psychic,Thunderbolt,Ice Beam,Earthquake,1,1,12
+778,Articuno,Ice,Flying,Pressure,None,85,Bright Powder,Docile,SP_ATTACK|ATTACK,Ice Beam,Facade,Aerial Ace,Protect,1,1,10
+779,Zapdos,Electric,Flying,Pressure,None,100,Leftovers,Docile,SP_ATTACK|SPEED|ATTACK,Thunderbolt,Drill Peck,Thunder Wave,Substitute,1,1,10
+780,Moltres,Fire,Flying,Pressure,None,90,Chesto Berry,Modest,SP_ATTACK|SPEED,Fire Blast,Sunny Day,Double Team,Rest,1,1,10
+781,Raikou,Electric,Electric,Pressure,None,115,Kings Rock,Modest,SP_ATTACK|SPEED,Thunderbolt,Thunder Wave,Quick Attack,Roar,1,1,7
+782,Entei,Fire,Fire,Pressure,None,100,Lum Berry,Docile,SPEED|ATTACK,Flamethrower,Double Edge,Swagger,Psych Up,1,1,7
+783,Suicune,Water,Water,Pressure,None,85,Lum Berry,Modest,SP_ATTACK|SPEED,Surf,Ice Beam,Rain Dance,Roar,1,1,7
+784,Regirock,Rock,Rock,Clear Body,None,50,Chesto Berry,Adamant,SP_DEFENSE|HP,Rock Slide,Earthquake,Curse,Rest,1,1,15
+785,Regice,Ice,Ice,Clear Body,None,50,Lum Berry,Quiet,SP_ATTACK|HP,Ice Beam,Thunderbolt,Thunder Wave,Explosion,1,1,16
+786,Registeel,Steel,Steel,Clear Body,None,50,Quick Claw,Adamant,SP_DEFENSE|DEFENSE|HP,Ancient Power,Amnesia,Counter,Explosion,1,1,15
+787,Latias,Dragon,Psychic,Levitate,None,110,Focus Band,Docile,SP_ATTACK|ATTACK,Dragon Claw,Thunderbolt,Ice Beam,Earthquake,1,1,12
+788,Latios,Dragon,Psychic,Levitate,None,110,Focus Band,Docile,SP_ATTACK|ATTACK,Dragon Claw,Thunderbolt,Ice Beam,Earthquake,1,1,12
+789,Articuno,Ice,Flying,Pressure,None,85,Chesto Berry,Docile,SP_ATTACK|ATTACK,Blizzard,Double Edge,Rest,Reflect,1,1,10
+790,Zapdos,Electric,Flying,Pressure,None,100,Shell Bell,Docile,SP_ATTACK|ATTACK,Thunderbolt,Drill Peck,Thunder Wave,Light Screen,1,1,10
+791,Moltres,Fire,Flying,Pressure,None,90,White Herb,Quiet,SP_ATTACK|ATTACK,Overheat,Double Edge,Steel Wing,Safeguard,1,1,10
+792,Raikou,Electric,Electric,Pressure,None,115,Lum Berry,Modest,SP_ATTACK|SPEED,Thunderbolt,Bite,Thunder Wave,Reflect,1,1,7
+793,Entei,Fire,Fire,Pressure,None,100,Kings Rock,Modest,SP_ATTACK|SPEED,Flamethrower,Bite,Double Team,Reflect,1,1,7
+794,Suicune,Water,Water,Pressure,None,85,Bright Powder,Modest,SP_ATTACK|SPEED,Surf,Ice Beam,Bite,Reflect,1,1,7
+795,Regirock,Rock,Rock,Clear Body,None,50,Leftovers,Careful,SP_DEFENSE|ATTACK|HP,Rock Slide,Brick Break,Double Team,Thunder Wave,1,1,16
+796,Regice,Ice,Ice,Clear Body,None,50,Leftovers,Bold,DEFENSE|HP,Ice Beam,Hail,Double Team,Thunder Wave,1,1,16
+797,Registeel,Steel,Steel,Clear Body,None,50,Leftovers,Impish,SP_DEFENSE|DEFENSE|HP,Ancient Power,Earthquake,Double Team,Thunder Wave,1,1,16
+798,Latias,Dragon,Psychic,Levitate,None,110,Leftovers,Docile,SP_ATTACK|ATTACK|HP,Mist Ball,Shadow Ball,Charm,Reflect,1,1,12
+799,Latios,Dragon,Psychic,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|HP,Luster Purge,Thunderbolt,Ice Beam,Dragon Claw,1,1,12
+800,Gengar,Ghost,Poison,Levitate,None,110,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Shadow Ball,Thunderbolt,Fire Punch,1,1,10
+801,Gengar,Ghost,Poison,Levitate,None,110,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Shadow Ball,Thunderbolt,Ice Punch,1,1,10
+802,Gengar,Ghost,Poison,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Thunderbolt,Fire Punch,Destiny Bond,1,1,10
+803,Gengar,Ghost,Poison,Levitate,None,110,Lum Berry,Modest,SP_ATTACK|SPEED,Psychic,Thunderbolt,Ice Punch,Destiny Bond,1,1,10
+804,Ursaring,Normal,Normal,Guts,None,55,Choice Band,Adamant,ATTACK|HP,Mega Kick,Aerial Ace,Rock Slide,Brick Break,1,1,7
+805,Ursaring,Normal,Normal,Guts,None,55,Focus Band,Adamant,ATTACK|HP,Hyper Beam,Yawn,Swords Dance,Double Team,1,1,6
+806,Ursaring,Normal,Normal,Guts,None,55,Quick Claw,Docile,SP_ATTACK|ATTACK|HP,Facade,Earthquake,Crunch,Bulk Up,1,1,6
+807,Ursaring,Normal,Normal,Guts,None,55,Quick Claw,Docile,SP_ATTACK|ATTACK|HP,Facade,Earthquake,Crunch,Brick Break,1,1,6
+808,Machamp,Fighting,Fighting,Guts,None,55,Scope Lens,Adamant,ATTACK|HP,Cross Chop,Double Edge,Earthquake,Rock Slide,1,1,17
+809,Machamp,Fighting,Fighting,Guts,None,55,Focus Band,Adamant,ATTACK|HP,Cross Chop,Earthquake,Counter,Rock Tomb,1,1,17
+810,Machamp,Fighting,Fighting,Guts,None,55,Bright Powder,Adamant,ATTACK|HP,Focus Punch,Substitute,Attract,Double Team,1,1,18
+811,Machamp,Fighting,Fighting,Guts,None,55,Focus Band,Adamant,ATTACK|HP,Revenge,Rock Slide,Facade,Counter,1,1,17
+812,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Salac Berry,Docile,SPEED|DEFENSE|HP,Psychic,Shadow Ball,Endure,Destiny Bond,1,1,13
+813,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Lum Berry,Timid,SPEED|HP,Psychic,Thunderbolt,Will O Wisp,Destiny Bond,1,1,13
+814,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Quick Claw,Bold,SP_DEFENSE|DEFENSE|HP,Psychic,Calm Mind,Will O Wisp,Destiny Bond,1,1,13
+815,Gardevoir,Psychic,Psychic,Synchronize,Trace,80,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Magical Leaf,Attract,Double Team,1,1,14
+816,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Lum Berry,Modest,SP_ATTACK|SPEED,Surf,Psychic,Recover,Light Screen,1,1,19
+817,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Leftovers,Calm,SP_DEFENSE|DEFENSE|HP,Surf,Confuse Ray,Thunder Wave,Recover,1,1,20
+818,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Bright Powder,Modest,SP_ATTACK|SPEED,Psychic,Ice Beam,Cosmic Power,Recover,1,1,19
+819,Starmie,Water,Psychic,Illuminate,Natural Cure,115,Bright Powder,Modest,SP_ATTACK|SPEED,Surf,Thunderbolt,Cosmic Power,Recover,1,1,19
+820,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Shell Bell,Docile,SP_ATTACK|ATTACK,Psychic,Thunderbolt,Iron Tail,Double Edge,1,1,12
+821,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Bright Powder,Modest,SP_ATTACK|HP,Hydro Pump,Thunder,Rain Dance,Blizzard,1,1,12
+822,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Leppa Berry,Calm,SP_DEFENSE|DEFENSE|HP,Sheer Cold,Horn Drill,Rest,Sleep Talk,1,1,12
+823,Lapras,Water,Ice,Water Absorb,Shell Armor,60,Quick Claw,Calm,SP_DEFENSE|DEFENSE|HP,Sheer Cold,Horn Drill,Sing,Attract,1,1,13
+824,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Quick Claw,Adamant,DEFENSE|ATTACK,Mega Kick,Shadow Ball,Brick Break,Counter,1,1,6
+825,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Leftovers,Adamant,DEFENSE|ATTACK,Earthquake,Shadow Ball,Brick Break,Counter,1,1,6
+826,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Quick Claw,Adamant,SP_DEFENSE|DEFENSE|HP,Hyper Beam,Shadow Ball,Earthquake,Curse,1,1,6
+827,Snorlax,Normal,Normal,Immunity,Thick Fat,30,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Return,Shadow Ball,Belly Drum,Rest,1,1,6
+828,Salamence,Dragon,Flying,Intimidate,None,100,Bright Powder,Adamant,SP_DEFENSE|DEFENSE|HP,Facade,Earthquake,Rock Slide,Dragon Dance,1,1,11
+829,Salamence,Dragon,Flying,Intimidate,None,100,Lum Berry,Hardy,SP_DEFENSE|DEFENSE|HP,Headbutt,Aerial Ace,Crunch,Dragon Dance,1,1,11
+830,Salamence,Dragon,Flying,Intimidate,None,100,Lum Berry,Modest,SP_ATTACK|SPEED,Flamethrower,Dragon Claw,Crunch,Brick Break,1,1,11
+831,Salamence,Dragon,Flying,Intimidate,None,100,Leftovers,Modest,SP_ATTACK|SPEED,Flamethrower,Dragon Claw,Crunch,Attract,1,1,12
+832,Metagross,Steel,Psychic,Clear Body,None,70,Quick Claw,Jolly,SPEED|ATTACK|HP,Explosion,Earthquake,Rock Slide,Brick Break,1,1,18
+833,Metagross,Steel,Psychic,Clear Body,None,70,Bright Powder,Hardy,SP_ATTACK|ATTACK,Meteor Mash,Psychic,Ice Punch,Thunder Punch,1,1,18
+834,Metagross,Steel,Psychic,Clear Body,None,70,Shell Bell,Hardy,SP_ATTACK|ATTACK,Earthquake,Shadow Ball,Ice Punch,Thunder Punch,1,1,18
+835,Metagross,Steel,Psychic,Clear Body,None,70,Quick Claw,Adamant,SPEED|ATTACK|HP,Meteor Mash,Earthquake,Brick Break,Explosion,1,1,18
+836,Regirock,Rock,Rock,Clear Body,None,50,Quick Claw,Adamant,ATTACK|HP,Hyper Beam,Focus Punch,Rock Slide,Double Team,1,1,15
+837,Regirock,Rock,Rock,Clear Body,None,50,Bright Powder,Adamant,SP_DEFENSE|HP,Swagger,Psych Up,Rock Slide,Explosion,1,1,15
+838,Regice,Ice,Ice,Clear Body,None,50,Leftovers,Brave,SP_ATTACK|DEFENSE|HP,Earthquake,Ice Beam,Curse,Counter,1,1,15
+839,Regice,Ice,Ice,Clear Body,None,50,Chesto Berry,Modest,SP_ATTACK|HP,Ice Beam,Thunderbolt,Sleep Talk,Rest,1,1,15
+840,Registeel,Steel,Steel,Clear Body,None,50,Leftovers,Adamant,SP_DEFENSE|DEFENSE|HP,Focus Punch,Substitute,Toxic,Double Team,1,1,15
+841,Registeel,Steel,Steel,Clear Body,None,50,White Herb,Adamant,SP_DEFENSE|DEFENSE|HP,Superpower,Aerial Ace,Swagger,Psych Up,1,1,15
+842,Latias,Dragon,Psychic,Levitate,None,110,Bright Powder,Modest,SP_DEFENSE|DEFENSE|HP,Dragon Claw,Thunder Wave,Calm Mind,Recover,1,1,12
+843,Latias,Dragon,Psychic,Levitate,None,110,Shell Bell,Modest,SP_ATTACK|HP,Mist Ball,Dragon Claw,Attract,Thunder Wave,1,1,13
+844,Latias,Dragon,Psychic,Levitate,None,110,Leftovers,Adamant,DEFENSE|HP,Earthquake,Shadow Ball,Swagger,Psych Up,1,1,11
+845,Latias,Dragon,Psychic,Levitate,None,110,Kings Rock,Docile,SP_ATTACK|SPEED|ATTACK,Psychic,Shadow Ball,Earthquake,Aerial Ace,1,1,11
+846,Latios,Dragon,Psychic,Levitate,None,110,Bright Powder,Modest,SP_DEFENSE|DEFENSE|HP,Dragon Claw,Thunder Wave,Calm Mind,Recover,1,1,12
+847,Latios,Dragon,Psychic,Levitate,None,110,Shell Bell,Docile,SP_ATTACK|ATTACK,Luster Purge,Shadow Ball,Dragon Claw,Thunder Wave,1,1,12
+848,Latios,Dragon,Psychic,Levitate,None,110,Bright Powder,Adamant,DEFENSE|HP,Earthquake,Shadow Ball,Dragon Dance,Recover,1,1,11
+849,Latios,Dragon,Psychic,Levitate,None,110,Kings Rock,Docile,SP_ATTACK|SPEED|ATTACK,Psychic,Shadow Ball,Earthquake,Aerial Ace,1,1,11
+850,Dragonite,Dragon,Flying,Inner Focus,None,80,Bright Powder,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Aerial Ace,Brick Break,Dragon Dance,0,1,18
+851,Dragonite,Dragon,Flying,Inner Focus,None,80,Bright Powder,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Double Edge,Aerial Ace,Dragon Dance,0,1,18
+852,Dragonite,Dragon,Flying,Inner Focus,None,80,Leftovers,Adamant,SP_DEFENSE|DEFENSE|ATTACK,Hyper Beam,Attract,Double Team,Thunder Wave,0,1,18
+853,Dragonite,Dragon,Flying,Inner Focus,None,80,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Hyper Beam,Thunder Wave,Dragon Dance,Rest,0,1,18
+854,Dragonite,Dragon,Flying,Inner Focus,None,80,Lum Berry,Docile,SP_ATTACK|ATTACK,Outrage,Double Edge,Thunder Wave,Roar,0,1,18
+855,Dragonite,Dragon,Flying,Inner Focus,None,80,Shell Bell,Modest,SP_ATTACK|SPEED,Dragon Claw,Thunderbolt,Surf,Flamethrower,0,1,18
+856,Dragonite,Dragon,Flying,Inner Focus,None,80,Shell Bell,Modest,SP_ATTACK|SPEED,Dragon Claw,Thunderbolt,Surf,Ice Beam,0,1,18
+857,Dragonite,Dragon,Flying,Inner Focus,None,80,Shell Bell,Modest,SP_ATTACK|SPEED,Dragon Claw,Flamethrower,Ice Beam,Brick Break,0,1,18
+858,Dragonite,Dragon,Flying,Inner Focus,None,80,Quick Claw,Docile,SP_ATTACK|HP,Thunder,Surf,Rain Dance,Earthquake,0,1,18
+859,Dragonite,Dragon,Flying,Inner Focus,None,80,Quick Claw,Docile,SP_ATTACK|HP,Fire Blast,Blizzard,Sunny Day,Earthquake,0,1,18
+860,Tyranitar,Rock,Dark,Sand Stream,None,61,Bright Powder,Hardy,SP_ATTACK|ATTACK,Earthquake,Aerial Ace,Thunderbolt,Surf,0,1,20
+861,Tyranitar,Rock,Dark,Sand Stream,None,61,Bright Powder,Hardy,SP_ATTACK|ATTACK,Earthquake,Rock Slide,Crunch,Thunderbolt,0,1,20
+862,Tyranitar,Rock,Dark,Sand Stream,None,61,Focus Band,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Rock Slide,Counter,Dragon Dance,0,1,20
+863,Tyranitar,Rock,Dark,Sand Stream,None,61,Quick Claw,Modest,SP_ATTACK|HP,Crunch,Ice Beam,Thunderbolt,Flamethrower,0,1,20
+864,Tyranitar,Rock,Dark,Sand Stream,None,61,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Rock Slide,Dragon Dance,Rest,0,1,20
+865,Tyranitar,Rock,Dark,Sand Stream,None,61,Chesto Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Earthquake,Rock Slide,Curse,Rest,0,1,20
+866,Tyranitar,Rock,Dark,Sand Stream,None,61,Quick Claw,Adamant,ATTACK|HP,Rock Slide,Aerial Ace,Brick Break,Curse,0,1,20
+867,Tyranitar,Rock,Dark,Sand Stream,None,61,Lum Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Rock Slide,Thunder Wave,Dragon Dance,Rest,0,1,20
+868,Tyranitar,Rock,Dark,Sand Stream,None,61,Quick Claw,Hardy,SP_ATTACK|ATTACK,Crunch,Earthquake,Aerial Ace,Attract,0,1,20
+869,Tyranitar,Rock,Dark,Sand Stream,None,61,Lum Berry,Adamant,SP_DEFENSE|DEFENSE|HP,Double Edge,Earthquake,Rock Slide,Dragon Dance,0,1,20
+870,Articuno,Ice,Flying,Pressure,None,85,Focus Band,Docile,SP_ATTACK|ATTACK,Blizzard,Double Edge,Agility,Swagger,0,1,8
+871,Articuno,Ice,Flying,Pressure,None,85,Chesto Berry,Docile,SP_ATTACK|ATTACK,Ice Beam,Aerial Ace,Reflect,Rest,0,1,8
+872,Zapdos,Electric,Flying,Pressure,None,100,Scope Lens,Docile,SP_ATTACK|ATTACK,Thunderbolt,Drill Peck,Double Edge,Thunder Wave,0,1,8
+873,Zapdos,Electric,Flying,Pressure,None,100,Lum Berry,Docile,SP_ATTACK|SPEED|ATTACK,Thunder,Drill Peck,Rain Dance,Double Edge,0,1,8
+874,Moltres,Fire,Flying,Pressure,None,90,White Herb,Docile,SP_ATTACK|SPEED,Overheat,Sunny Day,Swagger,Facade,0,1,8
+875,Moltres,Fire,Flying,Pressure,None,90,White Herb,Docile,SP_ATTACK|ATTACK,Overheat,Double Edge,Aerial Ace,Steel Wing,0,1,8
+876,Raikou,Electric,Electric,Pressure,None,115,Bright Powder,Modest,SP_ATTACK|SPEED,Thunderbolt,Double Edge,Roar,Reflect,0,1,7
+877,Raikou,Electric,Electric,Pressure,None,115,Chesto Berry,Modest,DEFENSE|HP,Thunderbolt,Calm Mind,Substitute,Rest,0,1,7
+878,Entei,Fire,Fire,Pressure,None,100,Salac Berry,Docile,SP_DEFENSE|DEFENSE,Fire Blast,Double Edge,Endure,Reflect,0,1,7
+879,Entei,Fire,Fire,Pressure,None,100,Chesto Berry,Modest,SP_DEFENSE|DEFENSE,Flamethrower,Calm Mind,Roar,Rest,0,1,7
+880,Suicune,Water,Water,Pressure,None,85,Lum Berry,Modest,SP_ATTACK|HP,Surf,Ice Beam,Calm Mind,Icy Wind,0,1,7
+881,Suicune,Water,Water,Pressure,None,85,Chesto Berry,Modest,SP_DEFENSE|DEFENSE|HP,Surf,Ice Beam,Calm Mind,Rest,0,1,7
