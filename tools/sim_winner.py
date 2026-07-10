@@ -46,6 +46,20 @@ def winner_choose(b):
                 keep = ga and ga[0]=="move" and ga[1] in MOVES and MOVES[ga[1]]["power"]>=2 and ga[2] is not None and b.minmax(gengar,ga[2],ga[1])[0]>=ga[2].hp
                 if not keep:
                     acts[gengar]=("move","MOVE_PROTECT",gengar)
+    # rule 5/6: fresh Regirock / enemy Metagross -> focus combo (kill before counter/boom conditions)
+    if gross is not None and gengar is not None and not fire:
+        ga_g=acts.get(gross); ga_n=acts.get(gengar)
+        gross_boom = ga_g and ga_g[0]=="move" and MOVES.get(ga_g[1],{}).get("effect")=="EFFECT_EXPLOSION"
+        gengar_kills = ga_n and ga_n[0]=="move" and ga_n[1] in MOVES and MOVES[ga_n[1]]["power"]>=2 and ga_n[2] is not None and b.minmax(gengar,ga_n[2],ga_n[1])[0]>=ga_n[2].hp
+        if not gross_boom:
+            regirock=next((f for f in foes if f.species=="Regirock" and f.hp*4>f.max_hp*3),None)
+            egross=next((f for f in foes if f.species=="Metagross" and f.hp*4>f.max_hp*3),None)
+            if regirock is not None and (gross.choice in (None,"MOVE_METEOR_MASH")):
+                acts[gross]=("move","MOVE_METEOR_MASH",regirock)
+                if not gengar_kills: acts[gengar]=("move","MOVE_PSYCHIC",regirock)
+            elif egross is not None and (gross.choice in (None,"MOVE_EARTHQUAKE")):
+                acts[gross]=("move","MOVE_EARTHQUAKE",egross)
+                if not gengar_kills: acts[gengar]=("move","MOVE_THUNDERBOLT",egross)
     # rule 3: frail Gengar voluntary retreat when pair-lethal and protect unavailable
     if GENGAR_RETREAT and gengar is not None and b.turn>=2:
         ga=acts.get(gengar)
