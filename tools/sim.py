@@ -56,9 +56,13 @@ class Mon:
         self.endure=False; self.endure_streak=0; self.recharge=False
         self.drowsy=0; self.trapped=False; self.invuln=False; self.first_turn=True
     def alive(self): return self.hp>0
-    def eff(self):
+    def eff(self, crit_att=False, crit_def=False):
         s=dict(self.stats)
-        for k in STAGE_KEYS: s[k]=max(1,int(s[k]*stage_mult(self.stages[k])))
+        for k in STAGE_KEYS:
+            st=self.stages[k]
+            if crit_att and k in ("atk","spa") and st<0: st=0
+            if crit_def and k in ("df","spd") and st>0: st=0
+            s[k]=max(1,int(s[k]*stage_mult(st)))
         if self.status=="BRN": s["atk"]=max(1,s["atk"]//2)
         if self.status=="PAR": s["spe"]=max(1,s["spe"]//4)
         return s
@@ -150,8 +154,8 @@ class Battle:
             MOVES["__TMP__"]=dict(MOVES[move],power=pw); move="__TMP__"
         elif eff=="EFFECT_FACADE" and att.status in ("BRN","PSN","TOX","PAR"):
             MOVES["__TMP__"]=dict(MOVES[move],power=MOVES[move]["power"]*2); move="__TMP__"
-        a=dict(species=att.species,stats=att.eff(),types=att.types,ability=att.ability,item=att.item,level=100)
-        d=dict(species=dfd.species,stats=dfd.eff(),types=dfd.types,ability=dfd.ability,item=None,level=100)
+        a=dict(species=att.species,stats=att.eff(crit_att=crit),types=att.types,ability=att.ability,item=att.item,level=100)
+        d=dict(species=dfd.species,stats=dfd.eff(crit_def=crit),types=dfd.types,ability=dfd.ability,item=None,level=100)
         lo,hi=damage_range(a,d,move,crit=crit)
         if hi==0: return 0
         dmg=self.rng.randint(lo,hi)
@@ -472,6 +476,20 @@ class Battle:
                 self.active[att.side][idx]=nxt; self.on_entry(nxt); nxt.first_turn=True
                 self.lg("%s baton passed to %s"%(att.species,nxt.species))
             return
+        if eff=="EFFECT_ROAR":
+            side=tgt.side
+            bench=[x for x in self.bench[side] if x.alive()]
+            if bench and tgt in self.active[side]:
+                nxt=self.rng.choice(bench)
+                self.bench[side].remove(nxt); self.bench[side].append(tgt)
+                idx=self.active[side].index(tgt)
+                tgt.stages={k:0 for k in STAGE_KEYS}; tgt.sub=0; tgt.perish=None; tgt.choice=None
+                self.active[side][idx]=nxt; self.on_entry(nxt); nxt.first_turn=True
+                self.lg("%s roared %s away -> %s"%(att.species,tgt.species,nxt.species))
+                self.flags["phazed_"+side]+=1
+            return
+        if eff=="EFFECT_PSYCH_UP":
+            att.stages=dict(tgt.stages); self.lg("%s psych up"%att.species); return
         if eff in ("EFFECT_SLEEP",): self.try_status(tgt,"SLP"); self.flags["sleep_try"]+=1
         elif eff=="EFFECT_TOXIC": self.try_status(tgt,"TOX")
         elif eff=="EFFECT_POISON": self.try_status(tgt,"PSN")
@@ -652,8 +670,11 @@ def ai_choose(b, mon):
             elif eff=="EFFECT_PROTECT":
                 sc=100 - 3*mon.protect_streak
                 cands.append((sc+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,mon))
-            elif eff=="EFFECT_ROAR": 
-                cands.append((90.0,mv,foes[0]))
+            elif eff=="EFFECT_ROAR":
+                for t in foes:
+                    boost=sum(max(0,v) for v in t.stages.values())
+                    sc=99.5 if boost>=3 else 90.0
+                    cands.append((sc+b.rng.uniform(-0.5,0.5),mv,t))
             elif eff=="EFFECT_ATTRACT":
                 for t in foes:
                     if t.attract or not t.gender or t.gender==mon.gender: continue
@@ -661,6 +682,10 @@ def ai_choose(b, mon):
             elif eff in ("EFFECT_SLEEP",): pass
             elif eff=="EFFECT_DESTINY_BOND":
                 cands.append((96+b.rng.uniform(-1,1),mv,mon))
+            elif eff=="EFFECT_PSYCH_UP":
+                for t in foes:
+                    boost=sum(max(0,v) for v in t.stages.values())
+                    if boost>=2: cands.append((99+b.rng.uniform(-0.5,0.5),mv,t))
             elif eff=="EFFECT_REST":
                 sc=101 if mon.hp*2<mon.max_hp else 90
                 cands.append((sc,mv,mon))
@@ -891,7 +916,7 @@ def our_choose(b):
                 acts[m]=("move","MOVE_EXPLOSION",None); continue
             ba=best_attack(b,m,foes)
             acts[m]=("move",ba[0],ba[1]) if ba else ("move","MOVE_METEOR_MASH",foes[0])
-        elif m.species=="Snorlax":
+        elif m.species=="Snorlax" and "MOVE_SELF_DESTRUCT" in m.moves:
             ally_booming = ally is not None and acts.get(ally,("",))[0]=="move" and acts.get(ally,("",""))[1]=="MOVE_EXPLOSION"
             if ally_booming:
                 acts[m]=("move","MOVE_PROTECT",m); continue
