@@ -557,8 +557,22 @@ class Battle:
             for i,m in enumerate(self.active[side]):
                 if m is None:
                     nxt=None
-                    for b in self.bench[side]:
-                        if b.alive(): nxt=b; break
+                    alive_bench=[b for b in self.bench[side] if b.alive()]
+                    if side=="us" and SMART_SENDIN and len(alive_bench)>1:
+                        foes_now=[f for f in self.active["foe"] if f and f.alive()]
+                        def threat(cand):
+                            tot=0
+                            for f in foes_now:
+                                best=0
+                                for fm in f.moves:
+                                    if fm not in MOVES or MOVES[fm]["power"]<2: continue
+                                    _,hi=self.minmax(f,cand,fm)
+                                    best=max(best,hi)
+                                tot+=best/max(1,cand.max_hp)
+                            return tot
+                        nxt=min(alive_bench,key=threat)
+                    elif alive_bench:
+                        nxt=alive_bench[0]
                     if nxt:
                         self.bench[side].remove(nxt)
                         self.active[side][i]=nxt; self.on_entry(nxt)
@@ -687,7 +701,10 @@ AI_JITTER=0.5
 AI_KILL_BONUS=4
 AI_STATUS_BONUS=0.0
 GENGAR_OVERLAY="ohko"
-STEEL_LEAD_EQ=1  # A=baseline / B=T1 sub / C=sub-first doctrine
+STEEL_LEAD_EQ=1
+SMART_SENDIN=0
+FOCUS_FIRE=0
+JIBAKU_RELAX=0  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -883,7 +900,22 @@ def our_choose(b):
             fire_all_die = fire and all(b.minmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in fire)
             stallers=[f for f in foes if is_staller(f)]
             stall_all_die = bool(stallers) and all(b.minmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in stallers)
-            if not damp_present and ally_safe and others and (kills==len(foes) or ((fire_all_die or stall_all_die) and len(others)>=2)):
+            relax_ok=False
+            if JIBAKU_RELAX and kills>=1 and len(others)>=2:
+                surv=[t for t in foes if b.minmax(m,t,"MOVE_SELF_DESTRUCT")[0]<t.hp]
+                def harmless(t):
+                    if cand_has_ohko(t): return False
+                    for x in ours:
+                        if x is m: continue
+                        worst=0
+                        for fm in t.moves:
+                            if fm not in MOVES or MOVES[fm]["power"]<2: continue
+                            _,hi=b.minmax(t,x,fm)
+                            worst=max(worst,hi/max(1,x.max_hp))
+                        if worst>=0.35: return False
+                    return True
+                relax_ok=all(harmless(t) for t in surv)
+            if not damp_present and ally_safe and others and (kills==len(foes) or relax_ok or ((fire_all_die or stall_all_die) and len(others)>=2)):
                 acts[m]=("move","MOVE_SELF_DESTRUCT",None); continue
             ba=best_attack(b,m,foes)
             solo,duo=incoming_max(m)
@@ -980,6 +1012,24 @@ def our_choose(b):
                 acts[m]=("move",ba[0],ba[1])
             else:
                 acts[m]=("move","MOVE_PROTECT",m)
+    if FOCUS_FIRE and foes:
+        attackers=[(m,a) for m,a in acts.items() if a[0]=="move" and a[1] in MOVES and MOVES[a[1]]["power"]>=2
+                   and MOVES[a[1]]["effect"] not in ("EFFECT_EXPLOSION",) and a[2] is not None and a[2].side=="foe"]
+        if len(attackers)==2:
+            (m1,a1),(m2,a2)=attackers
+            if a1[2] is not a2[2]:
+                def mindmg(m,a,t):
+                    lo,_=b.minmax(m,t,a[1]); return lo
+                for t in sorted(foes,key=lambda f:-max(
+                        (b.minmax(f,x,fm)[1]/max(1,x.max_hp) for x in (m1,m2) for fm in f.moves
+                         if fm in MOVES and MOVES[fm]["power"]>=2),default=0)):
+                    solo1=mindmg(m1,a1,t)>=t.hp; solo2=mindmg(m2,a2,t)>=t.hp
+                    if not solo1 and not solo2 and mindmg(m1,a1,t)+mindmg(m2,a2,t)>=t.hp:
+                        ba1=best_attack(b,m1,[t]); ba2=best_attack(b,m2,[t])
+                        if ba1 and ba2 and ba1[3][0]*t.hp+ba2[3][0]*t.hp>=t.hp:
+                            acts[m1]=("move",ba1[0],t); acts[m2]=("move",ba2[0],t)
+                            b.flags["focus_fire"]+=1
+                        break
     return acts
 
 # ---------------- turn loop ----------------
