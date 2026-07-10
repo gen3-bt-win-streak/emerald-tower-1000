@@ -730,8 +730,9 @@ STEEL_LEAD_EQ=1
 SMART_SENDIN=0
 FOCUS_FIRE=0
 JIBAKU_RELAX=0  # A=baseline / B=T1 sub / C=sub-first doctrine
-def best_attack(b, mon, foes, only=None):
-    """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
+def best_attack(b, mon, foes, only=None, relax=False):
+    """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone.
+    relax=True: ignore counter/boom-zone guards (deadlock breaker — timeout loss is worse)"""
     best=None
     moves=[mon.choice] if (mon.item=="Choice Band" and mon.choice) else mon.moves
     our_boomable=any(x is not None and x.alive() and x.species!="Gengar" for x in b.active["us"]) or any(x.alive() for x in b.bench["us"])
@@ -743,10 +744,10 @@ def best_attack(b, mon, foes, only=None):
             spread=MOVES[mv]["target"]=="MOVE_TARGET_BOTH" and len(foes)==2
             lo,hi=b.minmax(mon,t,mv,spread=spread)
             if hi==0: continue
-            if MOVES[mv]["type"] in PHYSICAL and cand_has_counter(t) and 2*hi>=mon.hp: continue
+            if not relax and MOVES[mv]["type"] in PHYSICAL and cand_has_counter(t) and 2*hi>=mon.hp: continue
             # boom-zone guard: never chip an explosion-carrier into <=50% unless the hit kills
             has_boom=cand_has_boom(t)
-            if has_boom and our_boomable and lo<t.hp and (t.hp-hi)*2<=t.max_hp and t.hp*2>t.max_hp:
+            if not relax and has_boom and our_boomable and lo<t.hp and (t.hp-hi)*2<=t.max_hp and t.hp*2>t.max_hp:
                 continue
             key=(lo/max(1,t.hp), hi/max(1,t.hp))
             if best is None or key>best[3]:
@@ -953,7 +954,9 @@ def our_choose(b):
             elif duo>=m.hp and m.protect_streak<PROTECT_CAP and not last_mon:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba: acts[m]=("move",ba[0],ba[1])
-            else: acts[m]=("move","MOVE_PROTECT",m)
+            else:
+                ba2=best_attack(b,m,foes,relax=True)
+                acts[m]=("move",ba2[0],ba2[1]) if ba2 else ("move","MOVE_PROTECT",m)
         elif m.species=="Gengar":
             team_atk=[x for x in ours]+[y for y in b.bench["us"] if y.alive()]
             lax_any=next((x for x in team_atk if x.species=="Snorlax"),None)

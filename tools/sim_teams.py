@@ -122,8 +122,11 @@ def generic_choose(b):
         if (solo>=m.hp) and m.sub==0 and m.hp>m.max_hp//4 and "MOVE_SUBSTITUTE" in m.moves:
             acts[m]=("move","MOVE_SUBSTITUTE",m); continue
         if ba: acts[m]=("move",ba[0],ba[1])
-        elif "MOVE_PROTECT" in m.moves: acts[m]=("move","MOVE_PROTECT",m)
-        else: acts[m]=("move",m.moves[0],b.rng.choice(foes))
+        else:
+            ba2=best_attack(b,m,foes,relax=True)
+            if ba2: acts[m]=("move",ba2[0],ba2[1])
+            elif "MOVE_PROTECT" in m.moves: acts[m]=("move","MOVE_PROTECT",m)
+            else: acts[m]=("move",m.moves[0],b.rng.choice(foes))
     return acts
 
 import sys
