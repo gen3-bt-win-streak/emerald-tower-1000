@@ -509,7 +509,7 @@ def ai_choose(b, mon):
                     _,hi=b.minmax(mon,t,mv)
                     sc=base+(4 if hi>=t.hp else 0)
                     if best is None or sc>best[0]: best=(sc,t)
-                cands.append((best[0]+b.rng.uniform(-0.5,0.5),mv,best[1]))
+                cands.append((best[0]+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,best[1]))
                 continue
             if eff==OHKO_EFF:
                 for t in foes:
@@ -532,22 +532,22 @@ def ai_choose(b, mon):
                 if hi==0: continue   # CHECK_BAD_MOVE: no-effect skipped
                 if t.sub>0 and hi<t.sub: sc=95
                 else:
-                    sc=98 + (4 if hi>=t.hp else 0)
+                    sc=98 + (AI_KILL_BONUS if hi>=t.hp else 0)
                     sc += min(2, 2*hi/max(1,t.max_hp))   # prefer stronger move (approx viability)
-                cands.append((sc+b.rng.uniform(-0.5,0.5),mv,t))
+                cands.append((sc+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,t))
         else:
             if eff in ("EFFECT_PARALYZE","EFFECT_THUNDER_WAVE"):
                 for t in foes:
                     if t.status or "TYPE_GROUND" in t.types or t.sub>0: continue
                     bonus=3 if (t.eff()["spe"]>mon.eff()["spe"] and b.rng.random()<0.92) else 0
-                    cands.append((97+bonus+b.rng.uniform(-0.5,0.5),mv,t))
+                    cands.append((97+bonus+AI_STATUS_BONUS+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,t))
             elif eff=="EFFECT_SLEEP":
                 for t in foes:
                     if t.status or t.sub>0: continue
-                    cands.append((98+b.rng.uniform(-1,1),mv,t))  # bugged bonus -> flat
+                    cands.append((98+AI_STATUS_BONUS+b.rng.uniform(-1,1),mv,t))  # bugged bonus -> flat
             elif eff=="EFFECT_PROTECT":
                 sc=100 - 3*mon.protect_streak
-                cands.append((sc+b.rng.uniform(-0.5,0.5),mv,mon))
+                cands.append((sc+b.rng.uniform(-AI_JITTER,AI_JITTER),mv,mon))
             elif eff=="EFFECT_ROAR": 
                 cands.append((90.0,mv,foes[0]))
             elif eff=="EFFECT_ATTRACT":
@@ -591,7 +591,11 @@ def is_staller(mon):
     return bool(mon.observed & STALL_MOVES)
 POLICY_VARIANT="A"
 PROTECT_CAP=2
-GENGAR_BUILD="support"  # A=baseline / B=T1 sub / C=sub-first doctrine
+GENGAR_BUILD="support"
+FIRE_T1_MODE="default"
+AI_JITTER=0.5
+AI_KILL_BONUS=4
+AI_STATUS_BONUS=0.0  # A=baseline / B=T1 sub / C=sub-first doctrine
 def best_attack(b, mon, foes, only=None):
     """(move,target,minfrac,maxfrac) best by min-roll fraction; avoids feeding enemy boom zone"""
     best=None
@@ -642,12 +646,20 @@ def our_choose(b):
             cc = next((f for f in foes if f.species in ("Machamp","Hariyama","Medicham")),None)
             bench_lax=next((m for m in b.bench["us"] if m.species=="Snorlax" and m.alive()),None)
             bench_lati=next((m for m in b.bench["us"] if m.species=="Latios" and m.alive()),None)
-            if cc and not any(f.species=="Houndoom" for f in fire) and bench_lati:
+            if FIRE_T1_MODE=="stay":
+                gb=best_attack(b,gross,foes)
+                acts[gross]=("move",gb[0],gb[1]) if gb else ("move","MOVE_METEOR_MASH",foes[0])
+            elif cc and not any(f.species=="Houndoom" for f in fire) and bench_lati:
                 acts[gross]=("switch",gross,bench_lati)
             elif bench_lax:
                 acts[gross]=("switch",gross,bench_lax)
             if fp_holder is not None:
                 acts[gengar]=("move","MOVE_GIGA_DRAIN",fp_holder)
+            elif FIRE_T1_MODE=="sub":
+                acts[gengar]=("move","MOVE_SUBSTITUTE",gengar)
+            elif FIRE_T1_MODE=="giga":
+                gg=best_attack(b,gengar,foes)
+                acts[gengar]=("move",gg[0],gg[1]) if gg else ("move","MOVE_PROTECT",gengar)
             else:
                 acts[gengar]=("move","MOVE_PROTECT",gengar)
             b.flags["branch_fire"]+=1
@@ -749,6 +761,7 @@ def our_choose(b):
         if not foes: acts[m]=("move",m.moves[0],None); continue
         ally,ally_fresh=eff_ally(m)
         ally_safe = (ally is None) or (ally.species=="Gengar") or (not ally_fresh and "MOVE_PROTECT" in ally.moves)
+        foes_sung = any(f.perish is not None for f in foes)
         if m.species=="Metagross":
             can_boom = boom_ok and (m.choice is None or m.choice=="MOVE_EXPLOSION") and ally_safe
             kills=sum(1 for t in foes if b.minmax(m,t,"MOVE_EXPLOSION")[0]>=t.hp)
@@ -773,7 +786,10 @@ def our_choose(b):
             ba=best_attack(b,m,foes)
             solo,duo=incoming_max(m)
             last_mon = len(ours)==1 and not any(x.alive() for x in b.bench["us"])
-            if ba and (ba[2]>=1.0 or (duo<m.hp and (ba[3][1]>=0.25 or last_mon))):
+            crunch_time = foes_sung and min((f.perish for f in foes if f.perish is not None),default=9)<=1
+            if crunch_time and ba and m.perish is not None and m.perish<=1:
+                acts[m]=("move",ba[0],ba[1])
+            elif ba and (ba[2]>=1.0 or (duo<m.hp and (ba[3][1]>=0.25 or last_mon))):
                 acts[m]=("move",ba[0],ba[1])
             elif duo>=m.hp and m.protect_streak<PROTECT_CAP and not last_mon:
                 acts[m]=("move","MOVE_PROTECT",m)
@@ -851,7 +867,10 @@ def our_choose(b):
             solo,duo=incoming_max(m)
             kill_now = ba and ba[2]>=1.0
             ally_alive = ally is not None
-            if kill_now:
+            crunch_time = foes_sung and min((f.perish for f in foes if f.perish is not None),default=9)<=1
+            if crunch_time and ba and m.perish is not None and m.perish<=1:
+                acts[m]=("move",ba[0],ba[1])
+            elif kill_now:
                 acts[m]=("move",ba[0],ba[1])
             elif solo>=m.hp and m.protect_streak<PROTECT_CAP and ally_alive:
                 acts[m]=("move","MOVE_PROTECT",m)
