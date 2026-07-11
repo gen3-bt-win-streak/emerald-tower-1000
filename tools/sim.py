@@ -41,7 +41,10 @@ class Mon:
         self.species=species; self.types=list(types); self.ability=ability; self.item=item
         self.stats=dict(stats); self.max_hp=stats["hp"]; self.hp=stats["hp"]
         self.moves=list(moves); self.side=side; self.set_id=set_id
-        self.gender = gender if gender is not None else (None if species in GENDERLESS else random.choice("MF"))
+        # foe genders are re-drawn seed-deterministically in Battle.__init__
+        # (a bare random.choice here leaked module-RNG state across battles
+        #  and broke (seed,event_seed) reproducibility)
+        self.gender = gender if gender is not None else (None if species in GENDERLESS else "M")
         self.status=None; self.slp=0; self.toxn=0
         self.stages={k:0 for k in STAGE_KEYS}; self.acc_st=0; self.eva_st=0
         self.sub=0; self.cnf=0; self.attract=False
@@ -116,6 +119,9 @@ class Battle:
         self.rng=random.Random(event_seed) if event_seed is not None else rngd
         self.us=our_team()
         self.tid,self.foe=enemy_team(rngd)
+        grng=random.Random((0 if seed is None else seed)^0xA5F00D)
+        for _m in self.foe:
+            if _m.gender is not None: _m.gender=grng.choice("MF")
         self.enemy_iv=next((iv for t,iv,_ in TRAINERS if t==self.tid),31)
         self.active={"us":[self.us[0],self.us[1]],"foe":[self.foe[0],self.foe[1]]}
         self.bench={"us":[self.us[2],self.us[3]],"foe":self.foe[2:]}
