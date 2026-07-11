@@ -116,6 +116,7 @@ class Battle:
         self.rng=random.Random(event_seed) if event_seed is not None else rngd
         self.us=our_team()
         self.tid,self.foe=enemy_team(rngd)
+        self.enemy_iv=next((iv for t,iv,_ in TRAINERS if t==self.tid),31)
         self.active={"us":[self.us[0],self.us[1]],"foe":[self.foe[0],self.foe[1]]}
         self.bench={"us":[self.us[2],self.us[3]],"foe":self.foe[2:]}
         self.weather=None; self.wturns=0
@@ -172,6 +173,49 @@ class Battle:
             if self.screens["foe_reflect"]>0 and mt in PHYSICAL and not crit: dmg//=2
             if self.screens["foe_light"]>0 and mt not in PHYSICAL and not crit: dmg//=2
         return max(1,dmg)
+
+    def pminmax(self, att, dfd, move, spread=False):
+        """info-fair damage estimate: worst case over the defender's / attacker's candidate sets"""
+        iv=getattr(self,"enemy_iv",31)
+        if dfd.side=="foe" and att.side=="us":
+            key=("out",att.species,tuple(sorted(att.stages.items())),att.status,att.item,dfd.species,frozenset(dfd.observed),move,iv,spread)
+            fr=_PM_CACHE.get(key)
+            if fr is None:
+                lo_f=None; hi_f=None
+                a=dict(species=att.species,stats=att.eff(),types=att.types,ability=att.ability,item=att.item,level=100)
+                for e in cand_entries(dfd):
+                    st=e["stats31"] if iv>=31 else e["stats21"]
+                    for ab in set(x for x in e["abilities"] if x!="ABILITY_NONE") or {"ABILITY_NONE"}:
+                        d=dict(species=dfd.species,stats=st,types=e["types"],ability=ab,item=None,level=100)
+                        lo,hi=damage_range(a,d,move)
+                        lof,hif=lo/st["hp"],hi/st["hp"]
+                        lo_f=lof if lo_f is None or lof<lo_f else lo_f
+                        hi_f=hif if hi_f is None or hif<hi_f else hi_f
+                if lo_f is None: lo_f=hi_f=0.0
+                fr=(lo_f,hi_f); _PM_CACHE[key]=fr
+            lo=int(fr[0]*dfd.max_hp); hi=int(fr[1]*dfd.max_hp)
+            if spread: lo//=2; hi//=2
+            return lo,hi
+        if att.side=="foe" and dfd.side=="us":
+            if move not in cand_moves(att): return (0,0)
+            key=("in",att.species,frozenset(att.observed),att.status,dfd.species,tuple(sorted(dfd.stages.items())),move,iv,spread)
+            v=_PM_CACHE.get(key)
+            if v is None:
+                hi_m=0; lo_m=None
+                d=dict(species=dfd.species,stats=dfd.eff(),types=dfd.types,ability=dfd.ability,item=None,level=100)
+                for e in cand_entries(att):
+                    if move not in e["moves"]: continue
+                    st=e["stats31"] if iv>=31 else e["stats21"]
+                    st=dict(st)
+                    if att.status=="BRN": st["atk"]=max(1,st["atk"]//2)
+                    a=dict(species=att.species,stats=st,types=e["types"],ability=e["abilities"][0],item=e["item"],level=100)
+                    lo,hi=damage_range(a,d,move)
+                    hi_m=max(hi_m,hi); lo_m=lo if lo_m is None or lo<lo_m else lo_m
+                v=(lo_m or 0,hi_m); _PM_CACHE[key]=v
+            lo,hi=v
+            if spread: lo//=2; hi//=2
+            return lo,hi
+        return self.minmax(att,dfd,move,spread=spread)
 
     def minmax(self, att, dfd, move, spread=False):
         a=dict(species=att.species,stats=att.eff(),types=att.types,ability=att.ability,item=att.item,level=100)
@@ -699,16 +743,31 @@ def ai_choose(b, mon):
 
 # ---------------- our policy bot (playbook encoding) ----------------
 FORTRESS_THRESH=0.50
+TH_LAX_ATK=0.25
+TH_DANGER=1.0
+TH_SOLO=1.0
 STALL_MOVES={"MOVE_DOUBLE_TEAM","MOVE_MINIMIZE","MOVE_PROTECT","MOVE_DETECT","MOVE_REST",
              "MOVE_RECOVER","MOVE_SOFTBOILED","MOVE_MILK_DRINK","MOVE_MOONLIGHT","MOVE_MORNING_SUN","MOVE_SYNTHESIS"}
 SPECIES_SETS={}
+SPECIES_ENTRIES={}
 for _e in pool:
     SPECIES_SETS.setdefault(_e["species"],[]).append(frozenset(_e["moves"]))
+    SPECIES_ENTRIES.setdefault(_e["species"],[]).append(_e)
 def candidates(mon):
     ms=SPECIES_SETS.get(mon.species)
     if not ms: return []
     c=[s for s in ms if mon.observed<=s]
     return c if c else ms
+def cand_entries(mon):
+    es=SPECIES_ENTRIES.get(mon.species)
+    if not es: return []
+    c=[e for e in es if mon.observed<=frozenset(e["moves"])]
+    return c if c else es
+def cand_moves(mon):
+    u=set()
+    for e in cand_entries(mon): u|=set(e["moves"])
+    return u
+_PM_CACHE={}
 def cand_has_counter(mon):
     return any("MOVE_COUNTER" in s for s in candidates(mon))
 def cand_has_boom(mon):
@@ -742,7 +801,7 @@ def best_attack(b, mon, foes, only=None, relax=False):
         if MOVES[mv]["effect"]=="EFFECT_EXPLOSION": continue
         for t in foes:
             spread=MOVES[mv]["target"]=="MOVE_TARGET_BOTH" and len(foes)==2
-            lo,hi=b.minmax(mon,t,mv,spread=spread)
+            lo,hi=b.pminmax(mon,t,mv,spread=spread)
             if hi==0: continue
             if not relax and MOVES[mv]["type"] in PHYSICAL and cand_has_counter(t) and 2*hi>=mon.hp: continue
             # boom-zone guard: never chip an explosion-carrier into <=50% unless the hit kills
@@ -756,7 +815,7 @@ def best_attack(b, mon, foes, only=None, relax=False):
 
 def boom_kills_all(b, mon, foes, move):
     for t in foes:
-        lo,_=b.minmax(mon,t,move)
+        lo,_=b.pminmax(mon,t,move)
         if lo<t.hp: return False
     return True and len(foes)>0
 
@@ -811,10 +870,10 @@ def our_choose(b):
         if regice is not None:
             acts[gross]=("move","MOVE_METEOR_MASH",regice)
             other=[f for f in foes if f is not regice]
-            acts[gengar]=("move","MOVE_GIGA_DRAIN",other[0]) if other and b.minmax(gengar,other[0],"MOVE_GIGA_DRAIN")[1]>0 else ("move","MOVE_PROTECT",gengar)
+            acts[gengar]=("move","MOVE_GIGA_DRAIN",other[0]) if other and b.pminmax(gengar,other[0],"MOVE_GIGA_DRAIN")[1]>0 else ("move","MOVE_PROTECT",gengar)
             b.flags["branch_regice"]+=1; return acts
         STEELS={"Aggron","Steelix","Registeel","Metagross","Scizor","Forretress"}
-        steel_t=next((f for f in foes if f.species in STEELS and b.minmax(gross,f,"MOVE_EXPLOSION")[0]<f.hp and b.minmax(gross,f,"MOVE_EARTHQUAKE")[1]>0),None)
+        steel_t=next((f for f in foes if f.species in STEELS and b.pminmax(gross,f,"MOVE_EXPLOSION")[0]<f.hp and b.pminmax(gross,f,"MOVE_EARTHQUAKE")[1]>0),None)
         if STEEL_LEAD_EQ and steel_t is not None:
             acts[gross]=("move","MOVE_EARTHQUAKE",steel_t)
             other=[f for f in foes if f is not steel_t]
@@ -837,14 +896,14 @@ def our_choose(b):
             b.flags["branch_ghost2"]+=1; return acts
         if damp_present:
             dampmon=next(f for f in foes if f.species in DAMP_SP)
-            if dampmon.species=="Quagsire" and dampmon.set_id==388:
+            if dampmon.species=="Quagsire" and cand_has_counter(dampmon):
                 acts[gross]=("move","MOVE_SHADOW_BALL",next((f for f in foes if f is not dampmon),dampmon))
             else:
                 acts[gross]=("move","MOVE_EARTHQUAKE",dampmon)
             acts[gengar]=("move","MOVE_GIGA_DRAIN",dampmon)
             b.flags["branch_damp"]+=1; return acts
         # default: boom (+ giga overlay on Rhydon etc.) — but only if it guarantees >=1 kill
-        kills_boom=sum(1 for f in foes if b.minmax(gross,f,"MOVE_EXPLOSION")[0]>=f.hp)
+        kills_boom=sum(1 for f in foes if b.pminmax(gross,f,"MOVE_EXPLOSION")[0]>=f.hp)
         if kills_boom==0:
             gb2=best_attack(b,gross,foes)
             acts[gross]=("move",gb2[0],gb2[1]) if gb2 else ("move","MOVE_METEOR_MASH",foes[0])
@@ -854,7 +913,7 @@ def our_choose(b):
             return acts
         acts[gross]=("move","MOVE_EXPLOSION",None)
         ohko_t=next((f for f in foes if cand_has_ohko(f)),None)
-        if ohko_t is not None and b.minmax(gengar,ohko_t,"MOVE_GIGA_DRAIN")[1]>0:
+        if ohko_t is not None and b.pminmax(gengar,ohko_t,"MOVE_GIGA_DRAIN")[1]>0:
             acts[gengar]=("move","MOVE_GIGA_DRAIN",ohko_t)
         elif POLICY_VARIANT in ("B","C","DB","EB","FB","GB"):
             acts[gengar]=("move","MOVE_SUBSTITUTE",gengar)
@@ -890,11 +949,11 @@ def our_choose(b):
         hits=[]
         for f in foes:
             bestf=0
-            for fm in f.moves:
+            for fm in cand_moves(f):
                 if fm not in MOVES or MOVES[fm]["power"]<2: continue
                 if MOVES[fm]["effect"]=="EFFECT_EXPLOSION" and f.hp*2>f.max_hp: continue
                 sp=MOVES[fm]["target"]=="MOVE_TARGET_BOTH" and len([x for x in b.active["us"] if x and x.alive()])==2
-                _,hi=b.minmax(f,m,fm,spread=sp)
+                _,hi=b.pminmax(f,m,fm,spread=sp)
                 bestf=max(bestf,hi)
             hits.append(bestf)
         hits.sort(reverse=True)
@@ -909,10 +968,10 @@ def our_choose(b):
         foes_sung = any(f.perish is not None for f in foes)
         if m.species=="Metagross":
             can_boom = boom_ok and (m.choice is None or m.choice=="MOVE_EXPLOSION") and ally_safe
-            kills=sum(1 for t in foes if b.minmax(m,t,"MOVE_EXPLOSION")[0]>=t.hp)
+            kills=sum(1 for t in foes if b.pminmax(m,t,"MOVE_EXPLOSION")[0]>=t.hp)
             others=[x for x in ours if x is not m]+[x for x in b.bench["us"] if x.alive()]
             stallers_g=[f for f in foes if is_staller(f)]
-            stall_die_g = bool(stallers_g) and all(b.minmax(m,f,"MOVE_EXPLOSION")[0]>=f.hp for f in stallers_g)
+            stall_die_g = bool(stallers_g) and all(b.pminmax(m,f,"MOVE_EXPLOSION")[0]>=f.hp for f in stallers_g)
             if can_boom and others and (kills==len(foes) or (kills>=1 and len(foes)==1) or (stall_die_g and len(others)>=2)):
                 acts[m]=("move","MOVE_EXPLOSION",None); continue
             ba=best_attack(b,m,foes)
@@ -921,14 +980,14 @@ def our_choose(b):
             ally_booming = ally is not None and acts.get(ally,("",))[0]=="move" and acts.get(ally,("",""))[1]=="MOVE_EXPLOSION"
             if ally_booming:
                 acts[m]=("move","MOVE_PROTECT",m); continue
-            kills=sum(1 for t in foes if b.minmax(m,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp)
+            kills=sum(1 for t in foes if b.pminmax(m,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp)
             others=[x for x in ours if x is not m]+[x for x in b.bench["us"] if x.alive()]
-            fire_all_die = fire and all(b.minmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in fire)
+            fire_all_die = fire and all(b.pminmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in fire)
             stallers=[f for f in foes if is_staller(f)]
-            stall_all_die = bool(stallers) and all(b.minmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in stallers)
+            stall_all_die = bool(stallers) and all(b.pminmax(m,f,"MOVE_SELF_DESTRUCT")[0]>=f.hp for f in stallers)
             relax_ok=False
             if JIBAKU_RELAX and kills>=1 and len(others)>=2:
-                surv=[t for t in foes if b.minmax(m,t,"MOVE_SELF_DESTRUCT")[0]<t.hp]
+                surv=[t for t in foes if b.pminmax(m,t,"MOVE_SELF_DESTRUCT")[0]<t.hp]
                 def harmless(t):
                     if cand_has_ohko(t): return False
                     for x in ours:
@@ -936,7 +995,7 @@ def our_choose(b):
                         worst=0
                         for fm in t.moves:
                             if fm not in MOVES or MOVES[fm]["power"]<2: continue
-                            _,hi=b.minmax(t,x,fm)
+                            _,hi=b.pminmax(t,x,fm)
                             worst=max(worst,hi/max(1,x.max_hp))
                         if worst>=0.35: return False
                     return True
@@ -949,9 +1008,9 @@ def our_choose(b):
             crunch_time = foes_sung and min((f.perish for f in foes if f.perish is not None),default=9)<=1
             if crunch_time and ba and m.perish is not None and m.perish<=1:
                 acts[m]=("move",ba[0],ba[1])
-            elif ba and (ba[2]>=1.0 or (duo<m.hp and (ba[3][1]>=0.25 or last_mon))):
+            elif ba and (ba[2]>=1.0 or (duo<m.hp*TH_DANGER and (ba[3][1]>=TH_LAX_ATK or last_mon))):
                 acts[m]=("move",ba[0],ba[1])
-            elif duo>=m.hp and m.protect_streak<PROTECT_CAP and not last_mon:
+            elif duo>=m.hp*TH_DANGER and m.protect_streak<PROTECT_CAP and not last_mon:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba: acts[m]=("move",ba[0],ba[1])
             else:
@@ -967,14 +1026,14 @@ def our_choose(b):
                     ba=best_attack(b,a,[t])
                     if ba: best=max(best,ba[3][1])
                 if lax_any is not None and not damp_present:
-                    best=max(best,b.minmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]/max(1,t.hp))
+                    best=max(best,b.pminmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]/max(1,t.hp))
                 if gross_any is not None and not damp_present and (gross_any.choice in (None,"MOVE_EXPLOSION")):
-                    best=max(best,b.minmax(gross_any,t,"MOVE_EXPLOSION")[0]/max(1,t.hp))
+                    best=max(best,b.pminmax(gross_any,t,"MOVE_EXPLOSION")[0]/max(1,t.hp))
                 return best<FORTRESS_THRESH
             sung=any(f.perish is not None for f in foes)
             solo,duo=incoming_max(m)
             bench_alive=any(x.alive() for x in b.bench["us"])
-            sing_ok = bench_alive and not sung and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes)
+            sing_ok = bench_alive and not sung and not any(f.species in ("Mr Mime","Electrode","Exploud","Whismur","Loudred") for f in foes)
             if POLICY_VARIANT=="H" and foes and sing_ok:
                 foe_bench_h = any(x.alive() for x in b.bench["foe"])
                 no_fire_h = not any(f.species in FIRE_RETREAT for f in foes)
@@ -982,7 +1041,7 @@ def our_choose(b):
                     acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if POLICY_VARIANT in ("D","DB","E","EB","F","FB","G","GB") and foes and sing_ok:
                 jib_ok = lax_any is not None and not damp_present
-                sweep = jib_ok and all(b.minmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp for t in foes)
+                sweep = jib_ok and all(b.pminmax(lax_any,t,"MOVE_SELF_DESTRUCT")[0]>=t.hp for t in foes)
                 foe_bench = any(x.alive() for x in b.bench["foe"])
                 need_no_bench = POLICY_VARIANT in ("E","EB","F","FB","G","GB")
                 need_slow = POLICY_VARIANT in ("F","FB")
@@ -992,7 +1051,7 @@ def our_choose(b):
                 fire_veto = POLICY_VARIANT in ("G","GB") and bool(fires_f) and not (entei_only and m.hp*3>=m.max_hp*2)
                 if not sweep and (not need_no_bench or not foe_bench) and (not need_slow or slow_exists) and not fire_veto:
                     acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
-            if foes and all(fortress(t) for t in foes) and not sung and bench_alive and not any(f.ability=="ABILITY_SOUNDPROOF" for f in foes):
+            if foes and all(fortress(t) for t in foes) and not sung and bench_alive and not any(f.species in ("Mr Mime","Electrode","Exploud","Whismur","Loudred") for f in foes):
                 acts[m]=("move","MOVE_PERISH_SONG",m); b.flags["perish_used"]+=1; continue
             if sung:
                 if m.protect_streak<PROTECT_CAP: acts[m]=("move","MOVE_PROTECT",m)
@@ -1001,7 +1060,7 @@ def our_choose(b):
                 continue
             ba=best_attack(b,m,foes)
             kill_now = ba and ba[2]>=1.0
-            danger = (duo>=m.hp) or (solo>=m.hp)
+            danger = (duo>=m.hp*TH_DANGER) or (solo>=m.hp*TH_SOLO)
             if POLICY_VARIANT=="C" and not kill_now:
                 if m.sub==0 and m.hp>m.max_hp//4:
                     acts[m]=("move","MOVE_SUBSTITUTE",m); continue
@@ -1034,7 +1093,7 @@ def our_choose(b):
                 acts[m]=("move",ba[0],ba[1])
             elif kill_now:
                 acts[m]=("move",ba[0],ba[1])
-            elif solo>=m.hp and m.protect_streak<PROTECT_CAP and ally_alive:
+            elif solo>=m.hp*TH_SOLO and m.protect_streak<PROTECT_CAP and ally_alive:
                 acts[m]=("move","MOVE_PROTECT",m)
             elif ba:
                 acts[m]=("move",ba[0],ba[1])
@@ -1047,9 +1106,9 @@ def our_choose(b):
             (m1,a1),(m2,a2)=attackers
             if a1[2] is not a2[2]:
                 def mindmg(m,a,t):
-                    lo,_=b.minmax(m,t,a[1]); return lo
+                    lo,_=b.pminmax(m,t,a[1]); return lo
                 for t in sorted(foes,key=lambda f:-max(
-                        (b.minmax(f,x,fm)[1]/max(1,x.max_hp) for x in (m1,m2) for fm in f.moves
+                        (b.pminmax(f,x,fm)[1]/max(1,x.max_hp) for x in (m1,m2) for fm in f.moves
                          if fm in MOVES and MOVES[fm]["power"]>=2),default=0)):
                     solo1=mindmg(m1,a1,t)>=t.hp; solo2=mindmg(m2,a2,t)>=t.hp
                     if not solo1 and not solo2 and mindmg(m1,a1,t)+mindmg(m2,a2,t)>=t.hp:

@@ -55,6 +55,8 @@ def team_builder(spec):
     return build
 
 # ---- generic role-based policy (same brain for every team) ----
+TH_CM=0.5
+TH_GDANGER=1.0
 def generic_choose(b):
     acts={}
     foes=[m for m in b.active["foe"] if m and m.alive()]
@@ -115,9 +117,9 @@ def generic_choose(b):
             acts[m]=("move",heal,m); continue
         if rest and m.hp*3<m.max_hp and solo<m.hp:
             acts[m]=("move","MOVE_REST",m); continue
-        if cm and duo<m.hp//2 and m.stages.get("spa",0)<2 and m.stages.get("atk",0)<2:
+        if cm and duo<m.hp*TH_CM and m.stages.get("spa",0)<2 and m.stages.get("atk",0)<2:
             acts[m]=("move",cm,m); continue
-        if (solo>=m.hp or duo>=m.hp) and m.protect_streak<1 and "MOVE_PROTECT" in m.moves:
+        if (solo>=m.hp*TH_GDANGER or duo>=m.hp*TH_GDANGER) and m.protect_streak<1 and "MOVE_PROTECT" in m.moves:
             acts[m]=("move","MOVE_PROTECT",m); continue
         if (solo>=m.hp) and m.sub==0 and m.hp>m.max_hp//4 and "MOVE_SUBSTITUTE" in m.moves:
             acts[m]=("move","MOVE_SUBSTITUTE",m); continue
