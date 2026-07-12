@@ -66,12 +66,13 @@ def generic_choose(b):
         return acts
     damp_present=any(f.species in ("Golduck","Quagsire") for f in foes)
     def incoming(m):
+        # fair-info: 候補技ユニオン×pminmax最悪値(実セット覗き見を除去)
         hits=[]
         for f in foes:
             best=0
-            for fm in f.moves:
+            for fm in (cand_moves(f) if f.side=="foe" else f.moves):
                 if fm not in MOVES or MOVES[fm]["power"]<2: continue
-                _,hi=b.minmax(f,m,fm)
+                _,hi=b.pminmax(f,m,fm)
                 best=max(best,hi)
             hits.append(best)
         hits.sort(reverse=True)
@@ -91,7 +92,7 @@ def generic_choose(b):
             others=[x for x in ours if x is not m]+[x for x in b.bench["us"] if x.alive()]
             ally=next((x for x in ours if x is not m),None)
             ally_ok = ally is None or b.minmax(m,ally,boom)[1]==0 or "MOVE_PROTECT" in (ally.moves if ally else [])
-            kills=sum(1 for t in foes if b.minmax(m,t,boom)[0]>=t.hp)
+            kills=sum(1 for t in foes if b.pminmax(m,t,boom)[0]>=t.hp)
             if others and ally_ok and kills==len(foes) and kills>=1:
                 acts[m]=("move",boom,None); continue
         sung=any(f.perish is not None for f in foes)
