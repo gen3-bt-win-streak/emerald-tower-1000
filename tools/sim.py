@@ -416,7 +416,7 @@ class Battle:
                     else: self.lg("%s immune to boom"%t.species)
                 self.flags["boom_"+att.side]+=1
                 return
-            if eff=="EFFECT_SOLARBEAM" and att.charging is None and self.weather!="sun":
+            if eff=="EFFECT_SOLAR_BEAM" and att.charging is None and self.weather!="sun":
                 att.charging=("MOVE_SOLAR_BEAM",tgt); self.lg("%s charging solarbeam"%att.species); return
             if eff=="EFFECT_SEMI_INVULNERABLE" and att.charging is None:
                 att.charging=(move,tgt); att.invuln=True; self.lg("%s went up/under (%s)"%(att.species,move)); return
@@ -468,7 +468,7 @@ class Battle:
                 real=self.deal(att,t,move,dmg)
                 if move in RECOIL and real>0:
                     att.hp-=min(att.hp,max(1,real//RECOIL[move])); self.lg("%s recoil"%att.species)
-                if eff=="EFFECT_DRAIN" or move=="MOVE_GIGA_DRAIN":
+                if eff in ("EFFECT_ABSORB","EFFECT_DREAM_EATER") and real>0:
                     att.hp=min(att.max_hp,att.hp+max(1,real//2))
                 if MOVES[move]["effect"]=="EFFECT_RECHARGE": att.recharge=True
                 if MOVES[move]["effect"]=="EFFECT_FAKE_OUT" and t.alive(): t.flinch=True
