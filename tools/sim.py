@@ -629,12 +629,13 @@ class Battle:
                     if side=="us" and SMART_SENDIN and len(alive_bench)>1:
                         foes_now=[f for f in self.active["foe"] if f and f.alive()]
                         def threat(cand):
+                            # fair-info: candidate-move union + pminmax worst case
                             tot=0
                             for f in foes_now:
                                 best=0
-                                for fm in f.moves:
+                                for fm in cand_moves(f):
                                     if fm not in MOVES or MOVES[fm]["power"]<2: continue
-                                    _,hi=self.minmax(f,cand,fm)
+                                    _,hi=self.pminmax(f,cand,fm)
                                     best=max(best,hi)
                                 tot+=best/max(1,cand.max_hp)
                             return tot
