@@ -58,6 +58,7 @@ class Mon:
         self.observed=set()   # moves this mon has revealed (set-elimination basis)
         self.endure=False; self.endure_streak=0; self.recharge=False
         self.drowsy=0; self.trapped=False; self.invuln=False; self.first_turn=True
+        self.tormented=False; self.last_move=None
     def alive(self): return self.hp>0
     def eff(self, crit_att=False, crit_def=False):
         s=dict(self.stats)
@@ -428,6 +429,9 @@ class Battle:
                 self.lg("%s fake out failed"%att.species); return
             if eff=="EFFECT_FOCUS_PUNCH" and att.took_dmg:
                 self.lg("%s focus punch broken"%att.species); self.flags["fp_broken"]+=1; return
+            if att.tormented and move==att.last_move:
+                self.lg("%s torment blocked %s"%(att.species,move)); return
+            att.last_move=move
             att.charging=None
             if tgt is None: return
             if eff=="EFFECT_LEVEL_DAMAGE":
@@ -533,7 +537,7 @@ class Battle:
                 nxt=self.rng.choice(bench)
                 self.bench[side].remove(nxt); self.bench[side].append(tgt)
                 idx=self.active[side].index(tgt)
-                tgt.stages={k:0 for k in STAGE_KEYS}; tgt.sub=0; tgt.perish=None; tgt.choice=None
+                tgt.stages={k:0 for k in STAGE_KEYS}; tgt.sub=0; tgt.perish=None; tgt.choice=None; tgt.tormented=False; tgt.last_move=None
                 self.active[side][idx]=nxt; self.on_entry(nxt); nxt.first_turn=True
                 self.lg("%s roared %s away -> %s"%(att.species,tgt.species,nxt.species))
                 self.flags["phazed_"+side]+=1
@@ -547,6 +551,9 @@ class Battle:
             if "TYPE_GROUND" in tgt.types and move=="MOVE_THUNDER_WAVE": return
             self.try_status(tgt,"PAR"); self.flags["twave_"+tgt.side]+=1
         elif eff=="EFFECT_WILL_O_WISP": self.try_status(tgt,"BRN")
+        elif eff=="EFFECT_TORMENT":
+            if tgt.sub==0 and not tgt.tormented:
+                tgt.tormented=True; self.lg("%s tormented %s"%(att.species,tgt.species))
         elif eff=="EFFECT_CONFUSE": self.try_status(tgt,"CNF")
         elif eff=="EFFECT_SWAGGER":
             tgt.stages["atk"]=min(6,tgt.stages["atk"]+2); self.try_status(tgt,"CNF")
@@ -664,6 +671,7 @@ def ai_choose(b, mon):
     moves = [mon.choice] if (mon.item=="Choice Band" and mon.choice) else mon.moves
     for mv in moves:
         if mv not in MOVES: continue
+        if mon.tormented and mv==mon.last_move: continue  # torment: same move twice is illegal
         m=MOVES[mv]; eff=m["effect"]
         if m["power"]>=2 or eff==OHKO_EFF:
             if eff=="EFFECT_EXPLOSION":
@@ -1161,6 +1169,7 @@ def play_battle(seed=None, verbose=False, event_seed=None):
                 b.active[side][idx]=a[2]
                 a[2].choice=None
                 m.perish=None; m.stages={k:0 for k in STAGE_KEYS}; m.acc_st=0; m.eva_st=0; m.sub=0; m.attract=False; m.cnf=0
+                m.tormented=False; m.last_move=None
                 swapped[m]=a[2]
                 b.on_entry(a[2])
                 b.lg("%s switched %s -> %s"%(side,m.species,a[2].species))
