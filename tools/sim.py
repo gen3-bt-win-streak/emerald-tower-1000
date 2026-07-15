@@ -5,6 +5,9 @@ import random, collections, csv as _csv, json, sys
 
 exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0])
 
+# 忠実度パッチv2 (2026-07-15): ほろび+1T/ピンチきのみ/シンクロ/こんじょう。FIDELITY2=0で旧挙動
+FIDELITY2=__import__('os').environ.get('FIDELITY2','1')=='1'
+
 # ---------------- constants ----------------
 FIRE_RETREAT = {"Charizard","Typhlosion","Ninetales","Entei","Houndoom","Arcanine","Rapidash","Magmar","Moltres","Blaziken"}
 GHOST_SP = {"Gengar","Misdreavus","Dusclops","Shedinja","Banette","Sableye"}
@@ -67,8 +70,9 @@ class Mon:
             if crit_att and k in ("atk","spa") and st<0: st=0
             if crit_def and k in ("df","spd") and st>0: st=0
             s[k]=max(1,int(s[k]*stage_mult(st)))
-        if self.status=="BRN": s["atk"]=max(1,s["atk"]//2)
+        if self.status=="BRN" and not (FIDELITY2 and self.ability=="ABILITY_GUTS"): s["atk"]=max(1,s["atk"]//2)
         if self.status=="PAR": s["spe"]=max(1,s["spe"]//4)
+        if FIDELITY2 and self.status and self.ability=="ABILITY_GUTS": s["atk"]=int(s["atk"]*1.5)
         return s
 
 def our_team():
@@ -261,7 +265,7 @@ class Battle:
                 dfd.hp=min(dfd.max_hp,dfd.hp+30); dfd.item_used=True
         return real
 
-    def try_status(self, dfd, st):
+    def try_status(self, dfd, st, src=None):
         if not dfd.alive(): return False
         if dfd.sub>0 and st!="ATT": return False
         if st=="SLP":
@@ -284,6 +288,10 @@ class Battle:
         elif st=="CNF":
             if dfd.cnf>0 or dfd.ability=="ABILITY_OWN_TEMPO": return False
             dfd.cnf=self.rng.randint(2,5)
+        # シンクロ反射(実装は状態確定後・PAR/BRN/PSN系のみ。反射先の免疫/ラムは再帰内で処理)
+        if FIDELITY2 and src is not None and src is not dfd and dfd.ability=="ABILITY_SYNCHRONIZE" and st in ("PAR","BRN","PSN","TOX"):
+            self.lg("%s synchronize"%dfd.species)
+            self.try_status(src, "PSN" if st=="TOX" else st)
         # Lum
         if dfd.item=="Lum Berry" and not dfd.item_used and dfd.status:
             dfd.status=None; dfd.slp=0; dfd.item_used=True; self.lg("%s Lum cured"%dfd.species); return True
@@ -368,7 +376,7 @@ class Battle:
         if eff=="EFFECT_PERISH_SONG":
             for m in self.active["us"]+self.active["foe"]:
                 if m and m.alive() and m.ability!="ABILITY_SOUNDPROOF" and m.perish is None:
-                    m.perish=3
+                    m.perish=4 if FIDELITY2 else 3  # 実機: 歌ターン含め表示3,2,1,0で0の終了時に瀕死(=歌+3T)
             self.lg("%s perish song"%att.species); return
         if eff=="EFFECT_DESTINY_BOND":
             att.destiny=True; return
@@ -477,14 +485,14 @@ class Battle:
                 if MOVES[move]["effect"]=="EFFECT_RECHARGE": att.recharge=True
                 if MOVES[move]["effect"]=="EFFECT_FAKE_OUT" and t.alive(): t.flinch=True
                 if MOVES[move]["effect"]=="EFFECT_TRI_ATTACK" and t.alive() and self.rng.random()<0.20:
-                    self.try_status(t,self.rng.choice(["PAR","BRN","FRZ"]))
+                    self.try_status(t,self.rng.choice(["PAR","BRN","FRZ"]),src=att)
                 if MOVES[move]["effect"]=="EFFECT_DREAM_EATER":
                     att.hp=min(att.max_hp,att.hp+max(1,real//2))
                 sec=SECONDARY.get(move)
                 if sec and t.alive():
                     kindx,ch=sec
                     if self.rng.random()<ch/100.0:
-                        if kindx in ("PAR","BRN","FRZ","PSN","CNF"): self.try_status(t,kindx)
+                        if kindx in ("PAR","BRN","FRZ","PSN","CNF"): self.try_status(t,kindx,src=att)
                         elif kindx=="FLINCH" or (att.item=="Kings Rock" and self.rng.random()<0.10): t.flinch=True
                         elif kindx=="SPDDOWN": t.stages["spd"]=max(-6,t.stages["spd"]-1)
                         elif kindx=="SPEDOWN": t.stages["spe"]=max(-6,t.stages["spe"]-1)
@@ -544,13 +552,13 @@ class Battle:
             return
         if eff=="EFFECT_PSYCH_UP":
             att.stages=dict(tgt.stages); self.lg("%s psych up"%att.species); return
-        if eff in ("EFFECT_SLEEP",): self.try_status(tgt,"SLP"); self.flags["sleep_try"]+=1
-        elif eff=="EFFECT_TOXIC": self.try_status(tgt,"TOX")
-        elif eff=="EFFECT_POISON": self.try_status(tgt,"PSN")
+        if eff in ("EFFECT_SLEEP",): self.try_status(tgt,"SLP",src=att); self.flags["sleep_try"]+=1
+        elif eff=="EFFECT_TOXIC": self.try_status(tgt,"TOX",src=att)
+        elif eff=="EFFECT_POISON": self.try_status(tgt,"PSN",src=att)
         elif eff in ("EFFECT_PARALYZE","EFFECT_THUNDER_WAVE"):
             if "TYPE_GROUND" in tgt.types and move=="MOVE_THUNDER_WAVE": return
-            self.try_status(tgt,"PAR"); self.flags["twave_"+tgt.side]+=1
-        elif eff=="EFFECT_WILL_O_WISP": self.try_status(tgt,"BRN")
+            self.try_status(tgt,"PAR",src=att); self.flags["twave_"+tgt.side]+=1
+        elif eff=="EFFECT_WILL_O_WISP": self.try_status(tgt,"BRN",src=att)
         elif eff=="EFFECT_TORMENT":
             if tgt.sub==0 and not tgt.tormented:
                 tgt.tormented=True; self.lg("%s tormented %s"%(att.species,tgt.species))
@@ -600,6 +608,10 @@ class Battle:
                 if not immune and m.ability not in ("ABILITY_SAND_VEIL",):
                     m.hp-=min(m.hp,m.max_hp//16)
             if m.item=="Leftovers": m.hp=min(m.max_hp,m.hp+m.max_hp//16)
+            if FIDELITY2 and m.item in ("Salac Berry","Petaya Berry","Liechi Berry") and not m.item_used and m.hp*4<=m.max_hp:
+                _k={"Salac Berry":"spe","Petaya Berry":"spa","Liechi Berry":"atk"}[m.item]
+                if m.stages[_k]<6: m.stages[_k]+=1
+                self.lg("%s ate %s (+1 %s)"%(m.species,m.item,_k)); m.item_used=True; m.item=None
             if m.status=="BRN" or m.status=="PSN": m.hp-=min(m.hp,m.max_hp//8)
             if m.status=="TOX":
                 m.hp-=min(m.hp,m.max_hp*m.toxn//16); m.toxn=min(15,m.toxn+1)
@@ -1161,6 +1173,14 @@ def play_battle(seed=None, verbose=False, event_seed=None):
         for m,a in list(acts.items())+list(foe_acts.items()):
             if a[0]=="switch":
                 side=m.side
+                if FIDELITY2 and side=="us":
+                    _opp=[f for f in b.active["foe"] if f is not None and f.alive()]
+                    _tr=any(f.ability=="ABILITY_SHADOW_TAG" or
+                            (f.ability=="ABILITY_ARENA_TRAP" and "TYPE_FLYING" not in m.types and m.ability!="ABILITY_LEVITATE") or
+                            (f.ability=="ABILITY_MAGNET_PULL" and "TYPE_STEEL" in m.types) for f in _opp)
+                    if _tr:
+                        b.lg("%s cant switch (trap ability)"%m.species)
+                        continue
                 if a[2] not in b.bench[side] or not a[2].alive() or m not in b.active[side]:
                     continue
                 idx=b.active[side].index(m)
