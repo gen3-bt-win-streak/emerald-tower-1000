@@ -5,7 +5,7 @@ import sys, collections, random, copy, json, os, time
 _z=open('sim_z11.py').read()
 exec(_z[:_z.index("\nCASES=")])
 G["SMART_SENDIN"]=0; RETREAT=True
-NS["TH_GDANGER"]=1.15
+NS["TH_GDANGER"]=1.3
 
 # めざ氷70注入(特殊・こおり・命中/対象は冷凍ビーム準拠・追加効果なし)
 MOVES["MOVE_HP_ICE"]=dict(MOVES["MOVE_ICE_BEAM"], power=70, effect="EFFECT_HIT")
