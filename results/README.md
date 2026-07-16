@@ -1,0 +1,1 @@
+リモート監査の結果集積フォルダ。remote_audit_results.jsonl が作業係セッションからpushされる。
