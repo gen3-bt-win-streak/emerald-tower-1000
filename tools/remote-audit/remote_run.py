@@ -99,6 +99,15 @@ elif JOB == 'arm13':
 elif JOB == 'arm14':
     G['our_team'] = make_bld({'Zapdos': ('Never Melt Ice', {'spa': 349, 'spe': 328})})
     emit(dict(name='⑭サンダー:臆病+とけないこおり', **fresh_range(0, 3000, 'arm14'), **loss_replay()))
+elif JOB == 'arm15':
+    ## ようきグロス(攻369/素早193)+スカーフ: 爆発威力はスカーフが相殺、ミラーグロス157・ネンドール78の先手化
+    G['our_team'] = make_bld({'Metagross': ('Silk Scarf', {'atk': 369, 'spe': 193})})
+    emit(dict(name='⑮グロス:ようき+スカーフ', **fresh_range(0, 3000, 'arm15'), **loss_replay()))
+elif JOB == 'arm16':
+    ## 速度パッケージ束: 臆病じしゃくサンダー+ようきスカーフグロス(v4関所の本命候補)
+    G['our_team'] = make_bld({'Zapdos': ('Magnet', {'spa': 349, 'spe': 328}),
+                              'Metagross': ('Silk Scarf', {'atk': 369, 'spe': 193})})
+    emit(dict(name='⑯速度パッケージ(臆病じしゃく+ようきスカーフ)', **fresh_range(0, 3000, 'arm16'), **loss_replay()))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
