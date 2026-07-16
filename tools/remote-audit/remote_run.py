@@ -123,6 +123,18 @@ elif JOB == 'arm19':
     ## いじっぱり 攻252/速84/HP158/特防16: 速197+エンテイFT確定耐え両立(ユーザー発案のH→Dシフト)
     G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 340, 'spd': 220})})
     emit(dict(name='⑲グロス:EV速84+特防16(速197/HP340/特防220)', **fresh_range(0, 3000, 'arm19'), **loss_replay()))
+elif JOB == 'ev18a':
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 343})})
+    emit(dict(name='⑱グロス:EV速度84 fresh 3k-13k', **fresh_range(3000, 13000, 'ev18a')))
+elif JOB == 'ev18b':
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 343})})
+    emit(dict(name='⑱グロス:EV速度84 fresh 13k-23k', **fresh_range(13000, 23000, 'ev18b')))
+elif JOB == 'ev19a':
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 340, 'spd': 220})})
+    emit(dict(name='⑲グロス:EV速84+特防16 fresh 3k-13k', **fresh_range(3000, 13000, 'ev19a')))
+elif JOB == 'ev19b':
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 340, 'spd': 220})})
+    emit(dict(name='⑲グロス:EV速84+特防16 fresh 13k-23k', **fresh_range(13000, 23000, 'ev19b')))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
