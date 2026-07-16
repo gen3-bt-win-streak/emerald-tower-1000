@@ -1,0 +1,2 @@
+{"name": "⑫ラティ:光の粉→ピントレンズ", "n": 3000, "base_losses": 7, "w2l": 3, "l2w": 2, "flips": [[25000050, "win", "loss"], [25000806, "loss", "win"], [25001827, "loss", "win"], [25002261, "win", "loss"], [25002514, "win", "loss"]], "loss_n": 1027, "loss_rescue": 292, "job": "arm12"}
+{"name": "⑪グロス:残飯→きあいのハチマキ", "n": 3000, "base_losses": 7, "w2l": 4, "l2w": 2, "flips": [[25000503, "win", "loss"], [25000670, "win", "loss"], [25000781, "loss", "win"], [25001339, "win", "loss"], [25001827, "loss", "win"], [25001939, "win", "loss"]], "loss_n": 1027, "loss_rescue": 337, "job": "arm11"}
