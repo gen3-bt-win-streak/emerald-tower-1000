@@ -14,8 +14,10 @@ cd battle-tower/tools/remote-audit
 # 1) スモークテスト(30戦・1分弱で「smoke OK」が出ること)
 PYTHONHASHSEED=0 FIDELITY2=1 python3 remote_run.py smoke
 
-# 2) 5ジョブを並列実行(4コア前提・各1〜3時間)
-for J in scarfA scarfB arm10 arm11 arm12; do
+# 2) 割り当てられたジョブを並列実行(4コア前提)
+#    ジョブ一覧は起動指示メッセージに書かれている。指定がなければ scarfA scarfB arm10 arm11 arm12。
+#    利用可能ジョブ: scarfA scarfB arm6 arm7 arm8 arm9 arm10 arm11 arm12 arm13 arm14
+for J in <起動指示のジョブ一覧>; do
   PYTHONHASHSEED=0 FIDELITY2=1 nohup nice python3 remote_run.py $J > job_$J.log 2>&1 &
 done
 

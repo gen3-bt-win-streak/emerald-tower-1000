@@ -80,6 +80,25 @@ elif JOB == 'arm11':
 elif JOB == 'arm12':
     G['our_team'] = make_bld({'Latios': 'Scope Lens'})
     emit(dict(name='⑫ラティ:光の粉→ピントレンズ', **fresh_range(0, 3000, 'arm12'), **loss_replay()))
+elif JOB == 'arm6':
+    G['our_team'] = make_bld({'Latios': 'Twisted Spoon'})
+    emit(dict(name='⑥ラティ:光の粉→まがったスプーン', **fresh_range(0, 3000, 'arm6'), **loss_replay()))
+elif JOB == 'arm7':
+    G['our_team'] = make_bld({'Swampert': 'Soft Sand'})
+    emit(dict(name='⑦ラグ:ツメ→やわらかいすな', **fresh_range(0, 3000, 'arm7'), **loss_replay()))
+elif JOB == 'arm8':
+    G['our_team'] = make_bld({'Zapdos': 'Never Melt Ice'})
+    emit(dict(name='⑧サンダー:ラム→とけないこおり', **fresh_range(0, 3000, 'arm8'), **loss_replay()))
+elif JOB == 'arm9':
+    G['our_team'] = make_bld({'Zapdos': 'Leftovers'})
+    emit(dict(name='⑨サンダー:ラム→残飯', **fresh_range(0, 3000, 'arm9'), **loss_replay()))
+elif JOB == 'arm13':
+    ## 臆病サンダー(特攻349/素早328)+じしゃく: ゲンガー上取り+エンテイ同速解消(ユーザー提案)
+    G['our_team'] = make_bld({'Zapdos': ('Magnet', {'spa': 349, 'spe': 328})})
+    emit(dict(name='⑬サンダー:臆病+じしゃく', **fresh_range(0, 3000, 'arm13'), **loss_replay()))
+elif JOB == 'arm14':
+    G['our_team'] = make_bld({'Zapdos': ('Never Melt Ice', {'spa': 349, 'spe': 328})})
+    emit(dict(name='⑭サンダー:臆病+とけないこおり', **fresh_range(0, 3000, 'arm14'), **loss_replay()))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
