@@ -28,7 +28,10 @@ def make_bld(over):
                 v = over[m.species]
                 if isinstance(v, tuple):
                     m.item = v[0]
-                    for k, x in v[1].items(): m.stats[k] = x
+                    for k, x in v[1].items():
+                        m.stats[k] = x
+                        if k == 'hp':  # max_hp/hpは__init__でスナップショット済みのため追随させる
+                            m.max_hp = x; m.hp = x
                 else:
                     m.item = v
         return t
@@ -108,6 +111,14 @@ elif JOB == 'arm16':
     G['our_team'] = make_bld({'Zapdos': ('Magnet', {'spa': 349, 'spe': 328}),
                               'Metagross': ('Silk Scarf', {'atk': 369, 'spe': 193})})
     emit(dict(name='⑯速度パッケージ(臆病じしゃく+ようきスカーフ)', **fresh_range(0, 3000, 'arm16'), **loss_replay()))
+elif JOB == 'arm17':
+    ## いじっぱりのままEV4だけ素早さへ(素早177): ミラーグロス帯176を1ポイントで解消。防御-1のみ
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 177, 'df': 296})})
+    emit(dict(name='⑰グロス:EV速度4(素早177)', **fresh_range(0, 3000, 'arm17'), **loss_replay()))
+elif JOB == 'arm18':
+    ## いじっぱりEV84速(素早197): カイリュー196/ファイヤー194/サーナイト196帯まで上取り。HP364→343
+    G['our_team'] = make_bld({'Metagross': ('Leftovers', {'spe': 197, 'hp': 343})})
+    emit(dict(name='⑱グロス:EV速度84(素早197)', **fresh_range(0, 3000, 'arm18'), **loss_replay()))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
