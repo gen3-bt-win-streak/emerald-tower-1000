@@ -3,3 +3,4 @@ worker-B生存 2026-07-16 23:33:41 UTC 実行中: ev18a ev18b(EV2万戦担当。
 worker-B生存 2026-07-17 07:25:00 UTC ev18a完了・ev18b実行中(9500/10000付近)
 worker-B生存 2026-07-17 07:26:11 UTC ev18a/ev18b完了。次: armmc armss 起動
 worker-B生存 2026-07-17 10:02:53 UTC armmc完了・armss実行中(9500/10000付近)
+worker-B生存 2026-07-17 10:05:51 UTC armmc/armss完了(第2陣 班B分完了)
