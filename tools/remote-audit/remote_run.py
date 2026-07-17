@@ -147,6 +147,12 @@ elif JOB == 'armmc':
 elif JOB == 'armss':
     G['our_team'] = make_bld({'Metagross': 'Soft Sand'})
     emit(dict(name='グロス:残飯→やわらかいすな(EQ確1+22) fresh 3k-13k', **fresh_range(3000, 13000, 'armss')))
+elif JOB == 'ev20':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'hp': 351, 'atk': 376, 'spd': 225, 'spe': 197})})
+    emit(dict(name='攻め収束改:MC/A144/S84/H200/B44/D36 fresh 3k-13k', **fresh_range(3000, 13000, 'ev20')))
+elif JOB == 'ev20b':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'hp': 351, 'atk': 376, 'spd': 225, 'spe': 197})})
+    emit(dict(name='攻め収束改:MC/A144/S84/H200/B44/D36 fresh 13k-23k', **fresh_range(13000, 23000, 'ev20b')))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
