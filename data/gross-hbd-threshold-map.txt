@@ -1,0 +1,304 @@
+pool loaded: 546 sets
+
+======== H 掃引 (他軸は現行固定) ========
+[HEV 4→8] (HP303/防307/特防227)
+    Raichu#391 MOVE_THUNDERBOLT: 確2圏→圏外
+    Electrode#396 MOVE_THUNDERBOLT: 確2圏→圏外
+[HEV 12→16] (HP305/防307/特防227)
+    Hypno#401 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Hypno#689 MOVE_FIRE_PUNCH: 確2圏→圏外
+[HEV 20→24] (HP307/防307/特防227)
+    Typhlosion#647 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Ninetales#430 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Blaziken#547 MOVE_BLAZE_KICK: 乱OHKO→確2圏
+[HEV 28→32] (HP309/防307/特防227)
+    Rhydon#403 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Donphan#427 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Donphan#619 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Granbull#664 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Donphan#715 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Gorebyss#363 MOVE_SURF: 確2圏→圏外
+    Medicham#373 MOVE_HI_JUMP_KICK: 確2圏→圏外
+    Electabuzz#695 MOVE_THUNDERBOLT: 確2圏→圏外
+[HEV 44→48] (HP313/防307/特防227)
+    Exploud#493 MOVE_EARTHQUAKE: 確2圏→圏外
+    Snorlax#556 MOVE_EARTHQUAKE: 確2圏→圏外
+    Exeggutor#630 MOVE_EXPLOSION: 確2圏→圏外
+    Latios#777 MOVE_EARTHQUAKE: 確2圏→圏外
+    Latios#788 MOVE_EARTHQUAKE: 確2圏→圏外
+    Snorlax#826 MOVE_EARTHQUAKE: 確2圏→圏外
+    Raikou#877 MOVE_THUNDERBOLT: 確2圏→圏外
+[HEV 52→56] (HP315/防307/特防227)
+    Lapras#744 MOVE_SURF: 確2圏→圏外
+[HEV 60→64] (HP317/防307/特防227)
+    Charizard#646 MOVE_FLAMETHROWER: 確OHKO→乱OHKO
+    Moltres#758 MOVE_FLAMETHROWER: 確OHKO→乱OHKO
+    Miltank#603 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 64→68] (HP318/防307/特防227)
+    Rapidash#707 MOVE_OVERHEAT: 確OHKO→乱OHKO
+[HEV 68→72] (HP319/防307/特防227)
+    Houndoom#426 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Typhlosion#551 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Armaldo#705 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Vaporeon#730 MOVE_SURF: 確2圏→圏外
+[HEV 76→80] (HP321/防307/特防227)
+    Rapidash#515 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+    Flareon#636 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Ludicolo#400 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Cradily#512 MOVE_EARTHQUAKE: 確2圏→圏外
+    Heracross#520 MOVE_EARTHQUAKE: 確2圏→圏外
+    Wailord#621 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Feraligatr#641 MOVE_EARTHQUAKE: 確2圏→圏外
+    Slowbro#697 MOVE_SURF: 確2圏→圏外
+    Tentacruel#722 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Feraligatr#737 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 92→96] (HP325/防307/特防227)
+    Exploud#589 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Slaking#659 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Kangaskhan#598 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 100→104] (HP327/防307/特防227)
+    Rhydon#499 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Rhydon#595 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Rhydon#691 MOVE_EARTHQUAKE: 乱OHKO→確2圏
+    Entei#760 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Entei#793 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Machamp#431 MOVE_CROSS_CHOP: 確2圏→圏外
+    Slowking#602 MOVE_SURF: 確2圏→圏外
+    Milotic#751 MOVE_SURF: 確2圏→圏外
+    Suicune#761 MOVE_SURF: 確2圏→圏外
+    Suicune#783 MOVE_SURF: 確2圏→圏外
+    Suicune#794 MOVE_SURF: 確2圏→圏外
+    Suicune#880 MOVE_SURF: 確2圏→圏外
+[HEV 108→112] (HP329/防307/特防227)
+    Charizard#550 MOVE_EARTHQUAKE: 確2圏→圏外
+    Electabuzz#599 MOVE_FIRE_PUNCH: 確2圏→圏外
+[HEV 116→120] (HP331/防307/特防227)
+    Manectric#585 MOVE_THUNDERBOLT: 確2圏→圏外
+[HEV 124→128] (HP333/防307/特防227)
+    Rapidash#419 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Tauros#600 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 140→144] (HP337/防307/特防227)
+    Blastoise#544 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Blissey#654 MOVE_FIRE_BLAST: 確2圏→圏外
+[HEV 148→152] (HP339/防307/特防227)
+    Flareon#444 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Walrein#740 MOVE_SURF: 確2圏→圏外
+[HEV 156→160] (HP341/防307/特防227)
+    Forretress#481 MOVE_EARTHQUAKE: 確2圏→圏外
+    Dragonite#858 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 160→164] (HP342/防307/特防227)
+    Arcanine#560 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Houndoom#618 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Blaziken#643 MOVE_OVERHEAT: 確OHKO→乱OHKO
+[HEV 164→168] (HP343/防307/特防227)
+    Blaziken#451 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Jolteon#539 MOVE_THUNDERBOLT: 確2圏→圏外
+    Jolteon#731 MOVE_THUNDERBOLT: 確2圏→圏外
+[HEV 172→176] (HP345/防307/特防227)
+    Ludicolo#496 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Altaria#700 MOVE_FLAMETHROWER: 確2圏→圏外
+[HEV 188→192] (HP349/防307/特防227)
+    Rapidash#611 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Ninetales#718 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Entei#771 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Gyarados#747 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 196→200] (HP351/防307/特防227)
+    Ninetales#622 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+    Slowking#506 MOVE_SURF: 確2圏→圏外
+    Starmie#535 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Milotic#559 MOVE_SURF: 確2圏→圏外
+    Slowbro#601 MOVE_SURF: 確2圏→圏外
+    Ampharos#614 MOVE_THUNDERBOLT: 確2圏→圏外
+    Starmie#631 MOVE_SURF: 確2圏→圏外
+    Zapdos#779 MOVE_THUNDERBOLT: 確2圏→圏外
+    Starmie#816 MOVE_SURF: 確2圏→圏外
+    Starmie#819 MOVE_SURF: 確2圏→圏外
+[HEV 204→208] (HP353/防307/特防227)
+    Kangaskhan#694 MOVE_EARTHQUAKE: 確2圏→圏外
+[HEV 220→224] (HP357/防307/特防227)
+    Sharpedo#347 MOVE_EARTHQUAKE: 確2圏→圏外
+    Glalie#495 MOVE_EXPLOSION: 確2圏→圏外
+    Forretress#575 MOVE_EXPLOSION: 確2圏→圏外
+    Regirock#837 MOVE_EXPLOSION: 確2圏→圏外
+[HEV 236→240] (HP361/防307/特防227)
+    Typhlosion#647 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Machamp#527 MOVE_EARTHQUAKE: 確2圏→圏外
+    Muk#612 MOVE_FLAMETHROWER: 確2圏→圏外
+[HEV 244→248] (HP363/防307/特防227)
+    Electabuzz#503 MOVE_THUNDER: 確2圏→圏外
+    Manectric#681 MOVE_THUNDERBOLT: 確2圏→圏外
+
+======== B 掃引 (他軸は現行固定) ========
+[BEV 0→4] (HP364/防297/特防227)
+    Gyarados#747 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 12→16] (HP364/防300/特防227)
+    Forretress#575 MOVE_EXPLOSION: 確2圏→圏外
+    Kangaskhan#694 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 16→20] (HP364/防301/特防227)
+    Sharpedo#347 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 20→24] (HP364/防302/特防227)
+    Glalie#495 MOVE_EXPLOSION: 確2圏→圏外
+    Regirock#837 MOVE_EXPLOSION: 確2圏→圏外
+[BEV 40→44] (HP364/防307/特防227)
+    Machamp#527 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 52→56] (HP364/防310/特防227)
+    Tauros#408 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tauros#504 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 56→60] (HP364/防311/特防227)
+    Breloom#480 MOVE_FOCUS_PUNCH: 確2圏→圏外
+[BEV 76→80] (HP364/防316/特防227)
+    Dragonite#850 MOVE_EARTHQUAKE: 確2圏→圏外
+    Dragonite#851 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#862 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#864 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#865 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#869 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 84→88] (HP364/防318/特防227)
+    Metagross#562 MOVE_EARTHQUAKE: 確2圏→圏外
+    Salamence#828 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 92→96] (HP364/防320/特防227)
+    Ursaring#806 MOVE_EARTHQUAKE: 確2圏→圏外
+    Ursaring#807 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 100→104] (HP364/防322/特防227)
+    Heracross#424 MOVE_MEGAHORN: 確2圏→圏外
+[BEV 132→136] (HP364/防330/特防227)
+    Gyarados#651 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 136→140] (HP364/防331/特防227)
+    Aggron#450 MOVE_EARTHQUAKE: 確2圏→圏外
+    Aggron#546 MOVE_EARTHQUAKE: 確2圏→圏外
+    Aggron#738 MOVE_EARTHQUAKE: 確2圏→圏外
+    Snorlax#825 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 156→160] (HP364/防336/特防227)
+    Exeggutor#726 MOVE_EXPLOSION: 確2圏→圏外
+[BEV 160→164] (HP364/防337/特防227)
+    Marowak#470 MOVE_EARTHQUAKE: 確OHKO→乱OHKO
+    Marowak#579 MOVE_EARTHQUAKE: 確OHKO→乱OHKO
+    Marowak#675 MOVE_EARTHQUAKE: 確OHKO→乱OHKO
+[BEV 168→172] (HP364/防339/特防227)
+    Machamp#719 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 200→204] (HP364/防347/特防227)
+    Tyranitar#860 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#861 MOVE_EARTHQUAKE: 確2圏→圏外
+    Tyranitar#868 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 204→208] (HP364/防348/特防227)
+    Shiftry#590 MOVE_EXPLOSION: 確2圏→圏外
+    Shiftry#686 MOVE_EXPLOSION: 確2圏→圏外
+[BEV 208→212] (HP364/防349/特防227)
+    Salamence#657 MOVE_EARTHQUAKE: 確2圏→圏外
+    Metagross#754 MOVE_EARTHQUAKE: 確2圏→圏外
+    Metagross#834 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 220→224] (HP364/防352/特防227)
+    Granbull#568 MOVE_EARTHQUAKE: 確2圏→圏外
+    Hariyama#582 MOVE_EARTHQUAKE: 確2圏→圏外
+    Hariyama#678 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 228→232] (HP364/防354/特防227)
+    Quagsire#676 MOVE_EARTHQUAKE: 確2圏→圏外
+[BEV 236→240] (HP364/防356/特防227)
+    Forretress#671 MOVE_EXPLOSION: 確2圏→圏外
+    Weezing#693 MOVE_EXPLOSION: 確2圏→圏外
+
+======== D 掃引 (他軸は現行固定) ========
+[DEV 0→4] (HP364/防307/特防217)
+    Rapidash#611 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Ninetales#718 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Ludicolo#496 MOVE_FIRE_PUNCH: 確2圏→圏外
+[DEV 4→8] (HP364/防307/特防218)
+    Entei#771 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Starmie#535 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 8→12] (HP364/防307/特防219)
+    Slowking#506 MOVE_SURF: 確2圏→圏外
+    Milotic#559 MOVE_SURF: 確2圏→圏外
+    Slowbro#601 MOVE_SURF: 確2圏→圏外
+    Ampharos#614 MOVE_THUNDERBOLT: 確2圏→圏外
+    Starmie#631 MOVE_SURF: 確2圏→圏外
+    Zapdos#779 MOVE_THUNDERBOLT: 確2圏→圏外
+    Starmie#816 MOVE_SURF: 確2圏→圏外
+    Starmie#819 MOVE_SURF: 確2圏→圏外
+[DEV 12→16] (HP364/防307/特防220)
+    Ninetales#622 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+[DEV 28→32] (HP364/防307/特防224)
+    Typhlosion#647 MOVE_OVERHEAT: 乱OHKO→確2圏
+[DEV 36→40] (HP364/防307/特防226)
+    Electabuzz#503 MOVE_THUNDER: 確2圏→圏外
+    Muk#612 MOVE_FLAMETHROWER: 確2圏→圏外
+    Manectric#681 MOVE_THUNDERBOLT: 確2圏→圏外
+[DEV 60→64] (HP364/防307/特防232)
+    Charizard#646 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Lanturn#573 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 64→68] (HP364/防307/特防233)
+    Magmar#511 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Moltres#758 MOVE_FLAMETHROWER: 乱OHKO→確2圏
+    Jolteon#443 MOVE_THUNDERBOLT: 確2圏→圏外
+    Ampharos#518 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Mr Mime#668 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Zapdos#757 MOVE_THUNDERBOLT: 確2圏→圏外
+    Zapdos#790 MOVE_THUNDERBOLT: 確2圏→圏外
+    Zapdos#872 MOVE_THUNDERBOLT: 確2圏→圏外
+[DEV 68→72] (HP364/防307/特防234)
+    Rapidash#707 MOVE_OVERHEAT: 乱OHKO→確2圏
+[DEV 72→76] (HP364/防307/特防235)
+    Raichu#583 MOVE_THUNDER: 確2圏→圏外
+[DEV 88→92] (HP364/防307/特防239)
+    Vaporeon#442 MOVE_SURF: 確2圏→圏外
+[DEV 96→100] (HP364/防307/特防241)
+    Raikou#759 MOVE_THUNDERBOLT: 確2圏→圏外
+    Zapdos#768 MOVE_THUNDER: 確2圏→圏外
+    Raikou#781 MOVE_THUNDERBOLT: 確2圏→圏外
+    Raikou#792 MOVE_THUNDERBOLT: 確2圏→圏外
+    Raikou#876 MOVE_THUNDERBOLT: 確2圏→圏外
+[DEV 104→108] (HP364/防307/特防243)
+    Golduck#610 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 112→116] (HP364/防307/特防245)
+    Nidoqueen#605 MOVE_FLAMETHROWER: 確2圏→圏外
+[DEV 116→120] (HP364/防307/特防246)
+    Charizard#742 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Typhlosion#743 MOVE_OVERHEAT: 確OHKO→乱OHKO
+[DEV 124→128] (HP364/防307/特防248)
+    Charizard#454 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Typhlosion#455 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Arcanine#752 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Manectric#393 MOVE_THUNDERBOLT: 確2圏→圏外
+    Blastoise#448 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Lapras#821 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 128→132] (HP364/防307/特防249)
+    Houndoom#522 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Aerodactyl#627 MOVE_FIRE_BLAST: 確2圏→圏外
+    Aerodactyl#723 MOVE_FIRE_BLAST: 確2圏→圏外
+[DEV 136→140] (HP364/防307/特防251)
+    Houndoom#618 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Blaziken#643 MOVE_OVERHEAT: 乱OHKO→確2圏
+[DEV 140→144] (HP364/防307/特防252)
+    Arcanine#560 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+[DEV 156→160] (HP364/防307/特防256)
+    Rapidash#611 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Ninetales#718 MOVE_OVERHEAT: 乱OHKO→確2圏
+    Ampharos#710 MOVE_FIRE_PUNCH: 確2圏→圏外
+[DEV 160→164] (HP364/防307/特防257)
+    Milotic#463 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 164→168] (HP364/防307/特防258)
+    Entei#771 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+[DEV 172→176] (HP364/防307/特防260)
+    Machamp#623 MOVE_FIRE_BLAST: 確2圏→圏外
+[DEV 184→188] (HP364/防307/特防263)
+    Flareon#732 MOVE_OVERHEAT: 確OHKO→乱OHKO
+[DEV 192→196] (HP364/防307/特防265)
+    Blaziken#739 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Clefable#581 MOVE_FLAMETHROWER: 確2圏→圏外
+[DEV 200→204] (HP364/防307/特防267)
+    Golduck#418 MOVE_HYDRO_PUMP: 確2圏→圏外
+    Kingdra#461 MOVE_HYDRO_PUMP: 確2圏→圏外
+[DEV 220→224] (HP364/防307/特防272)
+    Arcanine#656 MOVE_OVERHEAT: 確OHKO→乱OHKO
+    Moltres#780 MOVE_FIRE_BLAST: 確OHKO→乱OHKO
+    Gyarados#555 MOVE_FIRE_BLAST: 確2圏→圏外
+    Gardevoir#629 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Aggron#642 MOVE_FIRE_BLAST: 確2圏→圏外
+    Gardevoir#725 MOVE_FIRE_PUNCH: 確2圏→圏外
+[DEV 236→240] (HP364/防307/特防276)
+    Magmar#511 MOVE_FIRE_BLAST: 乱OHKO→確2圏
+    Zapdos#873 MOVE_THUNDER: 確2圏→圏外
+[DEV 248→252] (HP364/防307/特防279)
+    Octillery#361 MOVE_FIRE_BLAST: 確2圏→圏外
+    Gengar#709 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Gengar#800 MOVE_FIRE_PUNCH: 確2圏→圏外
+    Gengar#802 MOVE_FIRE_PUNCH: 確2圏→圏外
