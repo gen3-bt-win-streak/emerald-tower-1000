@@ -165,6 +165,18 @@ elif JOB == 'qcswapc':
 elif JOB == 'qcswapd':
     G['our_team'] = make_bld({'Metagross': 'Quick Claw', 'Swampert': 'Leftovers'})
     emit(dict(name='ツメ持ち主交換:確証延長 fresh 33k-43k', **fresh_range(33000, 43000, 'qcswapd')))
+elif JOB == 'ev22a':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'atk': 376, 'df': 312})})
+    emit(dict(name='A144MC保守形:H252/A144/B66/D46 fresh 3k-13k', **fresh_range(3000, 13000, 'ev22a')))
+elif JOB == 'ev22b':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'atk': 376, 'df': 312})})
+    emit(dict(name='A144MC保守形:H252/A144/B66/D46 fresh 13k-23k', **fresh_range(13000, 23000, 'ev22b')))
+elif JOB == 'ev21a':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'atk': 376, 'hp': 356, 'spd': 220, 'spe': 197})})
+    emit(dict(name='A144MC統合形:H220/A144/B46/D16/S84 fresh 3k-13k', **fresh_range(3000, 13000, 'ev21a')))
+elif JOB == 'ev21b':
+    G['our_team'] = make_bld({'Metagross': ('Metal Coat', {'atk': 376, 'hp': 356, 'spd': 220, 'spe': 197})})
+    emit(dict(name='A144MC統合形:H220/A144/B46/D16/S84 fresh 13k-23k', **fresh_range(13000, 23000, 'ev21b')))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
