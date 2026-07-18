@@ -5,3 +5,4 @@ worker-B生存 2026-07-17 07:26:11 UTC ev18a/ev18b完了。次: armmc armss 起�
 worker-B生存 2026-07-17 10:02:53 UTC armmc完了・armss実行中(9500/10000付近)
 worker-B生存 2026-07-17 10:05:51 UTC armmc/armss完了(第2陣 班B分完了)
 worker-B生存 2026-07-18 10:13:21 UTC ev22b完了・ev22a実行中(9500/10000付近)
+worker-B生存 2026-07-18 10:13:52 UTC ev22a/ev22b完了(A144MC保守形ペア 班B分完了)
