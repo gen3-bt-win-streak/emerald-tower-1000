@@ -159,6 +159,12 @@ elif JOB == 'qcswap':
 elif JOB == 'qcswapb':
     G['our_team'] = make_bld({'Metagross': 'Quick Claw', 'Swampert': 'Leftovers'})
     emit(dict(name='ツメ持ち主交換:グロス=ツメ/ラグ=残飯 fresh 13k-23k', **fresh_range(13000, 23000, 'qcswapb')))
+elif JOB == 'qcswapc':
+    G['our_team'] = make_bld({'Metagross': 'Quick Claw', 'Swampert': 'Leftovers'})
+    emit(dict(name='ツメ持ち主交換:確証延長 fresh 23k-33k', **fresh_range(23000, 33000, 'qcswapc')))
+elif JOB == 'qcswapd':
+    G['our_team'] = make_bld({'Metagross': 'Quick Claw', 'Swampert': 'Leftovers'})
+    emit(dict(name='ツメ持ち主交換:確証延長 fresh 33k-43k', **fresh_range(33000, 43000, 'qcswapd')))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
