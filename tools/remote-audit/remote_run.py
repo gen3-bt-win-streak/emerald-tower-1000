@@ -189,6 +189,26 @@ elif JOB == 'swampss':
 elif JOB == 'swampssb':
     G['our_team'] = make_bld({'Metagross': 'Quick Claw', 'Swampert': 'Soft Sand'})
     emit(dict(name='最終戦:グロス=ツメ/ラグ=すな(EQ確1+11) fresh 13k-23k', **fresh_range(13000, 23000, 'swampssb')))
+elif JOB.startswith('anat'):
+    ## 負けcorpusの運/構造判別: マラソンckpt(gitバックアップ)の負けシードを振り直し12回で再生
+    ## anat25/anat26/anat27/anat28 = 各ワーカーブロック担当。中間解剖(mlossanat)と同一の振り直し定数で互換
+    base = int(JOB[4:]) * 1000000
+    ck = json.load(open('../../results/marathon-ckpt/v3m_ckpt_%d.json' % base))
+    seeds = sorted(ck['losses'])
+    rows = []; t0 = time.time()
+    for k, seed in enumerate(seeds):
+        w = 0; M = 12
+        for m in range(M):
+            _battle_no[0] = seed - base + 1
+            _, r = G['play_battle'](seed=seed, event_seed=970001 + m * 7919)
+            if r == 'win': w += 1
+        rows.append([seed, w])
+        if (k + 1) % 25 == 0:
+            print('%s %d/%d (%.1f秒/件)' % (JOB, k + 1, len(seeds), (time.time() - t0) / (k + 1)), flush=True)
+    luck = sum(1 for s, w in rows if w >= 6)
+    hard = sum(1 for s, w in rows if w < 2)
+    emit(dict(name='負け解剖%d: 振り直し12回判別' % (base // 1000000), n=len(rows),
+              luck6=luck, hard2=hard, rows=rows))
 else:
     raise SystemExit('unknown job: ' + JOB)
 print('JOB %s 完了' % JOB, flush=True)
