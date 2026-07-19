@@ -8,3 +8,4 @@ worker-C生存 2026-07-18 10:14:48 UTC ev21a完了・担当ペア(ev21a/ev21b)�
 worker-C生存 2026-07-19 06:14:25 UTC anat27開始(負けcorpus解剖:27000000ブロック 682件×12再生)
 worker-C生存 2026-07-19 08:12:23 UTC anat27完了(n=682, luck6=681, hard2=0)
 worker-C生存 2026-07-19 15:40:05 UTC shepherd_v4.sh 27000000 起動(4チャンク×62500戦 稼働確認)
+worker-C異常検知・復旧 2026-07-19 16:13:09 UTC shepherd_v4.sh 27M が15:39起動直後に全滅(nohup&disownがサンドボックスのツール呼び出し終了時にkillされた模様、ckpt未生成のため実害なし)→run_in_background方式で16:12再起動・4チャンク稼働確認
