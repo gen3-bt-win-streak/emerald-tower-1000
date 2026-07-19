@@ -14,3 +14,4 @@ worker-A 2026-07-18 16:39:06 UTC v4s84a開始
 worker-A 2026-07-18 18:41:43 UTC v4s84a完了
 worker-A 2026-07-18 18:41:52 UTC v4s84b開始
 worker-A 2026-07-18 20:44:25 UTC v4s84b完了(v4最終候補2本終了)
+worker-A 2026-07-19 06:14:00 UTC anat25開始(負けcorpus解剖)
