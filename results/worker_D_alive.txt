@@ -1,0 +1,1 @@
+worker-D 2026-07-20 00:18 UTC shepherd_v4.sh 28000000 起動(4チャンク×62500戦, run_in_background方式)
