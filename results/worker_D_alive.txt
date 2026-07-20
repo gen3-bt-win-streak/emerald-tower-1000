@@ -1,2 +1,3 @@
 worker-D 2026-07-20 00:18 UTC shepherd_v4.sh 28000000 起動(4チャンク×62500戦, run_in_background方式)
 worker-D異常検知・復旧 2026-07-20 08:22 UTC コンテナ再起動でshepherd_v4.sh 28M全滅(i=37000/62500=59%まで保存済み・実害なし)→run_in_background方式で再起動、4チャンク稼働確認
+worker-D 完走 2026-07-20 13:30 UTC shepherd_v4.sh 28000000 全4チャンク完走(i>=62500)
