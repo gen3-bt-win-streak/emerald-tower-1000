@@ -67,11 +67,12 @@ def main():
             "✓" if 0.0024<=total_losses/total_n<=0.0040 else "✗",
             "✓" if 85<=s1000<=350 else "✗"))
 
-    # v3.1(同一シード)との100万戦ペア比較
+    # v3.1(同一シード)との100万戦ペア比較。※v3.1完走ckptは ../../results/marathon-ckpt/ に配置
     v31=set()
     for b in BLOCKS:
-        f="v3m_ckpt_%d.json"%b
-        if os.path.exists(f): v31|=set(json.load(open(f))["losses"])
+        cands=["../../results/marathon-ckpt/v3m_ckpt_%d.json"%b, "v3m_ckpt_%d.json"%b]
+        f=next((c for c in cands if os.path.exists(c)), None)
+        if f: v31|=set(json.load(open(f))["losses"])
     if v31 and all(per_block_done.values()):
         v4only=all_loss-v31; v31only=v31-all_loss
         n_disc=len(v4only)+len(v31only)
