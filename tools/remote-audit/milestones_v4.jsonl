@@ -268,3 +268,16 @@
 {"w": 27000000, "start": 62500, "kind": "S1000", "run_start": 27110043, "hit": 27111042, "streak": 1000}
 {"w": 27000000, "start": 0, "kind": "S1000", "run_start": 27047841, "hit": 27048840, "streak": 1000}
 {"w": 27000000, "start": 187500, "kind": "S1000", "run_start": 27235852, "hit": 27236851, "streak": 1000}
+{"w": 28000000, "start": 0, "kind": "S1000", "run_start": 28010901, "hit": 28011900, "streak": 1000}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012358, "streak": 1458}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012400, "streak": 1500}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012500, "streak": 1600}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012600, "streak": 1700}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012700, "streak": 1800}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012800, "streak": 1900}
+{"w": 28000000, "start": 125000, "kind": "S1000", "run_start": 28136869, "hit": 28137868, "streak": 1000}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28012900, "streak": 2000}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28013000, "streak": 2100}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28013100, "streak": 2200}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28013200, "streak": 2300}
+{"w": 28000000, "start": 0, "kind": "NEWBEST", "run_start": 28010901, "hit": 28013300, "streak": 2400}
