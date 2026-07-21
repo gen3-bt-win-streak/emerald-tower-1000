@@ -245,3 +245,10 @@
 {"w": 27000000, "start": 0, "kind": "S1000", "run_start": 27042594, "hit": 27043593, "streak": 1000}
 {"w": 27000000, "start": 125000, "kind": "S1000", "run_start": 27168995, "hit": 27169994, "streak": 1000}
 {"w": 25000000, "start": 187500, "kind": "S1000", "run_start": 25228369, "hit": 25229368, "streak": 1000}
+{"w": 28000000, "start": 187500, "kind": "S1000", "run_start": 28240327, "hit": 28241326, "streak": 1000}
+{"w": 28000000, "start": 187500, "kind": "NEWBEST", "run_start": 28240327, "hit": 28242026, "streak": 1700}
+{"w": 28000000, "start": 187500, "kind": "NEWBEST", "run_start": 28240327, "hit": 28242126, "streak": 1800}
+{"w": 28000000, "start": 62500, "kind": "S1000", "run_start": 28115909, "hit": 28116908, "streak": 1000}
+{"w": 28000000, "start": 187500, "kind": "NEWBEST", "run_start": 28240327, "hit": 28242226, "streak": 1900}
+{"w": 28000000, "start": 187500, "kind": "NEWBEST", "run_start": 28240327, "hit": 28242326, "streak": 2000}
+{"w": 28000000, "start": 0, "kind": "S1000", "run_start": 28053667, "hit": 28054666, "streak": 1000}
