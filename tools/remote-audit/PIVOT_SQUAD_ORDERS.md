@@ -1,23 +1,20 @@
 # 関所3 PIVOT_ON マラソン — 班（squad）作戦指令
 
-> ## ⚠️⚠️ 2026-07-21 モデル更新: 一旦停止してください ⚠️⚠️
-> 走行中の PIVOT_ON は **#5/#6-only の旧モデル**です。一次ソース精読で、当構築のダブルでは
-> **#3 AbsorbMove(Volt Absorb) が未実装**、かつ **#5/#6・gate517 の乱数抽選回数が過少**という
-> 忠実度バグが判明し、`sim.py` を `foe_switch_target` に修正しました（コミット 6b78fa8）。
-> **旧モデルで集めた `pivotm_ckpt_*.json` は破棄対象**です。
+> ## ✅✅ 2026-07-21 再起動OK — 忠実モデル確定 ✅✅
+> `foe_switch_target` は忠実度ワークフロー(22エージェント)の確定差分を全反映した**最終版**です（コミット c5a48b8）。
+> モデル= 敵AI ShouldSwitch のうち当構築のダブルで関与する **#3 AbsorbMove(Volt Absorb) + gate517 + gate519 + #5/#6** を
+> AI_TypeCalc準拠(powerガード無し・net判定・吸収特性は#3のみ)で忠実移植。
+> 検証済: OFF byte一致(全shard)・ON無クラッシュ(4000戦)・#3/#5/#6発火・#3ユニットテスト4/4。
 >
-> **各班の対応（今すぐ）:**
+> **各班の起動手順（自分のBASE=下表）:**
 > ```bash
 > cd battle-tower/tools/remote-audit
-> # 1) 走行中ワーカーを停止
-> for pid in $(ps -eo pid,cmd | grep -E 'shepherd_pivot.sh|sim_pivotmarathon.py' | grep -v grep | awk '{print $1}'); do kill $pid; done
-> # 2) 旧モデルckptを削除
-> rm -f pivotm_ckpt_*.json marathon_pivot_*.log shepherd_pivot*.log milestones_pivot.jsonl
-> # 3) 最新をpull（sim.py修正版を取得）
-> git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze
+> git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze   # sim.py最終版 c5a48b8 を取得
+> chmod +x shepherd_pivot.sh
+> rm -f pivotm_ckpt_*.json          # 念のため旧ckpt掃除(あれば)
+> nohup ./shepherd_pivot.sh 26000000 > shepherd_pivot_run.log 2>&1 &   # 班A=26M / 班B=27M / 班C=28M
 > ```
-> **再起動はまだしないでください。** 修正モデルは目下、忠実度ワークフローで検証中です。
-> 検証完了後にこのファイルを更新して「再起動OK」の合図を出します。それまで **HOLD**。
+> 本体(協調ボックス)は 25M を起動済み。~30分〜完走ごとに `git add pivotm_ckpt_*.json && git pull --rebase && git commit && git push`。
 
 
 
