@@ -153,6 +153,9 @@ class Battle:
             if m is not mon and m and m.alive(): return m
         return None
     def on_entry(self,mon):
+        # gLastLandedMoves/gLastHitBy は入場(switch-in/瀕死後の交代)でクリアされる(実AI)。
+        # last_hitはfoe_switch_target(PIVOT_AI)専用なのでOFF挙動には無影響。
+        mon.last_hit_move=None; mon.last_hit_by=None
         if mon.ability=="ABILITY_INTIMIDATE":
             for f in self.foes_of(mon):
                 if f.ability not in ("ABILITY_CLEAR_BODY","ABILITY_HYPER_CUTTER","ABILITY_WHITE_SMOKE"):
@@ -1164,11 +1167,10 @@ def our_choose(b):
 # PIVOT_AI=1 で有効。既定OFF=旧挙動(ほろび交代のみ)で公式0.2516%/Stage3を保全。
 PIVOT_AI=__import__('os').environ.get('PIVOT_AI','0')=='1'
 def _ai_eff(move, dtypes, dabil):
-    # 実AI_TypeCalc相当: x10スケール(0=無効,5=半減,10=等倍,20=2倍,40=4倍)。特性免疫込み。
+    # 実AI_TypeCalc相当: x10スケール(0=無効,5=半減,10=等倍,20=2倍,40=4倍)。
+    # AI_TypeCalcが特性で免疫化するのは Levitate(type_mult内で地面無効) と Wonder Guard のみ。
+    # 吸収特性(Volt/Water Absorb・Flash Fire)は AI_TypeCalc は無視し素の型相性を返す(吸収は#3が別処理)。
     mt=MOVES[move]["type"]
-    if dabil=="ABILITY_VOLT_ABSORB" and mt=="TYPE_ELECTRIC": return 0
-    if dabil=="ABILITY_WATER_ABSORB" and mt=="TYPE_WATER": return 0
-    if dabil=="ABILITY_FLASH_FIRE" and mt=="TYPE_FIRE": return 0
     if dabil=="ABILITY_WONDER_GUARD":
         e=type_mult(mt,dtypes,dabil); return e if e>10 else 0
     return type_mult(mt,dtypes,dabil)
