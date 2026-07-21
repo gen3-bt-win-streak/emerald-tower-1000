@@ -7,8 +7,9 @@ exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0])
 
 # 忠実度パッチv2 (2026-07-15): ほろび+1T/ピンチきのみ/シンクロ/こんじょう。FIDELITY2=0で旧挙動
 FIDELITY2=__import__('os').environ.get('FIDELITY2','1')=='1'
-# しろいハーブ実装 (2026-07-21): 下降能力ランク復帰。WHITE_HERB=0で旧挙動(未実装=炎楽観バイアス)
-WHITE_HERB=__import__('os').environ.get('WHITE_HERB','1')=='1'
+# しろいハーブ実装 (2026-07-21): 下降能力ランク復帰。既定OFF(=旧挙動)で走行中Stage3/公式0.2516%との比較を保全。
+# WHITE_HERB=1 で有効化(効果測定用)。正式採用は再ベースライン(新マラソン)時に既定ONへ切替予定。
+WHITE_HERB=__import__('os').environ.get('WHITE_HERB','0')=='1'
 
 # ---------------- constants ----------------
 FIRE_RETREAT = {"Charizard","Typhlosion","Ninetales","Entei","Houndoom","Arcanine","Rapidash","Magmar","Moltres","Blaziken"}
