@@ -1,5 +1,26 @@
 # 関所3 PIVOT_ON マラソン — 班（squad）作戦指令
 
+> ## ⚠️⚠️ 2026-07-21 モデル更新: 一旦停止してください ⚠️⚠️
+> 走行中の PIVOT_ON は **#5/#6-only の旧モデル**です。一次ソース精読で、当構築のダブルでは
+> **#3 AbsorbMove(Volt Absorb) が未実装**、かつ **#5/#6・gate517 の乱数抽選回数が過少**という
+> 忠実度バグが判明し、`sim.py` を `foe_switch_target` に修正しました（コミット 6b78fa8）。
+> **旧モデルで集めた `pivotm_ckpt_*.json` は破棄対象**です。
+>
+> **各班の対応（今すぐ）:**
+> ```bash
+> cd battle-tower/tools/remote-audit
+> # 1) 走行中ワーカーを停止
+> for pid in $(ps -eo pid,cmd | grep -E 'shepherd_pivot.sh|sim_pivotmarathon.py' | grep -v grep | awk '{print $1}'); do kill $pid; done
+> # 2) 旧モデルckptを削除
+> rm -f pivotm_ckpt_*.json marathon_pivot_*.log shepherd_pivot*.log milestones_pivot.jsonl
+> # 3) 最新をpull（sim.py修正版を取得）
+> git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze
+> ```
+> **再起動はまだしないでください。** 修正モデルは目下、忠実度ワークフローで検証中です。
+> 検証完了後にこのファイルを更新して「再起動OK」の合図を出します。それまで **HOLD**。
+
+
+
 **目的**: 敵AIの「不利対面ピボット交代(#5/#6)」を有効化（`PIVOT_AI=1`）したv4チームで
 同一100万シードを回し、既存の PIVOT_OFF ベースライン（`v4m_ckpt_*.json` 合計2516負け）と
 **同一シードのペア比較**で net Δ を測る。Δ<0.02pp なら公式0.2516%は「ピボット未実装バイアスに対して保守的＝床」と認定できる。
