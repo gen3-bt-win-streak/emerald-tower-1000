@@ -65,6 +65,7 @@ class Mon:
         self.endure=False; self.endure_streak=0; self.recharge=False
         self.drowsy=0; self.trapped=False; self.invuln=False; self.first_turn=True
         self.tormented=False; self.last_move=None
+        self.last_hit_move=None; self.last_hit_by=None  # 永続: 最後に食らったダメージ技と攻撃者(実AI gLastLandedMoves/gLastHitBy相当・ピボット交代用)
     def alive(self): return self.hp>0
     def eff(self, crit_att=False, crit_def=False):
         s=dict(self.stats)
@@ -254,6 +255,7 @@ class Battle:
         dfd.hp-=real; dfd.took_dmg=True
         if mt in PHYSICAL: dfd.dmg_phys=(real,att)
         else: dfd.dmg_spec=(real,att)
+        if MOVES[move]["power"]>0: dfd.last_hit_move=move; dfd.last_hit_by=att  # ピボット交代用トラッキング(永続)
         if dfd.item in ("Lum Berry","Chesto Berry","Sitrus Berry") and not dfd.item_used:
             pass  # handled at status/hp check points
         if att.item=="Shell Bell":
@@ -1156,6 +1158,42 @@ def our_choose(b):
     return acts
 
 # ---------------- turn loop ----------------
+# ピボット交代AI (2026-07-21・関所3): 実AI ShouldSwitch の #5/#6(不利対面ピボット)+gate517+積み判定の忠実移植。
+# PIVOT_AI=1 で有効。既定OFF=旧挙動(ほろび交代のみ)で公式0.2516%/Stage3を保全。
+PIVOT_AI=__import__('os').environ.get('PIVOT_AI','0')=='1'
+def _ai_eff(move, dtypes, dabil):
+    # 実AI_TypeCalc相当: x10スケール(0=無効,5=半減,10=等倍,20=2倍,40=4倍)。特性免疫込み。
+    mt=MOVES[move]["type"]
+    if dabil=="ABILITY_VOLT_ABSORB" and mt=="TYPE_ELECTRIC": return 0
+    if dabil=="ABILITY_WATER_ABSORB" and mt=="TYPE_WATER": return 0
+    if dabil=="ABILITY_FLASH_FIRE" and mt=="TYPE_FIRE": return 0
+    if dabil=="ABILITY_WONDER_GUARD":
+        e=type_mult(mt,dtypes,dabil); return e if e>10 else 0
+    return type_mult(mt,dtypes,dabil)
+def foe_pivot_target(b, mon):
+    # ShouldSwitch(switch_items.c:517-522)の忠実移植: gate517→積み→#5(無効1/2)→#6(半減1/3)。返り=交代先Mon or None
+    bench=[x for x in b.bench["foe"] if x.alive()]
+    if not bench: return None
+    ours=[x for x in b.active["us"] if x and x.alive()]
+    # gate517 HasSuperEffectiveMoveAgainstOpponents(FALSE): 今の敵が我々に抜群技を持つなら90%(Random%10!=0)交代せず
+    has_se=any(mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,om.types,om.ability)>10 for om in ours for mv in mon.moves)
+    if has_se and b.rng.randrange(10)!=0: return None
+    # AreStatsRaised: 上昇ランク合計>3なら交代せず
+    if sum(v for v in mon.stages.values() if v>0)>3: return None
+    # #5/#6: 前ターンにダメージ技を食らっている必要(gLastLandedMoves)
+    lm=mon.last_hit_move; lb=mon.last_hit_by
+    if lm is None or lb is None or not lb.alive() or MOVES.get(lm,{}).get("power",0)==0: return None
+    for want_immune,modulo in ((True,2),(False,3)):  # 無効→1/2, 半減→1/3 (実AIの2パス順)
+        for bm in bench:
+            e=_ai_eff(lm,bm.types,bm.ability)
+            match=(e==0) if want_immune else (0<e<10)
+            if not match: continue
+            # その控えが攻撃者(lb)に抜群技を持つか
+            if any(mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,lb.types,lb.ability)>10 for mv in bm.moves):
+                if b.rng.randrange(modulo)==0:
+                    b.flags["ai_pivot"]+=1; return bm
+    return None
+
 def play_battle(seed=None, verbose=False, event_seed=None):
     global VERBOSE
     VERBOSE=verbose
@@ -1176,6 +1214,10 @@ def play_battle(seed=None, verbose=False, event_seed=None):
                     bench=[x for x in b.bench["foe"] if x.alive()]
                     if bench:
                         foe_acts[m]=("switch",m,bench[0]); continue
+                if PIVOT_AI and not m.trapped:  # 関所3: 不利対面ピボット交代(#5/#6)
+                    _pv=foe_pivot_target(b,m)
+                    if _pv is not None:
+                        foe_acts[m]=("switch",m,_pv); continue
                 foe_acts[m]=ai_choose(b,m)
         # resolve switches first
         allacts=[]; swapped={}
