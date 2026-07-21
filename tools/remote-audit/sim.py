@@ -1172,22 +1172,25 @@ def _ai_eff(move, dtypes, dabil):
     if dabil=="ABILITY_WONDER_GUARD":
         e=type_mult(mt,dtypes,dabil); return e if e>10 else 0
     return type_mult(mt,dtypes,dabil)
-def foe_switch_target(b, mon):
+def foe_switch_target(b, mon, exclude=()):
     # 実AI ShouldSwitch(switch_items.c) のうち、当構築のダブルで関与し得る交代トリガーを忠実移植。
     #   順序: [Perishはplay_battleで別処理] → #3 AbsorbMove → gate517 → gate519(積み) → #5/#6。
     #   除外根拠: WonderGuard=46行 BATTLE_TYPE_DOUBLE 即FALSE / NaturalCure=220行 SLEEP限定(当構築は眠らせ技なし)。
     #   乱数は実AI通り「SE組合せ/SE技/吸収控え」ごとに独立抽選(回数=確率)。返り=交代先Mon or None。
+    #   exclude=相方foeが同ターンに交代先に選んだ控え(monToSwitchIntoId・実AI 195-198/393-396/499-502で二重交代防止)。
     ours=[x for x in b.active["us"] if x and x.alive()]
-    bench=[x for x in b.bench["foe"] if x.alive()]
+    bench=[x for x in b.bench["foe"] if x.alive() and x not in exclude]
     if not bench or not ours: return None
     lm=mon.last_hit_move; lb=mon.last_hit_by
-    landed = lm is not None and lb is not None and lb.alive() and MOVES.get(lm,{}).get("power",0)>0
+    # gLastLandedMoves: 直近に食らったダメージ技(power>0)。攻撃者生存は実AI非要件(gLastHitBy!=0xFFのみ・後段で判定)
+    landed = lm is not None and MOVES.get(lm,{}).get("power",0)>0
     def has_se(noRng):
         # HasSuperEffectiveMoveAgainstOpponents(noRng): 敵の技×各相手(ダブルは2体)でSE毎に判定。
         # noRng=Trueなら即True。noRng=FalseならSE組合せ毎に Random%10、!=0でTrue(=90%で交代抑止)。
+        # AI_TypeCalcはpowerガード無し(タイプのみでSEフラグ)→変化技(おにび等)もタイプがSEなら数える。
         for om in ours:
             for mv in mon.moves:
-                if mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,om.types,om.ability)>10:
+                if mv in MOVES and _ai_eff(mv,om.types,om.ability)>10:
                     if noRng: return True
                     if b.rng.randrange(10)!=0: return True
         return False
@@ -1206,14 +1209,14 @@ def foe_switch_target(b, mon):
     # ---- gate519: AreStatsRaised (上昇ランク合計>3) なら交代しない ----
     if sum(v for v in mon.stages.values() if v>0)>3: return None
     # ---- #5/#6: FindMonWithFlags(DOESNT_AFFECT,2) → (NOT_VERY_EFFECTIVE,3) ----
-    if landed:
+    if landed and lb is not None:  # gLastHitBy!=0xFF(攻撃者スロット有効・瀕死可)。lbの型/特性は瀕死でも参照可
         for want_immune,modulo in ((True,2),(False,3)):  # 無効→1/2, 半減→1/3
             for bm in bench:
                 e=_ai_eff(lm,bm.types,bm.ability)
                 match=(e==0) if want_immune else (0<e<10)
                 if not match: continue
-                for mv in bm.moves:  # 攻撃者(lb)に抜群な技毎に Random%modulo(実AIのper-move抽選)
-                    if mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,lb.types,lb.ability)>10:
+                for mv in bm.moves:  # 攻撃者(lb)に抜群な技毎に Random%modulo(実AIのper-move抽選・powerガード無し)
+                    if mv in MOVES and _ai_eff(mv,lb.types,lb.ability)>10:
                         if b.rng.randrange(modulo)==0:
                             b.flags["ai_pivot"]+=1; return bm
     return None
@@ -1231,17 +1234,22 @@ def play_battle(seed=None, verbose=False, event_seed=None):
             if m: m.protected=False; m.endure=False; m.flinch=False; m.dmg_phys=(0,None); m.dmg_spec=(0,None); m.took_dmg=False; m.destiny=False
         acts=our_choose(b)
         foe_acts={}
+        _sw_chosen=[]  # 同ターンに交代先へ選ばれた控え(相方foeの二重交代を防ぐ・実AI monToSwitchIntoId除外)
         for m in b.active["foe"]:
             if m and m.alive():
                 # perish final-turn switch (the only reliable AI switch trigger)
                 if m.perish==1 and not m.trapped and not any(x is not None and x.alive() and x.ability=="ABILITY_SHADOW_TAG" for x in b.active["us"]):
-                    bench=[x for x in b.bench["foe"] if x.alive()]
+                    # PIVOT_OFF は旧挙動(全生存控えからbench[0])を厳密保持し公式2516ベースラインをbyte一致に保つ。
+                    # PIVOT_ON のみ二重交代除外(_sw_chosen)を適用。
+                    bench=[x for x in b.bench["foe"] if x.alive() and (not PIVOT_AI or x not in _sw_chosen)]
                     if bench:
-                        foe_acts[m]=("switch",m,bench[0]); continue
+                        foe_acts[m]=("switch",m,bench[0])
+                        if PIVOT_AI: _sw_chosen.append(bench[0])
+                        continue
                 if PIVOT_AI and not m.trapped:  # 関所3: 敵AI交代トリガー(#3吸収/#5/#6不利対面)
-                    _pv=foe_switch_target(b,m)
+                    _pv=foe_switch_target(b,m,exclude=_sw_chosen)
                     if _pv is not None:
-                        foe_acts[m]=("switch",m,_pv); continue
+                        foe_acts[m]=("switch",m,_pv); _sw_chosen.append(_pv); continue
                 foe_acts[m]=ai_choose(b,m)
         # resolve switches first
         allacts=[]; swapped={}
