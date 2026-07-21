@@ -5,3 +5,7 @@ enum*.py
 leads*.py
 _scratch*.py
 verify*.py
+# 関所3 PIVOT_ONマラソンのログ(ckptは追跡・ログは非コミット)
+marathon_pivot_*.log
+shepherd_pivot.log
+milestones_pivot.jsonl
