@@ -12,9 +12,11 @@
 > git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze   # sim.py最終版 c5a48b8 を取得
 > chmod +x shepherd_pivot.sh
 > rm -f pivotm_ckpt_*.json          # 念のため旧ckpt掃除(あれば)
-> nohup ./shepherd_pivot.sh 26000000 > shepherd_pivot_run.log 2>&1 &   # 班A=26M / 班B=27M / 班C=28M
+> nohup ./shepherd_pivot.sh 26000000 > shepherd_pivot_run.log 2>&1 &   # 班A=26M / 班B=27M / 班C=28M / 班D=25M
 > ```
-> 本体(協調ボックス)は 25M を起動済み。~30分〜完走ごとに `git add pivotm_ckpt_*.json && git pull --rebase && git commit && git push`。
+> **本体(協調ボックス)はマラソンを走らせず集約専任**（4コア占有すると議論が重くなるため・回収されても無損失）。
+> 4ブロックは班A/B/C/Dの4箱で回す。各班は ~30分〜完走ごとに耐久化:
+> `git add pivotm_ckpt_*.json && git pull --rebase --autostash && git commit -m "pivot-ckpt" && git push`（回収対策）。
 
 
 
@@ -26,15 +28,15 @@
 
 | ボックス | BASE（ブロック） | シード範囲 |
 |---|---|---|
-| **協調ボックス（本体）** | `25000000` | [25,000,000 , 25,250,000) |
 | 班A | `26000000` | [26,000,000 , 26,250,000) |
 | 班B | `27000000` | [27,000,000 , 27,250,000) |
 | 班C | `28000000` | [28,000,000 , 28,250,000) |
-| 班D | 予備（最遅ブロックの増援 or 落ちたボックスの引き継ぎ） | — |
+| 班D | `25000000` | [25,000,000 , 25,250,000) |
+| 協調ボックス（本体） | **走らせない＝集約専任** | — |
 
-- 協調ボックス（本体）が 25M を自走するので、**必要な班は A/B/C の3つだけ**（班Dは保険）。
+- **本体はマラソンを走らせない**（4コア占有すると議論・集約が重くなるため）。4ブロックは全て班A/B/Cで回す。
 - ベースライン v4m と完全に同じ4ブロック・同じシードなので、ペアは厳密に一致する。
-- 協調ボックスは集約（`aggregate_pivot.py`）も担当。
+- 本体は集約（`aggregate_pivot.py`）とΔ報告に専念（コンテナ回収されてもcommittedckptから再集約できるので無損失）。
 
 ## 各班の実行手順（自分の BASE を上表から選ぶ）
 
