@@ -5,3 +5,4 @@ worker-D 2026-07-20 14:23 UTC shepherd_v5.sh 28000000 起動(4チャンク×6250
 worker-D異常検知・復旧 2026-07-20 22:20 UTC コンテナ再起動でshepherd_v5.sh 28M全滅(i=36000/62500=58%まで保存済み・実害なし)→run_in_background方式で再起動、4チャンク稼働確認
 worker-D 完走 2026-07-21 04:09 UTC shepherd_v5.sh 28000000 全4チャンク完走(i>=62500)
 worker-D 2026-07-21 12:11 UTC 関所3 pivotマラソン25M起動: shepherd_pivot.sh(4チャンク×62500戦、run_in_background方式)
+worker-D異常検知・復旧 2026-07-21 20:02 UTC コンテナ再起動でshepherd_pivot.sh 25M全滅(i=19000/62500=30.4%まで保存済み・実害なし、ローカルgitがv4完走時点まで巻き戻っていたためorigin/claude/battle-tower-1000-wins-8xr0zeにff-onlyでcatch-up)→run_in_background方式で再起動、4チャンク稼働確認。ユーザー就寝のため以降は自動継続。
