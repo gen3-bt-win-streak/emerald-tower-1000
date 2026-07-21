@@ -1158,7 +1158,9 @@ def our_choose(b):
     return acts
 
 # ---------------- turn loop ----------------
-# ピボット交代AI (2026-07-21・関所3): 実AI ShouldSwitch の #5/#6(不利対面ピボット)+gate517+積み判定の忠実移植。
+# 敵AI交代AI (2026-07-21・関所3): 実AI ShouldSwitch のうちダブル・当構築で関与するトリガーを忠実移植。
+#   #3 AbsorbMove(Volt Absorb・8セット) + gate517(per-combo Random%10) + gate519(積み) + #5/#6(per-move Random%modulo)。
+#   除外: WonderGuard(ダブル無効)・NaturalCure(眠り限定)。乱数は実AIと同回数で抽選(回数=確率の忠実再現)。
 # PIVOT_AI=1 で有効。既定OFF=旧挙動(ほろび交代のみ)で公式0.2516%/Stage3を保全。
 PIVOT_AI=__import__('os').environ.get('PIVOT_AI','0')=='1'
 def _ai_eff(move, dtypes, dabil):
@@ -1170,28 +1172,50 @@ def _ai_eff(move, dtypes, dabil):
     if dabil=="ABILITY_WONDER_GUARD":
         e=type_mult(mt,dtypes,dabil); return e if e>10 else 0
     return type_mult(mt,dtypes,dabil)
-def foe_pivot_target(b, mon):
-    # ShouldSwitch(switch_items.c:517-522)の忠実移植: gate517→積み→#5(無効1/2)→#6(半減1/3)。返り=交代先Mon or None
-    bench=[x for x in b.bench["foe"] if x.alive()]
-    if not bench: return None
+def foe_switch_target(b, mon):
+    # 実AI ShouldSwitch(switch_items.c) のうち、当構築のダブルで関与し得る交代トリガーを忠実移植。
+    #   順序: [Perishはplay_battleで別処理] → #3 AbsorbMove → gate517 → gate519(積み) → #5/#6。
+    #   除外根拠: WonderGuard=46行 BATTLE_TYPE_DOUBLE 即FALSE / NaturalCure=220行 SLEEP限定(当構築は眠らせ技なし)。
+    #   乱数は実AI通り「SE組合せ/SE技/吸収控え」ごとに独立抽選(回数=確率)。返り=交代先Mon or None。
     ours=[x for x in b.active["us"] if x and x.alive()]
-    # gate517 HasSuperEffectiveMoveAgainstOpponents(FALSE): 今の敵が我々に抜群技を持つなら90%(Random%10!=0)交代せず
-    has_se=any(mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,om.types,om.ability)>10 for om in ours for mv in mon.moves)
-    if has_se and b.rng.randrange(10)!=0: return None
-    # AreStatsRaised: 上昇ランク合計>3なら交代せず
-    if sum(v for v in mon.stages.values() if v>0)>3: return None
-    # #5/#6: 前ターンにダメージ技を食らっている必要(gLastLandedMoves)
+    bench=[x for x in b.bench["foe"] if x.alive()]
+    if not bench or not ours: return None
     lm=mon.last_hit_move; lb=mon.last_hit_by
-    if lm is None or lb is None or not lb.alive() or MOVES.get(lm,{}).get("power",0)==0: return None
-    for want_immune,modulo in ((True,2),(False,3)):  # 無効→1/2, 半減→1/3 (実AIの2パス順)
-        for bm in bench:
-            e=_ai_eff(lm,bm.types,bm.ability)
-            match=(e==0) if want_immune else (0<e<10)
-            if not match: continue
-            # その控えが攻撃者(lb)に抜群技を持つか
-            if any(mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,lb.types,lb.ability)>10 for mv in bm.moves):
-                if b.rng.randrange(modulo)==0:
-                    b.flags["ai_pivot"]+=1; return bm
+    landed = lm is not None and lb is not None and lb.alive() and MOVES.get(lm,{}).get("power",0)>0
+    def has_se(noRng):
+        # HasSuperEffectiveMoveAgainstOpponents(noRng): 敵の技×各相手(ダブルは2体)でSE毎に判定。
+        # noRng=Trueなら即True。noRng=FalseならSE組合せ毎に Random%10、!=0でTrue(=90%で交代抑止)。
+        for om in ours:
+            for mv in mon.moves:
+                if mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,om.types,om.ability)>10:
+                    if noRng: return True
+                    if b.rng.randrange(10)!=0: return True
+        return False
+    # ---- #3 FindMonThatAbsorbsOpponentsMove (gate517の前・独自ゲート) ----
+    # gate128: HasSuperEffective(noRng=TRUE) が真なら Random%3、!=0で#3スキップ(抜群保持時2/3スキップ)
+    skip3 = has_se(True) and b.rng.randrange(3)!=0
+    if not skip3 and landed:
+        mt=MOVES[lm]["type"]
+        absorb={"TYPE_FIRE":"ABILITY_FLASH_FIRE","TYPE_WATER":"ABILITY_WATER_ABSORB","TYPE_ELECTRIC":"ABILITY_VOLT_ABSORB"}.get(mt)
+        if absorb and mon.ability!=absorb:  # 現役自身が吸収特性なら交代しない(160行)
+            for bm in bench:
+                if bm.ability==absorb and b.rng.randrange(2)==1:  # 吸収特性の控え毎に Random&1
+                    b.flags["ai_absorb_switch"]+=1; return bm
+    # ---- gate517: HasSuperEffective(FALSE) が真なら交代しない ----
+    if has_se(False): return None
+    # ---- gate519: AreStatsRaised (上昇ランク合計>3) なら交代しない ----
+    if sum(v for v in mon.stages.values() if v>0)>3: return None
+    # ---- #5/#6: FindMonWithFlags(DOESNT_AFFECT,2) → (NOT_VERY_EFFECTIVE,3) ----
+    if landed:
+        for want_immune,modulo in ((True,2),(False,3)):  # 無効→1/2, 半減→1/3
+            for bm in bench:
+                e=_ai_eff(lm,bm.types,bm.ability)
+                match=(e==0) if want_immune else (0<e<10)
+                if not match: continue
+                for mv in bm.moves:  # 攻撃者(lb)に抜群な技毎に Random%modulo(実AIのper-move抽選)
+                    if mv in MOVES and MOVES[mv]["power"]>=2 and _ai_eff(mv,lb.types,lb.ability)>10:
+                        if b.rng.randrange(modulo)==0:
+                            b.flags["ai_pivot"]+=1; return bm
     return None
 
 def play_battle(seed=None, verbose=False, event_seed=None):
@@ -1214,8 +1238,8 @@ def play_battle(seed=None, verbose=False, event_seed=None):
                     bench=[x for x in b.bench["foe"] if x.alive()]
                     if bench:
                         foe_acts[m]=("switch",m,bench[0]); continue
-                if PIVOT_AI and not m.trapped:  # 関所3: 不利対面ピボット交代(#5/#6)
-                    _pv=foe_pivot_target(b,m)
+                if PIVOT_AI and not m.trapped:  # 関所3: 敵AI交代トリガー(#3吸収/#5/#6不利対面)
+                    _pv=foe_switch_target(b,m)
                     if _pv is not None:
                         foe_acts[m]=("switch",m,_pv); continue
                 foe_acts[m]=ai_choose(b,m)
