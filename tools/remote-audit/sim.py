@@ -7,6 +7,8 @@ exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0])
 
 # 忠実度パッチv2 (2026-07-15): ほろび+1T/ピンチきのみ/シンクロ/こんじょう。FIDELITY2=0で旧挙動
 FIDELITY2=__import__('os').environ.get('FIDELITY2','1')=='1'
+# しろいハーブ実装 (2026-07-21): 下降能力ランク復帰。WHITE_HERB=0で旧挙動(未実装=炎楽観バイアス)
+WHITE_HERB=__import__('os').environ.get('WHITE_HERB','1')=='1'
 
 # ---------------- constants ----------------
 FIRE_RETREAT = {"Charizard","Typhlosion","Ninetales","Entei","Houndoom","Arcanine","Rapidash","Magmar","Moltres","Blaziken"}
@@ -501,6 +503,12 @@ class Battle:
                         elif kindx=="SPA2DOWN_SELF": att.stages["spa"]=max(-6,att.stages["spa"]-2)
                 elif att.item=="Kings Rock" and t.alive() and self.rng.random()<0.10:
                     t.flinch=True
+                # しろいハーブ(第3世代): 下降した能力ランクを0へ復帰し消費。オーバーヒート特攻-2の即時復帰が主用途
+                for _wh in ((att,t) if WHITE_HERB else ()):
+                    if _wh is not None and _wh.item=="White Herb" and not _wh.item_used and any(v<0 for v in _wh.stages.values()):
+                        for _k in list(_wh.stages):
+                            if _wh.stages[_k]<0: _wh.stages[_k]=0
+                        _wh.item_used=True; self.lg("%s White Herb 能力復帰"%_wh.species)
             return
         # non-damaging status moves
         if tgt is None: tgt=att

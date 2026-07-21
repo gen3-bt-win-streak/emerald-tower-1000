@@ -61,7 +61,8 @@ if __name__=='__main__':
         _battle_no[0]+=1
         _,r=play(seed=BASE+i)
         if r!='win': losses.append(BASE+i)
-    tag=('bonus%g'%BOOM_BONUS).replace('.','_')
+    wh=os.environ.get('WHITE_HERB','1')
+    tag=('wh%s_bonus%g'%(wh,BOOM_BONUS)).replace('.','_')
     out='boomval_losses_%d_%s.json'%(BASE,tag)
     json.dump({'BASE':BASE,'N':N,'BOOM_BONUS':BOOM_BONUS,'losses':losses}, open(out,'w'))
     print('[boomval BOOM_BONUS=%g] %d戦 負け%d (%.4f%%) %.0f戦/分 → %s'%(
