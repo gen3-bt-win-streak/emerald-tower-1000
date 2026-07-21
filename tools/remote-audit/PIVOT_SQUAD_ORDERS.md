@@ -1,0 +1,51 @@
+# 関所3 PIVOT_ON マラソン — 班（squad）作戦指令
+
+**目的**: 敵AIの「不利対面ピボット交代(#5/#6)」を有効化（`PIVOT_AI=1`）したv4チームで
+同一100万シードを回し、既存の PIVOT_OFF ベースライン（`v4m_ckpt_*.json` 合計2516負け）と
+**同一シードのペア比較**で net Δ を測る。Δ<0.02pp なら公式0.2516%は「ピボット未実装バイアスに対して保守的＝床」と認定できる。
+
+## 班とブロックの割り当て（各班＝4コア→4チャンク×62,500＝25万戦）
+
+| 班 | BASE（ブロック） | シード範囲 |
+|---|---|---|
+| A | `25000000` | [25,000,000 , 25,250,000) |
+| B | `26000000` | [26,000,000 , 26,250,000) |
+| C | `27000000` | [27,000,000 , 27,250,000) |
+| D | `28000000` | [28,000,000 , 28,250,000) |
+
+（協調ボックス＝集約担当。ベースライン v4m と完全に同じ4ブロック・同じシードなので、ペアは厳密に一致する。）
+
+## 各班の実行手順（自分の BASE を上表から選ぶ）
+
+```bash
+cd battle-tower/tools/remote-audit
+git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze
+chmod +x shepherd_pivot.sh
+
+# 例: 班A なら BASE=25000000。自分の割り当てに置き換える。
+nohup ./shepherd_pivot.sh 25000000 > shepherd_pivot_run.log 2>&1 &
+
+# 進捗確認（数分後）:
+tail -f marathon_pivot_W25000000_0.log        # 1チャンクのログ。負け率/連勝中/戦数/分が出る
+ls -la pivotm_ckpt_25000000_*.json            # 4チャンク分のckptができる
+
+# ckptは ~1000戦ごとに自動保存。定期的に（30分〜1時間ごと、または完走時に）push:
+git add pivotm_ckpt_${BASE}_*.json
+git pull --rebase origin claude/battle-tower-1000-wins-8xr0ze
+git commit -m "pivot-marathon-ckpt: 班X ブロック${BASE} 中間/完走"
+git push origin claude/battle-tower-1000-wins-8xr0ze
+```
+
+## 重要な注意
+
+- **必ず `PYTHONHASHSEED=0 FIDELITY2=1`**（shepherd_pivot.sh が各ワーカーに設定済み。手動起動時は付ける）。
+- **ckptファイル（`pivotm_ckpt_*.json`）は追跡・コミット対象**。ログ（`marathon_pivot_*.log` 等）は .gitignore 済みでコミット不要。
+- 1ワーカー ≈ 71戦/分。1チャンク62,500戦 ≈ 14〜15時間（4コアで4チャンク並列なのでブロック全体も同じ壁時計）。
+- push衝突を避けるため、**push前に必ず `git pull --rebase`**。各班のckptはファイル名が班ごとに違う（BASE違い）ので内容衝突はしない。
+- 完走判定: `pivotm_ckpt_${BASE}_${START}.json` の `i` が 62500 に達したら、その START チャンク完了。4つ揃えばブロック完走。
+- 協調ボックス側で全16チャンク（4班×4）が揃い次第、ベースライン2516とペア集約して net Δ・マクネマー検定を出す。
+
+## 完了報告
+
+各班は自分のブロックの4チャンクが `i==62500` に達したら、ckptをpushして「班X 完走」と一言。
+```
