@@ -4,3 +4,4 @@ boomval_losses_*.json
 enum*.py
 leads*.py
 _scratch*.py
+verify*.py
