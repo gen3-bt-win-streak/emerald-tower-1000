@@ -95,7 +95,7 @@ async function advise(){
   actives,hp:[0,1,2,3].map(i=>+document.getElementById('ohp'+i).value),
   st:[0,1,2,3].map(i=>document.getElementById('ost'+i).value.replace("状態なし",""))};
  try{
-  const r=await fetch('/advise',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const r=await fetch('advise'+location.search,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
   const d=await r.json();
   if(d.error){out.classList.add("err");out.innerHTML='<div class="act">'+d.error+'</div>';return;}
   out.innerHTML='<h2 style="font-size:13px;color:var(--sub);margin:0">★ 推奨手</h2>'+d.acts.map(a=>'<div class="act">'+a+'</div>').join("")+
@@ -123,17 +123,26 @@ def run_advise(q):
     lines=[advisor.fmt_act(m,acts.get(m)) for m in b.active["us"] if m and m.hp>0]
     return {"acts":lines}
 
+TOKEN=os.environ.get("ADVISOR_TOKEN","")  # 公開デプロイ時の簡易認証: 設定時は ?t=<TOKEN> 必須
+
 class H(BaseHTTPRequestHandler):
     def log_message(self,*a): pass
+    def _auth_ok(self):
+        if not TOKEN: return True
+        from urllib.parse import urlparse, parse_qs
+        q=parse_qs(urlparse(self.path).query)
+        return q.get("t",[""])[0]==TOKEN
     def _send(self,code,body,ctype="application/json; charset=utf-8"):
         data=body.encode("utf-8")
         self.send_response(code); self.send_header("Content-Type",ctype)
         self.send_header("Content-Length",str(len(data))); self.end_headers(); self.wfile.write(data)
     def do_GET(self):
+        if not self._auth_ok(): self._send(403,'forbidden (?t=token)','text/plain'); return
         page=PAGE.replace("__JPS__",json.dumps(JPS,ensure_ascii=False)).replace("__MOVES__",json.dumps(MOVELISTS,ensure_ascii=False))
         self._send(200,page,"text/html; charset=utf-8")
     def do_POST(self):
-        if self.path!="/advise": self._send(404,'{"error":"not found"}'); return
+        if not self._auth_ok(): self._send(403,'{"error":"forbidden"}'); return
+        if not self.path.split("?")[0].rstrip("/").endswith("advise"): self._send(404,'{"error":"not found"}'); return
         try:
             q=json.loads(self.rfile.read(int(self.headers.get("Content-Length","0"))))
             with LOCK: res=run_advise(q)
@@ -142,7 +151,7 @@ class H(BaseHTTPRequestHandler):
         self._send(200,json.dumps(res,ensure_ascii=False))
 
 if __name__=="__main__":
-    port=8787
+    port=int(os.environ.get("PORT","8787"))  # Cloud Run等は$PORTを注入
     try:
         s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM); s.connect(("8.8.8.8",80)); ip=s.getsockname()[0]; s.close()
     except Exception: ip="このPCのIP"

@@ -1,0 +1,10 @@
+# v4 ブラウザ・アドバイザー / build: docker build -f battle-tower/Dockerfile.advisor -t bt-advisor .
+# run: docker run -p 8787:8787 bt-advisor  →  http://localhost:8787
+FROM python:3.12-slim
+ENV PYTHONHASHSEED=0 FIDELITY2=1
+WORKDIR /app
+COPY battle-tower/data /app/battle-tower/data
+COPY battle-tower/tools/remote-audit /app/battle-tower/tools/remote-audit
+WORKDIR /app/battle-tower/tools/remote-audit
+EXPOSE 8787
+CMD ["python3","advisor_web.py"]

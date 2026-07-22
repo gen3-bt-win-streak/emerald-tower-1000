@@ -8,9 +8,12 @@ import re, csv, json, os
 from collections import defaultdict
 
 D = os.path.dirname(os.path.abspath(__file__)) + "/pokeemerald"
-DATA = "/home/user/daily-tasks/battle-tower/data"
+# データディレクトリ: 環境変数BT_DATAで上書き可。既定=リポジトリ相対(battle-tower/data)。
+# (旧: /home/user/... の絶対パス直書き → スマホ/Lambda/Dockerで死ぬため相対化。このボックスでは同一パスに解決)
+DATA = os.environ.get("BT_DATA") or os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data"))
 OUT = os.path.dirname(os.path.abspath(__file__)) + "/matchups"
-os.makedirs(OUT, exist_ok=True)
+try: os.makedirs(OUT, exist_ok=True)
+except OSError: pass  # Lambda等の読み取り専用FSでは分析出力先は不要
 
 def read(name):
     return open(f"{D}/{name}", encoding="utf-8", errors="replace").read()
