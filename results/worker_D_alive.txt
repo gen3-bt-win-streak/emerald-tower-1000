@@ -8,3 +8,4 @@ worker-D 2026-07-21 12:11 UTC 関所3 pivotマラソン25M起動: shepherd_pivot
 worker-D異常検知・復旧 2026-07-21 20:02 UTC コンテナ再起動でshepherd_pivot.sh 25M全滅(i=19000/62500=30.4%まで保存済み・実害なし、ローカルgitがv4完走時点まで巻き戻っていたためorigin/claude/battle-tower-1000-wins-8xr0zeにff-onlyでcatch-up)→run_in_background方式で再起動、4チャンク稼働確認。ユーザー就寝のため以降は自動継続。
 worker-D異常検知・復旧 2026-07-21 23:46頃 UTC コンテナ再起動でshepherd_pivot.sh 25M全滅(i=33000/62500=52.8%まで保存済み・実害なし、HEADは巻き戻りなし)→run_in_background方式で再起動、4チャンク稼働確認。
 worker-D異常検知・復旧 2026-07-22 00:19頃 UTC コンテナ再起動でshepherd_pivot.sh 25M全滅(i=33000/62500=52.8%まで保存済み・実害なし)→run_in_background方式で再起動、4チャンク稼働確認。
+worker-D 完走 2026-07-22 06:00 UTC shepherd_pivot.sh 25000000(関所3 PIVOT_ONマラソン) 全4チャンク完走(i>=62500)。計250000戦、負け645件(0.258%)。内訳: +0=175(0.280%) +62500=141(0.226%) +125000=151(0.242%) +187500=178(0.285%)。shepherd_pivot.log「06:00 ブロック25000000全4チャンク完走」で確認。
