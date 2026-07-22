@@ -84,16 +84,18 @@ def build_battle(turn, ours, foes, foe_bench_n):
     b.turn=turn-1  # play側でturn+=1される想定はないが、choose系はb.turnを見る
     b.turn=turn
     b.us=ours; b.active["us"]=[m for m in ours[:2]]; b.bench["us"]=[m for m in ours[2:] if m.hp>0]
-    b.foe=foes; b.active["foe"]=[f for f in foes[:2]]
+    b.active["foe"]=list((list(foes)+[None,None])[:2])  # activeスロットのNoneは実シム同様に許容
     b.bench["foe"]=[f for f in foes[2:] if f is not None and f.hp>0]
     # 未判明の控えは全プールからの代表2体で近似(爆発読み等の終盤判断に影響。判明したら入力し直すこと)
     import random as _r
     rng=_r.Random(42)
     while len(b.bench["foe"])<foe_bench_n:
         e=rng.choice(pool)
-        if e['species'] in [f.species for f in b.active["foe"]]: continue
+        if e['species'] in [f.species for f in b.active["foe"] if f is not None]: continue
         ab=[a for a in e['abilities'] if a!="ABILITY_NONE"][0]
         b.bench["foe"].append(Mon(e['species'],list(e['types']),ab,e['item'],dict(e['stats31']),list(e['moves']),"foe",set_id=e['set_id']))
+    # b.foe(敵の全リスト)は実シム同様「実体のみ」(sample_world等が全走査するのでNone禁止)
+    b.foe=[f for f in b.active["foe"] if f is not None]+list(b.bench["foe"])
     b.flags.clear()
     b.weather=None; b.wturns=0
     for k in list(getattr(b,"screens",{}) or {}): b.screens[k]=0
