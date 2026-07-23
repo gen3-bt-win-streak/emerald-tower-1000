@@ -10,3 +10,5 @@ marathon_pivot_*.log
 shepherd_pivot.log
 milestones_pivot.jsonl
 shepherd_pivot_run.log
+marathon_bfm_*.log
+shepherd_boomfix.log
