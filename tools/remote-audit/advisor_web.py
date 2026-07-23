@@ -63,8 +63,7 @@ input[type=number]{width:74px}
 const JPS=__JPS__, MOVES=__MOVES__;
 const JP2EN={}; Object.entries(JPS).forEach(([e,j])=>JP2EN[j]=e);
 const dex=document.getElementById('dex');
-Object.keys(MOVES).sort().forEach(sp=>{let o=document.createElement('option');o.value=JPS[sp]||sp;o.label=sp;dex.appendChild(o);
- if(JPS[sp]){let p=document.createElement('option');p.value=sp;p.label=JPS[sp];dex.appendChild(p);}});
+Object.keys(MOVES).map(sp=>JPS[sp]||sp).sort((a,b)=>a.localeCompare(b,'ja')).forEach(name=>{let o=document.createElement('option');o.value=name;dex.appendChild(o);});
 function norm(v){v=v.trim();if(!v)return null;if(MOVES[v])return v;if(JP2EN[v]&&MOVES[JP2EN[v]])return JP2EN[v];
  const lv=v.toLowerCase();for(const sp in MOVES){if(sp.toLowerCase()===lv)return sp;}return null;}
 const ST=["","まひ","やけど","ねむり","こおり","どく"];
