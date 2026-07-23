@@ -34,7 +34,7 @@ input[type=number]{width:74px}
 .grow{flex:1;min-width:150px}
 .mv{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;margin:2px;font-size:13px;cursor:pointer;user-select:none}
 .mv.on{background:var(--acc);color:#06130D;border-color:var(--acc)}
-.ourrow{display:grid;grid-template-columns:1fr 66px 44px 100px;gap:6px;align-items:center;margin-bottom:6px}
+.ourrow{display:grid;grid-template-columns:1fr 80px 100px;gap:6px;align-items:center;margin-bottom:6px}
 .ourrow .nm{font-weight:700}
 .go{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
 .go button{width:100%;max-width:560px;display:block;margin:0 auto;background:var(--acc);color:#06130D;font-size:18px;font-weight:800;border:none;border-radius:12px;padding:14px}
@@ -80,7 +80,7 @@ function mvRender(i){const sp=norm(document.getElementById('fsp'+i).value);const
  el.innerHTML='<label>見えた技をタップ（型の絞り込み・任意）</label>'+MOVES[sp].map((m,j)=>`<span class="mv" data-i="${j+1}" onclick="this.classList.toggle('on')">${m}</span>`).join("");}
 document.getElementById('ours').innerHTML=[0,1,2,3].map(i=>`<div class="ourrow">
  <span class="nm"><input type="checkbox" id="oact${i}" ${i<2?"checked":""}> ${["サンダー","メタグロス","ラティオス","ラグラージ"][i]}</span>
- <input type="number" id="ohp${i}" value="${MAXHP[i]}" min="0" max="${MAXHP[i]}"><span style="font-size:13px;color:var(--sub)">/${MAXHP[i]}</span>${stSel("ost"+i)}</div>`).join("");
+ <input type="number" id="ohp${i}" value="${MAXHP[i]}" min="0" max="${MAXHP[i]}">${stSel("ost"+i)}</div>`).join("");
 async function advise(){
  const out=document.getElementById('out'); out.style.display="block"; out.classList.remove("err");
  out.innerHTML='<div class="act spin">計算中…（数秒）</div>';
