@@ -34,7 +34,7 @@ input[type=number]{width:74px}
 .grow{flex:1;min-width:150px}
 .mv{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:3px 10px;margin:2px;font-size:13px;cursor:pointer;user-select:none}
 .mv.on{background:var(--acc);color:#06130D;border-color:var(--acc)}
-.ourrow{display:grid;grid-template-columns:1fr 76px 92px 64px;gap:6px;align-items:center;margin-bottom:6px}
+.ourrow{display:grid;grid-template-columns:1fr 66px 44px 100px;gap:6px;align-items:center;margin-bottom:6px}
 .ourrow .nm{font-weight:700}
 .go{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--bg);border-top:1px solid var(--line)}
 .go button{width:100%;max-width:560px;display:block;margin:0 auto;background:var(--acc);color:#06130D;font-size:18px;font-weight:800;border:none;border-radius:12px;padding:14px}
@@ -54,13 +54,14 @@ input[type=number]{width:74px}
  <div><label>ターン</label><input type="number" id="turn" value="1" min="1"></div></div>
 </div>
 
-<div class="sec"><h2>こちら（場の2体に✓・HP%と状態）</h2><div id="ours"></div></div>
+<div class="sec"><h2>こちら（場の2体に✓・現在HPと状態）</h2><div id="ours"></div></div>
 
 <div class="go"><button onclick="advise()">推奨手を出す</button></div>
 </div>
 <datalist id="dex"></datalist>
 <script>
 const JPS=__JPS__, MOVES=__MOVES__;
+const MAXHP=[322,364,302,404]; // サンダー/メタグロス/ラティオス/ラグラージ の最大HP(v4凍結値・実機と一致)
 const JP2EN={}; Object.entries(JPS).forEach(([e,j])=>JP2EN[j]=e);
 const dex=document.getElementById('dex');
 Object.keys(MOVES).map(sp=>JPS[sp]||sp).sort((a,b)=>a.localeCompare(b,'ja')).forEach(name=>{let o=document.createElement('option');o.value=name;dex.appendChild(o);});
@@ -79,7 +80,7 @@ function mvRender(i){const sp=norm(document.getElementById('fsp'+i).value);const
  el.innerHTML='<label>見えた技をタップ（型の絞り込み・任意）</label>'+MOVES[sp].map((m,j)=>`<span class="mv" data-i="${j+1}" onclick="this.classList.toggle('on')">${m}</span>`).join("");}
 document.getElementById('ours').innerHTML=[0,1,2,3].map(i=>`<div class="ourrow">
  <span class="nm"><input type="checkbox" id="oact${i}" ${i<2?"checked":""}> ${["サンダー","メタグロス","ラティオス","ラグラージ"][i]}</span>
- <input type="number" id="ohp${i}" value="100" min="0" max="100">${stSel("ost"+i)}<span style="font-size:11px;color:var(--sub)">HP% / 状態</span></div>`).join("");
+ <input type="number" id="ohp${i}" value="${MAXHP[i]}" min="0" max="${MAXHP[i]}"><span style="font-size:13px;color:var(--sub)">/${MAXHP[i]}</span>${stSel("ost"+i)}</div>`).join("");
 async function advise(){
  const out=document.getElementById('out'); out.style.display="block"; out.classList.remove("err");
  out.innerHTML='<div class="act spin">計算中…（数秒）</div>';
@@ -111,7 +112,7 @@ def run_advise(q):
     mons=[team[i] for i in order]
     for k,i in enumerate(order):
         m=mons[k]
-        m.hp=m.max_hp*max(0,min(100,q["hp"][i]))//100
+        m.hp=max(0,min(m.max_hp,int(q["hp"][i])))  # 実数HP(実機の現在HP)をそのまま。範囲外はクランプ
         m.status=STATUS.get(q["st"][i] or "",None)
     foes=[]
     for f in q["foes"]:
