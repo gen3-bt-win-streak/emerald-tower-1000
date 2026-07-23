@@ -61,7 +61,7 @@ input[type=number]{width:74px}
 <datalist id="dex"></datalist>
 <script>
 const JPS=__JPS__, MOVES=__MOVES__;
-const MAXHP=[322,364,302,404]; // サンダー/メタグロス/ラティオス/ラグラージ の最大HP(v4凍結値・実機と一致)
+const MAXHP=[322,364,302,404]; // サンダー/メタグロス/ラティオス/ラグラージ の最大HP(v4凍結値・実機と一致) — CI自動デプロイ稼働
 const JP2EN={}; Object.entries(JPS).forEach(([e,j])=>JP2EN[j]=e);
 const dex=document.getElementById('dex');
 Object.keys(MOVES).map(sp=>JPS[sp]||sp).sort((a,b)=>a.localeCompare(b,'ja')).forEach(name=>{let o=document.createElement('option');o.value=name;dex.appendChild(o);});
