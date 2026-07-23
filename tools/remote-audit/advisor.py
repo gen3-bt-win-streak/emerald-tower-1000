@@ -11,6 +11,10 @@ exec(src[:src.index('if __name__')], ns)
 G=ns['G']; v3_choose=ns['v3_choose']; _battle_no=ns['_battle_no']
 G['VERBOSE']=False  # play_battle経由でないと未定義(Battle.lgが参照)
 MOVES=ns['MOVES']; Mon=G['Mon']; Battle=G['Battle']; pool=G['pool']
+# アドバイザーは1手だけ評価するので探索ロールアウトを増やす(1決定あたり0.数秒増のみ)。
+# 効能: 2手読みのモンテカルロ・ノイズが減り、敵入力順(A/B)に依存しない“真の最適手”を返す。
+# ※凍結マラソン本体は sim_*marathon.py 側の S=5/R=5(速度優先)のまま不変。ここはアドバイザー専用の上書き。
+ns['S']=16; ns['R']=12
 bySp={}
 for e in pool: bySp.setdefault(e['species'],[]).append(e)
 
