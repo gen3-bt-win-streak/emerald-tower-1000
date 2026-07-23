@@ -16,6 +16,10 @@ def max_hit(b,f,m):
         best=max(best,hi)
     return best
 S=3; R=3; D=3; MARGIN=1.0
+# 爆発の“まもる税”修正(この位置はmarathonのexecスライス内に入るよう意図的に配置)。
+# 探索が爆発候補を採点するとき相方を強制まもる(条項が実行時に必ず行う手)にして評価=実行を一致させる。
+# 既定OFF=ベースライン(凍結ボット)とbyte一致。環境変数で有効化しA/B測定。
+BOOM_FIX = os.environ.get("BOOM_FIX")=="1"
 _battle_no=[0]
 def describe(b,acts):
     out=[]
@@ -150,7 +154,14 @@ def gen_candidates(b,rule_acts):
             if fs: alts.append(("move","MOVE_EXPLOSION",("foe",0)))
         for a in alts:
             if base[i]==a: continue
-            d=list(base); d[i]=a; cands.append(d)
+            d=list(base); d[i]=a
+            # 爆発候補は条項どおり相方を強制まもるにして採点(評価=実行に一致)。相方が守れない場合は据え置き。
+            if BOOM_FIX and a[0]=="move" and MOVES.get(a[1],{}).get("effect")=="EFFECT_EXPLOSION":
+                for k2,ally in enumerate(b.active["us"]):
+                    if k2!=i and ally is not None and ally.alive() and "TYPE_GHOST" not in ally.types \
+                       and "MOVE_PROTECT" in ally.moves and ally.protect_streak<1:
+                        d[k2]=("move","MOVE_PROTECT",("us",k2))
+            cands.append(d)
     uniq=[]; seen=set()
     for d in cands:
         k=repr(d)
