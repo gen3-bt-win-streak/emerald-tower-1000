@@ -18,17 +18,20 @@ def handler(event, context):
     qs=event.get("queryStringParameters") or {}
     if TOKEN and qs.get("t")!=TOKEN:
         return {"statusCode":403,"body":"forbidden (?t=token)"}
-    if method=="GET":
-        return {"statusCode":200,
-                "headers":{"Content-Type":"text/html; charset=utf-8"},
-                "body":_page()}
-    if method=="POST" and path.rstrip("/").endswith("advise"):
+    # /advise は GET(クエリd=…) と POST(body) の両対応。
+    # GET対応の理由: CloudFront OAC はLambdaオリジンへのPOSTボディ署名に相性問題があるため、
+    # 前段CloudFront運用ではGET(ボディ無し)で叩く。生の関数URL直叩き(POST)も後方互換で維持。
+    if path.rstrip("/").endswith("advise") and method in ("GET","POST"):
         try:
-            q=json.loads(event.get("body") or "{}")
-            res=advisor_web.run_advise(q)
+            raw = event.get("body") if method=="POST" else (qs.get("d") or "{}")
+            res=advisor_web.run_advise(json.loads(raw or "{}"))
         except Exception as e:
             res={"error":"内部エラー: %s"%e}
         return {"statusCode":200,
                 "headers":{"Content-Type":"application/json; charset=utf-8"},
                 "body":json.dumps(res,ensure_ascii=False)}
+    if method=="GET":
+        return {"statusCode":200,
+                "headers":{"Content-Type":"text/html; charset=utf-8"},
+                "body":_page()}
     return {"statusCode":404,"body":"not found"}

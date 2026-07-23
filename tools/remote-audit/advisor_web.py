@@ -95,7 +95,8 @@ async function advise(){
   actives,hp:[0,1,2,3].map(i=>+document.getElementById('ohp'+i).value),
   st:[0,1,2,3].map(i=>document.getElementById('ost'+i).value.replace("状態なし",""))};
  try{
-  const r=await fetch('advise'+location.search,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const sep=location.search?'&':'?';
+  const r=await fetch('advise'+location.search+sep+'d='+encodeURIComponent(JSON.stringify(body)),{method:'GET'});
   const d=await r.json();
   if(d.error){out.classList.add("err");out.innerHTML='<div class="act">'+d.error+'</div>';return;}
   out.innerHTML='<h2 style="font-size:13px;color:var(--sub);margin:0">★ 推奨手</h2>'+d.acts.map(a=>'<div class="act">'+a+'</div>').join("")+
@@ -138,6 +139,15 @@ class H(BaseHTTPRequestHandler):
         self.send_header("Content-Length",str(len(data))); self.end_headers(); self.wfile.write(data)
     def do_GET(self):
         if not self._auth_ok(): self._send(403,'forbidden (?t=token)','text/plain'); return
+        from urllib.parse import urlparse, parse_qs
+        p=urlparse(self.path)
+        if p.path.rstrip("/").endswith("advise"):   # GET /advise?d=<json>（CloudFront OAC経路）
+            try:
+                d=parse_qs(p.query).get("d",["{}"])[0]
+                with LOCK: res=run_advise(json.loads(d or "{}"))
+            except Exception as e:
+                res={"error":"内部エラー: %s"%e}
+            self._send(200,json.dumps(res,ensure_ascii=False)); return
         page=PAGE.replace("__JPS__",json.dumps(JPS,ensure_ascii=False)).replace("__MOVES__",json.dumps(MOVELISTS,ensure_ascii=False))
         self._send(200,page,"text/html; charset=utf-8")
     def do_POST(self):
