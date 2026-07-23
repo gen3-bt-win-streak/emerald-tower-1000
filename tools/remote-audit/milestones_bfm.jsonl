@@ -67,3 +67,6 @@
 {"w": 27000000, "start": 62500, "kind": "NEWBEST", "run_start": 27067622, "hit": 27069721, "streak": 2100}
 {"w": 27000000, "start": 62500, "kind": "NEWBEST", "run_start": 27067622, "hit": 27069821, "streak": 2200}
 {"w": 27000000, "start": 62500, "kind": "NEWBEST", "run_start": 27067622, "hit": 27069921, "streak": 2300}
+{"w": 28000000, "start": 125000, "kind": "NEWBEST", "run_start": 28132314, "hit": 28133913, "streak": 1600}
+{"w": 28000000, "start": 125000, "kind": "NEWBEST", "run_start": 28132314, "hit": 28134013, "streak": 1700}
+{"w": 28000000, "start": 0, "kind": "S1000", "run_start": 28009107, "hit": 28010106, "streak": 1000}
