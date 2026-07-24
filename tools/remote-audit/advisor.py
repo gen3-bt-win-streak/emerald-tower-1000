@@ -3,6 +3,7 @@
 ## 使い方: PYTHONHASHSEED=0 FIDELITY2=1 python3 advisor.py
 ## 入力は対話式。種族は日本語/英語どちらでも可。HPは%指定。
 import sys, os
+os.environ["BOOM_FIX"]="1"  # A/B完走で改善確定(100万ペア net-59 / McNemar p≈2.1e-4, 床0.2516%→0.2457%)→採用。凍結マラソン本体は不変
 from jpnames import JPS, JPM, JPI
 JP2EN={v:k for k,v in JPS.items()}
 src=open('sim_v4marathon.py').read()
