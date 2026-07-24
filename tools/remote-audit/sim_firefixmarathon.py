@@ -2,6 +2,7 @@
 ## 条項優先順位: sticky不変 > エンテイ×ラティ開幕 > 炎×氷ピンサー > 麻痺爆発 > 爆発釣りv2
 ## 各実装は検証済みファイル(sim_userline_exp/sim_fireice_exp/sim_parboom_exp/sim_dp2_val)から字面移植
 import sys, collections, random, copy, json, os, time
+os.environ["FIRE_FIX"]="1"  # A/B ON側: 単炎条項の追加レバー(地震確定KO優先/飛行炎10万)を有効化
 _z=open('sim_z11.py').read()
 exec(_z[:_z.index("\nCASES=")])
 G["SMART_SENDIN"]=0; RETREAT=True
@@ -237,12 +238,12 @@ G["our_choose"]=v3_choose
 if __name__=="__main__":
     BASE=int(sys.argv[1]); START=int(sys.argv[2]); N=int(sys.argv[3])
     # seed範囲 [BASE+START, BASE+START+N)。連勝統計は集計時に負けシード列から各250kブロック単位で再計算する
-    CKPT="v4m_ckpt_%d_%d.json"%(BASE,START)
+    CKPT="ffm_ckpt_%d_%d.json"%(BASE,START)
     st=dict(i=0,losses=[],streak=0,best=0,run_start=BASE+START,s250=0,s500=0,s750=0,s1000=0,base=BASE,start=START,count=N)
     if os.path.exists(CKPT): st.update(json.load(open(CKPT)))
     t0=time.time(); i0=st["i"]
     def event(kind,seed,streak):
-        open("milestones_v4.jsonl","a").write(json.dumps(dict(w=BASE,start=START,kind=kind,run_start=st["run_start"],hit=seed,streak=streak))+"\n")
+        open("milestones_ffm.jsonl","a").write(json.dumps(dict(w=BASE,start=START,kind=kind,run_start=st["run_start"],hit=seed,streak=streak))+"\n")
     while st["i"]<N:
         seed=BASE+START+st["i"]
         _battle_no[0]=(START+st["i"])+1
