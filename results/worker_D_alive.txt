@@ -14,3 +14,4 @@ worker-D異常検知・復旧 2026-07-23 13:5x頃 UTC コンテナ再起動でsh
 worker-D 完走 2026-07-23 19:11 UTC shepherd_boomfix.sh 28000000(爆発まもる税修正ONマラソン) 全4チャンク完走(i>=62500)。計250000戦、負け627件(0.2508%)。内訳: +0=158(0.2528%) +62500=180(0.2880%) +125000=151(0.2416%) +187500=138(0.2208%)。shepherd_boomfix.log「19:11 ブロック28000000全4チャンク完走」で確認。
 worker-D 2026-07-23 19:xx UTC 炎条項レバーONマラソン(FIRE_FIX A/B)28M起動: shepherd_firefix.sh(4チャンク×62500戦、run_in_background方式)
 worker-D異常検知・復旧 2026-07-24頃 UTC コンテナ再起動でshepherd_firefix.sh 28M全滅・ローカルgitがpivot-25M復旧時点(a1808ac)まで巻き戻っていたためorigin/claude/battle-tower-1000-wins-8xr0zeにff-onlyでcatch-up(i=27000/62500=43.2%まで保存済み・実害なし)→run_in_background方式で再起動、4チャンク稼働確認。
+worker-D 完走 2026-07-24 07:59 UTC shepherd_firefix.sh 28000000(炎条項レバーONマラソン FIRE_FIX A/B) 全4チャンク完走(i>=62500)。計250000戦、負け575件(0.2300%)。内訳: +0=149(0.2384%) +62500=156(0.2496%) +125000=142(0.2272%) +187500=128(0.2048%)。shepherd_firefix.log「07:59 ブロック28000000全4チャンク完走」で確認。
