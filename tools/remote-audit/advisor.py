@@ -4,7 +4,7 @@
 ## 入力は対話式。種族は日本語/英語どちらでも可。HPは%指定。
 import sys, os
 os.environ["BOOM_FIX"]="1"  # A/B完走で改善確定(100万ペア net-59 / McNemar p≈2.1e-4, 床0.2516%→0.2457%)→採用。凍結マラソン本体は不変
-os.environ["FIRE_FIX"]="1"  # A/B(67.6%消化で改善221/改悪18, McNemar p≈5e-39)で改善確定→採用。単炎条項の地震温存/飛行炎10万。凍結マラソン本体は不変
+os.environ["FIRE_FIX"]="1"  # A/B完走で改善確定(100万ペア net-283 改善318/改悪35, McNemar p≈6.4e-51, 床0.2516%→0.2233%)→採用。単炎条項の地震温存/飛行炎10万。凍結マラソン本体は不変
 from jpnames import JPS, JPM, JPI
 JP2EN={v:k for k,v in JPS.items()}
 src=open('sim_v4marathon.py').read()
