@@ -10,6 +10,14 @@ NS["TH_GDANGER"]=1.3
 # めざ氷70注入(特殊・こおり・命中/対象は冷凍ビーム準拠・追加効果なし)
 MOVES["MOVE_HP_ICE"]=dict(MOVES["MOVE_ICE_BEAM"], power=70, effect="EFFECT_HIT")
 
+# めざ岩70注入(D案・2026-07-30の実機チーム変更に追随。物理いわ・命中100・単体・追加効果なし)
+# HP_ROCK=1で有効化(既定OFF=凍結マラソンと挙動一致): ラグ=いわなだれ→めざ岩70 / EV B4→S4 /
+# 実在Method-1個体 E6BA7F73 (31/31/30/31/22/30) の実数値 404/350/215/185/207/156 へ補正
+HP_ROCK = os.environ.get("HP_ROCK")=="1"
+if HP_ROCK:
+    MOVES["MOVE_HP_ROCK"]=dict(effect="EFFECT_HIT", power=70, type="TYPE_ROCK", accuracy=100,
+                               target="MOVE_TARGET_SELECTED", priority=0)
+
 def spec_v3():
     # v4確定ビルド: ラグ=たべのこし / グロス=せんせいのツメ+A164(H252/A164/B44/D44/S4)
     s=WRspec("Leftovers")                                        # ラグラージ持ち物=たべのこし
@@ -18,6 +26,10 @@ def spec_v3():
     g=list(s[1]); g[3]="Quick Claw"                             # グロス持ち物=せんせいのツメ
     g[2]={"hp":252,"atk":164,"df":44,"spd":44,"spe":4}          # A252→A164, 余剰をB44/D44/S4へ(補遺20)
     s[1]=tuple(g)
+    if HP_ROCK:
+        w=list(s[3]); wm=list(w[4]); wm[2]="MOVE_HP_ROCK"; w[4]=wm  # いわなだれ→めざ岩70
+        w[2]={"hp":252,"atk":252,"spe":4}                           # B4→S4(めざ岩個体はS-IV30のためEV4でS156死守)
+        s[3]=tuple(w)
     return s
 
 rule_choose=z5_choose
@@ -31,6 +43,8 @@ def bld():
         # 攻IV最適化(混乱自傷の最小化): サンダー=IV2(めざ氷の奇偶条件内で最小) ラティ=IV0(物理技なし)
         if m.species=="Zapdos": m.stats["atk"]=168
         if m.species=="Latios": m.stats["atk"]=166
+        if HP_ROCK and m.species=="Swampert":
+            m.stats["df"]=215; m.stats["spd"]=207; m.stats["spe"]=156  # 実IV B30/D22/S30(E6BA7F73)
     return t
 
 _s=open('sim_zsearch.py').read()
