@@ -46,6 +46,7 @@
 | [12-playbook.md](12-playbook.md) | **Phase5 実機プレイブック**：人間用の長考マップ＋1行条項集＋詰み系即断＋保険則 | 🚧 ドラフトv1 |
 | [**15-v4-real-build.md**](15-v4-real-build.md) | **v4確定構築・実機用リファレンス**：全数値表・BOOM_FIX/FIRE_FIX採用状況（実効床0.2233%）・対面メモ（ヌケニン正着含む）・実戦ログ（442連勝）・技構成レビュー記録 | ✅ |
 | [16-pkhex-setup.md](16-pkhex-setup.md) | **実機セーブの正規化ガイド**：各個体の入手経路設定・サンダーFR/LG産の作法・Method1乱数整合（ALM/PokeFinder）・Legality警告の読み方 | ✅ |
+| [17-smogon-legitimacy.md](17-smogon-legitimacy.md) | **Smogon提出の正規性調査**：公式ルール逐条（原文英日併記）・記録保持者の実態・却下事例・PokeFinder+PKHeX運用の公認性・ケース評価と提出チェックリスト | ✅ 2026-07-30調査 |
 | [data/](data/README.md) | 敵全882セット・トレーナー300人・危険レポート（オープン基準）のCSV/JSON | ✅ 独立監査済み |
 | [sources.md](sources.md) | 出典・検証記録・残る実機検証キュー | ✅ |
 
