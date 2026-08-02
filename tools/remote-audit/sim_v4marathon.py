@@ -62,6 +62,9 @@ GRASS={'Sceptile','Venusaur','Meganium','Ludicolo','Shiftry','Exeggutor','Victre
 #  ①T2 麻痺炎を地震で確定KOできるなら爆発でなく地震(メタグロス温存)
 #  ②T1 飛行炎(地震無効)はサンダー10万で確定KOできるならT1で落とす(麻痺不要・メタ温存)
 FIRE_FIX = os.environ.get("FIRE_FIX")=="1"
+# BOOM_HOLD(既定OFF): 敵の残り数がしきい値以上なら爆発を温存する(実機運用の明文化)。A/B検証用。
+BOOM_HOLD = os.environ.get("BOOM_HOLD")=="1"
+BOOM_HOLD_N = int(os.environ.get("BOOM_HOLD_N","4"))
 
 def fair_maxhit_noboom(b,f,m):
     # 敵AIはHP50%超で爆発しないため、高HPの敵の爆発打点は脅威から除外(z_safe精密化・検証済み)
@@ -212,6 +215,30 @@ def v3_choose(b):
                     else:
                         ba=best_attack(b,m,[threat],relax=True)
                         if ba: acts[m]=("move",ba[0],ba[1])
+    # ---- BOOM_HOLD(env-gated・既定OFF): 敵が多く残っている間は爆発を温存 ----
+    # 実機運用(2026-07-30ユーザー報告)の明文化: 「敵4体のうちは基本撃たない。3体でも相方の打点と
+    # 相手の積みの脅威次第。4体目が積みだと詰むのが嫌」。プール実測で控え2体に強い積みが入る確率は28.4%。
+    # BOOM_HOLD=1 で「残り敵>=しきい値なら爆発を却下し、ルール側の非爆発手にフォールバック」。
+    # しきい値は BOOM_HOLD_N(既定4)。3にすると「3体残りでも撃たない」の強い版になる。
+    if BOOM_HOLD:
+        boomerH=None
+        for m in ours:
+            a=acts.get(m)
+            if a and a[0]=="move" and MOVES.get(a[1],{}).get("effect")=="EFFECT_EXPLOSION":
+                boomerH=m; break
+        if boomerH is not None:
+            n_foe=len([f for f in b.active["foe"] if f and f.alive()])+len([f for f in b.bench["foe"] if f.alive()])
+            if n_foe>=BOOM_HOLD_N:
+                ruleH=rule_choose(b); ra=ruleH.get(boomerH)
+                rb = ra and ra[0]=="move" and MOVES.get(ra[1],{}).get("effect")=="EFFECT_EXPLOSION"
+                if ra is not None and not rb:
+                    acts[boomerH]=ra
+                else:
+                    foesH=[f for f in b.active["foe"] if f and f.alive()]
+                    ba=best_attack(b,boomerH,foesH,relax=True)
+                    if ba: acts[boomerH]=("move",ba[0],ba[1])
+                    elif "MOVE_PROTECT" in boomerH.moves and boomerH.protect_streak<1:
+                        acts[boomerH]=("move","MOVE_PROTECT",boomerH)
     # ---- 安全不変条件(3): ラス1自壊禁止 ----
     # 控えゼロ時、相方の生存が保証されない爆発は禁止(相打ちドロー=負け扱いのため支配的ルール)
     # 保証 = ゴースト / まもる計画かつ行動阻害(麻痺/眠り/氷/メロメロ/混乱)なし / 爆発最大ロールでも耐える
