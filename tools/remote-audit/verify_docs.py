@@ -295,8 +295,51 @@ def sec_15():
     rec("15章", "めざ岩のヌケニンへの実効命中", "95%", "%d%% (命中%d×お香0.95)" % (eff, acc), eff == 95)
 
 
+# ---------------------------------------------------------------- §8.6b バンギラス / EV交換の実収支
+def sec_ttar():
+    """バンギラス10セットの対グロス打点と、A252→A164+B44/D44/S4のEV交換の収支を検証。
+    ユーザー質問(2026-07-30)「バンギとの打ち合いは耐久振りで変わるか」への回答を固定化する。"""
+    import copy
+    old = copy.deepcopy(GROSS)
+    old.stats["atk"] = 405; old.stats["df"] -= 11; old.stats["spd"] -= 11; old.stats["spe"] -= 1
+    ttar = sorted([e['set_id'] for e in pool if e['species'] == 'Tyranitar'])
+    rec("§8.6b", "バンギラスのセット数(オープン限定)", "10", str(len(ttar)), len(ttar) == 10)
+    worst = 0
+    for sid in ttar:
+        f = foe(sid)
+        lo, hi, mv = best_hit(f, GROSS)
+        worst = max(worst, pct(hi, GROSS.max_hp))
+    rec("§8.6b", "バンギの対グロス最大(=一度も確1できない)", "62%", "%d%%" % worst, worst == 62)
+
+    def mm_ko(att_val, f):
+        m = copy.deepcopy(GROSS); m.stats["atk"] = att_val
+        a = dict(species=m.species, stats=m.eff(), types=m.types, ability=m.ability, item=m.item, level=100)
+        d = dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100)
+        return damage_range(a, d, "MOVE_METEOR_MASH")[0] >= f.max_hp
+
+    def bo_ko(att_val, f):
+        m = copy.deepcopy(GROSS); m.stats["atk"] = att_val
+        a = dict(species=m.species, stats=m.eff(), types=m.types, ability=m.ability, item=m.item, level=100)
+        d = dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100)
+        return damage_range(a, d, "MOVE_EXPLOSION")[0] >= f.max_hp
+
+    lost_mm = [e['set_id'] for e in pool if mm_ko(405, foe(e['set_id'])) and not mm_ko(381, foe(e['set_id']))]
+    lost_bo = [e['set_id'] for e in pool if bo_ko(405, foe(e['set_id'])) and not bo_ko(381, foe(e['set_id']))]
+    rec("§8.6b", "A405→A381 でコメパン確1を失うセット数", "17", str(len(lost_mm)), len(lost_mm) == 17)
+    rec("§8.6b", "A405→A381 で爆発の確1を失うセット数(主砲の無傷確認)", "0", str(len(lost_bo)), len(lost_bo) == 0)
+    rec("§8.6b", "バンギのうち確1を失った3セット", "[860, 861, 868]",
+        str([s for s in lost_mm if s in ttar]), [s for s in lost_mm if s in ttar] == [860, 861, 868])
+    o1 = sum(1 for e in pool if best_hit(foe(e['set_id']), old)[0] >= GROSS.max_hp)
+    n1 = sum(1 for e in pool if best_hit(foe(e['set_id']), GROSS)[0] >= GROSS.max_hp)
+    rec("§8.6b", "被確1セット数 旧→新（耐久振りの実利）", "22 → 19", "%d → %d" % (o1, n1), o1 == 22 and n1 == 19)
+    tie = sum(1 for e in pool if e['stats31']['spe'] == 177)
+    faster = sum(1 for e in pool if e['stats31']['spe'] == 176)
+    rec("§8.6b", "S4(176→177)の効果: 同速の敵 / 抜けるようになる敵", "0 / 20",
+        "%d / %d" % (tie, faster), tie == 0 and faster == 20)
+
+
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
-            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "15": sec_15}
+            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "15": sec_15}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
