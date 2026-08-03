@@ -338,8 +338,52 @@ def sec_ttar():
         "%d / %d" % (tie, faster), tie == 0 and faster == 20)
 
 
+# ---------------------------------------------------------------- §8.8 水耐久・地震耐え（合算打点）
+def sec_bulk():
+    """実戦報告「じしん+10まんで落ちない」「デンリュウ/ブースターがじしんを耐える」の数値化。
+    要点=タイプ一致の有無で撃ち手が変わる（じしん=ラグ / 10まん=サンダー）。"""
+    def dmgv(att, f, mv):
+        a = dict(species=att.species, stats=att.eff(), types=att.types, ability=att.ability, item=att.item, level=100)
+        d = dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100)
+        return damage_range(a, d, mv)
+    f456 = foe(456)
+    gq = dmgv(GROSS, f456, "MOVE_EARTHQUAKE"); sq = dmgv(SWAMP, f456, "MOVE_EARTHQUAKE")
+    zt = dmgv(ZAP, f456, "MOVE_THUNDERBOLT")
+    rec("§8.8", "ラプラス#456 グロス地震+サンダー10万（乱数）", "368-434 / HP401",
+        "%d-%d / HP%d" % (gq[0] + zt[0], gq[1] + zt[1], f456.max_hp),
+        gq[0] + zt[0] == 368 and gq[0] + zt[0] < f456.max_hp)
+    rec("§8.8", "ラプラス#456 ラグ地震+サンダー10万（確殺）", "405-477 / HP401",
+        "%d-%d / HP%d" % (sq[0] + zt[0], sq[1] + zt[1], f456.max_hp),
+        sq[0] + zt[0] == 405 and sq[0] + zt[0] >= f456.max_hp)
+    # 最硬2セット: 最強の組み合わせでも乱数
+    hard = []
+    for sid in (822, 823):
+        f = foe(sid)
+        s_ = dmgv(SWAMP, f, "MOVE_EARTHQUAKE"); z_ = dmgv(ZAP, f, "MOVE_THUNDERBOLT")
+        if s_[0] + z_[0] < f.max_hp <= s_[1] + z_[1]:
+            hard.append(sid)
+    rec("§8.8", "ラグ地震+サンダー10万でも乱数のラプラス", "[822, 823]", str(hard), hard == [822, 823])
+    # じしん耐え: グロス地震で耐えるが、ラグ地震なら少なくとも乱1以上になるセット
+    upgraded = []
+    for e in pool:
+        if e['species'] not in ('Ampharos', 'Flareon'):
+            continue
+        f = foe(e['set_id'])
+        g = dmgv(GROSS, f, "MOVE_EARTHQUAKE"); s_ = dmgv(SWAMP, f, "MOVE_EARTHQUAKE")
+        if g[1] < f.max_hp <= s_[1]:
+            upgraded.append(e['set_id'])
+    rec("§8.8", "グロス地震では耐えるがラグ地震なら落ちるセット", "[422, 540, 710]",
+        str(sorted(upgraded)), sorted(upgraded) == [422, 540, 710])
+    # タイプ一致倍率の確認
+    ratio_eq = (sq[0] / gq[0])
+    lt = dmgv(LATI, f456, "MOVE_THUNDERBOLT")
+    ratio_tb = (lt[0] / zt[0])
+    rec("§8.8", "地震の撃ち手倍率（ラグ/グロス）", "約1.39", "%.2f" % ratio_eq, 1.35 <= ratio_eq <= 1.45)
+    rec("§8.8", "10まんの撃ち手倍率（ラティ/サンダー）", "約0.63", "%.2f" % ratio_tb, 0.60 <= ratio_tb <= 0.66)
+
+
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
-            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "15": sec_15}
+            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk, "15": sec_15}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
