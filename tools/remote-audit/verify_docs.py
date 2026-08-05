@@ -382,8 +382,41 @@ def sec_bulk():
     rec("§8.8", "10まんの撃ち手倍率（ラティ/サンダー）", "約0.63", "%.2f" % ratio_tb, 0.60 <= ratio_tb <= 0.66)
 
 
+
+# ---------------------------------------------------------------- §4.3 敵の爆発（危険ウィンドウ）
+def sec_enemyboom():
+    """実機で被弾した「敵ラス1の爆発」の数値化。AI原文の解禁条件は 12-playbook §4.3 に記載。"""
+    ours = [("Zapdos", ZAP), ("Metagross", GROSS), ("Latios", LATI), ("Swampert", SWAMP)]
+
+    def dv(f, att, mv):
+        a = dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=f.item, level=100)
+        d = dict(species=att.species, stats=att.eff(), types=att.types, ability=att.ability, item=None, level=100)
+        return damage_range(a, d, mv)
+
+    boom = [e for e in pool if any(MOVES.get(m, {}).get("effect") == "EFFECT_EXPLOSION" for m in e['moves'])]
+    rec("§4.3", "爆発/自爆を持つ敵セット数", "24", str(len(boom)), len(boom) == 24)
+    # メタグロスは全爆発を確定耐え
+    worst = 0; ko = 0
+    for e in boom:
+        f = foe(e['set_id'])
+        mv = [m for m in e['moves'] if MOVES.get(m, {}).get("effect") == "EFFECT_EXPLOSION"][0]
+        lo, hi = dv(f, GROSS, mv)
+        worst = max(worst, pct(hi, GROSS.max_hp))
+        if hi >= GROSS.max_hp:
+            ko += 1
+    rec("§4.3", "メタグロスが爆発でOHKOされるセット数 / 最大被弾", "0 / 72%",
+        "%d / %d%%" % (ko, worst), ko == 0 and worst == 72)
+    # フォレトス2セットは他3体を確定OHKO
+    for sid in (575, 671):
+        f = foe(sid)
+        mv = [m for m in f.moves if MOVES.get(m, {}).get("effect") == "EFFECT_EXPLOSION"][0]
+        koed = [nm for nm, m in ours if dv(f, m, mv)[0] >= m.max_hp]
+        rec("§4.3", "フォレトス#%d の爆発が確定OHKOする自駒" % sid, "Zapdos/Latios/Swampert",
+            "/".join(koed), koed == ["Zapdos", "Latios", "Swampert"])
+
+
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
-            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk, "15": sec_15}
+            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk, "4.3": sec_enemyboom, "15": sec_15}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)

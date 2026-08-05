@@ -301,6 +301,34 @@
   "ok": true
  },
  {
+  "section": "§4.3",
+  "label": "爆発/自爆を持つ敵セット数",
+  "doc": "24",
+  "measured": "24",
+  "ok": true
+ },
+ {
+  "section": "§4.3",
+  "label": "メタグロスが爆発でOHKOされるセット数 / 最大被弾",
+  "doc": "0 / 72%",
+  "measured": "0 / 72%",
+  "ok": true
+ },
+ {
+  "section": "§4.3",
+  "label": "フォレトス#575 の爆発が確定OHKOする自駒",
+  "doc": "Zapdos/Latios/Swampert",
+  "measured": "Zapdos/Latios/Swampert",
+  "ok": true
+ },
+ {
+  "section": "§4.3",
+  "label": "フォレトス#671 の爆発が確定OHKOする自駒",
+  "doc": "Zapdos/Latios/Swampert",
+  "measured": "Zapdos/Latios/Swampert",
+  "ok": true
+ },
+ {
   "section": "15章",
   "label": "フォレトス#383 サンダー10万 / ラグ地震",
   "doc": "61-72% / 41-48%",
