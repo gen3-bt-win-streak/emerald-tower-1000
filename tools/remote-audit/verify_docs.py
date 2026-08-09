@@ -15,6 +15,7 @@
 import os, sys, json
 os.environ.setdefault("HP_ROCK", "1")   # 実機現行=めざ岩ラグ。凍結スペックで検算する場合は HP_ROCK=0
 os.environ.setdefault("FIRE_FIX", "1")
+os.environ.setdefault("GROSS_A228", "1")  # 実機現行=グロスA228/B0/D24(2026-08-09採用)。旧EVで検算する場合は GROSS_A228=0
 
 _src = open('sim_v4marathon.py').read()
 NS = {'__name__': 'verify_docs', '__file__': 'sim_v4marathon.py'}
@@ -64,7 +65,7 @@ def pct(x, hp):
 
 # ---------------------------------------------------------------- 編成表
 def sec_spec():
-    exp = {'Zapdos': (322, 383, 299), 'Metagross': (364, 381, 177),
+    exp = {'Zapdos': (322, 383, 299), 'Metagross': (364, 399, 177),
            'Latios': (302, 359, 350), 'Swampert': (404, 350, 156)}
     for sp, (hp, key, spe) in exp.items():
         m = TEAM[sp]
@@ -183,10 +184,10 @@ def sec_83():
 
 
 # ---------------------------------------------------------------- §8.4 速い炎15セット→グロス
-FAST15 = {454: (299, 109, 128), 455: (299, 109, 128), 522: (289, 109, 129), 656: (289, 119, 140),
-          714: (289, 127, 150), 752: (289, 109, 128), 511: (285, 102, 120), 780: (279, 120, 141),
-          874: (279, 127, 150), 742: (278, 108, 127), 743: (278, 108, 127), 769: (216, 127, 150),
-          875: (216, 127, 150), 739: (196, 116, 137), 791: (194, 140, 164)}
+FAST15 = {454: (299, 112, 131), 455: (299, 112, 131), 522: (289, 112, 131), 656: (289, 122, 143),
+          714: (289, 130, 153), 752: (289, 112, 131), 511: (285, 104, 123), 780: (279, 122, 143),
+          874: (279, 130, 153), 742: (278, 110, 130), 743: (278, 110, 130), 769: (216, 130, 153),
+          875: (216, 130, 153), 739: (196, 118, 140), 791: (194, 142, 168)}
 
 
 def sec_84():
@@ -204,7 +205,7 @@ def sec_84():
     f732 = foe(732)
     lo, hi, _ = best_hit(f732, GROSS)
     ok = (BY_ID[732]['stats31']['spe'] == 149 and lo >= GROSS.max_hp)
-    rec("§8.4", "#732ブースター spe149・確定OHKO", "spe149 / 116-136%",
+    rec("§8.4", "#732ブースター spe149・確定OHKO", "spe149 / 118-139%",
         "spe%d / %d-%d%%" % (BY_ID[732]['stats31']['spe'], pct(lo, GROSS.max_hp), pct(hi, GROSS.max_hp)), ok)
 
 
@@ -223,10 +224,10 @@ def sec_85():
     for sid in LATIOS_S + LATIAS_S:
         lo, hi, mv = best_hit(foe(sid), GROSS)
         lati_max = max(lati_max, pct(hi, GROSS.max_hp))
-    rec("§8.5", "ラティ兄妹の対グロス最大（確1不能の根拠）", "42%", "%d%%" % lati_max, lati_max == 42)
+    rec("§8.5", "ラティ兄妹の対グロス最大（確1不能の根拠）", "44%", "%d%%" % lati_max, lati_max == 44)
     e771 = best_hit(foe(771), GROSS)
-    rec("§8.5", "#771エンテイの対グロス最大", "112%", "%d%%" % pct(e771[1], GROSS.max_hp),
-        pct(e771[1], GROSS.max_hp) == 112)
+    rec("§8.5", "#771エンテイの対グロス最大", "115%", "%d%%" % pct(e771[1], GROSS.max_hp),
+        pct(e771[1], GROSS.max_hp) == 115)
 
 
 # ---------------------------------------------------------------- §8.6 ガラガラ
@@ -300,8 +301,10 @@ def sec_ttar():
     """バンギラス10セットの対グロス打点と、A252→A164+B44/D44/S4のEV交換の収支を検証。
     ユーザー質問(2026-07-30)「バンギとの打ち合いは耐久振りで変わるか」への回答を固定化する。"""
     import copy
-    old = copy.deepcopy(GROSS)
-    old.stats["atk"] = 405; old.stats["df"] -= 11; old.stats["spd"] -= 11; old.stats["spe"] -= 1
+    old = copy.deepcopy(GROSS)   # 旧A252型(v3): 405/296/216/S176 に明示ピン(歴史比較を現行EVから独立させる)
+    old.stats["atk"] = 405; old.stats["df"] = 296; old.stats["spd"] = 216; old.stats["spe"] = 176
+    v4f = copy.deepcopy(GROSS)   # v4凍結型: 381/307/227/S177
+    v4f.stats["atk"] = 381; v4f.stats["df"] = 307; v4f.stats["spd"] = 227; v4f.stats["spe"] = 177
     ttar = sorted([e['set_id'] for e in pool if e['species'] == 'Tyranitar'])
     rec("§8.6b", "バンギラスのセット数(オープン限定)", "10", str(len(ttar)), len(ttar) == 10)
     worst = 0
@@ -309,7 +312,7 @@ def sec_ttar():
         f = foe(sid)
         lo, hi, mv = best_hit(f, GROSS)
         worst = max(worst, pct(hi, GROSS.max_hp))
-    rec("§8.6b", "バンギの対グロス最大(=一度も確1できない)", "62%", "%d%%" % worst, worst == 62)
+    rec("§8.6b", "バンギの対グロス最大(=一度も確1できない)", "63%", "%d%%" % worst, worst == 63)
 
     def mm_ko(att_val, f):
         m = copy.deepcopy(GROSS); m.stats["atk"] = att_val
@@ -330,8 +333,10 @@ def sec_ttar():
     rec("§8.6b", "バンギのうち確1を失った3セット", "[860, 861, 868]",
         str([s for s in lost_mm if s in ttar]), [s for s in lost_mm if s in ttar] == [860, 861, 868])
     o1 = sum(1 for e in pool if best_hit(foe(e['set_id']), old)[0] >= GROSS.max_hp)
-    n1 = sum(1 for e in pool if best_hit(foe(e['set_id']), GROSS)[0] >= GROSS.max_hp)
-    rec("§8.6b", "被確1セット数 旧→新（耐久振りの実利）", "22 → 19", "%d → %d" % (o1, n1), o1 == 22 and n1 == 19)
+    n1 = sum(1 for e in pool if best_hit(foe(e['set_id']), v4f)[0] >= GROSS.max_hp)
+    c1 = sum(1 for e in pool if best_hit(foe(e['set_id']), GROSS)[0] >= GROSS.max_hp)
+    rec("§8.6b", "被確1セット数 A252型→v4凍結→現行A228（耐久振りの実利は維持）", "22 → 19 → 19",
+        "%d → %d → %d" % (o1, n1, c1), o1 == 22 and n1 == 19 and c1 == 19)
     tie = sum(1 for e in pool if e['stats31']['spe'] == 177)
     faster = sum(1 for e in pool if e['stats31']['spe'] == 176)
     rec("§8.6b", "S4(176→177)の効果: 同速の敵 / 抜けるようになる敵", "0 / 20",
@@ -359,8 +364,8 @@ def sec_lead():
                 c2 += 1
         counts[nm] = (c1, c1max, c2)
         mvs[nm] = Counter(v.replace("MOVE_", "") for v in lethal)
-    rec("§1", "被確1/被OHKO圏/被確2 グロス", "19/28/128", "%d/%d/%d" % counts["Metagross"],
-        counts["Metagross"] == (19, 28, 128))
+    rec("§1", "被確1/被OHKO圏/被確2 グロス（A228採用後。被確1は不変・OHKO圏+1=#647）", "19/29/140",
+        "%d/%d/%d" % counts["Metagross"], counts["Metagross"] == (19, 29, 140))
     rec("§1", "被確1/被OHKO圏/被確2 ラグ（即死ラインは2倍・被確2は逆に優位）", "38/47/94",
         "%d/%d/%d" % counts["Swampert"], counts["Swampert"] == (38, 47, 94))
     rec("§1", "被確1/被OHKO圏/被確2 サンダー / ラティ", "32/57/225 / 35/51/213",
@@ -397,11 +402,12 @@ def sec_evopt():
         m.stats["spd"] = 216 + dev // 4
         return m
 
-    cur = gross_ev(164, 44, 44)
-    rec("§15b", "実数値式の整合（A164/B44/D44=現行381/307/227）", "381/307/227",
-        "%d/%d/%d" % (cur.stats["atk"], cur.stats["df"], cur.stats["spd"]),
-        (cur.stats["atk"], cur.stats["df"], cur.stats["spd"]) ==
-        (GROSS.stats["atk"], GROSS.stats["df"], GROSS.stats["spd"]) == (381, 307, 227))
+    cur = gross_ev(164, 44, 44)   # 旧v4凍結型(検証基準線)
+    new = gross_ev(228, 0, 24)
+    rec("§15b", "実数値式の整合（A228/B0/D24=現行399/296/222・2026-08-09採用）", "399/296/222",
+        "%d/%d/%d" % (GROSS.stats["atk"], GROSS.stats["df"], GROSS.stats["spd"]),
+        (new.stats["atk"], new.stats["df"], new.stats["spd"]) ==
+        (GROSS.stats["atk"], GROSS.stats["df"], GROSS.stats["spd"]) == (399, 296, 222))
 
     def off_min(m, f):
         best = 0
@@ -464,7 +470,7 @@ def sec_evopt():
             continue
         f = foe(e['set_id'])
         zt = dmg(ZAP, f, "MOVE_THUNDERBOLT")[0]
-        old_kill = dmg(GROSS, f, "MOVE_EARTHQUAKE")[0] + zt >= f.max_hp
+        old_kill = dmg(cur, f, "MOVE_EARTHQUAKE")[0] + zt >= f.max_hp
         new_kill = dmg(g228, f, "MOVE_EARTHQUAKE")[0] + zt >= f.max_hp
         if old_kill != new_kill:
             flips.append(e['set_id'])
@@ -483,9 +489,9 @@ def sec_bulk():
     f456 = foe(456)
     gq = dmgv(GROSS, f456, "MOVE_EARTHQUAKE"); sq = dmgv(SWAMP, f456, "MOVE_EARTHQUAKE")
     zt = dmgv(ZAP, f456, "MOVE_THUNDERBOLT")
-    rec("§8.8", "ラプラス#456 グロス地震+サンダー10万（乱数）", "368-434 / HP401",
+    rec("§8.8", "ラプラス#456 グロス地震+サンダー10万（乱数）", "374-440 / HP401",
         "%d-%d / HP%d" % (gq[0] + zt[0], gq[1] + zt[1], f456.max_hp),
-        gq[0] + zt[0] == 368 and gq[0] + zt[0] < f456.max_hp)
+        gq[0] + zt[0] == 374 and gq[0] + zt[0] < f456.max_hp)
     rec("§8.8", "ラプラス#456 ラグ地震+サンダー10万（確殺）", "405-477 / HP401",
         "%d-%d / HP%d" % (sq[0] + zt[0], sq[1] + zt[1], f456.max_hp),
         sq[0] + zt[0] == 405 and sq[0] + zt[0] >= f456.max_hp)
@@ -512,7 +518,7 @@ def sec_bulk():
     ratio_eq = (sq[0] / gq[0])
     lt = dmgv(LATI, f456, "MOVE_THUNDERBOLT")
     ratio_tb = (lt[0] / zt[0])
-    rec("§8.8", "地震の撃ち手倍率（ラグ/グロス）", "約1.39", "%.2f" % ratio_eq, 1.35 <= ratio_eq <= 1.45)
+    rec("§8.8", "地震の撃ち手倍率（ラグ/グロス）", "約1.30", "%.2f" % ratio_eq, 1.27 <= ratio_eq <= 1.33)
     rec("§8.8", "10まんの撃ち手倍率（ラティ/サンダー）", "約0.63", "%.2f" % ratio_tb, 0.60 <= ratio_tb <= 0.66)
 
 
@@ -538,8 +544,8 @@ def sec_enemyboom():
         worst = max(worst, pct(hi, GROSS.max_hp))
         if hi >= GROSS.max_hp:
             ko += 1
-    rec("§4.3", "メタグロスが爆発でOHKOされるセット数 / 最大被弾", "0 / 72%",
-        "%d / %d%%" % (ko, worst), ko == 0 and worst == 72)
+    rec("§4.3", "メタグロスが爆発でOHKOされるセット数 / 最大被弾", "0 / 74%",
+        "%d / %d%%" % (ko, worst), ko == 0 and worst == 74)
     # フォレトス2セットは他3体を確定OHKO
     for sid in (575, 671):
         f = foe(sid)

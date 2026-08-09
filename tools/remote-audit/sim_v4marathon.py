@@ -18,6 +18,10 @@ if HP_ROCK:
     MOVES["MOVE_HP_ROCK"]=dict(effect="EFFECT_HIT", power=70, type="TYPE_ROCK", accuracy=100,
                                target="MOVE_TARGET_SELECTED", priority=0)
 
+# メタグロスA228再配分(2026-08-09の実機採用に追随。GROSS_A228=1で有効化・既定OFF=凍結マラソンと挙動一致):
+# EV H252/A164/B44/D44/S4 → H252/A228/B0/D24/S4 (実数値 A381/B307/D227 → A399/B296/D222)
+GROSS_A228 = os.environ.get("GROSS_A228")=="1"
+
 def spec_v3():
     # v4確定ビルド: ラグ=たべのこし / グロス=せんせいのツメ+A164(H252/A164/B44/D44/S4)
     s=WRspec("Leftovers")                                        # ラグラージ持ち物=たべのこし
@@ -25,6 +29,8 @@ def spec_v3():
     mv=list(z[4]); mv[1]="MOVE_HP_ICE"; z[4]=mv; s[0]=tuple(z)   # ドリルくちばし→めざ氷
     g=list(s[1]); g[3]="Quick Claw"                             # グロス持ち物=せんせいのツメ
     g[2]={"hp":252,"atk":164,"df":44,"spd":44,"spe":4}          # A252→A164, 余剰をB44/D44/S4へ(補遺20)
+    if GROSS_A228:
+        g[2]={"hp":252,"atk":228,"spd":24,"spe":4}              # A228/B0/D24(15章 EV再配分の最適解)
     s[1]=tuple(g)
     if HP_ROCK:
         w=list(s[3]); wm=list(w[4]); wm[2]="MOVE_HP_ROCK"; w[4]=wm  # いわなだれ→めざ岩70
@@ -45,6 +51,8 @@ def bld():
         if m.species=="Latios": m.stats["atk"]=166
         if HP_ROCK and m.species=="Swampert":
             m.stats["df"]=215; m.stats["spd"]=207; m.stats["spe"]=156  # 実IV B30/D22/S30(E6BA7F73)
+        if GROSS_A228 and m.species=="Metagross":
+            m.stats["atk"]=399; m.stats["df"]=296; m.stats["spd"]=222  # A228/B0/D24の実数値
     return t
 
 _s=open('sim_zsearch.py').read()
