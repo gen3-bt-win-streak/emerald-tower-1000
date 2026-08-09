@@ -338,6 +338,80 @@ def sec_ttar():
         "%d / %d" % (tie, faster), tie == 0 and faster == 20)
 
 
+# ---------------------------------------------------------------- §15b メタグロスEV再配分の最適解
+def sec_evopt():
+    """15-v4-real-build「メタグロスEV再配分の最適解」(2026-08-09) の全数値を再計算。
+    実数値の式: A=int((306+ev//4)*1.1) / B=296+ev//4 / D=216+ev//4（H252/S4固定）"""
+    import copy
+
+    def gross_ev(aev, bev, dev):
+        m = copy.deepcopy(GROSS)
+        m.stats["atk"] = int((306 + aev // 4) * 1.1)
+        m.stats["df"] = 296 + bev // 4
+        m.stats["spd"] = 216 + dev // 4
+        return m
+
+    cur = gross_ev(164, 44, 44)
+    rec("§15b", "実数値式の整合（A164/B44/D44=現行381/307/227）", "381/307/227",
+        "%d/%d/%d" % (cur.stats["atk"], cur.stats["df"], cur.stats["spd"]),
+        (cur.stats["atk"], cur.stats["df"], cur.stats["spd"]) ==
+        (GROSS.stats["atk"], GROSS.stats["df"], GROSS.stats["spd"]) == (381, 307, 227))
+
+    def off_min(m, f):
+        best = 0
+        for mv in ("MOVE_METEOR_MASH", "MOVE_EARTHQUAKE"):
+            a = dict(species=m.species, stats=m.eff(), types=m.types, ability=m.ability, item=m.item, level=100)
+            d = dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100)
+            best = max(best, damage_range(a, d, mv)[0])
+        return best
+
+    def k1set(aev):
+        m = gross_ev(aev, 0, 0)
+        return {e['set_id'] for e in pool if off_min(m, foe(e['set_id'])) >= foe(e['set_id']).max_hp}
+
+    k164, k220, k228 = k1set(164), k1set(220), k1set(228)
+    rec("§15b", "コメパン/地震の確1数 A164 / A220 / A228", "64 / 79 / 83",
+        "%d / %d / %d" % (len(k164), len(k220), len(k228)),
+        (len(k164), len(k220), len(k228)) == (64, 79, 83))
+    regice = {763, 774, 785, 839}
+    rec("§15b", "A228で新たに確1化するレジアイス4種", "[763, 774, 785, 839]",
+        str(sorted(regice & (k228 - k164))), regice <= (k228 - k164))
+    lo = damage_range(dict(species="Metagross", stats=gross_ev(228, 0, 24).eff(), types=GROSS.types,
+                           ability=GROSS.ability, item=GROSS.item, level=100),
+                      dict(species="Regice", stats=foe(763).eff(), types=foe(763).types,
+                           ability=foe(763).ability, item=None, level=100), "MOVE_METEOR_MASH")[0]
+    rec("§15b", "A228(399)コメパン最小 vs レジアイス#763 HP364", "367", str(lo), lo == 367)
+
+    def hi_in(f, m):
+        return best_hit(f, m)[1]
+
+    f647, f622 = foe(647), foe(622)
+    rec("§15b", "#647最大被弾 D44/D32/D24/D20", "360/362/366/368",
+        "/".join(str(hi_in(f647, gross_ev(164, 0, d))) for d in (44, 32, 24, 20)),
+        [hi_in(f647, gross_ev(164, 0, d)) for d in (44, 32, 24, 20)] == [360, 362, 366, 368])
+    rec("§15b", "#622最大被弾 D24/D16/D8", "360/362/366",
+        "/".join(str(hi_in(f622, gross_ev(164, 0, d))) for d in (24, 16, 8)),
+        [hi_in(f622, gross_ev(164, 0, d)) for d in (24, 16, 8)] == [360, 362, 366])
+
+    def over364(m):
+        return {e['set_id'] for e in pool if hi_in(foe(e['set_id']), m) >= 364}
+
+    base_over = over364(cur)
+    d32_over = over364(gross_ev(164, 0, 32))
+    d24_over = over364(gross_ev(164, 0, 24))
+    rec("§15b", "B0/D32: 確定1発耐え喪失（全546走査）", "0件", "%d件" % len(d32_over - base_over),
+        d32_over == base_over)
+    rec("§15b", "B0/D24: 確定1発耐え喪失は#647のみ", "[647]", str(sorted(d24_over - base_over)),
+        d24_over - base_over == {647})
+    maro = hi_in(foe(470), gross_ev(164, 0, 44))
+    rhy = hi_in(foe(499), gross_ev(164, 0, 44))
+    rec("§15b", "B0の物理上限: ガラガラ#470(元から確定圏)/サイドン#499", "488(134%) / 338(92%)",
+        "%d(%d%%) / %d(%d%%)" % (maro, pct(maro, 364), rhy, pct(rhy, 364)),
+        maro == 488 and rhy == 338 and pct(rhy, 364) == 92)
+    ohko_647 = sum(1 for r in range(85, 101) if 366 * r // 100 >= 364)
+    rec("§15b", "#647転落時のOHKO率（max366・16ロール中）", "1/16=6.2%", "%d/16" % ohko_647, ohko_647 == 1)
+
+
 # ---------------------------------------------------------------- §8.8 水耐久・地震耐え（合算打点）
 def sec_bulk():
     """実戦報告「じしん+10まんで落ちない」「デンリュウ/ブースターがじしんを耐える」の数値化。
@@ -416,7 +490,8 @@ def sec_enemyboom():
 
 
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
-            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk, "4.3": sec_enemyboom, "15": sec_15}
+            "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk,
+            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
