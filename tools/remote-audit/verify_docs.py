@@ -338,6 +338,52 @@ def sec_ttar():
         "%d / %d" % (tie, faster), tie == 0 and faster == 20)
 
 
+# ---------------------------------------------------------------- §1 先発適性（ラグ先発敗北の分析）
+def sec_lead():
+    """12-playbook §1「なぜラグ先発にしないのか」(2026-08-09) の数値を再計算。
+    軸=即死ライン数と、その即死ラインが種族名から読めるか（可視性）。"""
+    from collections import Counter, defaultdict
+    counts = {}
+    mvs = {}
+    for nm, m in (("Metagross", GROSS), ("Swampert", SWAMP), ("Zapdos", ZAP), ("Latios", LATI)):
+        c1 = c1max = c2 = 0
+        lethal = []
+        for e in pool:
+            lo, hi, mv = best_hit(foe(e['set_id']), m)
+            if lo >= m.max_hp:
+                c1 += 1
+                lethal.append(mv)
+            if hi >= m.max_hp:
+                c1max += 1
+            if 2 * lo >= m.max_hp:
+                c2 += 1
+        counts[nm] = (c1, c1max, c2)
+        mvs[nm] = Counter(v.replace("MOVE_", "") for v in lethal)
+    rec("§1", "被確1/被OHKO圏/被確2 グロス", "19/28/128", "%d/%d/%d" % counts["Metagross"],
+        counts["Metagross"] == (19, 28, 128))
+    rec("§1", "被確1/被OHKO圏/被確2 ラグ（即死ラインは2倍・被確2は逆に優位）", "38/47/94",
+        "%d/%d/%d" % counts["Swampert"], counts["Swampert"] == (38, 47, 94))
+    rec("§1", "被確1/被OHKO圏/被確2 サンダー / ラティ", "32/57/225 / 35/51/213",
+        "%d/%d/%d / %d/%d/%d" % (counts["Zapdos"] + counts["Latios"]),
+        counts["Zapdos"] == (32, 57, 225) and counts["Latios"] == (35, 51, 213))
+    g = mvs["Metagross"]
+    rec("§1", "グロス即死ラインの内訳（全て種族名で可視）", "オバヒ11/だいもんじ5/地震3",
+        "%d/%d/%d" % (g["OVERHEAT"], g["FIRE_BLAST"], g["EARTHQUAKE"]),
+        (g["OVERHEAT"], g["FIRE_BLAST"], g["EARTHQUAKE"]) == (11, 5, 3) and sum(g.values()) == 19)
+    s = mvs["Swampert"]
+    grass = s["SOLAR_BEAM"] + s["LEAF_BLADE"] + s["GIGA_DRAIN"]
+    rec("§1", "ラグ即死ラインの内訳（爆発+草＝セット依存で不可視）", "爆発18/草20",
+        "爆発%d/草%d" % (s["EXPLOSION"], grass), s["EXPLOSION"] == 18 and grass == 20 and sum(s.values()) == 38)
+    by_sp = defaultdict(lambda: [0, 0])
+    for e in pool:
+        boom = any(MOVES.get(m, {}).get("effect") == "EFFECT_EXPLOSION" for m in e['moves'])
+        by_sp[e['species']][0 if boom else 1] += 1
+    pure = [sp for sp, (b, n) in by_sp.items() if b and not n]
+    nmix = sum(1 for sp, (b, n) in by_sp.items() if b and n)
+    rec("§1", "種族名から爆発持ちと確定できる種族数（全14種族が持ち/非持ち混在）", "0（混在14）",
+        "%d（混在%d）" % (len(pure), nmix), pure == [] and nmix == 14)
+
+
 # ---------------------------------------------------------------- §15b メタグロスEV再配分の最適解
 def sec_evopt():
     """15-v4-real-build「メタグロスEV再配分の最適解」(2026-08-09) の全数値を再計算。
@@ -505,7 +551,7 @@ def sec_enemyboom():
 
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
             "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk,
-            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt}
+            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt, "1": sec_lead}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
