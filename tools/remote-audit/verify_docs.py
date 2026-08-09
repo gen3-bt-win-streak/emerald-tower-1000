@@ -410,6 +410,20 @@ def sec_evopt():
         maro == 488 and rhy == 338 and pct(rhy, 364) == 92)
     ohko_647 = sum(1 for r in range(85, 101) if 366 * r // 100 >= 364)
     rec("§15b", "#647転落時のOHKO率（max366・16ロール中）", "1/16=6.2%", "%d/16" % ohko_647, ohko_647 == 1)
+    # A228でも水耐久の合算確殺ライン（グロスEQ+サンダー10まん）はフリップしない
+    g228 = gross_ev(228, 0, 24)
+    flips = []
+    for e in pool:
+        if e['species'] not in ('Lapras', 'Milotic'):
+            continue
+        f = foe(e['set_id'])
+        zt = dmg(ZAP, f, "MOVE_THUNDERBOLT")[0]
+        old_kill = dmg(GROSS, f, "MOVE_EARTHQUAKE")[0] + zt >= f.max_hp
+        new_kill = dmg(g228, f, "MOVE_EARTHQUAKE")[0] + zt >= f.max_hp
+        if old_kill != new_kill:
+            flips.append(e['set_id'])
+    rec("§15b", "ラプラス/ミロカロス12セット: グロスEQ+TB合算の確殺フリップ（A381→A399）", "0件",
+        "%d件" % len(flips), flips == [])
 
 
 # ---------------------------------------------------------------- §8.8 水耐久・地震耐え（合算打点）
