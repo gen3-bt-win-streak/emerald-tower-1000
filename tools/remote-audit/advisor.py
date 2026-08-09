@@ -6,6 +6,7 @@ import sys, os
 os.environ["BOOM_FIX"]="1"  # A/B完走で改善確定(100万ペア net-59 / McNemar p≈2.1e-4, 床0.2516%→0.2457%)→採用。凍結マラソン本体は不変
 os.environ["FIRE_FIX"]="1"  # A/B完走で改善確定(100万ペア net-283 改善318/改悪35, McNemar p≈6.4e-51, 床0.2516%→0.2233%)→採用。単炎条項の地震温存/飛行炎10万。凍結マラソン本体は不変
 os.environ["HP_ROCK"]="1"   # 2026-07-30 実機チーム変更(D案: ラグなだれ→めざ岩70/EV B4→S4/個体E6BA7F73)に追随。同一シード100万A/B測定中(hrm)。凍結マラソン本体は不変
+os.environ["GROSS_A228"]="1"  # 2026-08-09 実機チーム変更(グロスEV再配分 H252/A228/B0/D24/S4=399/296/222)に追随。15章「EV再配分の最適解」。凍結マラソン本体は不変
 from jpnames import JPS, JPM, JPI
 JPM.setdefault("HP_ICE","めざ氷"); JPM.setdefault("HP_ROCK","めざ岩")
 JP2EN={v:k for k,v in JPS.items()}
