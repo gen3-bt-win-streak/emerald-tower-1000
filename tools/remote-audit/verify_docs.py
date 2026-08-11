@@ -389,6 +389,32 @@ def sec_lead():
         "%d（混在%d）" % (len(pure), nmix), pure == [] and nmix == 14)
 
 
+# ---------------------------------------------------------------- §8.9 レジアイス全6セット
+def sec_regice():
+    """12-playbook §8.9 (2026-08-10)。A228採用の主目的だったレジアイス対面の全数固定。"""
+    reg = sorted(e['set_id'] for e in pool if e['species'] == 'Regice')
+    rec("§8.9", "レジアイスのセット列挙", "[763, 774, 785, 796, 838, 839]", str(reg),
+        reg == [763, 774, 785, 796, 838, 839])
+    res = {}
+    for sid in reg:
+        f = foe(sid)
+        lo, hi = dmg(GROSS, f, "MOVE_METEOR_MASH")
+        res[sid] = (lo, hi, f.max_hp)
+    k1 = [s for s in reg if res[s][0] >= res[s][2]]
+    rec("§8.9", "コメパン(A399)確1の4セット", "[763, 774, 785, 839]", str(k1), k1 == [763, 774, 785, 839])
+    rec("§8.9", "#796(B極振り@たべのこし) コメパン通らず=確2どまり", "265-312 / HP364",
+        "%d-%d / HP%d" % res[796], res[796] == (265, 312, 364) and 2 * 265 >= 364)
+    lo, hi, hp = res[838]
+    nko = sum(1 for r in range(85, 101) if hi * r // 100 >= hp)
+    rec("§8.9", "#838(のろい/カウンター@たべのこし) コメパン乱1・非致死時のカウンター返しはグロス即死",
+        "311-366 / 7ロール=43.7% / 返し>=622>=364",
+        "%d-%d / %d/16 / %d" % (lo, hi, nko, 2 * lo), (lo, hi) == (311, 366) and nko == 7 and 2 * lo >= 364)
+    bo796 = dmg(GROSS, foe(796), "MOVE_EXPLOSION")
+    bo838 = dmg(GROSS, foe(838), "MOVE_EXPLOSION")
+    rec("§8.9", "たべのこし2種への正解筋=爆発は両方確1", "796: 435-512 / 838: 513-604",
+        "796: %d-%d / 838: %d-%d" % (bo796 + bo838), bo796[0] >= 364 and bo838[0] >= 343)
+
+
 # ---------------------------------------------------------------- §15b メタグロスEV再配分の最適解
 def sec_evopt():
     """15-v4-real-build「メタグロスEV再配分の最適解」(2026-08-09) の全数値を再計算。
@@ -557,7 +583,7 @@ def sec_enemyboom():
 
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
             "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk,
-            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt, "1": sec_lead}
+            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt, "1": sec_lead, "8.9": sec_regice}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
