@@ -615,9 +615,31 @@ def sec_ev244():
         "/".join(map(str, got)), got == [83, 84, 85, 85, 88, 88, 88])
     rec("§15c", "A244で新規確1化＝バンギラス3種", "[860, 861, 868]",
         str(sorted(ks[244] - ks[240])), ks[244] - ks[240] == {860, 861, 868})
-    rec("§15c", "A248/A252はA244から1件も増えない（死票）", "増分0/0",
+    rec("§15c", "A248/A252はA244から確1を1件も増やさない", "増分0/0",
         "増分%d/%d" % (len(ks[248] - ks[244]), len(ks[252] - ks[244])),
         ks[248] == ks[252] == ks[244])
+
+    def k2set(aev, moves=("MOVE_METEOR_MASH", "MOVE_EARTHQUAKE")):
+        m = gross(aev, 0)
+        out = set()
+        for e in pool:
+            f = foe(e['set_id'])
+            lo = max(damage_range(
+                dict(species=m.species, stats=m.eff(), types=m.types, ability=m.ability, item=m.item, level=100),
+                dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100),
+                mv)[0] for mv in moves)
+            if lo < f.max_hp <= lo * 2:
+                out.add(e['set_id'])
+        return out
+
+    eq2 = [len(k2set(a, ("MOVE_EARTHQUAKE",))) for a in (228, 236, 244, 248, 252)]
+    rec("§15c", "じしん単体の確2数 A228/236/244/248/252（A244で頭打ち）", "123/119/123/123/123",
+        "/".join(map(str, eq2)), eq2 == [123, 119, 123, 123, 123])
+    b2 = {a: k2set(a) for a in (244, 248, 252)}
+    rec("§15c", "A248で乱2→確2になるのはカイリュー2種のみ", "[858, 859]",
+        str(sorted(b2[248] - b2[244])), b2[248] - b2[244] == {858, 859})
+    rec("§15c", "A252で追加されるのはネンドール#524のみ", "[524]",
+        str(sorted(b2[252] - b2[248])), b2[252] - b2[248] == {524})
 
     def ko_set(m):
         """最強単発の最小ロールで落とされる=被確定OHKO"""
