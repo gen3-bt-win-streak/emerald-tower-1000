@@ -581,9 +581,117 @@ def sec_enemyboom():
             "/".join(koed), koed == ["Zapdos", "Latios", "Swampert"])
 
 
+# ---------------------------------------------------------------- §15c 次回リセットEV(A244/D8)とS振り棄却
+def sec_ev244():
+    """15-v4-real-build「2026-08-16 訂正・確定」＝A244/B0/D8採用とS振り全面棄却の再計算。"""
+    import copy
+
+    def gross(aev, dev, sev=4, hev=252):
+        m = copy.deepcopy(GROSS)
+        m.stats["hp"] = 301 + hev // 4
+        m.stats["atk"] = int((306 + aev // 4) * 1.1)
+        m.stats["df"] = 296
+        m.stats["spd"] = 216 + dev // 4
+        m.stats["spe"] = 176 + sev // 4
+        return m
+
+    rec("§15c", "A実数値式 A244/A248/A252", "403/404/405",
+        "/".join(str(gross(a, 0).stats["atk"]) for a in (244, 248, 252)),
+        [gross(a, 0).stats["atk"] for a in (244, 248, 252)] == [403, 404, 405])
+
+    def off_min(m, f):
+        return max(damage_range(
+            dict(species=m.species, stats=m.eff(), types=m.types, ability=m.ability, item=m.item, level=100),
+            dict(species=f.species, stats=f.eff(), types=f.types, ability=f.ability, item=None, level=100),
+            mv)[0] for mv in ("MOVE_METEOR_MASH", "MOVE_EARTHQUAKE"))
+
+    def k1set(aev):
+        m = gross(aev, 0)
+        return {e['set_id'] for e in pool if off_min(m, foe(e['set_id'])) >= foe(e['set_id']).max_hp}
+
+    ks = {a: k1set(a) for a in (228, 232, 236, 240, 244, 248, 252)}
+    got = [len(ks[a]) for a in (228, 232, 236, 240, 244, 248, 252)]
+    rec("§15c", "確1数 A228/232/236/240/244/248/252", "83/84/85/85/88/88/88",
+        "/".join(map(str, got)), got == [83, 84, 85, 85, 88, 88, 88])
+    rec("§15c", "A244で新規確1化＝バンギラス3種", "[860, 861, 868]",
+        str(sorted(ks[244] - ks[240])), ks[244] - ks[240] == {860, 861, 868})
+    rec("§15c", "A248/A252はA244から1件も増えない（死票）", "増分0/0",
+        "増分%d/%d" % (len(ks[248] - ks[244]), len(ks[252] - ks[244])),
+        ks[248] == ks[252] == ks[244])
+
+    def ko_set(m):
+        """最強単発の最小ロールで落とされる=被確定OHKO"""
+        out = set()
+        for e in pool:
+            f = foe(e['set_id'])
+            blo = bhi = 0
+            for mv in f.moves:
+                if mv not in MOVES or MOVES[mv]["power"] < 2:
+                    continue
+                lo, hi = dmg(f, m, mv)
+                if hi > bhi:
+                    blo, bhi = lo, hi
+            if blo >= m.stats["hp"]:
+                out.add(e['set_id'])
+        return out
+
+    n244, n252 = len(ko_set(gross(244, 8))), len(ko_set(gross(252, 0)))
+    rec("§15c", "被確定OHKO数 A244/D8 vs A252/D0（508EV同額）", "19 vs 22",
+        "%d vs %d" % (n244, n252), (n244, n252) == (19, 22))
+    rec("§15c", "A252案が失う3件（D0で確定OHKO化）", "[611, 718, 771]",
+        str(sorted(ko_set(gross(252, 0)) - ko_set(gross(244, 8)))),
+        ko_set(gross(252, 0)) - ko_set(gross(244, 8)) == {611, 718, 771})
+    hi622 = [best_hit(foe(622), gross(244, d))[1] for d in (8, 16, 24)]
+    rec("§15c", "#622キュウコン最大被弾 D8/D16/D24", "366/362/360",
+        "/".join(map(str, hi622)), hi622 == [366, 362, 360])
+
+    # --- S振り棄却 ---
+    s176 = [e for e in pool if e['stats31']['spe'] == 176]
+    rec("§15c", "プールのS176ちょうど（S4=177で抜ける）", "20セット",
+        "%dセット" % len(s176), len(s176) == 20)
+    band = [e for e in pool if 177 < e['stats31']['spe'] <= 239]
+    rec("§15c", "S178-239帯（S252でのみ抜ける）", "133セット",
+        "%dセット" % len(band), len(band) == 133)
+    # S振り検討時はDも0（余剰EVを全てSへ回す前提）なのでD216基準で崖を測る
+    cliff = ko_set(gross(244, 0, hev=228)) - ko_set(gross(244, 0, hev=252))
+    rec("§15c", "D216基準・HP364→358の崖で確定OHKO化する3件", "[560, 618, 643]",
+        str(sorted(cliff)), cliff == {560, 618, 643})
+    fast = [e['species'] for e in pool if e['set_id'] in (560, 618, 643)]
+    over239 = all(BY_ID[s]['stats31']['spe'] > 239 for s in (560, 618, 643))
+    rec("§15c", "その3件はS252(239)でも抜けない", "全てS>239",
+        "S%s" % [BY_ID[s]['stats31']['spe'] for s in (560, 618, 643)], over239)
+
+    # --- 12章 バンギにはコメパン（じしんは確1ゼロ）---
+    g = gross(244, 8)
+    eq_k1 = [s for s in range(860, 870) if dmg(g, foe(s), "MOVE_EARTHQUAKE")[0] >= foe(s).max_hp]
+    rec("§8.6b", "じしんで確1になるバンギラス", "0セット", "%dセット" % len(eq_k1), eq_k1 == [])
+    mm = dmg(g, foe(860), "MOVE_METEOR_MASH")
+    eq = dmg(g, foe(860), "MOVE_EARTHQUAKE")
+    rec("§8.6b", "A403 vs #860(HP341) コメパン/じしん", "341-402(確1) / 227-268(確2)",
+        "%d-%d / %d-%d" % (mm[0], mm[1], eq[0], eq[1]),
+        (mm, eq) == ((341, 402), (227, 268)) and mm[0] >= foe(860).max_hp)
+
+    # --- 03章 きあいパンチ×爆発 ---
+    fp = [e for e in pool if "MOVE_FOCUS_PUNCH" in e['moves']]
+    rec("§03", "プールのきあいパンチ持ち", "11セット", "%dセット" % len(fp), len(fp) == 11)
+    tm = G.get('type_mult') or NS.get('type_mult')
+    imm = [e for e in fp if 'ABILITY_WONDER_GUARD' in e['abilities']
+           or 'TYPE_GHOST' in e['types']]
+    rec("§03", "爆発を無効化できるきあいパンチ持ち（＝両立可能な例外）", "0セット",
+        "%dセット" % len(imm), len(imm) == 0)
+    boom = damage_range(
+        dict(species="Metagross", stats=foe(835).eff(), types=foe(835).types,
+             ability=foe(835).ability, item=foe(835).item, level=100),
+        dict(species="Machamp", stats=foe(810).eff(), types=foe(810).types,
+             ability=foe(810).ability, item=None, level=100), "MOVE_EXPLOSION")
+    rec("§03", "グロス#835の爆発がカイリキー#810(HP384)を確定で消す", "最小≥384",
+        "%d-%d" % boom, boom[0] >= foe(810).max_hp)
+
+
 SECTIONS = {"spec": sec_spec, "1.5": sec_speed, "1.6b": sec_retreat, "8.1": sec_81, "8.2": sec_82,
             "8.3": sec_83, "8.4": sec_84, "8.5": sec_85, "8.6": sec_86, "8.6b": sec_ttar, "8.8": sec_bulk,
-            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt, "1": sec_lead, "8.9": sec_regice}
+            "4.3": sec_enemyboom, "15": sec_15, "15b": sec_evopt, "1": sec_lead, "8.9": sec_regice,
+            "15c": sec_ev244}
 
 if __name__ == "__main__":
     want = sys.argv[1:] or list(SECTIONS)
