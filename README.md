@@ -48,6 +48,8 @@
 | [16-pkhex-setup.md](16-pkhex-setup.md) | **実機セーブの正規化ガイド**：各個体の入手経路設定・サンダーFR/LG産の作法・Method1乱数整合（ALM/PokeFinder）・Legality警告の読み方 | ✅ |
 | [17-smogon-legitimacy.md](17-smogon-legitimacy.md) | **Smogon提出の正規性調査**：公式ルール逐条（原文英日併記）・記録保持者の実態・却下事例・PokeFinder+PKHeX運用の公認性・ケース評価と提出チェックリスト | ✅ 2026-07-30調査 |
 | [**18-verification-ledger.md**](18-verification-ledger.md) | **検証台帳（証拠としての研究履歴）**：全数値主張の機械検証結果（33/33一致）・発見した誤りと訂正・再現コマンド・検証の限界 | ✅ 2026-07-30 全数一致 |
+| [19-perish-team.md](19-perish-team.md) | **P軸（ほろびパ）**：構築・勝ち筋・全機構の一次ソース検証・耐久計算・300戦測定（負け率46.0%）と棚上げ判断 | 📁 記録（棚上げ） |
+| [**20-explosion-digest.md**](20-explosion-digest.md) | **だいばくはつ総まとめ（1枚もの）**：ダブル半減なしの確定・546セット判定分布・撃てない19.6%・敵24セットのAI発動条件・引き分け負けの危険窓・きあいパンチ相互作用・実機チェックリスト | ✅ 統合版 |
 | [data/](data/README.md) | 敵全882セット・トレーナー300人・危険レポート（オープン基準）のCSV/JSON | ✅ 独立監査済み |
 | [sources.md](sources.md) | 出典・検証記録・残る実機検証キュー | ✅ |
 
