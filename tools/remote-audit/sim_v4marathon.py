@@ -59,6 +59,7 @@ def bld():
             m.stats["hp"]=403; m.max_hp=403; m.hp=403; m.stats["spe"]=157
         if GROSS_BERRY8 and m.species=="Metagross": m.item="Figy Berry"
         if ZAP_BERRY8 and m.species=="Zapdos": m.item="Figy Berry"
+        if GROSS_METALCOAT and m.species=="Metagross": m.item="Metal Coat"
     return t
 
 _s=open('sim_zsearch.py').read()
@@ -84,6 +85,7 @@ LATIOS_H40 = os.environ.get("LATIOS_H40")=="1"    # H40/C252/S216: HP302→311 S
 SWAMP_S157 = os.environ.get("SWAMP_S157")=="1"    # H248/A252/S8: HP404→403 S156→157(156帯26セット抜き)
 GROSS_BERRY8 = os.environ.get("GROSS_BERRY8")=="1"  # ツメ→1/8きのみ(回復持ち物監査のA/B)
 ZAP_BERRY8 = os.environ.get("ZAP_BERRY8")=="1"      # ラム→1/8きのみ(状態異常保険を捨てるA/B)
+GROSS_METALCOAT = os.environ.get("GROSS_METALCOAT")=="1"  # ツメ→メタルコート(コメパン×1.1・確1 88→120)
 
 def fair_maxhit_noboom(b,f,m):
     # 敵AIはHP50%超で爆発しないため、高HPの敵の爆発打点は脅威から除外(z_safe精密化・検証済み)
