@@ -256,7 +256,11 @@ class Battle:
         elif dfd.item=="Focus Band" and real>=dfd.hp and self.rng.random()<0.10:
             real=dfd.hp-1; self.flags["focus_band"]+=1
         dfd.hp-=real; dfd.took_dmg=True
-        if mt in PHYSICAL: dfd.dmg_phys=(real,att)
+        # 第3世代仕様(2026-08-25 実機報告→原文確定): めざめるパワーのカウンター/ミラコ記録は
+        # ダイナミックタイプでなくベースタイプ=ノーマル(物理)を使う。つまり めざ氷/岩 は
+        # タイプ問わず常にカウンター対象・ミラーコート非対象(battle_script_commands.c Cmd_datahpupdate)
+        if move in ("MOVE_HIDDEN_POWER","MOVE_HP_ICE","MOVE_HP_ROCK"): dfd.dmg_phys=(real,att)
+        elif mt in PHYSICAL: dfd.dmg_phys=(real,att)
         else: dfd.dmg_spec=(real,att)
         if MOVES[move]["power"]>0: dfd.last_hit_move=move; dfd.last_hit_by=att  # ピボット交代用トラッキング(永続)
         if dfd.item in ("Lum Berry","Chesto Berry","Sitrus Berry") and not dfd.item_used:
