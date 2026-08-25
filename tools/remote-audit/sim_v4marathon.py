@@ -53,6 +53,12 @@ def bld():
             m.stats["df"]=215; m.stats["spd"]=207; m.stats["spe"]=156  # 実IV B30/D22/S30(E6BA7F73)
         if GROSS_A228 and m.species=="Metagross":
             m.stats["atk"]=399; m.stats["df"]=296; m.stats["spd"]=222  # A228/B0/D24の実数値
+        if LATIOS_H40 and m.species=="Latios":
+            m.stats["hp"]=311; m.max_hp=311; m.hp=311; m.stats["spe"]=341
+        if SWAMP_S157 and m.species=="Swampert":
+            m.stats["hp"]=403; m.max_hp=403; m.hp=403; m.stats["spe"]=157
+        if GROSS_BERRY8 and m.species=="Metagross": m.item="Figy Berry"
+        if ZAP_BERRY8 and m.species=="Zapdos": m.item="Figy Berry"
     return t
 
 _s=open('sim_zsearch.py').read()
@@ -73,6 +79,11 @@ FIRE_FIX = os.environ.get("FIRE_FIX")=="1"
 # BOOM_HOLD(既定OFF): 敵の残り数がしきい値以上なら爆発を温存する(実機運用の明文化)。A/B検証用。
 BOOM_HOLD = os.environ.get("BOOM_HOLD")=="1"
 BOOM_HOLD_N = int(os.environ.get("BOOM_HOLD_N","4"))
+# 敵対視点EV監査(2026-08-25・15章)のA/Bレバー。env-gated・既定OFF=byte一致:
+LATIOS_H40 = os.environ.get("LATIOS_H40")=="1"    # H40/C252/S216: HP302→311 S350→341(339-356空白帯)
+SWAMP_S157 = os.environ.get("SWAMP_S157")=="1"    # H248/A252/S8: HP404→403 S156→157(156帯26セット抜き)
+GROSS_BERRY8 = os.environ.get("GROSS_BERRY8")=="1"  # ツメ→1/8きのみ(回復持ち物監査のA/B)
+ZAP_BERRY8 = os.environ.get("ZAP_BERRY8")=="1"      # ラム→1/8きのみ(状態異常保険を捨てるA/B)
 
 def fair_maxhit_noboom(b,f,m):
     # 敵AIはHP50%超で爆発しないため、高HPの敵の爆発打点は脅威から除外(z_safe精密化・検証済み)

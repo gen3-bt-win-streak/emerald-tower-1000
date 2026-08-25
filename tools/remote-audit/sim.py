@@ -271,6 +271,10 @@ class Battle:
         else:
             if dfd.item=="Sitrus Berry" and not dfd.item_used and dfd.hp<=dfd.max_hp//2:
                 dfd.hp=min(dfd.max_hp,dfd.hp+30); dfd.item_used=True
+            elif dfd.item=="Figy Berry" and not dfd.item_used and dfd.hp<=dfd.max_hp//2:
+                # 1/8回復きのみ(フィラ系)。第3世代仕様: 最大HPの1/8・半分以下で1回(items.h param8)
+                # 性格不一致の混乱は未実装(自軍は相性一致の実を選ぶ前提・敵プールに1/8きのみ保持者は0)
+                dfd.hp=min(dfd.max_hp,dfd.hp+dfd.max_hp//8); dfd.item_used=True
         return real
 
     def try_status(self, dfd, st, src=None):
