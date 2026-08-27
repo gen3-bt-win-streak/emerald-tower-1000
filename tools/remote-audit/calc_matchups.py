@@ -97,6 +97,8 @@ EVMAP = {"HP": "hp", "ATTACK": "atk", "DEFENSE": "df", "SPEED": "spe", "SP_ATTAC
 def calc_stats(base, ivs, evs, nature, level=100):
     st = {}
     st["hp"] = (2 * base["hp"] + ivs["hp"] + evs.get("hp", 0) // 4) * level // 100 + level + 10
+    if base["hp"] == 1:  # ヌケニン特別処理: 実機は常にHP1(式計算だと206になり耐久集計を汚染する)
+        st["hp"] = 1
     for k in ("atk", "df", "spe", "spa", "spd"):
         v = (2 * base[k] + ivs[k] + evs.get(k, 0) // 4) * level // 100 + 5
         nu = NATURE.get(nature)
