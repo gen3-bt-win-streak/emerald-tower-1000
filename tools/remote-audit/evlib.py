@@ -129,3 +129,51 @@ def compare(label_a, m_a, label_b, m_b, mks, curse=0, atk_mul=1.0):
     diff2=[(name(i), round(ga[i][0]*16), round(gb[i][0]*16)) for i in range(N) if abs(ga[i][0]-gb[i][0])>1e-9]
     print(f"  攻撃で乱数が動いたセット {len(diff2)}件:")
     for d in diff2[:40]: print("   ",d)
+
+# ============================================================================
+# 走者定義（2026-09-05確定）— 攻守で悲観側の裾が逆になる
+#   こちらの攻撃 : 最低乱数 lo を使う  → n*lo >= 敵HP  ＝「確定n発」
+#                  （確定で落とせないと、落とし損ねたターンを相手に献上する）
+#   相手の攻撃   : 最大乱数 hi を使う  → n*hi >= 自HP  ＝「被乱数n発圏」
+#                  （最悪ケースで設計する。確定か乱数かは居座り判断を変えない）
+#   期待値は「両者の binary プロファイルが同一のときだけ」使う二次指標。
+# ============================================================================
+
+def ko_fixed(m, mks, n=1, atk_mul=1.0, spa_mul=1.0):
+    """確定n発で落とせる敵セット数（最低乱数基準）。命中率は考慮しない。"""
+    o = outgoing(m, mks, atk_mul, spa_mul)
+    return sum(1 for i in range(N) if o[i][1][0]*n >= EHP[i])
+
+def ko_fixed_list(m, mks, n=1, atk_mul=1.0, spa_mul=1.0):
+    o = outgoing(m, mks, atk_mul, spa_mul)
+    return [i for i in range(N) if o[i][1][0]*n >= EHP[i]]
+
+def risk_n(m, n=1, curse=0):
+    """被乱数n発圏＝最大乱数n回で落ちうる敵セット数。最悪ケース基準。"""
+    hp = m["stats"]["hp"]; inc = incoming(m, curse)
+    return sum(1 for (p, hi, mk) in inc if hi and hi*n >= hp)
+
+def risk_n_list(m, n=1, curse=0):
+    hp = m["stats"]["hp"]; inc = incoming(m, curse)
+    return [i for i in range(N) if inc[i][1] and inc[i][1]*n >= hp]
+
+def profile(m, mks, curse=0, atk_mul=1.0, spa_mul=1.0):
+    """走者定義の一次プロファイル。dict で返す。"""
+    return {
+        "確定1発": ko_fixed(m, mks, 1, atk_mul, spa_mul),
+        "確定2発": ko_fixed(m, mks, 2, atk_mul, spa_mul),
+        "確定3発": ko_fixed(m, mks, 3, atk_mul, spa_mul),
+        "被乱1":   risk_n(m, 1, curse),
+        "被乱2":   risk_n(m, 2, curse),
+        "被乱3":   risk_n(m, 3, curse),
+    }
+
+def show(label, m, mks, curse=0, atk_mul=1.0, spa_mul=1.0):
+    p = profile(m, mks, curse, atk_mul, spa_mul)
+    d = defense(m, curse); o = offense(m, mks, atk_mul, spa_mul)
+    st = m["stats"]
+    print(f"{label:26s} HP{st['hp']} A{st['atk']} B{st['df']} C{st['spa']} D{st['spd']} S{st['spe']}")
+    print(f"   一次[走者定義]  攻 確1={p['確定1発']:3d} 確2={p['確定2発']:3d} 確3={p['確定3発']:3d}"
+          f" | 守 被乱1={p['被乱1']:3d} 被乱2={p['被乱2']:3d} 被乱3={p['被乱3']:3d}")
+    print(f"   二次[期待値]    期待KO={o[0]:7.2f}  期待被KO={d[0]:6.2f}")
+    return p
