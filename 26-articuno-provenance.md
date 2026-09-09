@@ -12,7 +12,7 @@
 
 ## 0. 結論（3行）
 
-1. **XD RNGで生成可能か**: 可能【高】。origin 0xECFE3E26 から XDRNG（乗数 0x343FD／加算 0x269EC3）を5回進めると 0x7C1F→0xFFBF→0x5284→0x2F3C→0x902C となり、IV 31/0/31/29/31/31・PID 0x2F3C902C・おだやか・PSV 6114 が「直接経路（アンチシャイニー再抽選なし）」で一意に再現される。PKHeXとは独立の自作ポート（PokeFinderの11個のテストベクタ110状態を完全再現）で確認済み。デスゴルド先行4体のロック連鎖もPKHeX TeamLockResult移植で5変種すべて通過（ただし全員シャドウのため「通過」は自明で弱い証拠）。
+1. **XD RNGで生成可能か**: 可能【高】。origin 0xECFE3E26 から XDRNG（乗数 0x343FD／加算 0x269EC3）を5回進めると 0x7C1F→0xFFBF→0x5284→0x2F3C→0x902C となり、IV 31/0/31/29/31/31・PID 0x2F3C902C・おだやか・PSV 6114 が「直接経路（アンチシャイニー再抽選なし）」で一意に再現される。PKHeXとは独立の自作ポート（PokeFinderの11個のテストベクタ110状態を完全再現）で確認済み（＝ツール間の整合であり、実機RAMの実測ではない）。デスゴルド先行4体のロック連鎖もPKHeX TeamLockResult移植で5変種すべて通過（ただし全員シャドウのため「通過」は自明で弱い証拠）。
 2. **PokeFinder等の確認をSmogonに示せば十分か**: Smogonの現行ルール（2026-07-29時点の原文）は「正規に入手可能なステータス・技であればgenned個体も可」「IVまたは実数値の開示必須」であり、PID/TID/SID/seedの提出は求められない【高】。従って PokeFinder（Non Shadow Locks カテゴリ）＋PKHeX Legal の提示で規定上は十分。ただし PokeFinder は先行パーティ・CPUのTSV・偽PIDフレームを一切モデル化しない**部分検証**であり、「実機で入手した」ことの証明にはならない。
 3. **保存すべき証拠**: (a) PKHeX Legality レポート全文（PIDType CXD, origin 0xECFE3E26 表示）、(b) PokeFinder GameCube Searcher（Non Shadow Locks／Articuno／プロフィールTID・SID）の検索結果とGenerator再生成のスクリーンショット、(c) 本リポジトリの `tools/remote-audit/xd_articuno_verify.py` の実行ログ（39/39 PASS）、(d) セーブのTID/SIDと (TID^SID)>>3≠6114 の記録、(e) 可能なら Dolphin RAMトレースまたは実機録画。詳細は§8。
 
@@ -76,7 +76,7 @@ FrameCache 起点 = Prev2(ECFE3E26) = F48AA54C。未生成シャドウ7フレー
 |---|---|---|---|---|
 | 全員未生成（初戦） | ケンタロス DD41F48A(PSV1337)@f0, ナッシー 97EA6075(7923)@f7, ファイヤー 82AD462B(6288)@f14, サイドン DB7D5915(4173)@f21 | 0300/8918 @f28 | 4419 | **D1D0AE06**（originの32コール前） |
 | サイドン+ファイヤー生成済 | ナッシー・ケンタロス未生成 | 5BD9/766D | 1462 | **28E810AA**（28コール前） |
-| +ケンタロス or +ナッシー生成済 | — | 3C29/DB7D | 7402 | **766D3474**（26コール前） |
+| +ケンタロス or +ナッシー生成済 | — | 3C29/DB7D | 7402 | **766D3474**（26コール前。生成済3体×5＋未生成1体×7＝同じ総消費なので両変種が同一seedになる） |
 | 4体とも生成済 | — | 5915/0602 | 3042 | **DB7D868E**（24コール前） |
 
 D1D0AE06 から前進再生成（TID/SID 2 → 各NPC 5＋PIDペア → 偽PID 2）するとサイドン DB7D5915 / ファイヤー 82AD462B / ナッシー 97EA6075 / ケンタロス DD41F48A を再現し、ちょうど ECFE3E26 に着地する。CPU-SV はいずれも 6114 でも先行PSVでもないため、PKHeXのCPU-TSV規則でもすべて有効。
@@ -85,7 +85,7 @@ D1D0AE06 から前進再生成（TID/SID 2 → 各NPC 5＋PIDペア → 偽PID 2
 - 実機の偽PID/先行フレーム配置は逆アセンブル・RAMトレースでは未確認（PokeFinder・PKHeX・aldelaro5 の3実装一致に基づく）。
 
 ### 2.4 直接経路の全数証明【高】
-IV1出力が HP=Def=31（Atk・bit15自由）かつ IV2出力が SpD=Spe=31 の全状態を列挙（`tools/remote-audit/xd_articuno_verify.py` §5、独立に3名が再計算し一致）:
+IV1出力が HP=Def=31（Atk・bit15自由）かつ IV2出力が SpD=Spe=31 の全状態を列挙（`tools/remote-audit/xd_articuno_verify.py` §5。反証担当C2の3名がそれぞれ自前のスクリプトで再計算し一致）:
 - 総数 4692。性格別: おだやか 194、しんちょう 199、ずぶとい 195、おくびょう 174、ひかえめ 177 など。
 - **おだやか A0 は8状態のみ**、SpA ∈ {29, 28, 26, 17, 16, 15, 4, 3}: C29 2F3C902C@ECFE3E26 / C28 55A2A319@1A7ABB3A / C26 C2360A0C@06F74AFC / C17 652F7B63@42E1EB5E / C16 8B958E50@705E6872 / C15 571D428A@0C18D7A9 / C4 66AA1AD4@348007CD / C3 8D102DC1@61FC84E1。
 - **おだやか 31/0/31/31/31/31 は存在しない**（直接経路で0件、アンチシャイニー1回・2回でも0件、さらに全深度で不可能: 31/0/31/31/31/31 の直接4状態（てれい 2405CA1E／うっかりや 9243BC41／しんちょう A405CA1E／きまぐれ 1243BC41）の再抽選連鎖はすべて1回で非色違いに終わり、得られるのは ようき/ずぶとい/わんぱく/おくびょう のみ）。
@@ -126,8 +126,8 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 1. ルギアをスナッチ → デスゴルド戦でサイドン・ファイヤー（必要ならナッシー・ケンタロスも）を場に出させ、**フリーザーが出る前にわざと負ける**（負けはメモリ内リスポーン＝HQラボで目覚め、「生成済み」状態が保持される; SNIPPET）→ レポート。PKHeXの "Seen" 変種はこの状態に対応し、スナッチ済み置換とは別物。サンダー用にPKHeXが "SeenRhydonMoltresArticuno" を持つことから、AIがフリーザーを早めに出す可能性に注意。
 2. リセット → 初期seedは2^32一様乱数（設定不可）。
 3. 現在seed特定: 英語版 VS Mode → Quick Battle → Single Battle → Ultimate（日本語版 対戦モード → いますぐバトル → コンピュータとバトル → さいきょう）。確認画面の自軍リーダー（ミュウツー/ミュウ/デオキシス/レックウザ/ジラーチ）・敵リーダー（フリーザー/サンダー/ファイヤー/ガルーラ/ラティアス）・HP4値を PokeFinder「GameCube Seed Finder → Gales」に入力（決してバトルを受けない）。複数ラウンドで1候補に絞る（`GalesSeedSearcher.cpp:24-235`、`GameCubeSeedFinder.cpp:49-54`）。JP勢は XDsearch/XDDatabase（yatsuna827）、XDSeedSorter（u1F992, キャプチャ＋Arduino自動化）。
-4. 初期seed厳選: 目標（§2.3 の変種に応じた D1D0AE06 / 28E810AA / 766D3474 / DB7D868E）までの距離が許容内になるまでリセット。期待距離は2^31（3713.6/s で約6.7日）、1時間窓なら1リセットあたり約1/321、30分窓で約1/643。
-5. 消費: いますぐバトル画面（ファイヤー1体表示時 3713.6/s; SNIPPETでは表示チームにより6872–7500/s）、レポート63、持ち物メニュー≈12–14（場所依存）、主人公の腰振り（微調整）。ロードからデスゴルド戦までの固定消費 = タイトルロード22 + エレベーター22 + 戦闘開始エフェクト4 = **48**（サンダー/ルギア用JPガイドの値, SNIPPET; XDSeedSorter README の 14 はプレースホルダ）。
+4. 初期seed厳選: 目標（§2.3 の変種に応じた D1D0AE06 / 28E810AA / 766D3474 / DB7D868E）までの距離が許容内になるまでリセット。期待距離は2^31。消費速度 3713.6/s（XDSeedSorter `Config/config.json:14` の既定値）なら約6.7日相当で、1時間窓なら1リセットあたり約1/321、30分窓で約1/643。SNIPPETの 7500/s なら約3.3日相当・1時間窓で約1/159。
+5. 消費: いますぐバトル画面（3713.6/s＝XDSeedSorter既定値、開封済み; SNIPPETでは表示チームにより6872–7500/s）、**レポート63**（XDSeedSorter `ConsumptionNavigator/ConsumptionNavigator.cs:74-75` で確認、開封済み）、持ち物メニュー≈12–14（場所依存。同README「持ち物(場所による)」）、主人公の腰振り（微調整。同README）。同ツールは「ロード前にぴったり消費するにはいますぐバトル生成後の残り消費数が40で割り切れる必要がある」（`ConsumptionNavigator.cs:35`）と注記。ロードからデスゴルド戦までの固定消費 = タイトルロード22 + エレベーター22 + 戦闘開始エフェクト4 = **48**（サンダー/ルギア用JPガイドの値, SNIPPET; XDSeedSorter README の 14 はプレースホルダ）。
 6. 戦闘突入 → フリーザーの実数値・（ゲージ40%で判明する）性格で確認 → リライブ後 PKHeX/PokeFinder で PID/IV 確認。**1セーブにつき1回きり**。
 7. セーブ側制約: (TID^SID)>>3 ≠ 6114（＝色違い回避で性格が変わるため）、選んだ変種の未生成先行メンバーPSVとも不一致。
 
@@ -144,7 +144,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 3. RNG Reporter Admiral-Fish版 `GameCube.cs:160, :210, :455-466`（Shiny skip / Anti-Shiny、Galesシャドウで Shiny チェックボックス非表示）、aldelaro5 の `WantedShininess::notShiny`。
 4. コミュニティ文書（すべてSNIPPET）: Bulbapedia「XDは色違いになる性格値を再計算する」、Glitch City「相手・自分どちらのIDでも色違いなら再生成」、Smogon Colosseum/XD Mechanics Guide「shiny-lock … rerolled until it is not shiny」、ポケモンWiki/ニケルダーク大学「色回避」。
 - 自作ポート: seed 0xECFE3E26 で全65536 TSV を走査 → 再抽選は TSV 0xBF10–0xBF17 のみ、色違い出力は0件；ランダム20万試行で色違い出力0、再抽選27回（期待24.4）。
-- 反証候補は成立しない: PKHeX issue #3062（PokeFinder/RNG Reporterで「色違いXDカイリュー」を計算→PKHeX Illegal）、Project Pokémon 57014/52673（回答「XDシャドウは色違い不可」）、色違いXDは shiny lock 除去ROMのみ。
+- 反証候補は成立しない: PKHeX issue #3062（PokeFinder/RNG Reporterで「色違いXDカイリュー」を計算→PKHeX Illegal。GitHub経由の要約閲覧で、コメント本文は未読）、Project Pokémon 57014/52673（回答「XDシャドウは色違い不可」、SNIPPET）、色違いXDは shiny lock 除去ROMのみ。
 - 補足: 第6世代以降は判定が xor<16 に拡大したため、xor 8–15 の個体は転送後に色違い表示され得る（一般知識【中】）。本書の主張は「第3世代（Battle Frontier記録の文脈）」に限定する。XDの非シャドウ（イーブイ、ポケスポット、ホーデル/ダッキング交換、バトル山ジョウト御三家）は色違い可だが、フリーザーは該当しない。
 
 ### 5.2 くろいきりの第3世代唯一の入手源はXDリライブ【高】
@@ -166,7 +166,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 - ゴールドシンボル相当以上の記録には短い説明・終了経緯・写真/スクショが必要（SNIPPET）。
 - XD関連: Pikeグリッチは「Recover a deleted purify move. Your Pokemon must be a legal Pokemon obtained from Pokemon XD Gale of Darkness.」に限り可、FR/LGフリーザーにリライブ技を真似させる用途は不可（SNIPPET）。スレの根拠文「Pokemon from XD are Nature Locked … most cannot be flawless or even 5 IVs」は**デスゴルドの3鳥には機構的に誤り**（性格ロック無し、おくびょう6Vが直接経路に存在）— 引用する場合は「スレの述べる理由」として扱う。
 - Bank of Hoenn（p.35）: 信頼ユーザーが乱数調整したFR/LG/E/コロ/XD個体の .pk を貸与（Lego, Thomaz, Valentino23, Captain Santana, Regiultima115; SNIPPET）→ 注入済みの正規XD個体は通常の慣行。
-- 運営: スレ開始 Valentino23（2019-03-28）、検証補助 Adedede/Wildcat Formation/Actaeon/wtset（SNIPPET）。Kommo-o が Valentino23 に引き継いだとの抜粋あり【中】。
+- 運営: スレ開始者は Valentino23（2019-03-28）とする抜粋が主で、Kommo-o から Valentino23 へ引き継がれたとする抜粋もある（旧スレ 3478612 の運営からの引き継ぎの可能性）。検証補助 Adedede/Wildcat Formation/Actaeon/wtset。**いずれもSNIPPETで未確定**。
 - Gen IV スレ（3663294）は2022-12に「PKHeX等で作った個体も合法セットなら可」「It is ultimately your responsibility to ensure that your Pokemon have legal PID/IV combos」（SNIPPET）。Gen III OP の "It is your responsibility to ensure your Pokemon is possible to obtain" は検索で再現できず**未検証**。
 
 ### 6.2 バトルタワー ダブル リーダーボード（訂正版）【中】
@@ -219,7 +219,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 ## 9. 出典一覧
 
-### ローカル（scratchpad = /tmp/claude-0/-home-user-daily-tasks/0c60a1ea-69b6-5e7d-8e92-741ad7c88242/scratchpad）
+### ローカル（scratchpad = /tmp/claude-0/-home-user-daily-tasks/0c60a1ea-69b6-5e7d-8e92-741ad7c88242/scratchpad。セッション限りの一時領域で、恒久的なのはリポジトリ内 `tools/remote-audit/xd_articuno_verify.py` のみ。研究記録中の「0x24BB724C（てれい）」は誤値で、正しくは `E58324BB`（わんぱく）。研究タスクが参照した `scratchpad/xd_articuno.py`／`xd_pick.py`／`scratchpad/pkhex/repo` は存在しない）
 - PokeFinder (Admiral-Fish, ecf97624791aec147960c4f48b92ad492945b05c, 2026-09-06): `src/pokefinder/Core/RNG/LCRNG.hpp:237-253,296-297`; `Core/RNG/LCRNGReverse.cpp:296-352`; `Core/Gen3/Generators/GameCubeGenerator.cpp:32-35,100-104,126-213,215-298,300-396`; `Core/Gen3/Searchers/GameCubeSearcher.cpp:293-356,358-437,439-573`; `Core/Gen3/Searchers/GalesSeedSearcher.cpp:24-270`; `Core/Gen3/ShadowLock.cpp:25-436`; `Core/Gen3/ShadowLock.hpp:34-35,47-48,61-62`; `Core/Gen3/LockInfo.hpp:42-43,55-66`; `Core/Enum/ShadowType.hpp:30-34`; `Core/Gen3/Encounters3.cpp:229-236,310-316`; `Core/Resources/Embed/embed_gen3.py:11-31`; `Core/Resources/i18n/en/gales_en.txt`（ポケスポット名3件のみ）; `Core/Resources/i18n/en/moves_en.txt`; `Test/Gen3/gamecube.json`; `Test/Gen3/GameCubeGeneratorTest.cpp:120-238`; `Test/Gen3/GameCubeSearcherTest.cpp:160-282`; `git show HEAD:Form/Gen3/GameCube.cpp:117-323`, `GameCube.ui:84,115-125,201,246-256`, `Form/Gen3/Tools/GameCubeSeedFinder.cpp:32-153`
 - EncounterTableGenerator Gen3/encounters.json @fb7414deb8412011570951731caeb0a5c834e20b: `scratchpad/et/encounters_fb7414de.json`（galesColoShadow 77件、galesColo[62-68]）; v4.3.0 のサブモジュール aae86b0 も同内容
 - PKHeX (master e0e63bc87837ad2d9c8f8fda4efdbf5f2933db08): `scratchpad/pkhex_src/XDRNG.cs:23-31,130-134,300-347`; `MethodCXD.cs:15-49,396-477,489-569`; `MethodFinder.cs:254-302`; `LockFinder.cs:17-45`; `NPCLock.cs:14-15,29-38`; `TeamLock.cs:21-58`; `TeamLockResult.cs:15,51,61-66,118-124,139,176,194,229-268`; `Encounters3XD.cs:7-25,108-114`; `Encounters3XDShadow.cs:825-935`; `Encounters3XDTeams.cs:82-83`; `EncounterShadow3XD.cs:13-35,48-66,81-90,140-147`; `scratchpad/pkhex_sparse/PKHeX/PKHeX.Core/Legality/RNG/Frame/FrameCache.cs:20-46`; `.../RNG/Util/ShinyUtil.cs:40,55`; `.../RNG/PIDType.cs:81-86`; `.../Encounters/Data/Gen3/EncountersWC3.cs:63-156`; `Encounters3FRLG.cs:55`; `Templates/Gen3/EncounterStatic3.cs:20`; `Templates/Gen3/Colo/EncounterShadow3Colo.cs:24`, `EncounterGift3Colo.cs:18`, `EncounterStarter3Colo.cs:17`; `Templates/Gen3/XD/EncounterStatic3XD.cs:17`, `EncounterTrade3XD.cs:19`, `EncounterSlot3XD.cs:17`; `LearnSource/Sources/LearnSource3RS.cs:77-85`; `LearnSource/Verify/LearnVerifierHistory.cs:225-229`（注: `scratchpad/pkhex_more/ShinyUtil.cs`, `LearnSource3XD.cs` 等は0バイトの404プレースホルダ）
@@ -239,7 +239,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 - https://github.com/zaksabeast/PokemonRNGGuides/tree/main/guides/Gamecube （Initial Seed RNG.mdx 他）
 - https://github.com/TuxSH/PkmGCTools/wiki/A-guide-on-how-to-make-legal-Colosseum-or-XD-Pok%C3%A9mon
 - https://raw.githubusercontent.com/Real96/PokeLua/main/Gen%203/Dolphin/XD_RNG_Dolphin.lua
-- https://github.com/u1F992/XDSeedSorter （README, PokemonXDRNGLibrary/README）; https://raw.githubusercontent.com/FishamanP/PokeGC-TIDTool/master/README.md
+- https://github.com/u1F992/XDSeedSorter （README, PokemonXDRNGLibrary/README, `Config/config.json:14` advancesPerSecond 3713.6, `ConsumptionNavigator/ConsumptionNavigator.cs:35,74-75`）; https://github.com/yatsuna827/XDDatabase （`XDDatabase/Program.cs:100-123` いますぐバトル生成の消費列）; https://raw.githubusercontent.com/FishamanP/PokeGC-TIDTool/master/README.md
 - https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/learnsets.ts , sim/global-types.ts ; https://raw.githubusercontent.com/veekun/pokedex/master/pokedex/data/csv/pokemon_moves.csv ; pret pokeemerald/pokefirered/pokeruby `src/data/pokemon/*.h`
 
 ### Web（SNIPPETのみ、本体は遮断: smogon.com, bulbapedia, serebii, glitchcity.wiki, projectpokemon.org, gamefaqs, hatenablog, note.com, hackmd.io, atwiki, yakkun, appmedia, nintendo.co.jp, youtube, web.archive.org, archive.ph 等）
