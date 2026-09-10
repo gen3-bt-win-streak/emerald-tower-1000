@@ -88,7 +88,7 @@
 - OPに **"It is your responsibility to ensure your Pokemon is possible to obtain."** が存在すると報告（§1.1の走者コピー（2026-07）には無い行。コピー漏れか後の追加か不明→**投稿前に目視確認**）。
 - OPのXD条項: "Recover a deleted purify move. Your Pokemon must be a legal Pokemon obtained from Pokemon XD Gale of Darkness."（Pikeグリッチの許可範囲）。
 - **管理者回答との矛盾**: Adedede（2024-12-23, p.76, Post #1891）「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「At the moment, the rules are the same: no submission with genned Pokemon is valid for the board.」→ **2024年末時点ではPKHeX産は不可と運用**。その後 sbeven（2026-02-24, p.83, Post #2074）が「PokeFinderで合法PID/advanceを示せるPKHeX個体は使えるか」と質問し、**回答はGPTの閲覧範囲で見つからず**。現行OP（2026-06-16編集）はgenned可。
-- **同日の再検証（GPT回答C、`tools/smogon/gpt-answer-C-reverification.md`）で決着**: sbeven #2074 は「OPに『Streaks using genned or hacked Pokemon will not be allowed』と『genned可』が併存している矛盾」の指摘。その後 p.85 で Jeez Louise（#2107, 2026-04-06）が「チーム全員PKHeX産」と明記して可否を質問し、**Valentino23（リーダーボード管理者, #2117, 2026-05-03）が「There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.」と明示回答**（続けて「illegal IVスプレッドが無いことは使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」）。Jeez Louise（#2119）は非合法6Vをやめて**PokeFinderで合法スプレッドを探し直しPKHeXで作り直す**と宣言、Valentino23（#2122, 2026-05-10）はRS盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」としてルール更新を予告。OPの2026-06-16編集はこの整理。
+- **同日の再検証（GPT回答C、`tools/smogon/gpt-answer-C-reverification.md`）で決着**: sbeven #2074 は「OPに『Streaks using genned or hacked Pokemon will not be allowed』と『genned可』が併存している矛盾」の指摘。その後 p.85 で Jeez Louise（#2107, 2026-04-06）が「チーム全員PKHeX産」と明記して可否を質問し、**Valentino23（リーダーボード管理者, #2117, 表示日付 2026-05-04）が明示回答。走者がスクリーンショットで原文確認済み【原文・信頼度：高】**：「There have been questions if genned Pokemon are allowed. The answer is yes, but they *must* have legal moves and IV combinations, etc. It is your responsibility to ensure you do not have any illegal IV spreads for a given Pokemon. I always recommend rnging your pokemon, but I understand not everyone is able to do so.」同投稿で「steal from battle tower glitch」は「非合法な技/IVにならないなら構わない」、そして**「I am planning to retire as leaderboard manager by the end of this year … By the end of the year if everything is sorted, I'll announce who is taking over.」**（2026年末に管理者交代）。Jeez Louise（#2119）は非合法6Vをやめて**PokeFinderで合法スプレッドを探し直しPKHeXで作り直す**と宣言、Valentino23（#2122, 2026-05-10）はRS盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」としてルール更新を予告。OPの2026-06-16編集はこの整理。
 - **§8の評価への影響**: 「掲載可能性：高い」は**OP文言ベース・運用ベースの両方で確定**。管理者が求めるのは「合法な技とIVの組であることの本人責任での確認」で、本プロジェクトのPokeFinder実在フレーム特定＋PKHeX Legalはそれを大幅に超える。質問投稿は不要（27章）。Bank of Hoenn の配布個体は「All these Pokemon have been RNG abused on emulators」（Kommo-o, 2021-01-29, p.35 #851）＝実際にエミュで乱数調整して入手した.pkであり、本プロジェクトの「PKHeXで再現」とは一段違う。この差を投稿で正面から問う。
 - リーダーボード上位10（Open／Lv50）とJheisinhoのフリーザー2個体（おくびょう 31/6/31/30/31/31 と 31/26/31/30/31/31、いずれもXD直接経路に実在）は 26章§6.2–6.3。
 
@@ -201,7 +201,7 @@ PokeFinder＋独自全数探索で**実在確認済みのスプレッド**（サ
 
 ### 将来ルール変更時：**不確実**【推測】
 
-- genned許可は「伝統からの逸脱」と自認されており、管理者交代等で厳格化される可能性は理論上ある。
+- genned許可は「伝統からの逸脱」と自認されており、管理者交代等で厳格化される可能性は理論上ある。**【原文・2026-09-10】Valentino23 は #2117 で「2026年末までに管理者を退き、後任を年末に発表」と明言。交代は確定事項なので、提出は現管理者の在任中（2026年内）に行い、OPと#2117のスクリーンショットを提出物に含めて後任の再審査に備える。**
 - 既掲載記録が遡及削除された事例は発見できず。厳格化されても遡及適用されない可能性が高いが、保証はない。
 - ヘッジ：**提出時点の証拠を最大化**（録画・スクショ・開示）しておけば、後年の基準でも再審査に耐える。
 

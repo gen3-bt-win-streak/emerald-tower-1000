@@ -11,7 +11,7 @@
 | 2024-12-23 | Adedede #1891 (p.76) | 「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「当時のルールではgenned個体の提出は無効」「将来generated個体を認める場合でも legal IVs / in-game obtainable を要求する」 | 回答A/C |
 | 2026-02-24 | sbeven #2074 (p.83) | OPに「Streaks using genned or hacked Pokemon will not be allowed」と「genned可」が併存している矛盾を指摘。Bank of HoennのPKHeXファイル、PokeFinderでコロシアム・スイクンの合法PID/advanceを示せば可か、と質問 | 回答C |
 | 2026-04-06 | Jeez Louise #2107 (p.85) | チーム全員をPKHeXで生成したと明記し、PKHeX産が合法かRNG調整が必要かを質問 | 回答C |
-| **2026-05-03** | **Valentino23 #2117 (p.85)** | **「There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.」** 続けて「illegal IVスプレッドが無いことは使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」 | 回答C |
+| **2026-05-04** | **Valentino23 #2117 (p.85)** | **「2) There have been questions if genned Pokemon are allowed. The answer is yes, but they *must* have legal moves and IV combinations, etc. It is your responsibility to ensure you do not have any illegal IV spreads for a given Pokemon. I always recommend rnging your pokemon, but I understand not everyone is able to do so.」** 3) 盗みグリッチは非合法な技/IVにならなければ可。**4) 「I am planning to retire as leaderboard manager by the end of this year … By the end of the year if everything is sorted, I'll announce who is taking over.」** | **走者のスクリーンショット（原文）**＋回答C |
 | 2026-05-03 | Jeez Louise #2119 (p.85) | 非合法な6Vせっかちラティオス／スイクンをやめ、**PokeFinderで合法スプレッドを探してPKHeXで作り直し、新しいストリークをやる**と宣言 | 回答C |
 | 2026-05-10 | Valentino23 #2122 (p.85) | RS盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」、ルールを更新すると予告 | 回答C |
 | 2026-06-16 | OP最終編集 | 現行OP：「You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves.」（gennedを含む文はこの1文のみ）＋「It is your responsibility to ensure your Pokemon is possible to obtain.」（Roamer Glitching説明の末尾） | 回答A/C |
@@ -20,11 +20,13 @@
 
 **管理者が求めているもの**：合法な技と、ゲーム内で生成され得るIV／性格の組であることを、**使用者本人の責任で**確認すること。PID／seedの提出、実入手、動画は要求されていない（エミュ記録は動画・write-upが「強く推奨」、管理者は追加映像を要求できる：17章§1.4）。
 
+**期限に関わる注意**：Valentino23 は同じ投稿で **2026年末までに管理者を退き、後任を年末に発表**すると明言している。後任の方針は未知なので、**提出は現管理者の在任中（2026年内）が安全**。提出物にOPと#2117のスクリーンショット（走者が2026-09-10に取得）を含め、後任による再審査に備える。
+
 **本プロジェクトの水準**：全個体についてPokeFinderの実在フレーム（Method 1／孵化／XDRNG）を特定し、PKHeX Legal、フリーザーは独立ポート（`tools/remote-audit/xd_articuno_verify.py`、42/42 PASS）でも確認済み。要求水準を大幅に超える。
 
 ## 1. 提出時に残る確認（1回だけ）
 
-- [ ] 提出直前にOP（p.1）と p.85 #2117 を走者が一度目視する（GPTは2回独立に確認しているが、本環境では原ページを開けない）。
+- [x] p.85 #2117 は走者がスクリーンショットで原文確認済み（2026-09-10）。提出直前にOP（p.1）の文言と「Last edited」を一度目視し、スクショを保存する。
 - [ ] Battle Results 画面のスクショ、実機／エミュの申告、チームのimportable、全個体のIV（16章§4の確定表）を用意（17章§9チェックリスト）。
 
 ## 2. 提出write-upに入れる「個体準備」段落（英語・そのまま使用可）
