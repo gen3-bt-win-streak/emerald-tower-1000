@@ -174,11 +174,11 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
   - **2026-02-24 sbeven（p.83, Post #2074; GPT）**: PokeFinderでコロシアム・スイクンの合法PID/advanceを示せる場合にPKHeXで作った個体を使えるか、という質問。**管理者回答はGPTの閲覧範囲で見つからず**。
   - sbevenの質問文（回答C）: 「Hi, could I please have some clarification on this rule: Streaks using genned or hacked Pokemon will not be allowed:」＝当時のOPには「genned不可」の旧文と「genned可」の新文が**併存**しており、その矛盾を指摘したもの。Bank of HoennがPKHeXファイルを配っている点、PokeFinderでコロシアム・スイクンの合法PID/advanceを示せれば問題ないか、10ANNIVスイクンとの比較にも言及。
   - **2026-04-06 Jeez Louise（p.85, Post #2107; 回答C）**: チーム全員をPKHeXで生成したと明記した上で、PKHeX産が合法かRNG調整が必要かを質問。
-  - **2026-05-03 Valentino23（p.85, Post #2117; 回答C）— リーダーボード管理者の明示回答**: 「**There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.**」続けて「illegal IVスプレッドが無いことを使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」。
+  - **2026-05-04 Valentino23（p.85, Post #2117）— リーダーボード管理者の明示回答。走者がスクリーンショットで原文確認済み（表示日付 May 4, 2026; 回答Cの「05-03」はタイムゾーン差）【高】**: 「2) There have been questions if genned Pokemon are allowed. The answer is yes, but they *must* have legal moves and IV combinations, etc. It is your responsibility to ensure you do not have any illegal IV spreads for a given Pokemon. I always recommend rnging your pokemon, but I understand not everyone is able to do so.」「3) Regarding the "steal from battle tower glitch", I personally am not aware of how it works. If it could result in a Pokemon with an illegal move / IV combination, I'd recommend not doing it. But if that's not the case, it is fine to me.」「4) I am planning to retire as leaderboard manager by the end of this year. I do not play Pokemon as much these days and feel it would be more appropriate to pass the thread to someone who is more engaged in the community. … By the end of the year if everything is sorted, I'll announce who is taking over.」同投稿1)でリーダーボードをBBCodeから表形式に改装中（一部の記録に順位番号が無い理由）。
   - 2026-05-03 Jeez Louise（p.85, #2119）: #2117を受け、直近のストリークで使った6VせっかちラティオスとスイクンはPKHeXで作った非合法スプレッドだったので、**PokeFinderで合法なスプレッドを探して新しいストリークをやり直す**と宣言。＝「PokeFinderで実在スプレッドを確認→PKHeXで作る」が管理者の目の前で承認された運用実例。
   - 2026-05-10 Valentino23（p.85, #2122）: RSバトルタワー盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」と明示し、ルールを更新すると発言。
   - **2026-06-16 OP最終編集**（回答A/C）: 現行文言はgenned可のみ（sbevenが指摘した旧文との併存は解消済みと推定。回答Cの1-1で「genned」を含む文は1文だけ）。
-  - **結論**: 2024-12-23時点の「PKHeX産は不可」は、**2026-05-03のValentino23回答で明示的に覆り、2026-06-16のOP編集で文言も整理された**。本プロジェクトの個体（PokeFinderで実在フレームを特定→PKHeXで再現、合法技のみ）は**現行運用で leaderboard eligible**。管理者が求めるのは「合法な技とIVの組」であることの**本人責任での確認**であり、PID/seedの提出や実入手は求められていない。→ 質問投稿は不要（`27-smogon-post.md` §0）。
+  - **結論**: 2024-12-23時点の「PKHeX産は不可」は、**2026-05-04のValentino23回答で明示的に覆り、2026-06-16のOP編集で文言も整理された**。**注意: Valentino23は2026年末までに管理者を退く予定で、後任は年末に発表**。後任が方針を変える可能性は残るので、提出は現管理者の在任中（2026年内）に行うのが安全で、提出時点のOPと#2117のスクリーンショットを保存しておく（§8）。本プロジェクトの個体（PokeFinderで実在フレームを特定→PKHeXで再現、合法技のみ）は**現行運用で leaderboard eligible**。管理者が求めるのは「合法な技とIVの組」であることの**本人責任での確認**であり、PID/seedの提出や実入手は求められていない。→ 質問投稿は不要（`27-smogon-post.md` §0）。
 - Bank of Hoenn（Kommo-o, 2021-01-29 p.35 #851 / 2021-02-05 p.35 #868; GPT）: 「we are now able to provide users on the Gen 3 Frontier forums a database of +100 RNG'd Pokemons from Generation III」「**All these Pokemon have been RNG abused on emulators**」「a database of +100 RNG'd Pokemon done by well known trusted users」。参加者 Lego, Thomaz, Valentino23, Captain Santana, Regiultima115。FR/LG/Eに加えコロシアム/XD由来も含む。→ **配布個体は「エミュ上で実際に乱数調整して入手した.pk」であり、PKHeXで値を書いた個体ではない**。本プロジェクトとの差はまさにここ（§7のC段階とD段階の差）。
 - 運営: スレ開始者は Valentino23（2019-03-28）。現在の管理者名はOPに明示されず（GPT）。検証補助 Adedede（2024-12の回答者）/Wildcat Formation/Actaeon/wtset（SNIPPET）。
 - Gen IV スレ（3663294）は2022-12に「PKHeX等で作った個体も合法セットなら可」「It is ultimately your responsibility to ensure that your Pokemon have legal PID/IV combos」（SNIPPET）。
@@ -252,7 +252,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 **【強く推奨】**
 - [ ] §2.3 の変種表（どの "seen" 状態で入手したか、チーム生成前seed D1D0AE06/28E810AA/766D3474/DB7D868E のいずれか）を記録
 - [ ] 直接経路全数列挙の出力（おだやかA0 8件、おだやか31/0/31/31/31/31 不在）と「なぜC29か」の説明
-- [ ] Smogon OP の提出時点スクリーンショット（ルール文言の日付固定）と、Jheisinho p.82 投稿の原文確認結果
+- [ ] Smogon OP の提出時点スクリーンショット（ルール文言の日付固定）と、p.85 #2117（Valentino23, 2026-05-04「genned可・合法IV/技・本人責任」）のスクリーンショット（走者が2026-09-10に取得済み。管理者交代後の再審査に備える）
 - [ ] エミュ入手なら Dolphin バージョン・ROM ハッシュ・Lua ログ（Initial/Current Seed, Advances）・戦闘突入〜スナッチ〜リライブの動画
 - [ ] GBA転送の記録（フェナスB1F、殿堂入り済み、GC–GBAケーブル）
 
