@@ -1,55 +1,41 @@
-# 27. Smogon投稿文（PKHeX再現個体のleaderboard eligibility確認）【2026-09-10】
+# 27. Smogon投稿（PKHeX再現個体のleaderboard eligibility）【2026-09-10 決着：質問投稿は不要】
 
-> **目的**：Gen III Battle Frontier Discussion and Records（thread 3648697）に、本プロジェクトの個体準備方法（PokeFinderでゲーム内RNGの実在フレームを特定 → 同一データをPKHeXで作成）が現行ルールで leaderboard eligible かを確認する投稿を出す。日本語版でレビュー → 英語版をそのまま投稿。
-> **前提の根拠**：17章§1（OP原文）・§1.8（2026-09-10 GPT抽出）・26章§6。**投稿前に走者が下記「目視確認3点」を済ませること**。
+> **結論**：本プロジェクトの個体準備方法（PokeFinderでゲーム内RNGの実在フレームを特定 → 同一データをPKHeXで作成、技は正規習得のみ）は、**現行ルールと現行運用の両方で leaderboard eligible**。管理者が2026-05-03に明示回答済みなので、当初予定していた「可否を問う質問投稿」は出さない。提出時のwrite-upに個体準備方法を1段落書けば足りる（§2）。
+> **根拠**：17章§1（OP原文）・§1.8、26章§6.1、GPT回答A/C（`tools/smogon/gpt-answer-A-smogon-thread.md`, `gpt-answer-C-reverification.md`）。
 
-## 0. 前提（2026-09-10 時点で分かっていること）
+## 0. 決着の経緯（時系列）
 
-| 事実 | 出典 | 確度 |
-|---|---|---|
-| OP（最終編集 2026-06-16）は「You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves.」 | 17章§1.1（走者コピー）＋GPT | 高 |
-| OPに「It is your responsibility to ensure your Pokemon is possible to obtain.」がある | GPTのみ（走者コピーには無い） | 中・**要目視** |
-| 2024-12-23 Adedede（p.76 #1891）「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「At the moment, the rules are the same: no submission with genned Pokemon is valid for the board.」 | GPT | 中・**要目視** |
-| 2026-02-24 sbeven（p.83 #2074）がPokeFinder検証済みPKHeX個体の可否を質問、回答は見つからず | GPT | 中・**要目視** |
-| Bank of Hoenn の配布個体は「All these Pokemon have been RNG abused on emulators」 | GPT（Kommo-o p.35 #851） | 中 |
-| XD条項「Recover a deleted purify move. Your Pokemon must be a legal Pokemon obtained from Pokemon XD Gale of Darkness.」 | GPT（OP） | 中 |
+| 日付 | 誰が・どこで | 内容 | 出典 |
+|---|---|---|---|
+| 2024-12-22 | ZucchiniBread #1890 (p.76) | 過去のLv50ダブル378連勝（PKHeX個体使用と本人が明記）を掲載できるか質問 | 回答C |
+| 2024-12-23 | Adedede #1891 (p.76) | 「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「当時のルールではgenned個体の提出は無効」「将来generated個体を認める場合でも legal IVs / in-game obtainable を要求する」 | 回答A/C |
+| 2026-02-24 | sbeven #2074 (p.83) | OPに「Streaks using genned or hacked Pokemon will not be allowed」と「genned可」が併存している矛盾を指摘。Bank of HoennのPKHeXファイル、PokeFinderでコロシアム・スイクンの合法PID/advanceを示せば可か、と質問 | 回答C |
+| 2026-04-06 | Jeez Louise #2107 (p.85) | チーム全員をPKHeXで生成したと明記し、PKHeX産が合法かRNG調整が必要かを質問 | 回答C |
+| **2026-05-03** | **Valentino23 #2117 (p.85)** | **「There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.」** 続けて「illegal IVスプレッドが無いことは使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」 | 回答C |
+| 2026-05-03 | Jeez Louise #2119 (p.85) | 非合法な6Vせっかちラティオス／スイクンをやめ、**PokeFinderで合法スプレッドを探してPKHeXで作り直し、新しいストリークをやる**と宣言 | 回答C |
+| 2026-05-10 | Valentino23 #2122 (p.85) | RS盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」、ルールを更新すると予告 | 回答C |
+| 2026-06-16 | OP最終編集 | 現行OP：「You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves.」（gennedを含む文はこの1文のみ）＋「It is your responsibility to ensure your Pokemon is possible to obtain.」（Roamer Glitching説明の末尾） | 回答A/C |
 
-**投稿の設計**：
-1. OPを読んだことを示す（gennedの文言を引用）。
-2. 2024-12の管理者回答と2026-02の未回答質問に触れ、**「現行OPの文言が2024年回答を上書きしているか」**を直接問う。これが本当の争点で、これを避けると「OPを読め」か「PKHeXは不可」のどちらかで終わる。
-3. 自分の方法を1段落で正確に説明する（PKHeXのLegal判定に頼っているのではなく、RNGの実在フレームを先に特定していること。フリーザーはXDシャドウ産のPID/IVで、Pikeグリッチではないこと）。
-4. Bank of Hoenn（エミュで実際に乱数調整した.pk）との差を自分から明示し、その差が扱いを分けるかを問う。
-5. 提出できる情報（PID／seed／方式／PokeFinder結果／録画）を列挙する。
-6. 短く、質問は3つまで。
+**読み方**：2024年末の「PKHeX産は不可」は、2026-05-03の管理者回答で明示的に覆り、OPも6月に整理された。#2119 は「PokeFinderで実在スプレッドを確認してからPKHeXで作る」というまさに本プロジェクトの手順が、管理者の目の前で通った実例。
 
-## 1. 目視確認3点（投稿前・走者がブラウザで）
+**管理者が求めているもの**：合法な技と、ゲーム内で生成され得るIV／性格の組であることを、**使用者本人の責任で**確認すること。PID／seedの提出、実入手、動画は要求されていない（エミュ記録は動画・write-upが「強く推奨」、管理者は追加映像を要求できる：17章§1.4）。
 
-- [ ] **p.1 OP**：gennedの文言が上表どおりか。「It is your responsibility to ensure your Pokemon is possible to obtain.」があるか。「Last edited」の日付。
-- [ ] **p.76 #1891（Adedede, 2024-12-23）**：引用2文が本当にあるか。**無ければ投稿文の第3段落を削る**。
-- [ ] **p.83 #2074（sbeven, 2026-02-24）**：質問の内容と、その後に管理者回答が付いていないか（付いていれば**その回答が答えそのもの**なので、投稿の必要性を再検討）。
+**本プロジェクトの水準**：全個体についてPokeFinderの実在フレーム（Method 1／孵化／XDRNG）を特定し、PKHeX Legal、フリーザーは独立ポート（`tools/remote-audit/xd_articuno_verify.py`、42/42 PASS）でも確認済み。要求水準を大幅に超える。
 
-## 2. 日本語版（レビュー用）
+## 1. 提出時に残る確認（1回だけ）
 
-> **タイトル案**：Eligibility of PKHeX-recreated Pokémon whose PID/IVs are verified against the in-game RNG
->
-> こんにちは。初めて投稿します。英語が母語ではないので、分かりにくい部分があればすみません。
->
-> Delta Emulator（iOS、無改変ROM、セーブステート不使用）でBattle Tower Doubles Open Levelに挑戦しています。自己ベストは613勝（未提出）で、次の本格的な挑戦の前に、使用個体の扱いを確認させてください。
->
-> OPは「You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves.」と書いていると読みました。一方で、2024年12月の回答（p.76）に「PKHeX'd Pokemonを使ったチームはeligibleでない／genned個体の提出は無効」とあり、2026年2月（p.83）にはPokeFinderで検証したPKHeX個体について同じ趣旨の質問があって、回答が見つけられませんでした。現行OPの文言がこの2024年の回答を上書きしているのか、それとも今も「PKHeXで作った個体は不可」なのかを確認したいです。
->
-> 私の方法は次のとおりです。まずPokeFinderで、Gen 3のゲーム内RNG（固定シンボルはMethod 1、XDはXDRNG）が実際に出力する PID／IV／性格 の組を探し、そのseed（フレーム）を特定します。そのうえで、同じデータをPKHeXで作成しています。PKHeXのLegal判定だけを根拠にしているのではなく、各個体について「どのゲームの、どのseedから生成されるか」を示せます。例えばフリーザーはXDのシャドウフリーザー（くろいきりはリライブ技）として、XDRNGが実際に出力するPID/IVの組（おだやか、31/0/31/29/31/31）を使っており、Pikeグリッチによるものではありません。
->
-> Bank of Hoennの個体は「エミュ上で実際にRNG abuseして入手した.pk」と理解しています。私の個体は「RNGで生成されることを確認したうえでPKHeXで再現したもの」なので、実際にゲーム内で入手したかどうかだけが違います。
->
-> 確認したいこと：
-> 1. 現行OPのgenned条項に照らして、「ゲーム内RNGで生成されることを示せる個体をPKHeXで再現したもの」はleaderboard eligibleという理解で合っていますか。それとも2024年12月の回答のとおり、PKHeXで作った個体は今も不可ですか。
-> 2. eligibleの場合、Bank of Hoennのように実際にRNG abuseで入手した個体と、PKHeXで再現した個体で扱いに差はありますか（実際にゲーム内で入手したことまで求められますか）。
-> 3. 提出時には、必須のimportableとIVに加えて、各個体のPID・seed・生成方式・PokeFinderの検索結果を添えられます。ほかにあった方がよい情報があれば教えてください。
->
-> 要請があれば録画も提出します。よろしくお願いします。
+- [ ] 提出直前にOP（p.1）と p.85 #2117 を走者が一度目視する（GPTは2回独立に確認しているが、本環境では原ページを開けない）。
+- [ ] Battle Results 画面のスクショ、実機／エミュの申告、チームのimportable、全個体のIV（16章§4の確定表）を用意（17章§9チェックリスト）。
 
-## 3. 英語版（投稿用）
+## 2. 提出write-upに入れる「個体準備」段落（英語・そのまま使用可）
+
+> **How the Pokémon were prepared.** All four Pokémon were created in PKHeX, following the current rule that genned Pokémon are allowed as long as they have legally obtainable stats and moves. Before creating each one I used PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces, and I recorded the seed and frame: Method 1 for the Southern Island Latios, egg frames for the bred Metagross, and XDRNG for the Articuno, which is an XD Shadow Articuno with its purify move Haze, not a Battle Pike glitch Articuno. Its spread is Calm 31/0/31/29/31/31, PID 0x2F3C902C, XDRNG origin seed 0xECFE3E26. All moves are level-up, TM/HM, tutor or XD purify moves. PKHeX reports every Pokémon as legal, and for the Articuno I also verified the XDRNG derivation with an independent script. PIDs, seeds and PokeFinder screenshots for every Pokémon are available on request.
+
+（カビゴンの生成方式（固定＝Method 1／孵化）は16章に未記載なので、提出時に確定させて文中に追記する。ラティオス＝みなみのことう Method 1、メタグロス＝タマゴ産は16章§1のとおり。）
+
+## 3. 付録：出さなかった質問投稿（2026-09-10 午前版、参考）
+
+回答Cで #2117 が見つかる前に用意した質問文。**投稿しない**が、将来ルールが再度変わった場合の雛形として残す。
 
 > **Title**: Eligibility of PKHeX-recreated Pokémon whose PID/IVs are verified against the in-game RNG
 >
@@ -57,24 +43,21 @@
 >
 > I've been running Battle Tower Doubles, Open Level, on Delta Emulator (iOS, unmodified ROM, no save states). My personal best is 613 wins (not submitted). Before my next serious attempt I'd like to make sure my Pokémon are eligible.
 >
-> I've read the OP, which currently says: "You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves." However, I also found a reply from December 2024 (page 76) saying that a team using PKHeX'd Pokémon was not eligible and that no submission with genned Pokémon was valid for the board, and a question from February 2026 (page 83) about PKHeX Pokémon verified with PokeFinder that I couldn't find an answer to. So I'd like to confirm whether the current OP wording supersedes that 2024 ruling, or whether PKHeX-made Pokémon are still not allowed.
+> I've read the OP, which currently says: "You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves." However, I also found a reply from December 2024 (page 76) saying that a team using PKHeX'd Pokémon was not eligible, and a question from February 2026 (page 83) about PKHeX Pokémon verified with PokeFinder. So I'd like to confirm whether the current OP wording supersedes that 2024 ruling.
 >
-> Here is exactly what I do. First I use PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces (Method 1 for stationary encounters, XDRNG for XD), and I identify the seed/frame. Then I create the same data in PKHeX. I'm not relying on PKHeX's legality check alone: for every Pokémon I can show which game and which seed generates it. For example, my Articuno is an XD Shadow Articuno (Haze is a purify move) using a PID/IV pair that the XD RNG really outputs (Calm, 31/0/31/29/31/31), not a Battle Pike glitch Articuno.
->
-> My understanding is that the Bank of Hoenn Pokémon were actually RNG abused on emulators and then shared as .pk files. Mine are recreated in PKHeX after confirming the RNG produces them, so the only difference is whether the Pokémon was actually obtained in-game.
+> Here is exactly what I do. First I use PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces (Method 1 for stationary encounters, XDRNG for XD), and I identify the seed/frame. Then I create the same data in PKHeX. For example, my Articuno is an XD Shadow Articuno (Haze is a purify move) using a PID/IV pair that the XD RNG really outputs (Calm, 31/0/31/29/31/31), not a Battle Pike glitch Articuno.
 >
 > My questions:
-> 1. Under the current genned-Pokémon rule, is a Pokémon recreated in PKHeX with a PID/IV/nature that is verifiably produced by the in-game RNG leaderboard eligible? Or, as in the December 2024 reply, are PKHeX-made Pokémon still not allowed?
-> 2. If they are eligible, is there any difference in treatment between Pokémon actually obtained by RNG abuse (like the Bank of Hoenn ones) and Pokémon recreated in PKHeX? In other words, is actually obtaining them in-game required?
-> 3. When submitting, besides the required importable and IVs, I can include each Pokémon's PID, seed, generation method and the PokeFinder search results. Is there anything else you'd like to see?
+> 1. Under the current genned-Pokémon rule, is a Pokémon recreated in PKHeX with a PID/IV/nature that is verifiably produced by the in-game RNG leaderboard eligible?
+> 2. Is there any difference in treatment between Pokémon actually obtained by RNG abuse (like the Bank of Hoenn ones) and Pokémon recreated in PKHeX?
+> 3. When submitting, besides the required importable and IVs, is there anything else you'd like to see (PID, seed, PokeFinder results)?
 >
 > I can also provide recordings on request. Thanks in advance.
 
-## 4. 投稿後の分岐
+## 4. 回答別の分岐（将来ルールが変わった場合のみ）
 
-| 回答 | 対応 |
+| 状況 | 対応 |
 |---|---|
-| 「現行OPのとおりgenned可、RNG検証は不要」 | 17章§8「掲載可能性：高い」を運用ベースでも確定。提出時は26章§8のチェックリストどおり証拠を添付 |
-| 「PKHeX産は不可、実際に入手した個体のみ」 | 26章§7のD段階（Dolphin＋Luaで実際に生成・録画）へ移行。フリーザーは26章§4.2の手順、目標seedは§2.3の変種のいずれか。他3体も同様にエミュ上で実入手する |
-| 「実機入手のみ」 | 26章§7のE段階。現実的でない場合は「記録は出すが掲載申請はしない」を選択肢として残す |
-| 回答なし（2週間） | 走者がスレの常連（Adedede／Kommo-o）に直接メンションして再質問 |
+| 現行どおり（genned可、合法IV/技） | 26章§8のチェックリストどおり証拠を添付して提出 |
+| 「PKHeX産は不可、実際に入手した個体のみ」に戻った | 26章§7のD段階（Dolphin＋Luaで実際に生成・録画）へ移行。フリーザーは26章§4.2の手順、目標seedは§2.3の変種のいずれか |
+| 「実機入手のみ」 | 26章§7のE段階。現実的でない場合は「記録は出すが掲載申請はしない」 |

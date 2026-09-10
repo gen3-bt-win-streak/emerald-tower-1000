@@ -15,7 +15,7 @@
 ## 0. 結論（3行）
 
 1. **XD RNGで生成可能か**: 可能【高】。origin 0xECFE3E26 から XDRNG（乗数 0x343FD／加算 0x269EC3）を5回進めると 0x7C1F→0xFFBF→0x5284→0x2F3C→0x902C となり、IV 31/0/31/29/31/31・PID 0x2F3C902C・おだやか・PSV 6114 が「直接経路（アンチシャイニー再抽選なし）」で一意に再現される。PKHeXとは独立の自作ポート（PokeFinderの11個のテストベクタ110状態を完全再現）で確認済み（＝ツール間の整合であり、実機RAMの実測ではない）。デスゴルド先行4体のロック連鎖もPKHeX TeamLockResult移植で5変種すべて通過（ただし全員シャドウのため「通過」は自明で弱い証拠）。
-2. **PokeFinder等の確認をSmogonに示せば十分か**: Smogonの現行ルール（2026-07-29時点の原文）は「正規に入手可能なステータス・技であればgenned個体も可」「IVまたは実数値の開示必須」であり、PID/TID/SID/seedの提出は求められない【高】。従って PokeFinder（Non Shadow Locks カテゴリ）＋PKHeX Legal の提示で規定上は十分。ただし PokeFinder は先行パーティ・CPUのTSV・偽PIDフレームを一切モデル化しない**部分検証**であり、「実機で入手した」ことの証明にはならない。**追記（2026-09-10）**：OPの文言（最終編集2026-06-16）と、2024-12-23の管理者Adedede回答「PKHeX産のチームは不可／genned個体の提出は無効」（GPT）が食い違う。2026-02-24に同種の質問（PokeFinderで合法PID/advanceを示せるPKHeX個体は可か）が投稿され回答が見当たらない（GPT）。**規定上は十分でも、運用上は「現行OPの文言が2024年回答を上書きしているか」を投稿で確認しないと確定しない**（§6.1、`27-smogon-post.md`）。
+2. **PokeFinder等の確認をSmogonに示せば十分か**: Smogonの現行ルール（2026-07-29時点の原文）は「正規に入手可能なステータス・技であればgenned個体も可」「IVまたは実数値の開示必須」であり、PID/TID/SID/seedの提出は求められない【高】。従って PokeFinder（Non Shadow Locks カテゴリ）＋PKHeX Legal の提示で規定上は十分。ただし PokeFinder は先行パーティ・CPUのTSV・偽PIDフレームを一切モデル化しない**部分検証**であり、「実機で入手した」ことの証明にはならない。**追記（2026-09-10）**：2024-12-23の管理者Adedede回答「PKHeX産のチームは不可」（GPT）で一度は疑義が生じたが、同日夕方の再検証（GPT回答C）で **2026-05-03 リーダーボード管理者Valentino23の明示回答「genned Pokemon are allowed … must have legal moves and IV combinations」** と、PokeFinderで合法スプレッドを探し直してPKHeXで作る運用実例（#2119）が見つかり、OPも2026-06-16に整理済み。**規定上も運用上も「合法な技とIVの組」であれば可、実入手やPID/seed提出は不要**（§6.1）。質問投稿は不要（`27-smogon-post.md`）。
 3. **保存すべき証拠**: (a) PKHeX Legality レポート全文（PIDType CXD, origin 0xECFE3E26 表示）、(b) PokeFinder GameCube Searcher（Non Shadow Locks／Articuno／プロフィールTID・SID）の検索結果とGenerator再生成のスクリーンショット、(c) 本リポジトリの `tools/remote-audit/xd_articuno_verify.py` の実行ログ（42/42 PASS）、(d) セーブのTID/SIDと (TID^SID)>>3≠6114 の記録、(e) 可能なら Dolphin RAMトレースまたは実機録画。詳細は§8。
 
 ---
@@ -163,7 +163,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 ### 6.1 現行ルール（Gen III Battle Frontier Discussion and Records, thread 3648697）【高（文言: 2026-07-29 のOP原文コピー `17-smogon-legitimacy.md` ＋ 2026-09-10 GPT逐語引用が一致）／中（運用）】
 - OP（Valentino23, 2019-03-28, Post #1）の**最終編集は 2026-06-16**（編集者名は表示されず; GPT）。
 - 「Streaks using illegal Pokemon will not be leaderboard eligible. You are allowed to use genned Pokemon so long as they have legally obtainable stats and moves.」（17章原文コピーとGPT引用で一致）。旧文言「Streaks using hacked or genned Pokemon will not be leaderboard eligible」がスレ中盤の引用に残存し、**変更日を示すOP編集告知は見つからず**（GPT）。
-- 「It is your responsibility to ensure your Pokemon is possible to obtain.」— GPTはOP Post #1に**存在する**と報告（2026-07-29の走者コピーには含まれていない＝コピーが部分的か、その後の編集で追加された可能性。**投稿前に走者がOPで目視確認**）。
+- 「It is your responsibility to ensure your Pokemon is possible to obtain.」— OP Post #1に**存在する**（GPT回答A・回答Cの2回で確認。置き場所は「許可されるRoamer Glitching」の説明末尾＝RSの徘徊ラティ高IV取得の例に続き「その他のポケモンは合法なIV/性格の組であること」の直後）。2026-07-29の走者コピーはルール冒頭部分のみの部分コピーだった。
 - 証拠: ゲーム内バトル成績画面のスクリーンショット/写真必須、施設・Lv50/Open・実機/エミュの申告必須、チームのインポータブル必須、「All submissions must include the exact stats or IVs of any Pokemon being used」（ファクトリー除く）。**PID/TID/SID/seed/セーブデータは要求されない**。
 - 乱数: 自分のポケモンのIV/実数値の乱数調整は "fully allowed"。「You cannot perform rng manipulation to manipulate the trainers you face, the layouts of facilities, or your drafts in the Battle Factory.」
 - エミュ: 記録可（‡印）、エミュで入手したポケモンも可、未改変ROMのみ、「Don't cheat (this includes save stating or restoring save files to avoid losses).」「having concrete proof such as recorded videos or detailed write-ups is heavily encouraged」「I reserve myself the right to ask for any additional recorded footage」「This is not a court of law. I reserve myself the right to reject sufficiently dubious streaks even without absolute proof of cheating.」
@@ -172,8 +172,13 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 - **管理者回答の時系列（本書で最重要）**:
   - **2024-12-23 Adedede（p.76, Post #1891; GPT）**: 「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「At the moment, the rules are the same: no submission with genned Pokemon is valid for the board.」＝この時点では**PKHeX産＝不可**。
   - **2026-02-24 sbeven（p.83, Post #2074; GPT）**: PokeFinderでコロシアム・スイクンの合法PID/advanceを示せる場合にPKHeXで作った個体を使えるか、という質問。**管理者回答はGPTの閲覧範囲で見つからず**。
-  - **2026-06-16 OP最終編集**（GPT）: 現行文言はgenned可。
-  - 含意: 「genned可」は少なくとも2024-12-23以降に入った（または当時から文言はあったが運用が不可だった）。**本プロジェクトの個体（PKHeXで再現したRNG実在個体）は、2024年回答の基準では不可、現行OP文言では可**。sbevenの質問が未回答のままなので、投稿（`27-smogon-post.md`）は「現行OPの文言を読んだ上で、2024年回答との関係を確認する」形にした。
+  - sbevenの質問文（回答C）: 「Hi, could I please have some clarification on this rule: Streaks using genned or hacked Pokemon will not be allowed:」＝当時のOPには「genned不可」の旧文と「genned可」の新文が**併存**しており、その矛盾を指摘したもの。Bank of HoennがPKHeXファイルを配っている点、PokeFinderでコロシアム・スイクンの合法PID/advanceを示せれば問題ないか、10ANNIVスイクンとの比較にも言及。
+  - **2026-04-06 Jeez Louise（p.85, Post #2107; 回答C）**: チーム全員をPKHeXで生成したと明記した上で、PKHeX産が合法かRNG調整が必要かを質問。
+  - **2026-05-03 Valentino23（p.85, Post #2117; 回答C）— リーダーボード管理者の明示回答**: 「**There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.**」続けて「illegal IVスプレッドが無いことを使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」。
+  - 2026-05-03 Jeez Louise（p.85, #2119）: #2117を受け、直近のストリークで使った6VせっかちラティオスとスイクンはPKHeXで作った非合法スプレッドだったので、**PokeFinderで合法なスプレッドを探して新しいストリークをやり直す**と宣言。＝「PokeFinderで実在スプレッドを確認→PKHeXで作る」が管理者の目の前で承認された運用実例。
+  - 2026-05-10 Valentino23（p.85, #2122）: RSバトルタワー盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」と明示し、ルールを更新すると発言。
+  - **2026-06-16 OP最終編集**（回答A/C）: 現行文言はgenned可のみ（sbevenが指摘した旧文との併存は解消済みと推定。回答Cの1-1で「genned」を含む文は1文だけ）。
+  - **結論**: 2024-12-23時点の「PKHeX産は不可」は、**2026-05-03のValentino23回答で明示的に覆り、2026-06-16のOP編集で文言も整理された**。本プロジェクトの個体（PokeFinderで実在フレームを特定→PKHeXで再現、合法技のみ）は**現行運用で leaderboard eligible**。管理者が求めるのは「合法な技とIVの組」であることの**本人責任での確認**であり、PID/seedの提出や実入手は求められていない。→ 質問投稿は不要（`27-smogon-post.md` §0）。
 - Bank of Hoenn（Kommo-o, 2021-01-29 p.35 #851 / 2021-02-05 p.35 #868; GPT）: 「we are now able to provide users on the Gen 3 Frontier forums a database of +100 RNG'd Pokemons from Generation III」「**All these Pokemon have been RNG abused on emulators**」「a database of +100 RNG'd Pokemon done by well known trusted users」。参加者 Lego, Thomaz, Valentino23, Captain Santana, Regiultima115。FR/LG/Eに加えコロシアム/XD由来も含む。→ **配布個体は「エミュ上で実際に乱数調整して入手した.pk」であり、PKHeXで値を書いた個体ではない**。本プロジェクトとの差はまさにここ（§7のC段階とD段階の差）。
 - 運営: スレ開始者は Valentino23（2019-03-28）。現在の管理者名はOPに明示されず（GPT）。検証補助 Adedede（2024-12の回答者）/Wildcat Formation/Actaeon/wtset（SNIPPET）。
 - Gen IV スレ（3663294）は2022-12に「PKHeX等で作った個体も合法セットなら可」「It is ultimately your responsibility to ensure that your Pokemon have legal PID/IV combos」（SNIPPET）。
@@ -214,7 +219,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 ### 6.3 Jheisinho のフリーザー（GPT逐語引用＋本書の検証）【中（GPT）／高（実在性の計算）】
 - 投稿: 2023-06-11 p.66 #1626、2025-01-28 p.77 #1908、2025-12-30 p.82 #2030（GPTが確認できた分。全件列挙は保証されず）。
-- **1316（Open）のフリーザー**（p.77 #1908, 2025-01-28; GPT逐語）: 「Articuno @ Cheri Berry / Ability: Pressure / EVs: 6 HP / 252 SpA / 252 Spe / Timid Nature / IVs: 6 Atk / 30 SpA / - Protect / - Haze / - Ice Beam / - Hidden Power [Grass]」＝ **おくびょう 31/6/31/30/31/31、めざ草70**。
+- **1316（Open）のフリーザー**（p.77 #1908, 2025-01-28; GPT逐語）: 「Articuno @ Cheri Berry / Ability: Pressure / EVs: 6 HP / 252 SpA / 252 Spe / Timid Nature / IVs: 6 Atk / 30 SpA / - Protect / - Haze / - Ice Beam / - Hidden Power [Grass]」＝ **おくびょう 31/6/31/30/31/31、めざ草70**。回答Cの補足: #1908 は2022〜2025年のストリークをまとめた投稿で、この個体は「2025年 Open Level の Team #4」として掲載。**本文に「1316」の数字は無い**（1316はリーダーボードと[paste]側の表示）。同投稿に Lv50 2023版の別EV/IVのフリーザーも掲載。
 - **1001（Lv50）のフリーザー**（paste 8ae993832e395f0b; GPT）: おくびょう、IVs 26 Atk / 30 SpA（＝31/26/31/30/31/31、めざ草70）、EVs 6 HP / 248 SpA / 4 SpD / 252 Spe、技・持ち物は同じ。研究段階でp.82から拾った「4 Def / 248 SpA / 4 SpD / 252 Spe」とHP/Defの4振り先が食い違う（どちらも単一ソース、実数値には影響しない）。
 - **同一個体ではない**（IVもEVも異なる）。
 - 機構検証（`xd_articuno_verify.py` §5 に追加、42/42 PASS）: 両スプレッドとも**XD直接経路の実在フレーム**で、それぞれ一意。31/6/31/30/31/31 → PID `AEA4D752` origin `476C804E` PSV 3902、31/26/31/30/31/31 → PID `AD8FA80B` origin `C6C77301` PSV 176。さらに**H/B/D/S=31・おくびょう・めざ草70 の直接経路スプレッドは12通りしか無く、C=30 はその最大値で、該当するのはまさに (A6,C30) と (A26,C30) の2つだけ**。＝Jheisinhoの2個体は「XD RNG表からめざ草70・最大Cを選んだ」形で、Nix_Hex の最良スプレッド表（p.16）と同じ考え方に基づく。**正規XD出自と整合する**が、実機／Dolphin／PKHeXのどれで用意したかの証明ではない。
@@ -305,8 +310,8 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 **2026-09-10 に解消したもの**（GPT逐語引用＋本書の再計算）: Jheisinhoの1316／1001のフリーザーIV/EV（§6.3）、p.16最良スプレッド表の帰属（Nix_Hex #382）、Open／Lv50リーダーボードの取り違え（§6.2）、固定消費48と負け手順の出典（§4.2）、色違い不可の文書根拠（§5.1-4）、デスゴルドの送出順と再戦置換（§4.1）。
 
-- **Smogon運用の矛盾（最優先）**: OP（最終編集2026-06-16）は「genned可（合法ステータス・技なら）」だが、2024-12-23の管理者回答は「PKHeX産は不可／genned提出は無効」。文言変更の告知は見つからず、2026-02-24の同種質問は未回答。→ `27-smogon-post.md` で本人が確認する。加えて「It is your responsibility to ensure your Pokemon is possible to obtain.」がOPにあるかを走者がブラウザで目視確認（走者の2026-07コピーには無く、GPTは有ると報告）。
-- GPT引用そのものの検証: 本環境では原ページを開けない。ページ番号・投稿番号・日付はGPTの報告値で、**投稿前に p.1 OP／p.76 #1891／p.83 #2074／p.77 #1908 の4箇所を走者が目視確認**すること。
+- ~~Smogon運用の矛盾~~ → **解消（回答C）**: 2026-05-03 Valentino23 #2117「genned Pokemon are allowed … must have legal moves and IV combinations」で2024-12-23回答は覆り、OPも2026-06-16に整理済み。「It is your responsibility…」もOPに実在（2回確認）。残る不確実性は「GPTが2回とも同じ誤読をした」可能性のみで、提出時にOPと p.85 を走者が一度目視すれば足りる。
+- GPT引用そのものの検証: 本環境では原ページを開けない。回答A・Cは独立に開き直した2回の確認で、OP文言・#1891・#2074・#1908 の存在と要旨は一致。回答Cは著作権配慮で長文引用を避けているため、#2117 の全文と「本人責任」の正確な文言は提出時に走者が確認する。
 - 実ゲーム（逆アセンブル／RAMトレース）での仮PID2フレーム・先行シャドウ7/5フレーム配置と、CPUトレーナーTSVによる色回避判定の有無。PokeFinder／PKHeX／aldelaro5の3実装一致に依拠。Dolphin＋Luaでデスゴルド戦のRAMを採取すれば解消できる。
 - Jheisinhoのフリーザーの出自（実機XD／Dolphin／Bank of Hoenn／PKHeX）は非公開のまま。
 - 現在のスレ管理者名（OPに明示なし）。

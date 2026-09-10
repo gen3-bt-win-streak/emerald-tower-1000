@@ -88,7 +88,8 @@
 - OPに **"It is your responsibility to ensure your Pokemon is possible to obtain."** が存在すると報告（§1.1の走者コピー（2026-07）には無い行。コピー漏れか後の追加か不明→**投稿前に目視確認**）。
 - OPのXD条項: "Recover a deleted purify move. Your Pokemon must be a legal Pokemon obtained from Pokemon XD Gale of Darkness."（Pikeグリッチの許可範囲）。
 - **管理者回答との矛盾**: Adedede（2024-12-23, p.76, Post #1891）「The issue that makes your streak not eligible is your team using PkHex'd Pokemon」「At the moment, the rules are the same: no submission with genned Pokemon is valid for the board.」→ **2024年末時点ではPKHeX産は不可と運用**。その後 sbeven（2026-02-24, p.83, Post #2074）が「PokeFinderで合法PID/advanceを示せるPKHeX個体は使えるか」と質問し、**回答はGPTの閲覧範囲で見つからず**。現行OP（2026-06-16編集）はgenned可。
-- **§8の評価への影響**: 「掲載可能性：高い」は**OP文言ベースでは維持**するが、**運用ベースでは「2024年回答が現行文言で上書きされたか」が未確認**のため、提出前に本人が確認する（`27-smogon-post.md`）。Bank of Hoenn の配布個体は「All these Pokemon have been RNG abused on emulators」（Kommo-o, 2021-01-29, p.35 #851）＝実際にエミュで乱数調整して入手した.pkであり、本プロジェクトの「PKHeXで再現」とは一段違う。この差を投稿で正面から問う。
+- **同日の再検証（GPT回答C、`tools/smogon/gpt-answer-C-reverification.md`）で決着**: sbeven #2074 は「OPに『Streaks using genned or hacked Pokemon will not be allowed』と『genned可』が併存している矛盾」の指摘。その後 p.85 で Jeez Louise（#2107, 2026-04-06）が「チーム全員PKHeX産」と明記して可否を質問し、**Valentino23（リーダーボード管理者, #2117, 2026-05-03）が「There have been questions if genned Pokemon are allowed. The answer is yes, but they must have legal moves and IV combinations, etc.」と明示回答**（続けて「illegal IVスプレッドが無いことは使用者本人が確認する責任」「RNGを推奨するが全員ができるわけではない」）。Jeez Louise（#2119）は非合法6Vをやめて**PokeFinderで合法スプレッドを探し直しPKHeXで作り直す**と宣言、Valentino23（#2122, 2026-05-10）はRS盗みグリッチ産も「合法IV/技のgenned個体と同じ扱い」としてルール更新を予告。OPの2026-06-16編集はこの整理。
+- **§8の評価への影響**: 「掲載可能性：高い」は**OP文言ベース・運用ベースの両方で確定**。管理者が求めるのは「合法な技とIVの組であることの本人責任での確認」で、本プロジェクトのPokeFinder実在フレーム特定＋PKHeX Legalはそれを大幅に超える。質問投稿は不要（27章）。Bank of Hoenn の配布個体は「All these Pokemon have been RNG abused on emulators」（Kommo-o, 2021-01-29, p.35 #851）＝実際にエミュで乱数調整して入手した.pkであり、本プロジェクトの「PKHeXで再現」とは一段違う。この差を投稿で正面から問う。
 - リーダーボード上位10（Open／Lv50）とJheisinhoのフリーザー2個体（おくびょう 31/6/31/30/31/31 と 31/26/31/30/31/31、いずれもXD直接経路に実在）は 26章§6.2–6.3。
 
 ## 2. 記録保持者の個体入手方法
@@ -184,7 +185,7 @@
 **条件**：Delta（iOS）／無改造ROM（自己カートから吸い出し・チェックサム照合済み）／ステート・巻き戻し不使用／
 PokeFinder＋独自全数探索で**実在確認済みのスプレッド**（サンダー/ラティオス=Method-1・グロス/ラグラージ=孵化フレーム、2026-08-25来歴変更）をPKHeXで再現（実機capture無し）／イベントフラグ整合済み。
 
-### 現行ルールでの掲載可能性：**高い（OP文言ベース）／未確定（運用ベース、2026-09-10 §1.8 参照）**【原文ベースの評価】
+### 現行ルールでの掲載可能性：**高い**【原文ベース＋2026-05-03 管理者回答（§1.8）で運用も確認】
 
 1. 「合法的に入手可能なステータスと技」——全個体がPKHeXソースコード水準の生成方式認定（固定=Method-1／孵化=Egg）＋正規習得技のみ。**ルールが要求する水準を大幅に超過**。
 2. エミュ記録は明文で掲載資格あり（現1位・2位もエミュ‡）。
