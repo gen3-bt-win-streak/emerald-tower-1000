@@ -17,7 +17,8 @@ What this script does (all independent of PKHeX binaries):
      XArticunoRhydonMoltresExeggutorSeen, XArticunoRhydonMoltresExeggutorTaurosSeen); prints the frame / PID assigned
      to each prior NPC shadow, the CPU trainer TID/SID frame and the pre-team origin seed (Cache.GetSeed(OriginFrame)).
   5. Exhaustive direct-path enumeration (no anti-shiny reroll) of every XDRNG state giving HP=Def=SpD=Spe=31:
-     full Atk x SpA table for Calm, best spreads per nature under several criteria.
+     full Atk x SpA table for Calm, best spreads per nature under several criteria, and the two Timid spreads used by the
+     Smogon Gen III Battle Tower Doubles #1 streaks (31/6/31/30/31/31 and 31/26/31/30/31/31, both HP Grass 70).
   6. Anti-shiny (CXDAnti, k rerolls) enumeration for 31/0/31/31/31/31 and the player TSV each candidate would require.
 
 Usage: python3 xd_articuno_verify.py          (exit code 0 == all PASS)
@@ -588,6 +589,24 @@ def section5():
     check("Calm best (a) = 31/5/31/31/31/31", min(atk for (n, atk, spa, _, _) in rows if n == 'Calm' and spa == 31) == 5)
     bold_a = min((atk for (n, atk, spa, _, _) in rows if n == 'Bold' and spa == 31), default=None)
     check("Bold: report min Atk with SpA=31 (claimed 0)", bold_a is not None, f"actual min Atk = {bold_a}")
+    # Smogon Gen III Battle Frontier leaderboard #1 (Jheisinho): Articuno "Timid / IVs: 6 Atk / 30 SpA" (Open Level 1316,
+    # p.77 #1908, 2025-01-28) and "Timid / IVs: 26 Atk / 30 SpA" (Lv50 1001 paste). Both are Hidden Power Grass 70.
+    def hp_type_power(h, a, b, c, d, s_):
+        t = ((h & 1) + (a & 1) * 2 + (b & 1) * 4 + (s_ & 1) * 8 + (c & 1) * 16 + (d & 1) * 32) * 15 // 63
+        pw = (((h >> 1) & 1) + ((a >> 1) & 1) * 2 + ((b >> 1) & 1) * 4 + ((s_ >> 1) & 1) * 8 + ((c >> 1) & 1) * 16
+              + ((d >> 1) & 1) * 32) * 40 // 63 + 30
+        return ['Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass',
+                'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark'][t], pw
+    print("  Smogon #1 (Jheisinho) Articuno spreads on the direct path:")
+    for atk, spa in ((6, 30), (26, 30)):
+        hits = [(pid, org) for (n, a, c, pid, org) in rows if n == 'Timid' and a == atk and c == spa]
+        for pid, org in hits:
+            print(f"    Timid 31/{atk}/31/{spa}/31/31 HP {hp_type_power(31, atk, 31, spa, 31, 31)} -> PID {pid:08X} origin {org:08X} PSV {psv_of(pid)}")
+        check(f"Jheisinho Timid 31/{atk}/31/{spa}/31/31 exists on the direct path (unique)", len(hits) == 1)
+    grass70 = sorted({(a, c) for (n, a, c, _, _) in rows if n == 'Timid' and hp_type_power(31, a, 31, c, 31, 31) == ('Grass', 70)})
+    print(f"    all Timid H/B/D/S=31 direct-path spreads with HP Grass 70 (Atk, SpA): {grass70}")
+    check("SpA=30 is the highest SpA among Timid HP-Grass-70 direct-path spreads (only Atk 6 and 26)",
+          [ac for ac in grass70 if ac[1] == 30] == [(6, 30), (26, 30)] and max(c for _, c in grass70) == 30)
     return rows
 
 # ----------------------------------------------------------------------------------------------------------------------
