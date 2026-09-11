@@ -8,7 +8,7 @@ import re, csv, json, os
 from collections import defaultdict
 
 D = os.path.dirname(os.path.abspath(__file__)) + "/pokeemerald"
-DATA = "/home/user/daily-tasks/battle-tower/data"
+DATA = os.environ.get("BT_DATA") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
 OUT = os.path.dirname(os.path.abspath(__file__)) + "/matchups"
 os.makedirs(OUT, exist_ok=True)
 

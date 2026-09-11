@@ -1,5 +1,5 @@
 import os
-os.chdir('/home/user/daily-tasks/battle-tower/tools/remote-audit')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 G={'__file__':'calc_matchups.py'}
 exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0], G)
 make=G['make']; damage_range=G['damage_range']; pool=G['pool']

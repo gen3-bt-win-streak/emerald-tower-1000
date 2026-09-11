@@ -4,7 +4,7 @@ import re, csv, json, os
 from collections import defaultdict
 
 D = os.path.dirname(os.path.abspath(__file__)) + "/pokeemerald"
-OUT = "/home/user/daily-tasks/battle-tower/data"
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
 os.makedirs(OUT, exist_ok=True)
 
 def read(name):

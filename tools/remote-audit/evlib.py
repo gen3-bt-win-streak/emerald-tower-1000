@@ -8,7 +8,7 @@
 """
 import sys, os
 _HERE=os.getcwd()
-os.chdir('/home/user/daily-tasks/battle-tower/tools/remote-audit'); sys.path.insert(0,'.')
+os.chdir(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0,'.')
 _G={'__file__':'calc_matchups.py'}
 exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0], _G)
 make=_G['make']; damage_range=_G['damage_range']; pool=_G['pool']; MOVES=_G['MOVES']; PHYSICAL=_G['PHYSICAL']
