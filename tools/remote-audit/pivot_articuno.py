@@ -10,8 +10,8 @@
   どくどく（まもる交互）       : 鋼/毒/ねむる等で不可でなければ k>=4 で 1.00（近似）
 零度無効（がんじょう／ヌケニン）は零度系 0。
 """
-import sys, math
-sys.path.insert(0, '/home/user/daily-tasks/battle-tower/tools/remote-audit')
+import sys, os, math
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from evlib import *
 import evlib
 tm = evlib._G['type_mult']
