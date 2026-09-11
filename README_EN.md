@@ -1,5 +1,7 @@
 # Emerald Battle Tower (Doubles, Open Level) — 1000-win-streak project
 
+Public repository: https://github.com/gen3-bt-win-streak/emerald-tower-1000
+
 A research repository for a 1000-win streak in the **Pokémon Emerald Battle Tower, Doubles, Open Level (Lv100)**.
 Everything here is derived from primary sources: the `pret/pokeemerald` decompilation (battle engine, AI scripts,
 Battle Frontier trainer and set data), full-population damage calculation over all 546 enemy sets that can appear
@@ -40,7 +42,8 @@ sure KO" sets (OHKO-move users, Focus Band Blissey), with Articuno's Protect cov
 ## Reproduce the key results
 
 ```bash
-cd tools/remote-audit
+git clone https://github.com/gen3-bt-win-streak/emerald-tower-1000.git
+cd emerald-tower-1000/tools/remote-audit
 
 # XD Articuno provenance: XDRNG constants, PokeFinder test vectors (11 vectors, 110 states),
 # forward derivation of PID 2F3C902C from seed ECFE3E26, PKHeX reverse-search port, lock chain,
