@@ -32,9 +32,9 @@
 
 ## 2. 提出write-upに入れる「個体準備」段落（英語・そのまま使用可）
 
-> **How the Pokémon were prepared.** All four Pokémon were created in PKHeX, following the current rule that genned Pokémon are allowed as long as they have legally obtainable stats and moves. Before creating each one I used PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces, and I recorded the seed and frame: Method 1 for the Southern Island Latios, egg frames for the bred Metagross, and XDRNG for the Articuno, which is an XD Shadow Articuno with its purify move Haze, not a Battle Pike glitch Articuno. Its spread is Calm 31/0/31/29/31/31, PID 0x2F3C902C, XDRNG origin seed 0xECFE3E26. All moves are level-up, TM/HM, tutor or XD purify moves. PKHeX reports every Pokémon as legal, and for the Articuno I also verified the XDRNG derivation with an independent script. PIDs, seeds and PokeFinder screenshots for every Pokémon are available on request.
+> **How the Pokémon were prepared.** All four Pokémon were created in PKHeX, following the current rule that genned Pokémon are allowed as long as they have legally obtainable stats and moves. Before creating each one I used PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces, and I recorded the seed and frame: Method 1 for the Southern Island Latios, egg frames for the bred Metagross and Snorlax, and XDRNG for the Articuno, which is an XD Shadow Articuno with its purify move Haze, not a Battle Pike glitch Articuno. Its spread is Calm 31/0/31/29/31/31, PID 0x2F3C902C, XDRNG origin seed 0xECFE3E26. All moves are level-up, TM/HM, tutor or XD purify moves. PKHeX reports every Pokémon as legal, and for the Articuno I also verified the XDRNG derivation with an independent script. PIDs, seeds and PokeFinder screenshots for every Pokémon are available on request.
 
-（カビゴンの生成方式（固定＝Method 1／孵化）は16章に未記載なので、提出時に確定させて文中に追記する。ラティオス＝みなみのことう Method 1、メタグロス＝タマゴ産は16章§1のとおり。）
+（来歴は16章§4の確定表のとおり：ラティオス＝みなみのことう Method 1、メタグロス＝タマゴ産、カビゴン＝タマゴ産 PID `7D72445B`（24章§11）、フリーザー＝XD `2F3C902C`。2026-09-11 訂正：前版の「カビゴンは16章に未記載」は誤り。）
 
 ## 3. 付録：出さなかった質問投稿（2026-09-10 午前版、参考）
 
