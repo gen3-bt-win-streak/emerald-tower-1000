@@ -217,7 +217,8 @@ Just_Peaches事例（§7）が示すとおり、却下は「証拠の薄さ×構
 **公開用エクスポートは自動化済み**：`tools/make_public_export.sh`
 - `battle-tower/` 単体の履歴を `git subtree split` で抽出
 - 個人メールのauthor書き換え／コミットのセッションURL除去／AWS個人インフラ文書（13・14章）を全履歴から除去
-- LICENSE（MIT）・英語README（再現手順つき）・.gitignore を付与して bundle 化
+- LICENSE（MIT＋第三者素材の注記）・英語README（`README_EN.md`、再現手順つき）・.gitignore は **2026-09-11 に `battle-tower/` 直下へコミット済み**。スクリプトは bundle 生成まで自動化され、同日この環境で通し実行して検証済み：1352コミット・author は `yuki-bt <yuki-bt@users.noreply.github.com>` のみ・`Claude-Session` 行 0・個人識別子（メール／AWSアカウントID）は全履歴の全ツリーに残存なし・13／14章と本スクリプト自体は履歴から除去。`Co-Authored-By: Claude …` のトレーラーは残る（AI補助の開示として整合。消すなら `--msg-filter` に1行追加）。
+- 公開手順：`bash tools/make_public_export.sh emerald-tower-1000.bundle` → `git clone emerald-tower-1000.bundle emerald-tower-1000` → 公開先リポジトリを作成して `git push -u origin pub-split:main`。
 - 公開先は**個人アカウントと分離した専用アイデンティティ**（専用メール＋2FA）を推奨。
   リポジトリ本体に秘密情報は無いが、コミットのauthorメールが唯一の実リーク経路だったため書き換え対象にしている。
 
