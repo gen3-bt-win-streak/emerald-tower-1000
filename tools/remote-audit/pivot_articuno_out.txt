@@ -1,0 +1,168 @@
+pool loaded: 546 sets
+Latios {'hp': 311, 'atk': 194, 'df': 196, 'spe': 341, 'spa': 359, 'spd': 256} Articuno {'hp': 380, 'atk': 157, 'df': 288, 'spe': 207, 'spa': 224, 'spd': 331}
+
+後出し対象P = 245 セット（ラティオス弱点技持ち、フリーザーが等倍以下で受ける）
+k分布: {0: 10, 1: 46, 2: 49, 3: 48, 4: 39, 5: 26, 6: 27} (6=6以上)
+フリーザーへの最大打点が物理: 91  特殊: 154
+状態異常技持ち: 28  零度無効: 4
+  こころのめ+零度               成功率合計  198.3/245  平均 0.810  確定 185
+  零度単体（相方が支援技）           成功率合計  140.9/245  平均 0.575  確定 8
+  リフレクター+零度              成功率合計  153.4/245  平均 0.626  確定 19
+  どくどく+まもる（近似）           成功率合計   72.0/245  平均 0.294  確定 72
+
+k<=1（フリーザーが後出ししても何もできない相手）:
+  #627プテラ          S296 着地被弾MOVE_DRAGON_CLAW  46 以後MOVE_ROCK_SLIDE 412 k=0 
+  #495オニゴーリ        S259 着地被弾MOVE_ICY_WIND  42 以後MOVE_EXPLOSION 379 k=0 
+  #714ヘルガー         S289 着地被弾MOVE_CRUNCH 109 以後MOVE_OVERHEAT 378 k=0 
+  #656ウインディ        S289 着地被弾MOVE_CRUNCH  68 以後MOVE_OVERHEAT 354 k=0 
+  #352アブソル         S249 着地被弾MOVE_SHADOW_BALL 139 以後MOVE_IRON_TAIL 348 k=0 
+  #616ヘラクロス        S269 着地被弾MOVE_MEGAHORN 102 以後MOVE_ROCK_SLIDE 340 k=0 
+  #465ボーマンダ        S299 着地被弾MOVE_DRAGON_CLAW  79 以後MOVE_ROCK_SLIDE 328 k=0 
+  #522ヘルガー         S289 着地被弾MOVE_CRUNCH 109 以後MOVE_FIRE_BLAST 324 k=0 
+  #752ウインディ        S289 着地被弾MOVE_CRUNCH  62 以後MOVE_OVERHEAT 324 k=0 
+  #489ライボルト        S309 着地被弾MOVE_CRUNCH  70 以後MOVE_THUNDER 314 k=0 
+  #691サイドン         S116 着地被弾MOVE_MEGAHORN  69 以後MOVE_ROCK_SLIDE 528 k=1 
+  #387ガラガラ         S126 着地被弾MOVE_ICY_WIND  18 以後MOVE_ROCK_SLIDE 504 k=1 
+  #470ガラガラ         S189 着地被弾MOVE_ICY_WIND  18 以後MOVE_ROCK_SLIDE 504 k=1 
+  #861バンギラス        S158 着地被弾MOVE_CRUNCH  90 以後MOVE_ROCK_SLIDE 492 k=1 
+  #693マタドガス        S156 着地被弾MOVE_SHADOW_BALL  73 以後MOVE_EXPLOSION 448 k=1 
+  #513アーマルド        S126 着地被弾MOVE_KNOCK_OFF  10 以後MOVE_ANCIENT_POWER 412 k=1 
+  #661チャーレム        S196 着地被弾MOVE_SHADOW_BALL 104 以後MOVE_ROCK_SLIDE 388 k=1 
+  #716ネンドール        S186 着地被弾MOVE_SHADOW_BALL  63 以後MOVE_EXPLOSION 384 k=1 
+  #732ブースター        S149 着地被弾MOVE_SHADOW_BALL  85 以後MOVE_OVERHEAT 342 k=1 
+  #435プテラ          S338 着地被弾MOVE_DRAGON_BREATH  23 以後MOVE_ANCIENT_POWER 340 k=1 
+  #754メタグロス        S176 着地被弾MOVE_SHADOW_BALL  88 以後MOVE_METEOR_MASH 326 k=1 
+  #833メタグロス        S176 着地被弾MOVE_ICE_PUNCH  56 以後MOVE_METEOR_MASH 326 k=1 
+  #664グランブル        S113 着地被弾MOVE_SHADOW_BALL 132 以後MOVE_MEGA_KICK 295 k=1 
+  #560ウインディ        S289 着地被弾MOVE_CRUNCH  62 以後MOVE_FIRE_BLAST 278 k=1 
+  #618ヘルガー         S289 着地被弾MOVE_SHADOW_BALL  67 以後MOVE_OVERHEAT 276 k=1 
+  #792ライコウ         S329 着地被弾MOVE_BITE  56 以後MOVE_THUNDERBOLT 266 k=1 
+  #646リザードン        S299 着地被弾MOVE_DRAGON_CLAW  72 以後MOVE_FLAMETHROWER 254 k=1 
+  #681ライボルト        S309 着地被弾MOVE_CRUNCH  70 以後MOVE_THUNDERBOLT 248 k=1 
+  #731サンダース        S394 着地被弾MOVE_BITE  50 以後MOVE_THUNDERBOLT 234 k=1 
+  #793エンテイ         S299 着地被弾MOVE_BITE  48 以後MOVE_FLAMETHROWER 224 k=1 
+  #589バクオング        S235 着地被弾MOVE_ICE_BEAM  76 以後MOVE_OVERHEAT 222 k=1 
+  #636ブースター        S251 着地被弾MOVE_SHADOW_BALL  85 以後MOVE_OVERHEAT 222 k=1 
+  #426ヘルガー         S268 着地被弾MOVE_SHADOW_BALL  62 以後MOVE_FLAMETHROWER 218 k=1 
+  #599エレブー         S309 着地被弾MOVE_ICE_PUNCH  56 以後MOVE_THUNDERBOLT 212 k=1 
+  #563ケッキング        S236 着地被弾MOVE_SHADOW_BALL  93 以後MOVE_MEGA_KICK 207 k=1 
+  #669ランターン        S233 着地被弾MOVE_ICE_BEAM  68 以後MOVE_THUNDERBOLT 204 k=1 
+  #766ラティオス        S256 着地被弾MOVE_DRAGON_CLAW 121 以後MOVE_THUNDERBOLT 192 k=1 
+  #799ラティオス        S256 着地被弾MOVE_DRAGON_CLAW 121 以後MOVE_THUNDERBOLT 192 k=1 
+  #800ゲンガー         S319 着地被弾MOVE_SHADOW_BALL  54 以後MOVE_THUNDERBOLT 192 k=1 
+  #801ゲンガー         S319 着地被弾MOVE_ICE_PUNCH  76 以後MOVE_THUNDERBOLT 192 k=1 
+  #803ゲンガー         S319 着地被弾MOVE_ICE_PUNCH  76 以後MOVE_THUNDERBOLT 192 k=1 
+  #725サーナイト        S259 着地被弾MOVE_ICE_PUNCH  74 以後MOVE_THUNDERBOLT 188 k=1 
+  #536フライゴン        S299 着地被弾MOVE_CRUNCH  59 以後MOVE_FIRE_BLAST 176 k=1 
+  #777ラティオス        S256 着地被弾MOVE_ICE_BEAM  88 以後MOVE_THUNDERBOLT 176 k=1 
+  #788ラティオス        S256 着地被弾MOVE_DRAGON_CLAW 111 以後MOVE_THUNDERBOLT 176 k=1 
+  #765ラティアス        S256 着地被弾MOVE_DRAGON_CLAW 109 以後MOVE_THUNDERBOLT 172 k=1 
+  #830ボーマンダ        S299 着地被弾MOVE_DRAGON_CLAW 109 以後MOVE_FLAMETHROWER 172 k=1 
+  #831ボーマンダ        S299 着地被弾MOVE_DRAGON_CLAW 109 以後MOVE_FLAMETHROWER 172 k=1 
+  #694ガルーラ         S279 着地被弾MOVE_SHADOW_BALL  75 以後MOVE_MEGA_KICK 168 k=1 
+  #631スターミー        S329 着地被弾MOVE_ICE_BEAM  80 以後MOVE_THUNDERBOLT 162 k=1 
+  #727スターミー        S329 着地被弾MOVE_ICE_BEAM  80 以後MOVE_THUNDERBOLT 162 k=1 
+  #855カイリュー        S259 着地被弾MOVE_DRAGON_CLAW 102 以後MOVE_THUNDERBOLT 162 k=1 
+  #856カイリュー        S259 着地被弾MOVE_DRAGON_CLAW 102 以後MOVE_THUNDERBOLT 162 k=1 
+  #857カイリュー        S259 着地被弾MOVE_DRAGON_CLAW 102 以後MOVE_FLAMETHROWER 162 k=1 
+  #787ラティアス        S256 着地被弾MOVE_DRAGON_CLAW  99 以後MOVE_THUNDERBOLT 156 k=1 
+  #659ケッキング        S236 着地被弾MOVE_SHADOW_BALL 138 以後MOVE_SHADOW_BALL 138 k=1 
+
+k=2〜3（こころのめの有無で差が出る帯）:
+  #641オーダイル        S192 着地  49 以後MOVE_ROCK_SLIDE 260物 k=2 kR=3 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #519ハッサム         S166 着地  52 以後MOVE_STEEL_WING 246物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #444ブースター        S166 着地  50 以後MOVE_FLAMETHROWER 234特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #424ヘラクロス        S206 着地 102 以後MOVE_ROCK_TOMB 228物 k=2 kR=3 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #685バクオング        S172 着地  67 以後MOVE_OVERHEAT 202特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #774レジアイス        S122 着地 150 以後MOVE_THUNDER 202特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #785レジアイス        S122 着地 120 以後MOVE_EXPLOSION 200物 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #477ドードリオ        S299 着地  23 以後MOVE_DOUBLE_EDGE 186物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #571ドードリオ        S299 着地  23 以後MOVE_DOUBLE_EDGE 186物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #748カビゴン         S 96 着地  83 以後MOVE_DOUBLE_EDGE 186物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #824カビゴン         S 96 着地  83 以後MOVE_MEGA_KICK 186物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #826カビゴン         S 96 着地  67 以後MOVE_HYPER_BEAM 186物 k=2 kR=5 E1 1.00 零度 0.50 リフ 0.75 毒 0 
+  #859カイリュー        S196 着地  92 以後MOVE_FIRE_BLAST 186特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #606ニドキング        S206 着地  90 以後MOVE_FIRE_BLAST 182特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #821ラプラス         S156 着地 136 以後MOVE_THUNDER 182特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #425リングマ         S146 着地  48 以後MOVE_MEGA_KICK 180物 k=2 kR=5 E1 1.00 零度 0.50 リフ 0.75 毒 0 
+  #724ポリゴン2        S156 着地  82 以後MOVE_THUNDERBOLT 166特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #668バリヤード        S216 着地  64 以後MOVE_THUNDERBOLT 162特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #698ヤドキング        S 96 着地  80 以後MOVE_FLAMETHROWER 162特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #763レジアイス        S136 着地 120 以後MOVE_THUNDERBOLT 162特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #839レジアイス        S136 着地 120 以後MOVE_THUNDERBOLT 162特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #600ケンタロス        S256 着地  44 以後MOVE_DOUBLE_EDGE 159物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #404フーディン        S276 着地  78 以後MOVE_THUNDER_PUNCH 158特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #464ウインディ        S289 着地  45 以後MOVE_FLAMETHROWER 158特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #692フーディン        S276 着地  78 以後MOVE_THUNDER_PUNCH 158特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #755ケッキング        S236 着地  78 以後MOVE_THUNDERBOLT 156特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #776ラティアス        S256 着地  78 以後MOVE_THUNDERBOLT 156特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #863バンギラス        S158 着地  99 以後MOVE_THUNDERBOLT 156特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #709ゲンガー         S319 着地  76 以後MOVE_FIRE_PUNCH 152特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #555ギャラドス        S261 着地  74 以後MOVE_FIRE_BLAST 150特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #629サーナイト        S259 着地  74 以後MOVE_FIRE_PUNCH 148特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #565チャーレム        S259 着地  42 以後MOVE_DYNAMIC_PUNCH 139物 k=2 kR=4 E1 1.00 零度 0.50 リフ 0.64 毒 0 
+  #440フライゴン        S299 着地  28 以後MOVE_STEEL_WING 136物 k=2 kR=7 E1 1.00 零度 0.50 リフ 0.87 毒 0 
+  #638エーフィ         S319 着地  61 以後MOVE_PSYCHIC 136特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #723プテラ          S296 着地  35 以後MOVE_FIRE_BLAST 136特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #734エーフィ         S319 着地  61 以後MOVE_PSYCHIC 136特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #377ルージュラ        S226 着地 132 以後MOVE_ICE_BEAM 132特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #662ムウマ          S295 着地  51 以後MOVE_THUNDERBOLT 132特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #665ルージュラ        S226 着地 132 以後MOVE_ICE_BEAM 132特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #741ジュカイン        S339 着地  70 以後MOVE_THUNDER_PUNCH 132特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #657ボーマンダ        S236 着地  66 以後MOVE_DOUBLE_EDGE 131物 k=2 kR=6 E1 1.00 零度 0.50 リフ 0.82 毒 0 
+  #561ボーマンダ        S278 着地  62 以後MOVE_DOUBLE_EDGE 123物 k=2 kR=7 E1 1.00 零度 0.50 リフ 0.87 毒 0 
+  #745クロバット        S359 着地  73 以後MOVE_SLUDGE_BOMB 123物 k=2 kR=7 E1 1.00 零度 0.50 リフ 0.87 毒 0 
+  #345ザングース        S279 着地  86 以後MOVE_CRUSH_CLAW 120物 k=2 kR=7 E1 1.00 零度 0.50 リフ 0.87 毒 0 
+  #632フライゴン        S278 着地  75 以後MOVE_FLAMETHROWER 118特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #756フリーザー        S269 着地 116 以後MOVE_ICE_BEAM 116特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #847ラティオス        S256 着地 111 以後MOVE_DRAGON_CLAW 111特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #591オニゴーリ        S238 着地 110 以後MOVE_BLIZZARD 110特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 
+  #843ラティアス        S256 着地 109 以後MOVE_DRAGON_CLAW 109特 k=2 kR=2 E1 1.00 零度 0.50 リフ 0.50 毒 0 状態異常
+  #433ハガネール        S 96 着地  21 以後MOVE_ROCK_TOMB 180物 k=3 kR=6 E1 0.00 零度 0.00 リフ 0.00 毒 0 
+  #474グランブル        S113 着地  46 以後MOVE_OVERHEAT 174特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #702ニドキング        S206 着地  50 以後MOVE_THUNDER 166特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #623カイリキー        S146 着地  44 以後MOVE_CROSS_CHOP 159物 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #486ハリテヤマ        S122 着地  38 以後MOVE_CROSS_CHOP 150物 k=3 kR=6 E1 1.00 零度 0.64 リフ 0.82 毒 0 
+  #642ボスゴドラ        S136 着地  74 以後MOVE_THUNDER 150特 k=3 kR=3 E1 0.00 零度 0.00 リフ 0.00 毒 0 
+  #652カビゴン         S 96 着地  67 以後MOVE_MEGA_KICK 150物 k=3 kR=6 E1 1.00 零度 0.64 リフ 0.82 毒 0 
+  #461キングドラ        S206 着地  75 以後MOVE_HYDRO_PUMP 147特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #581ピクシー         S156 着地  72 以後MOVE_THUNDERBOLT 146特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #744ラプラス         S156 着地 108 以後MOVE_THUNDERBOLT 146特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #463ミロカロス        S198 着地  44 以後MOVE_HYDRO_PUMP 141特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #448カメックス        S192 着地  46 以後MOVE_HYDRO_PUMP 136特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #610ゴルダック        S206 着地  90 以後MOVE_HYDRO_PUMP 135特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #605ニドクイン        S188 着地  66 以後MOVE_THUNDERBOLT 134特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #789フリーザー        S206 着地 134 以後MOVE_BLIZZARD 134特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #870フリーザー        S206 着地 134 以後MOVE_BLIZZARD 134特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #442シャワーズ        S166 着地  51 以後MOVE_SURF 132特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #854カイリュー        S196 着地 105 以後MOVE_DOUBLE_EDGE 130物 k=3 kR=4 E1 1.00 零度 0.64 リフ 0.64 毒 0 状態異常
+  #567オニドリル        S299 着地  26 以後MOVE_RETURN 127物 k=3 kR=8 E1 1.00 零度 0.64 リフ 0.91 毒 0 
+  #677ピクシー         S156 着地  57 以後MOVE_MEGA_KICK 127物 k=3 kR=8 E1 1.00 零度 0.64 リフ 0.91 毒 0 
+  #827カビゴン         S 96 着地  67 以後MOVE_RETURN 127物 k=3 kR=8 E1 1.00 零度 0.64 リフ 0.91 毒 0 
+  #405マタドガス        S156 着地  73 以後MOVE_SLUDGE_BOMB 123物 k=3 kR=8 E1 1.00 零度 0.64 リフ 0.91 毒 0 状態異常
+  #559ミロカロス        S198 着地  80 以後MOVE_SURF 121特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #496ルンパッパ        S176 着地  74 以後MOVE_THUNDER_PUNCH 120特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #700チルタリス        S196 着地  75 以後MOVE_FLAMETHROWER 118特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #849ラティオス        S298 着地  62 以後MOVE_PSYCHIC 118特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #740トドゼルガ        S149 着地 116 以後MOVE_SURF 117特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #267エネコロロ        S239 着地  56 以後MOVE_THUNDERBOLT 114特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 状態異常
+  #452トドゼルガ        S149 着地 114 以後MOVE_BLIZZARD 114特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 状態異常
+  #818スターミー        S329 着地  80 以後MOVE_PSYCHIC 114特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #834メタグロス        S176 着地  88 以後MOVE_THUNDER_PUNCH 114特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #347サメハダー        S268 着地  84 以後MOVE_DOUBLE_EDGE 113物 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #783スイクン         S269 着地  74 以後MOVE_SURF 112特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #794スイクン         S269 着地  74 以後MOVE_SURF 112特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #722ドククラゲ        S236 着地  58 以後MOVE_HYDRO_PUMP 111特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #488ジュゴン         S176 着地 110 以後MOVE_BLIZZARD 110特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #473オニドリル        S299 着地  16 以後MOVE_DRILL_PECK 109物 k=3 kR=10 E1 1.00 零度 0.64 リフ 0.95 毒 0 
+  #649クロバット        S359 着地  73 以後MOVE_DOUBLE_EDGE 109物 k=3 kR=9 E1 1.00 零度 0.64 リフ 0.94 毒 0 
+  #502ガルーラ         S216 着地  75 以後MOVE_CRUSH_CLAW 106物 k=3 kR=9 E1 1.00 零度 0.64 リフ 0.94 毒 0 
+  #507ミルタンク        S236 着地  57 以後MOVE_FOCUS_PUNCH 106物 k=3 kR=9 E1 1.00 零度 0.64 リフ 0.94 毒 0 状態異常
+  #845ラティアス        S298 着地  57 以後MOVE_PSYCHIC 105特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #542エーフィ         S319 着地  55 以後MOVE_PSYCHIC 103特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #673ネイティオ        S226 着地  60 以後MOVE_PSYCHIC 102特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #712ヘラクロス        S269 着地 102 以後MOVE_MEGAHORN 102物 k=3 kR=9 E1 1.00 零度 0.64 リフ 0.94 毒 0 
+  #517ゲンガー         S319 着地  90 以後MOVE_SLUDGE_BOMB 100物 k=3 kR=9 E1 1.00 零度 0.64 リフ 0.94 毒 0 状態異常
+  #846ラティオス        S256 着地 100 以後MOVE_DRAGON_CLAW 100特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 状態異常
+  #552ラプラス         S240 着地  98 以後MOVE_SURF  99特 k=3 kR=3 E1 1.00 零度 0.64 リフ 0.64 毒 0 
+  #728フライゴン        S278 着地  75 以後MOVE_DOUBLE_EDGE  99物 k=3 kR=5 E1 1.00 零度 0.64 リフ 0.75 毒 0 
