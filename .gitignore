@@ -1,1 +1,13 @@
-tools/simab_*/
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Regenerable calculator / simulator outputs
+tools/**/matchups/
+tools/remote-audit/*.log
+tools/remote-audit/_verify_*
+tools/remote-audit/*.out
+tools/remote-audit/_corpus*
+
+# Local scratch
+*.bundle
