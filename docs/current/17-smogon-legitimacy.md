@@ -225,6 +225,13 @@ Just_Peaches事例（§7）が示すとおり、却下は「証拠の薄さ×構
 - この作業環境（Claude Code）は `Yuki670926` 配下のリポジトリしか扱えないため、公開リポジトリへ直接 push はできない。Actions 経由が正規の経路。
 - 公開先は Yuki670926 が所有する Organization **`Gen3-bt-win-streak`**（2026-09-11 作成、メンバー表示は Private）。第2の個人アカウントはGitHub規約（無料個人アカウントは1人1つ）に抵触するため使わない。
   リポジトリ本体に秘密情報は無いが、コミットのauthorメールが唯一の実リーク経路だったため書き換え対象にしている。
+- **ディレクトリ再編と再公開（2026-09-13）**：章を `docs/{current,base,history,shelved,infra}/`、スクリプトを
+  `tools/{engine,xd,sim,advisor,publish,smogon,rng-oracle}/`、ckpt を `results/marathon-ckpt/` に分割した（移動は全件 `git mv` なので
+  `git log --follow` で再編前まで遡れる）。あわせて**エクスポートの除去対象に13・14章の新パスを追加**し、
+  publish ジョブを `workflow_dispatch` 限定に変更、既存の壊れアンカー3件を修正。再公開は **fast-forward で通った**
+  （`8a7eeb2..6a770f0`、`--force` 不要＝書き換え規則を変えていないことの裏取りになる）。公開側を再クローンして
+  author 単一・`Claude-Session` 行 0・個人識別子 0・追跡ファイル 257（うち `docs/` 28）・13／14章とエクスポート本体は
+  履歴ごと 0・`xd_articuno_verify.py` 42/42 を再確認した。第三者が読む順番は `README.md` と `TIMELINE.md` が入口になる。
 
 ## 9. 世界記録提出チェックリスト
 
