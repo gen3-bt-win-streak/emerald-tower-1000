@@ -1,6 +1,6 @@
 # 炎条項レバー（FIRE_FIX）A/B マラソン — 班（squad）作戦指令
 
-> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+> 注記（2026-09-13 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
 
 
 **目的**: 単炎条項Cに足した2レバーの勝率効果を、関所3・BOOM_FIXと同じ**同一100万シードのペア比較**で測る。

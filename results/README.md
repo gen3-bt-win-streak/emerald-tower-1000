@@ -24,7 +24,7 @@ v3 期に `tools/sim/remote_run.py` が複数の作業係セッションから�
 | `hdm` | HP_DARK | **存在しない**（走らせる前にマラソンを終了した。欠落ではない） |
 
 `milestones_*.jsonl` は各系列の到達記録（1000連勝の達成点など）。`milestones_v3m.jsonl` は
-2026-09-11 の再編で `milestones.jsonl` から改名したもの（他の系列と接頭辞を揃えるため）。
+2026-09-13 の再編で `milestones.jsonl` から改名したもの（他の系列と接頭辞を揃えるため）。
 当時のコードは `milestones.jsonl` に書いていたので、`docs/history/10-z-axis.md` の本文はその名前のまま。
 
 集計は `tools/sim/aggregate_*.py`（このディレクトリを cwd にして読む）。例：

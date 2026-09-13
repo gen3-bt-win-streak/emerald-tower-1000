@@ -3,7 +3,7 @@
 ## v3.1マラソン(同一シード)との100万戦フルペア比較も出力。
 import json, glob, os, math, sys
 
-SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-11 再編）
+SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-13 再編）
 BLOCKS=[25000000,26000000,27000000,28000000]
 STARTS=[0,62500,125000,187500]; CHUNK=62500; BLOCKN=250000
 

@@ -50,7 +50,7 @@ engine/calc_matchups.py   ←  engine/evlib.py           ←  engine/pivot_artic
 | `FIDELITY2=1` | シミュの忠実度モード。`verify_docs.py`・`remote_run.py`・マラソン系で使う |
 | `BT_DATA` | `data/` の場所を上書き（既定はリポジトリ相対） |
 
-## 旧 → 新パス対応表（2026-09-11 再編）
+## 旧 → 新パス対応表（2026-09-13 再編）
 
 再編前は `tools/remote-audit/` に全部入っていた。当時の文書（`results/archive/worker-ops/` や
 `docs/history/` の各章）はそのままの表記なので、読み替えにはこの表を使う。

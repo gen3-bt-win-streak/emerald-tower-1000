@@ -1,6 +1,6 @@
 # めざ岩レバー（HP_ROCK）A/B マラソン — 班（squad）作戦指令
 
-> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+> 注記（2026-09-13 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
 
 
 **目的**: D案採用（2026-07-30ユーザー決定・実機チーム変更済み）の勝率効果を、BOOM_FIX/FIRE_FIXと同じ**同一100万シードのペア比較**で測る。

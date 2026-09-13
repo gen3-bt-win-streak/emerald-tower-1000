@@ -4,7 +4,7 @@
 ##   ヌケニンは300トレーナー中2人の激レア枠のためシミュ上は中立(net≈0)が予想値。
 ##   net>0 かつ p<0.05 (冷B喪失の害が有意) の場合のみ棄却。
 import json, os, math
-SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-11 再編）
+SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-13 再編）
 BLOCKS=[25000000,26000000,27000000,28000000]; STARTS=[0,62500,125000,187500]; CHUNK=62500; BLOCKN=250000
 
 def wilson(k,n,z=1.96):

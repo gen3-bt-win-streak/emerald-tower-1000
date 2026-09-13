@@ -3,7 +3,7 @@
 ## 目的: net Δ が誤差圏(<0.02pp)なら「ピボット未実装は0.2516%を楽観化していない=床として認定」。
 ## PIVOT_ON負け > OFF なら真の負け率は高い方(=敵AIがピボットで我々に不利)。
 import json, os, math
-SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-11 再編）
+SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-13 再編）
 BLOCKS=[25000000,26000000,27000000,28000000]; STARTS=[0,62500,125000,187500]; CHUNK=62500; BLOCKN=250000
 
 def wilson(k,n,z=1.96):

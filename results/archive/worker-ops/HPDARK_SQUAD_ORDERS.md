@@ -1,6 +1,6 @@
 # ラグ技変種（冷B→めざ悪70）A/B マラソン — 班（squad）作戦指令
 
-> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+> 注記（2026-09-13 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
 
 
 **目的**: ラグラージの「れいとうビーム → めざめるパワー(あく70)」変更の勝率影響を、

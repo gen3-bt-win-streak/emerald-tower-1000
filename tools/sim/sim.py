@@ -3,7 +3,7 @@
 # Built on calc_matchups.py (damage engine + enemy pool). Approximations tagged APPROX.
 import random, collections, csv as _csv, json, sys
 
-# エンジン本体は tools/engine/calc_matchups.py（2026-09-11 再編で分離）。exec は本ファイルの globals に流し込むため、
+# エンジン本体は tools/engine/calc_matchups.py（2026-09-13 再編で分離）。exec は本ファイルの globals に流し込むため、
 # calc_matchups.py 内の __file__ 依存パス(pokeemerald/, ../../data, matchups/)が engine 側に解決するよう一時的に __file__ を差し替える。
 import os as _os
 _ENGINE=_os.path.join(_os.path.dirname(_os.path.abspath(__file__)),"..","engine")

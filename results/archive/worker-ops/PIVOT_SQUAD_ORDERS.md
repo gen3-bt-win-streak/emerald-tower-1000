@@ -1,6 +1,6 @@
 # 関所3 PIVOT_ON マラソン — 班（squad）作戦指令
 
-> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+> 注記（2026-09-13 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
 
 
 > ## ✅✅ 2026-07-21 再起動OK — 忠実モデル確定 ✅✅
