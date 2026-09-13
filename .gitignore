@@ -8,7 +8,7 @@ tools/sim/*.log
 tools/sim/_verify_*
 tools/sim/*.out
 tools/sim/_corpus*
-tools/advisor/function.zip
+function.zip
 
 # Local scratch
 *.bundle
