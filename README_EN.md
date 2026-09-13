@@ -31,6 +31,7 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | File | Content |
 |---|---|
 | `README.md` | Japanese overview and chapter index |
+| `TIMELINE.md` | What was tried, what was dropped, and why the tree looks like this (Japanese) |
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
 | `docs/current/25-v5-articuno-build.md` | The current team: full-population screening, EV optimisation, the Articuno build |
 | `docs/current/12-playbook.md` | The play rules actually used at the console, with every loss so far analysed and turned into a clause |
