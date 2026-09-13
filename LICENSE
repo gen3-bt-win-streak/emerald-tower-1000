@@ -24,7 +24,7 @@ SOFTWARE.
 
 Third-party material (not covered by the MIT license above):
 
-* `tools/remote-audit/pokeemerald/` contains excerpts of the pret/pokeemerald
+* `tools/engine/pokeemerald/` contains excerpts of the pret/pokeemerald
   decompilation project (https://github.com/pret/pokeemerald), reproduced for
   reference and verification only. Pokémon and Pokémon Emerald are trademarks
   of Nintendo / Creatures Inc. / GAME FREAK inc.

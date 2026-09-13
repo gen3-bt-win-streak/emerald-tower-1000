@@ -1,7 +1,7 @@
 # 26. フリーザー（XD産）の来歴証明ドシエ【2026-09-09】
 
 > **目的**：走者が本リポジトリで生成した個体（下記・A0/C29）を**そのまま正として**、①XDの乱数から独立に生成可能であること、②実機での入手ルート、③Smogon記録申請時に何を証拠として出すか、を確定する。**理想個体の探索は目的ではない**（§2.4の「他スプレッド」は「なぜC29なのか」を問われたときの回答として置いてあるだけ）。
-> **再現**：`tools/remote-audit/xd_articuno_verify.py`（自己完結・PokeFinderテストベクタ11件110状態を内蔵・42項目 ALL PASS・約1秒）。
+> **再現**：`tools/xd/xd_articuno_verify.py`（自己完結・PokeFinderテストベクタ11件110状態を内蔵・42項目 ALL PASS・約1秒）。
 > **調査体制**：ソース監査（PokeFinder／RNG Reporter／PKHeX）・Web技術資料・Smogon・色違い／Haze・理想個体リスト出典・ローカル計算の7系統を並列で行い、主要主張5件（色違い不可／生成可能性／PokeFinderの守備範囲／入手ルート／Smogonルール）を各3名の反証担当が独立に検証、その訂正を反映済み（C1・C2は全員confirmed、C3〜C5は部分訂正あり）。
 
 対象個体（本書ではGROUND TRUTHとして扱う）: ポケモンXD シャドウ・フリーザー（PKHeX "XD Shadow Encounter 76"、デスゴルド@シタダーク島=Location 074、Lv50、リライブ技 じんつうりき/いやしのすず/くろいきり/れいとうビーム）、性格 おだやか、個体値 H31/A0/B31/C29/D31/S31、PID 0x2F3C902C、XDRNG origin seed 0xECFE3E26（IV1フレーム直前の状態）、PSV=(0x2F3C^0x902C)>>3=0xBF10>>3=6114、色違いではない。PKHeX判定 Legal（PIDType CXD）。
@@ -16,7 +16,7 @@
 
 1. **XD RNGで生成可能か**: 可能【高】。origin 0xECFE3E26 から XDRNG（乗数 0x343FD／加算 0x269EC3）を5回進めると 0x7C1F→0xFFBF→0x5284→0x2F3C→0x902C となり、IV 31/0/31/29/31/31・PID 0x2F3C902C・おだやか・PSV 6114 が「直接経路（アンチシャイニー再抽選なし）」で一意に再現される。PKHeXとは独立の自作ポート（PokeFinderの11個のテストベクタ110状態を完全再現）で確認済み（＝ツール間の整合であり、実機RAMの実測ではない）。デスゴルド先行4体のロック連鎖もPKHeX TeamLockResult移植で5変種すべて通過（ただし全員シャドウのため「通過」は自明で弱い証拠）。
 2. **PokeFinder等の確認をSmogonに示せば十分か**: Smogonの現行ルール（2026-07-29時点の原文）は「正規に入手可能なステータス・技であればgenned個体も可」「IVまたは実数値の開示必須」であり、PID/TID/SID/seedの提出は求められない【高】。従って PokeFinder（Non Shadow Locks カテゴリ）＋PKHeX Legal の提示で規定上は十分。ただし PokeFinder は先行パーティ・CPUのTSV・偽PIDフレームを一切モデル化しない**部分検証**であり、「実機で入手した」ことの証明にはならない。**追記（2026-09-10）**：2024-12-23の管理者Adedede回答「PKHeX産のチームは不可」（GPT）で一度は疑義が生じたが、同日夕方の再検証（GPT回答C）で **2026-05-03 リーダーボード管理者Valentino23の明示回答「genned Pokemon are allowed … must have legal moves and IV combinations」** と、PokeFinderで合法スプレッドを探し直してPKHeXで作る運用実例（#2119）が見つかり、OPも2026-06-16に整理済み。**規定上も運用上も「合法な技とIVの組」であれば可、実入手やPID/seed提出は不要**（§6.1）。質問投稿は不要（`27-smogon-post.md`）。
-3. **保存すべき証拠**: (a) PKHeX Legality レポート全文（PIDType CXD, origin 0xECFE3E26 表示）、(b) PokeFinder GameCube Searcher（Non Shadow Locks／Articuno／プロフィールTID・SID）の検索結果とGenerator再生成のスクリーンショット、(c) 本リポジトリの `tools/remote-audit/xd_articuno_verify.py` の実行ログ（42/42 PASS）、(d) セーブのTID/SIDと (TID^SID)>>3≠6114 の記録、(e) 可能なら Dolphin RAMトレースまたは実機録画。詳細は§8。
+3. **保存すべき証拠**: (a) PKHeX Legality レポート全文（PIDType CXD, origin 0xECFE3E26 表示）、(b) PokeFinder GameCube Searcher（Non Shadow Locks／Articuno／プロフィールTID・SID）の検索結果とGenerator再生成のスクリーンショット、(c) 本リポジトリの `tools/xd/xd_articuno_verify.py` の実行ログ（42/42 PASS）、(d) セーブのTID/SIDと (TID^SID)>>3≠6114 の記録、(e) 可能なら Dolphin RAMトレースまたは実機録画。詳細は§8。
 
 ---
 
@@ -87,7 +87,7 @@ D1D0AE06 から前進再生成（TID/SID 2 → 各NPC 5＋PIDペア → 偽PID 2
 - 実機の偽PID/先行フレーム配置は逆アセンブル・RAMトレースでは未確認（PokeFinder・PKHeX・aldelaro5 の3実装一致に基づく）。
 
 ### 2.4 直接経路の全数証明【高】
-IV1出力が HP=Def=31（Atk・bit15自由）かつ IV2出力が SpD=Spe=31 の全状態を列挙（`tools/remote-audit/xd_articuno_verify.py` §5。反証担当C2の3名がそれぞれ自前のスクリプトで再計算し一致）:
+IV1出力が HP=Def=31（Atk・bit15自由）かつ IV2出力が SpD=Spe=31 の全状態を列挙（`tools/xd/xd_articuno_verify.py` §5。反証担当C2の3名がそれぞれ自前のスクリプトで再計算し一致）:
 - 総数 4692。性格別: おだやか 194、しんちょう 199、ずぶとい 195、おくびょう 174、ひかえめ 177 など。
 - **おだやか A0 は8状態のみ**、SpA ∈ {29, 28, 26, 17, 16, 15, 4, 3}: C29 2F3C902C@ECFE3E26 / C28 55A2A319@1A7ABB3A / C26 C2360A0C@06F74AFC / C17 652F7B63@42E1EB5E / C16 8B958E50@705E6872 / C15 571D428A@0C18D7A9 / C4 66AA1AD4@348007CD / C3 8D102DC1@61FC84E1。
 - **おだやか 31/0/31/31/31/31 は存在しない**（直接経路で0件、アンチシャイニー1回・2回でも0件、さらに全深度で不可能: 31/0/31/31/31/31 の直接4状態（てれい 2405CA1E／うっかりや 9243BC41／しんちょう A405CA1E／きまぐれ 1243BC41）の再抽選連鎖はすべて1回で非色違いに終わり、得られるのは ようき/ずぶとい/わんぱく/おくびょう のみ）。
@@ -107,7 +107,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 | **PokeFinder** (v4.1.0以降; master ecf97624, EncounterTableGenerator fb7414de; リリース v4.3.0 はサブモジュール aae86b0 で同内容) | GameCube RNG → **Searcher カテゴリ「Non Shadow Locks」→ Articuno**（galesColo[67], Shiny::Never, Lv50）で IV→seed 検索、Generator で再生成、プロフィールTID/SID によるアンチシャイニー再抽選、Tools→GameCube Seed Finder（Gales）で実機の現在seed特定 | 「Shadow Locks」には未収録（77エントリに種144無し；全員シャドウのパーティは ShadowTemplate で表現不能）。先行4体・CPU TID/SID・偽PID・CPU TSV を一切モデル化しない**部分検証**。v4.0.1 以前はフリーザー項目自体が無い（72種ハードコード）。テストベクタは自己生成回帰データで実機採取無し |
 | **RNG Reporter** 9.96.6A3 (Slashmolder) | "Colosseum\XD" 法で seed 0xECFE3E26 フレーム1に個体表示、"IVs to PID/SEED" で MonsterSeed 0xECFE3E26 | ロック・アンチシャイニー・XD/コロ区別なし；初期フレームスキップに off-by-one（`FrameGenerator.cs:3801`）；XD Capture タブは「パーティ先頭生成」前提（375,451フレーム固定）でフリーザーには不適用 |
 | RNG Reporter Admiral-Fish 版 (v10.x, 2019アーカイブ) | GameCubeRNG でフリーザー（NoLock）＋anti-PID 検索 | 先行ロック未検証；未実行（C#未稼働） |
-| **自作スクリプト** `tools/remote-audit/xd_articuno_verify.py`（678行, md5 0033f7447fe19d23f977a21ff8c8d0de） | XDRNG定数検証、PokeFinder 11ベクタ110状態完全一致、前進導出、GetXDRNGMatch 移植、TeamLockResult 移植（5変種＋前進再生成）、直接経路全数列挙（Smogon1位のおくびょう2個体の実在確認を含む）、アンチシャイニー列挙 — 42/42 PASS, exit 0, 約1秒 | 実機・逆アセンブルとの照合は含まない |
+| **自作スクリプト** `tools/xd/xd_articuno_verify.py`（678行, md5 0033f7447fe19d23f977a21ff8c8d0de） | XDRNG定数検証、PokeFinder 11ベクタ110状態完全一致、前進導出、GetXDRNGMatch 移植、TeamLockResult 移植（5変種＋前進再生成）、直接経路全数列挙（Smogon1位のおくびょう2個体の実在確認を含む）、アンチシャイニー列挙 — 42/42 PASS, exit 0, 約1秒 | 実機・逆アセンブルとの照合は含まない |
 
 テストベクタ照合結果（`Test/Gen3/gamecube.json`, Profile TID 12345/SID 54321, TSV 58376）: generateGalesShadow 6件（Ledyba SingleLock / Spheal FirstShadow / Growlithe unset・set / Salamence unset・set）＋ generateNonLock 5件（Colo Umbreon / Colo Espeon / Ageto Celebi / Gales Eevee / Gales Chikorita）を全advance一致で再現。例: Ledyba adv0 PID 2569274063 IVs [28,12,31,14,19,7]、Gales Chikorita adv0 PID 159752855 IVs [6,1,0,17,7,7]。鳥3種のベクタは存在しない。
 
@@ -247,7 +247,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 - [ ] 個体のインポータブル（性格・IV 31/0/31/29/31/31・技・持ち物・EV）と実数値、PID 0x2F3C902C、PSV 6114、Met 074、Fateful Encounter、ナショナルリボン
 - [ ] セーブ（GBA側・XD側）の TID/SID と (TID^SID)>>3≠6114 の計算メモ
 - [ ] PokeFinder バージョン（v4.1.0 以降）・プロフィール（Gales, TID/SID）・Searcher「Non Shadow Locks / Articuno / IV 31,0,31,29,31,31 / Calm」の結果画面、Generator seed ECFE3E26 advance 0 の再生成画面
-- [ ] `tools/remote-audit/xd_articuno_verify.py` と実行ログ（42/42 PASS）、参照した PokeFinder/PKHeX/EncounterTableGenerator のコミットID（ecf97624 / e0e63bc8 / fb7414de）
+- [ ] `tools/xd/xd_articuno_verify.py` と実行ログ（42/42 PASS）、参照した PokeFinder/PKHeX/EncounterTableGenerator のコミットID（ecf97624 / e0e63bc8 / fb7414de）
 
 **【強く推奨】**
 - [ ] §2.3 の変種表（どの "seen" 状態で入手したか、チーム生成前seed D1D0AE06/28E810AA/766D3474/DB7D868E のいずれか）を記録
@@ -266,13 +266,13 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 ## 9. 出典一覧
 
-### ローカル（scratchpad = 作業セッション限りの一時領域で、恒久的なのはリポジトリ内 `tools/remote-audit/xd_articuno_verify.py` のみ。研究記録中の「0x24BB724C（てれい）」は誤値で、正しくは `E58324BB`（わんぱく）。研究タスクが参照した `scratchpad/xd_articuno.py`／`xd_pick.py`／`scratchpad/pkhex/repo` は存在しない）
+### ローカル（scratchpad = 作業セッション限りの一時領域で、恒久的なのはリポジトリ内 `tools/xd/xd_articuno_verify.py` のみ。研究記録中の「0x24BB724C（てれい）」は誤値で、正しくは `E58324BB`（わんぱく）。研究タスクが参照した `scratchpad/xd_articuno.py`／`xd_pick.py`／`scratchpad/pkhex/repo` は存在しない）
 - PokeFinder (Admiral-Fish, ecf97624791aec147960c4f48b92ad492945b05c, 2026-09-06): `src/pokefinder/Core/RNG/LCRNG.hpp:237-253,296-297`; `Core/RNG/LCRNGReverse.cpp:296-352`; `Core/Gen3/Generators/GameCubeGenerator.cpp:32-35,100-104,126-213,215-298,300-396`; `Core/Gen3/Searchers/GameCubeSearcher.cpp:293-356,358-437,439-573`; `Core/Gen3/Searchers/GalesSeedSearcher.cpp:24-270`; `Core/Gen3/ShadowLock.cpp:25-436`; `Core/Gen3/ShadowLock.hpp:34-35,47-48,61-62`; `Core/Gen3/LockInfo.hpp:42-43,55-66`; `Core/Enum/ShadowType.hpp:30-34`; `Core/Gen3/Encounters3.cpp:229-236,310-316`; `Core/Resources/Embed/embed_gen3.py:11-31`; `Core/Resources/i18n/en/gales_en.txt`（ポケスポット名3件のみ）; `Core/Resources/i18n/en/moves_en.txt`; `Test/Gen3/gamecube.json`; `Test/Gen3/GameCubeGeneratorTest.cpp:120-238`; `Test/Gen3/GameCubeSearcherTest.cpp:160-282`; `git show HEAD:Form/Gen3/GameCube.cpp:117-323`, `GameCube.ui:84,115-125,201,246-256`, `Form/Gen3/Tools/GameCubeSeedFinder.cpp:32-153`
 - EncounterTableGenerator Gen3/encounters.json @fb7414deb8412011570951731caeb0a5c834e20b: `scratchpad/et/encounters_fb7414de.json`（galesColoShadow 77件、galesColo[62-68]）; v4.3.0 のサブモジュール aae86b0 も同内容
 - PKHeX (master e0e63bc87837ad2d9c8f8fda4efdbf5f2933db08): `scratchpad/pkhex_src/XDRNG.cs:23-31,130-134,300-347`; `MethodCXD.cs:15-49,396-477,489-569`; `MethodFinder.cs:254-302`; `LockFinder.cs:17-45`; `NPCLock.cs:14-15,29-38`; `TeamLock.cs:21-58`; `TeamLockResult.cs:15,51,61-66,118-124,139,176,194,229-268`; `Encounters3XD.cs:7-25,108-114`; `Encounters3XDShadow.cs:825-935`; `Encounters3XDTeams.cs:82-83`; `EncounterShadow3XD.cs:13-35,48-66,81-90,140-147`; `scratchpad/pkhex_sparse/PKHeX/PKHeX.Core/Legality/RNG/Frame/FrameCache.cs:20-46`; `.../RNG/Util/ShinyUtil.cs:40,55`; `.../RNG/PIDType.cs:81-86`; `.../Encounters/Data/Gen3/EncountersWC3.cs:63-156`; `Encounters3FRLG.cs:55`; `Templates/Gen3/EncounterStatic3.cs:20`; `Templates/Gen3/Colo/EncounterShadow3Colo.cs:24`, `EncounterGift3Colo.cs:18`, `EncounterStarter3Colo.cs:17`; `Templates/Gen3/XD/EncounterStatic3XD.cs:17`, `EncounterTrade3XD.cs:19`, `EncounterSlot3XD.cs:17`; `LearnSource/Sources/LearnSource3RS.cs:77-85`; `LearnSource/Verify/LearnVerifierHistory.cs:225-229`（注: `scratchpad/pkhex_more/ShinyUtil.cs`, `LearnSource3XD.cs` 等は0バイトの404プレースホルダ）
 - RNG Reporter 9.96.6A3 (Slashmolder e9128b1, 2015-09-26): `src/rngreporter/RNGReporter/Objects/LCRNG.cs:61-104`; `Objects/FrameGenerator.cs:1096-1194,3797-3836`; `Objects/Frame.cs:175-231,813-842`; `Objects/IVtoSeed.cs:33-104,140-266`; `Objects/FrameType.cs:22-57`; `MainForm.cs:107,538-555,1316-1336`; `TimeFinder3rd.cs:835-1021`; `TimeFinder3rd.Designer.cs:3028-3173,3710,4344`; `Objects/IFrameCaptureXD.cs:24-34`; `IVtoPID_SID_SEED.resx:145`; `DonationBox.resx:121-140`。Admiral-Fish版: `scratchpad/af/GameCube.cs:160,206-300,439-468,1636-1638,2015-2034,2152-2200`; `scratchpad/af/NatureLock.cs:32-70,158-247,328-345,491-515,619-652,719-727`
-- 学習データ: `scratchpad/learn/pokeemerald_level_up_learnsets.h:1994-2005`, `pokefirered_level_up_learnsets.h:2038-2049`, `pokeruby_level_up.h:2002-2013`, `*_tmhm_learnsets.h`, `*_tutor_learnsets.h`, `*_egg_moves.h`; `veekun_pokemon_moves.csv`, `veekun_version_groups.csv`; `ps_learnsets.ts`, `ps_global_types.ts:48-69`; `tools/remote-audit/pokeemerald/species_info.h:4353`, `pokemon.c:6740-6744`, `test_level_up_learnsets.h:1994-2005`
-- 自作検証: `tools/remote-audit/xd_articuno_verify.py`（42/42 PASS）; `scratchpad/verify/xd_verify.py`（8 XD/Galesベクタ PASS）; `scratchpad/r5/spreads.py`; `scratchpad/c2_indep.py`, `c2_lock.py`, `c2_m1.py`, `adv_c2.py`, `adv_c4.py`, `c5/jheis.py`, `c5/sixv.py`; `scratchpad/verify_run.txt`; `scratchpad/ald_xd.cpp`, `ald_wizard.cpp`, `xdss_main.md`, `prg_Initial20Seed20RNG.m.mdx`
+- 学習データ: `scratchpad/learn/pokeemerald_level_up_learnsets.h:1994-2005`, `pokefirered_level_up_learnsets.h:2038-2049`, `pokeruby_level_up.h:2002-2013`, `*_tmhm_learnsets.h`, `*_tutor_learnsets.h`, `*_egg_moves.h`; `veekun_pokemon_moves.csv`, `veekun_version_groups.csv`; `ps_learnsets.ts`, `ps_global_types.ts:48-69`; `tools/engine/pokeemerald/species_info.h:4353`, `pokemon.c:6740-6744`, `test_level_up_learnsets.h:1994-2005`
+- 自作検証: `tools/xd/xd_articuno_verify.py`（42/42 PASS）; `scratchpad/verify/xd_verify.py`（8 XD/Galesベクタ PASS）; `scratchpad/r5/spreads.py`; `scratchpad/c2_indep.py`, `c2_lock.py`, `c2_m1.py`, `adv_c2.py`, `adv_c4.py`, `c5/jheis.py`, `c5/sixv.py`; `scratchpad/verify_run.txt`; `scratchpad/ald_xd.cpp`, `ald_wizard.cpp`, `xdss_main.md`, `prg_Initial20Seed20RNG.m.mdx`
 - リポジトリ文書: `17-smogon-legitimacy.md:27-74,89,115,168-173`（2026-07-29 OP原文コピー）; `18-verification-ledger.md:204`; `25-v5-articuno-build.md:845-882`; `16-pkhex-setup.md:93-141`; `sources.md:43-44,69-70`; `README.md:9-10`; `07-hardware-proof.md:40`; `10-z-axis.md:8`（旧 `26-articuno-provenance.md:90,136-138` は本書で訂正）
 
 ### Web（閲覧できたもの）

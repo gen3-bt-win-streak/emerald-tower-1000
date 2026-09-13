@@ -25,30 +25,39 @@ sure KO" sets (OHKO-move users, Focus Band Blissey), with Articuno's Protect cov
 
 ## What is in here
 
+Chapters live in `docs/current`, `docs/base`, `docs/history`, `docs/shelved` and `docs/infra`.
+Chapter numbers are stable IDs and never change when a chapter moves.
+
 | File | Content |
 |---|---|
 | `README.md` | Japanese overview and chapter index |
-| `00`–`03` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s` |
-| `04`–`06`, `15`, `24`, `25` | Team design history (v1 → v5), full-population screening, EV optimisation, the Articuno build |
-| `08`, `20`–`23` | Simulator results (1M-battle marathons, loss seeds), Explosion digest, RNG oracle, rejected axes |
-| `12-playbook.md` | The play rules actually used at the console, with every loss so far analysed and turned into a clause |
-| `16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
-| `17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
-| `18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
-| `26-articuno-provenance.md` | Provenance dossier for the XD Articuno: XDRNG derivation, lock chain, exhaustive proof that Calm 31/0/31/31/31/31 is impossible, acquisition route, shiny impossibility |
+| `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
+| `docs/current/25-v5-articuno-build.md` | The current team: full-population screening, EV optimisation, the Articuno build |
+| `docs/current/12-playbook.md` | The play rules actually used at the console, with every loss so far analysed and turned into a clause |
+| `docs/current/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
+| `docs/current/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
+| `docs/current/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
+| `docs/current/26-articuno-provenance.md` | Provenance dossier for the XD Articuno: XDRNG derivation, lock chain, exhaustive proof that Calm 31/0/31/31/31/31 is impossible, acquisition route, shiny impossibility |
+| `docs/history/04`–`06`, `08`–`10`, `15`, `24` | Team design history (v1 → v4), simulator results (1M-battle marathons, loss seeds) |
+| `docs/shelved/11`, `19`, `21`–`23` | Axes that were measured and dropped or parked |
 | `data/` | 882 Battle Frontier sets (546 in the 50+ pool), 300 trainers, danger reports (CSV/JSON) |
-| `tools/remote-audit/` | Damage engine (`calc_matchups.py`, `evlib.py`), simulators, the XD verifier, pivot/role models |
+| `tools/engine/` | Damage engine (`calc_matchups.py`, `evlib.py`) and the pokeemerald excerpts it reads |
+| `tools/xd/` | XD Articuno provenance verifier |
+| `tools/sim/` | Simulators and verification scripts (`legacy/` = v0-era snapshots, not runnable) |
+| `tools/README.md` | What each tools directory is for, which way the dependencies point, and an old → new path table |
 
 ## Reproduce the key results
 
 ```bash
 git clone https://github.com/gen3-bt-win-streak/emerald-tower-1000.git
-cd emerald-tower-1000/tools/remote-audit
+cd emerald-tower-1000/tools/xd
 
 # XD Articuno provenance: XDRNG constants, PokeFinder test vectors (11 vectors, 110 states),
 # forward derivation of PID 2F3C902C from seed ECFE3E26, PKHeX reverse-search port, lock chain,
 # exhaustive direct-path enumeration. Exit code 0 == all 42 checks pass. Runs in about a second.
 python3 xd_articuno_verify.py
+
+cd ../engine
 
 # Full-population damage tables for the team (writes matchups/report.json)
 python3 calc_matchups.py
@@ -57,7 +66,7 @@ python3 calc_matchups.py
 python3 pivot_articuno.py
 ```
 
-The scripts are plain Python 3, no third-party packages. `evlib.py` exposes `make()`, `incoming()`, `outgoing()`,
+The scripts are plain Python 3, no third-party packages. `tools/engine/evlib.py` exposes `make()`, `incoming()`, `outgoing()`,
 `ko_fixed_list()` and `risk_n_list()` for ad-hoc questions; see the docstring at the top of the file.
 
 Definitions used throughout: an enemy is a **guaranteed KO** if the *minimum* damage roll kills it; a set is in
@@ -67,13 +76,13 @@ the **OHKO-risk range** if its *maximum* roll kills us. Enemy IVs are 31 (Battle
 
 All four Pokémon were created in PKHeX after first finding, with PokeFinder, a PID / IV / nature combination that
 the in-game Gen 3 RNG actually produces (Method 1, egg frames, or XDRNG). PKHeX reports every Pokémon as legal,
-and for the Articuno the XDRNG derivation is re-implemented independently in `xd_articuno_verify.py`. This matches
+and for the Articuno the XDRNG derivation is re-implemented independently in `tools/xd/xd_articuno_verify.py`. This matches
 the current Smogon Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have legally
 obtainable stats and moves", leaderboard manager's clarification of May 2026). Chapter 26 documents what this does
 and does not prove: the Articuno is reachable by the real XD RNG, but it was not obtained on hardware.
 
 ## License
 
-MIT for the code and documents written in this repository (see `LICENSE`). The `pokeemerald` excerpts and the
+MIT for the code and documents written in this repository (see `LICENSE`). The `tools/engine/pokeemerald` excerpts and the
 game-derived data tables are third-party material, reproduced for reference; Pokémon is a trademark of Nintendo /
 Creatures Inc. / GAME FREAK inc.

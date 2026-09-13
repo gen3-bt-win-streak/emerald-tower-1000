@@ -1,5 +1,8 @@
 # リモート監査ジョブ(実行手順書)
 
+> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+
+
 このフォルダは自己完結の計算パッケージ。別セッション(作業係)が以下を実行し、
 結果を `battle-tower/results/remote_audit_results.jsonl` に集積して随時 push する。
 

@@ -1,5 +1,8 @@
 # 関所3 PIVOT_ON マラソン — 班（squad）作戦指令
 
+> 注記（2026-09-11 再編）：本文の `tools/remote-audit/` は現在 `tools/sim/`（シミュ）・`tools/engine/`（エンジン）に分割、ckpt は `results/marathon-ckpt/`。原文は当時のまま。
+
+
 > ## ✅✅ 2026-07-21 再起動OK — 忠実モデル確定 ✅✅
 > `foe_switch_target` は忠実度ワークフロー(22エージェント)の確定差分を全反映した**最終版**です（コミット c5a48b8）。
 > モデル= 敵AI ShouldSwitch のうち当構築のダブルで関与する **#3 AbsorbMove(Volt Absorb) + gate517 + gate519 + #5/#6** を
