@@ -63,7 +63,7 @@
 | [24-pick4-audit.md](docs/history/24-pick4-audit.md) | 280連勝停止後の4Pick監査。メタグロス必須・ラグラージ→カビゴン・EV指標の再定義（v5の出発点） | 📁 記録 |
 | [10-z-axis.md](docs/history/10-z-axis.md) | Z軸（v3→v4）：100万戦シミュ（負け率0.2516%）・装備／EV補遺1〜20・敗因解剖 | 📁 記録 |
 | [08-simulation.md](docs/history/08-simulation.md) | 対戦シミュレータの開発と大規模検証 | 📁 記録 |
-| [06-no-boom-playbook.md](docs/history/06-no-boom-playbook.md) | 爆発できないパターンの頻度・対策（v4） | 📁 記録 |
+| [06-no-boom-playbook.md](docs/history/06-no-boom-playbook.md) | 爆発できないパターンの頻度・対策（旧本流・ゲンガー軸） | 📁 記録 |
 | [04-team.md](docs/history/04-team.md)／[05-final-team.md](docs/history/05-final-team.md)／[09-c-hedge.md](docs/history/09-c-hedge.md) | 初期構想（ゲンガー軸・ほろびのうた路線） | 📁 記録 |
 
 ### 検討して棚上げ・不採用にした軸 — `docs/shelved/`
