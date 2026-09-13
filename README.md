@@ -16,6 +16,7 @@
 
 ## 読む順番
 
+- **経緯を1枚で**：[TIMELINE.md](TIMELINE.md)（何を試し、何が没になり、なぜ今の形か。棄却・棚上げ・訂正も全部載せている）
 - **実機で戦う**：[12章 v5クイックリファレンス](docs/current/12-playbook.md)（1ページ）→ 該当条項へ。
 - **構築を理解する**：[25章§0](docs/current/25-v5-articuno-build.md)（確定表と主要指標）→ §2（フリーザーの全検討）→ §10（敵対評価）。
 - **個体を用意する／正当性を説明する**：[16章](docs/current/16-pkhex-setup.md) → [26章](docs/current/26-articuno-provenance.md) → [17章](docs/current/17-smogon-legitimacy.md)・[27章](docs/current/27-smogon-post.md)。

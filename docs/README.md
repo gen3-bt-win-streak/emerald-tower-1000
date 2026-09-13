@@ -11,4 +11,5 @@
 | `shelved/` | 測って落とした軸・結論を保留した軸（11・19・21〜23） |
 | `infra/` | 機材・記録証明・配備手順（07・13・14）。**13と14は非公開専用**で、公開エクスポートが全履歴から除去する |
 
-全体の入口は [`../README.md`](../README.md)、英語の入口は [`../README_EN.md`](../README_EN.md)。
+全体の入口は [`../README.md`](../README.md)、経緯を1枚で見るなら [`../TIMELINE.md`](../TIMELINE.md)、
+英語の入口は [`../README_EN.md`](../README_EN.md)。
