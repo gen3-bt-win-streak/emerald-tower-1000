@@ -1,7 +1,7 @@
 # 08. 模擬想定戦シミュレータ v0（2万戦レポート）
 
-> `tools/sim.py`（対戦エンジン＋敵AIモデル＋プレイブックボット）／`tools/sim_run.py`（集計ラン）。
-> 実行：`python3 sim_run.py`（calc_matchups.py・data/ と同階層で）。結果：`data/sim20k_summary.json`
+> `tools/sim/legacy/sim.py`（対戦エンジン＋敵AIモデル＋プレイブックボット）／`tools/sim/legacy/sim_run.py`（集計ラン）。
+> 実行：`python3 sim_run.py`（calc_matchups.py・data/ と同階層で）。結果：`results/archive/sim-era/sim20k_summary.json`
 
 ## これは何か
 
@@ -439,7 +439,7 @@ Aの条件付き火力（爆弾）は確殺判定の精度で発火するため�
 
 学習が見つけた方向（両チーム一致）：**danger係数1.15〜1.27**＝「合算致死ギリギリの盤面では守らず殴る」。
 手調整済みルールはほぼ最適域にあり、閾値で稼げる残りは小さい＝**残る差は構造（何を持つか）であって
-調整（いつ守るか）ではない**ことの確認。学習済みパラメータは tools/learned_A.json / learned_C.json。
+調整（いつ守るか）ではない**ことの確認。学習済みパラメータは tools/sim/legacy/learned_A.json / learned_C.json。
 
 ### 結論：実戦Phase 5は「二刀流トライアル」に変更
 
@@ -473,7 +473,7 @@ C改ゲンガー4枠目のペア比較で「同一(seed, event_seed)なのに直
 1. カビゴン早期ねむる HP6割（−0.105pt）／2. 自爆持ち合体とどめ＝50%超から1ターン貫通（−0.09pt）
 3. ゲンガーみがわり前倒し・最大単発が現HP2/3以上（−0.11pt。1/2まで下げは過学習で棄却）
 4. 学習ノブ再学習（v0.7土台、−0.19pt）
-**確定値：3.365% → 2.705%（−20%）、最長連勝161→263**。実装は tools/sim_c7.py＋learned_C7.json。
+**確定値：3.365% → 2.705%（−20%）、最長連勝161→263**。実装は tools/sim/legacy/sim_c7.py＋learned_C7.json。
 棄却ログ：炎対面両引き（+0.45pt悪化）・安全着地ゲート（既存の賢い受け先が既に保証、締めると悪化）・
 めいそう緩和・雷優先攻撃・カビ受け直し・みが前倒し1/2。詳細は09
 
@@ -488,7 +488,7 @@ C改ゲンガー4枠目のペア比較で「同一(seed, event_seed)なのに直
 
 ## 2手読み探索ボット（1%台への主レバー・実装済み）
 
-リスクバケツ（負けの47%＝再抽選で5〜9割勝てた事故）を狙う探索。`tools/sim_search.py`。
+リスクバケツ（負けの47%＝再抽選で5〜9割勝てた事故）を狙う探索。`tools/sim/legacy/sim_search.py`。
 - **方式**：決定化サンプリングexpectimax。危険局面（ペア圧殺圏 or 自爆持ち50%超）でのみ起動（全ターンの72%）。
   候補手＝ルール手＋一点変更（各駒の別ターゲット/まもる/みがわり/ねむる/積み技）最大12通り。
   各候補を「候補セットからサンプルした世界」S個×乱数R本でそのターン完全シミュレート
@@ -547,4 +547,4 @@ exec(open('sim.py').read())
 b,r = play_battle(seed=100042, verbose=True)  # 任意シードの1戦を完全棋譜で再生
 for line in b.log: print(line)
 ```
-`data/sim20k_summary.json` に全集計。負け1,089戦の個票は `sim20k_losses.json`（スクラッチ側・要再生成）。
+`results/archive/sim-era/sim20k_summary.json` に全集計。負け1,089戦の個票は `sim20k_losses.json`（スクラッチ側・要再生成）。

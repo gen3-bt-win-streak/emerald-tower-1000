@@ -409,7 +409,7 @@ H90 / A168 / B252 / D0 / S0   （EV510ちょうど）
 
 ### 9.2 代わりに使う指標
 
-`tools/remote-audit/calc_matchups.py` を使った期待値ベースの4指標：
+`tools/engine/calc_matchups.py` を使った期待値ベースの4指標：
 
 | 指標 | 定義 |
 |---|---|
@@ -498,7 +498,7 @@ H90 / A168 / B252 / D0 / S0   （EV510ちょうど）
 **どちらも「自分にとって最悪の裾を取る」で一貫している**。非対称に見えるのは目線が反転しているからにすぎない。
 **期待値は一次指標が並んだときだけ使う二次指標**へ格下げする。
 
-実装は `tools/remote-audit/evlib.py`：
+実装は `tools/engine/evlib.py`：
 
 ```python
 ko_fixed(m, moves, n)   # 確定n発で落とせる敵セット数（lo基準）

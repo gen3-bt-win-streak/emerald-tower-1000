@@ -38,13 +38,14 @@
 50戦目以降の**オープンレベルプール（546セット）**を対象に、一撃技・催眠・爆発・みちづれ・ほろびのうた・トリック・まもる・カウンター・回避・メロメロ・こんらん、危険持ち物（クイッククロー等）、危険特性（しめりけ・ぼうおん・がんじょう・ふしぎなまもり）該当セットを列挙したもの。各エントリの `lv50` フラグでLv50プール該当かも判別可能。
 
 ### matchups_report.json — 全対面ダメージ・素早さレポート
-`../tools/calc_matchups.py`（pokeemeraldのダメージ計算式を忠実移植・Lv100・敵IV31・最悪特性分岐）による
+`../tools/engine/calc_matchups.py`（pokeemeraldのダメージ計算式を忠実移植・Lv100・敵IV31・最悪特性分岐）による
 546セット全対面の計算結果。爆発カバレッジ／各候補の与ダメ確1リスト／被確1リスト（急所込み別）／素早さ関係。
 候補の追加・努力値変更はスクリプトの `CANDS` を編集して再実行。
 
-### ../tools/ — 再生成スクリプト
-- `parse_frontier.py`：pokeemerald生データ → 本ディレクトリのCSV/JSON群
-- `calc_matchups.py`：ダメージ計算機（CalculateBaseDamage移植）
+### ../tools/engine/ — 再生成スクリプト
+- `calc_matchups.py`：ダメージ計算機（CalculateBaseDamage移植）。現行エンジン。`matchups_report.json` の出どころ
+- `parse_frontier.py`：pokeemerald生データ → 本ディレクトリのCSV/JSON群。**抽出時のスナップショットで、
+  同梱の `pokeemerald/` とヘッダ名が一致しないため再実行できない**（記録として同梱している）
 
 ## 抽選の仕組み（コードから確定した仕様）
 
@@ -61,5 +62,5 @@
 curl -O https://raw.githubusercontent.com/pret/pokeemerald/master/src/data/battle_frontier/battle_frontier_mons.h
 # ほか battle_frontier_trainers.h / battle_frontier_trainer_mons.h /
 #      battle_tower.c / species_info.h / 各種 constants ヘッダ
-# パーサ: プロジェクト外部（セッションのscratchpad）の parse_frontier.py を参照
+# パーサ: ../tools/engine/parse_frontier.py（当時のスナップショット。上記のとおり再実行不能）
 ```

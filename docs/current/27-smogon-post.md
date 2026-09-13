@@ -22,7 +22,7 @@
 
 **期限に関わる注意**：Valentino23 は同じ投稿で **2026年末までに管理者を退き、後任を年末に発表**すると明言している。後任の方針は未知なので、**提出は現管理者の在任中（2026年内）が安全**。提出物にOPと#2117のスクリーンショット（走者が2026-09-10に取得）を含め、後任による再審査に備える。
 
-**本プロジェクトの水準**：全個体についてPokeFinderの実在フレーム（Method 1／孵化／XDRNG）を特定し、PKHeX Legal、フリーザーは独立ポート（`tools/remote-audit/xd_articuno_verify.py`、42/42 PASS）でも確認済み。要求水準を大幅に超える。
+**本プロジェクトの水準**：全個体についてPokeFinderの実在フレーム（Method 1／孵化／XDRNG）を特定し、PKHeX Legal、フリーザーは独立ポート（`tools/xd/xd_articuno_verify.py`、42/42 PASS）でも確認済み。要求水準を大幅に超える。
 
 ## 1. 提出時に残る確認（1回だけ）
 
@@ -33,7 +33,7 @@
 
 ## 2. 提出write-upに入れる「個体準備」段落（英語・そのまま使用可）
 
-> **How the Pokémon were prepared.** All four Pokémon were created in PKHeX, following the current rule that genned Pokémon are allowed as long as they have legally obtainable stats and moves. Before creating each one I used PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces, and I recorded the seed and frame: Method 1 for the Southern Island Latios, egg frames for the bred Metagross and Snorlax, and XDRNG for the Articuno, which is an XD Shadow Articuno with its purify move Haze, not a Battle Pike glitch Articuno. Its spread is Calm 31/0/31/29/31/31, PID 0x2F3C902C, XDRNG origin seed 0xECFE3E26. All moves are level-up, TM/HM, tutor or XD purify moves. PKHeX reports every Pokémon as legal, and for the Articuno I also verified the XDRNG derivation with an independent script. PIDs, seeds and PokeFinder screenshots for every Pokémon are available on request. All calculations, the simulator, the play rules and a dated verification log are public at https://github.com/gen3-bt-win-streak/emerald-tower-1000 (English entry point: README_EN.md; the Articuno provenance dossier is 26-articuno-provenance.md and the verifier is tools/remote-audit/xd_articuno_verify.py).
+> **How the Pokémon were prepared.** All four Pokémon were created in PKHeX, following the current rule that genned Pokémon are allowed as long as they have legally obtainable stats and moves. Before creating each one I used PokeFinder to find a PID / IV / nature combination that the in-game Gen 3 RNG actually produces, and I recorded the seed and frame: Method 1 for the Southern Island Latios, egg frames for the bred Metagross and Snorlax, and XDRNG for the Articuno, which is an XD Shadow Articuno with its purify move Haze, not a Battle Pike glitch Articuno. Its spread is Calm 31/0/31/29/31/31, PID 0x2F3C902C, XDRNG origin seed 0xECFE3E26. All moves are level-up, TM/HM, tutor or XD purify moves. PKHeX reports every Pokémon as legal, and for the Articuno I also verified the XDRNG derivation with an independent script. PIDs, seeds and PokeFinder screenshots for every Pokémon are available on request. All calculations, the simulator, the play rules and a dated verification log are public at https://github.com/gen3-bt-win-streak/emerald-tower-1000 (English entry point: README_EN.md; the Articuno provenance dossier is 26-articuno-provenance.md and the verifier is tools/xd/xd_articuno_verify.py).
 
 （来歴は16章§4の確定表のとおり：ラティオス＝みなみのことう Method 1、メタグロス＝タマゴ産、カビゴン＝タマゴ産 PID `7D72445B`（24章§11）、フリーザー＝XD `2F3C902C`。2026-09-11 訂正：前版の「カビゴンは16章に未記載」は誤り。）
 

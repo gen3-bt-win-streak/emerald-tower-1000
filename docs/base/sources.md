@@ -49,7 +49,7 @@
 5. **敵の相方がしめりけのとき、敵AIは自分の爆発が不発になることを認識しているか**（→[20](20-explosion-digest.md) §3.5④）。
    しめりけは場全体に効くが `AI_CBM_Explosion` の -10 条項は**対象の特性しか見ていない**。
    認識していないなら**AIは爆発を選んで不発で1ターン損する＝こちらの得**。確認できれば「しめりけペアは爆発持ちを釣れる」という積極運用が生える
-6. **みやぶる／かぎわけるの実効命中**（→[22](22-s-axis.md) §8副産物1・[18](18-verification-ledger.md) 2026-08-29）。
+6. **みやぶる／かぎわけるの実効命中**（→[22](../shelved/22-s-axis.md) §8副産物1・[18](../current/18-verification-ledger.md) 2026-08-29）。
    `Cmd_accuracycheck` の命中計算は `if (target.status2 & STATUS2_FORESIGHT) buff = acc;`（**回避ランクを見ない**）と
    `else buff = acc + DEFAULT_STAT_STAGE - target.statStages[STAT_EVASION];` に分岐する。
    問題は**みやぶる自身の1発目がどちらの枝を通るか**で、`BattleScript_EffectForesight` は

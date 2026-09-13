@@ -83,4 +83,4 @@ pret/pokeemerald master：`src/battle_tower.c`（SetNextFacilityOpponent / GetRa
 FillTrainerParty / GetFrontierTrainerFixedIvs / ChooseSpecialBattleTowerTrainer）、
 `src/pokemon.c`（CreateMonWithEVSpreadNatureOTID）、`include/random.h`（LCRNG定数・Random32の消費順）、
 `src/data/battle_frontier/battle_frontier_trainers.h`＋`battle_frontier_trainer_mons.h`（トレーナー・プール実データ）、
-`data/maps/BattleFrontier_BattleTower*/map.json`（NPC移動タイプ）。全て `tools/remote-audit/pokeemerald/` に保存済み。
+`data/maps/BattleFrontier_BattleTower*/map.json`（NPC移動タイプ）。全て `tools/engine/pokeemerald/` に保存済み。
