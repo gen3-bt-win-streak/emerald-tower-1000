@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """バトルタワー敵生成の消費単位まで正確な再現（pokeemerald battle_tower.c / pokemon.c 移植）。
 
-移植元（pret/pokeemerald master・原文は ../remote-audit/pokeemerald/）:
+移植元（pret/pokeemerald master・原文は ../engine/pokeemerald/）:
 - LCRNG: gRngValue = gRngValue * 0x41C64E6D + 0x6073; Random() は上位16bit
 - Random32() = Random() | (Random() << 16)  ※下位半分が先
 - SetNextFacilityOpponent: 周回8以降(連勝49以上)は trainerId = 200 + Random()%100。

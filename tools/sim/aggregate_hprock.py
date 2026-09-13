@@ -4,7 +4,7 @@
 ## 目的: net<0(ON側で負けが減る)が有意なら「修正は勝率を改善する真のレバー」。
 ##      net≈0(誤差圏)なら「この誤選択も0.2516%床の下=勝率不変」。
 import json, os, math
-SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(SP)
+SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-11 再編）
 BLOCKS=[25000000,26000000,27000000,28000000]; STARTS=[0,62500,125000,187500]; CHUNK=62500; BLOCKN=250000
 
 def wilson(k,n,z=1.96):

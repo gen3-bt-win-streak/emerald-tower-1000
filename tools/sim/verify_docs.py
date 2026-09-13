@@ -3,7 +3,7 @@
 ## 目的: 各mdに書かれた数値主張を、現行v4スペック（実機版=めざ岩ラグ）のエンジンで再計算し、
 ##       一致/不一致を機械判定する。結果は 18-verification-ledger.md の一次証拠になる。
 ##
-## 使い方: cd battle-tower/tools/remote-audit
+## 使い方: cd battle-tower/tools/sim
 ##         PYTHONHASHSEED=0 FIDELITY2=1 python3 verify_docs.py          # 全件
 ##         PYTHONHASHSEED=0 FIDELITY2=1 python3 verify_docs.py 8.1      # 節を指定
 ##
