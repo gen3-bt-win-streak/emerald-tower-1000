@@ -1,6 +1,6 @@
 """期待値ベースのEV監査ヘルパー。
 使い方:
-  import sys; sys.path.insert(0,'<repo>/battle-tower/tools/remote-audit')
+  import sys; sys.path.insert(0,'<repo>/battle-tower/tools/engine')
   from evlib import *
   m = make("Metagross","Adamant",dict(hp=252,atk=244,spd=8,spe=4),"Metal Coat",[],ability="ABILITY_CLEAR_BODY")
   print(defense(m))   # (期待被KO, 2発圏, 落ちうるセット数)

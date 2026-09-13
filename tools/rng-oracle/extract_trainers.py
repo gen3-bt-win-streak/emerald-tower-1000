@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """pokeemerald原文から「トレーナーID→名前/クラス/monSetプール」を抽出して frontier_trainers.json を作る。
-入力: ../remote-audit/pokeemerald/ の battle_frontier_trainers.h ほか（pret/pokeemerald master）
+入力: ../engine/pokeemerald/ の battle_frontier_trainers.h ほか（pret/pokeemerald master）
 """
 import json, re, subprocess, os
-SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "remote-audit", "pokeemerald")
+SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "engine", "pokeemerald")
 
 # 1) トレーナー定数 → ID
 tconst = {}

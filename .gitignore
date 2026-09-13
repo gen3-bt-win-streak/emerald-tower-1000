@@ -4,10 +4,11 @@ __pycache__/
 
 # Regenerable calculator / simulator outputs
 tools/**/matchups/
-tools/remote-audit/*.log
-tools/remote-audit/_verify_*
-tools/remote-audit/*.out
-tools/remote-audit/_corpus*
+tools/sim/*.log
+tools/sim/_verify_*
+tools/sim/*.out
+tools/sim/_corpus*
+tools/advisor/function.zip
 
 # Local scratch
 *.bundle

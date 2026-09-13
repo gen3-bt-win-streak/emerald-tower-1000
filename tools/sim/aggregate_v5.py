@@ -1,7 +1,7 @@
 ## Stage3集計: v5(A252+ツメ交換) vs v4(A164+ツメ交換) を同一シードで比較。
 ## 両者はツメ交換が共通=EV(A252 vs A164)だけの差。v5<v4ならA252優位、v5>v4ならA164優位。
 import json, os, math
-SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(SP)
+SP=os.path.dirname(os.path.abspath(__file__)); os.chdir(os.path.join(SP,"..","..","results","marathon-ckpt"))  # ckpt/milestones は results/marathon-ckpt/（2026-09-11 再編）
 BLOCKS=[25000000,26000000,27000000,28000000]; STARTS=[0,62500,125000,187500]; CHUNK=62500; BLOCKN=250000
 
 def wilson(k,n,z=1.96):

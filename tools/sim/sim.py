@@ -3,7 +3,13 @@
 # Built on calc_matchups.py (damage engine + enemy pool). Approximations tagged APPROX.
 import random, collections, csv as _csv, json, sys
 
-exec(open('calc_matchups.py').read().split("# ---------- Analysis 1")[0])
+# エンジン本体は tools/engine/calc_matchups.py（2026-09-11 再編で分離）。exec は本ファイルの globals に流し込むため、
+# calc_matchups.py 内の __file__ 依存パス(pokeemerald/, ../../data, matchups/)が engine 側に解決するよう一時的に __file__ を差し替える。
+import os as _os
+_ENGINE=_os.path.join(_os.path.dirname(_os.path.abspath(__file__)),"..","engine")
+_SIMFILE=__file__; __file__=_os.path.join(_ENGINE,"calc_matchups.py")
+exec(open(__file__).read().split("# ---------- Analysis 1")[0])
+__file__=_SIMFILE; del _SIMFILE
 
 # 忠実度パッチv2 (2026-07-15): ほろび+1T/ピンチきのみ/シンクロ/こんじょう。FIDELITY2=0で旧挙動
 FIDELITY2=__import__('os').environ.get('FIDELITY2','1')=='1'

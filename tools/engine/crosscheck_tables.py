@@ -49,7 +49,8 @@ def expand_ids(idstr):
 
 HEADER_PAT = re.compile(r'^\|.*(持ち物|アイテム).*\|.*(技|注目技|move)', re.IGNORECASE)
 
-md_files = sorted(f for f in os.listdir('../..') if f.endswith('.md'))
+import glob
+md_files = sorted(os.path.relpath(p, '../..') for p in glob.glob('../../*.md') + glob.glob('../../docs/**/*.md', recursive=True))
 flags = []
 checked_rows = 0
 for fn in md_files:

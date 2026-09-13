@@ -1,7 +1,8 @@
 ## AWS Lambda ハンドラ (関数URL用)
 ## デプロイ: 13-deploy-advisor.md 参照。GET=UI / POST /advise=推奨手API。
 ## エンジンはモジュールロード時に読み込み(コールドスタート30-60秒・ウォーム中は使い回し)。
-import json, os
+import json, os, sys
+sys.path.insert(0, os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "engine")))  # jpnames
 import advisor_web  # import時にadvisorエンジンをロード(Lambdaのウォームコンテナで再利用される)
 from jpnames import JPS
 

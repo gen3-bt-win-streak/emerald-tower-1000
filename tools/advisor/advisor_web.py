@@ -4,6 +4,7 @@
 ##   → 表示されるURL(例 http://192.168.x.x:8787)をスマホのブラウザで開く。
 import json, threading, socket, os, sys
 _D=os.path.dirname(os.path.abspath(__file__)); os.chdir(_D); sys.path.insert(0,_D)  # どこから起動してもOKに
+sys.path.insert(0,os.path.normpath(os.path.join(_D,"..","engine")))  # jpnames (tools/engine)
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import advisor  # エンジン読み込み(20-30秒)。make_foe/build_battle/fmt_act/G/v3_choose を再利用
 from jpnames import JPS
