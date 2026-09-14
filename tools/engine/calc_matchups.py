@@ -118,8 +118,10 @@ TYPE_BOOST = {  # item pretty name -> (type, percent)
     "Silk Scarf": ("TYPE_NORMAL", 10), "Sea Incense": ("TYPE_WATER", 5), "Dragon Fang": ("TYPE_DRAGON", 10),
     "Deep Sea Tooth": None, "Light Ball": None}  # special-cased below
 
-def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=None):
-    """attacker/defender: dict(stats, types, ability, item, species, level). Returns (min,max) damage; 0 if immune."""
+def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=None, weather=None):
+    """attacker/defender: dict(stats, types, ability, item, species, level). Returns (min,max) damage; 0 if immune.
+    weather: None / "rain" / "sun". 第3世代では ほのお・みず は必ず特殊なので、天候補正は特殊側にだけ入る
+    （pokemon.c:3331-3362。/50 のあと、+2 の前）。"""
     mv = MOVES[move_name]
     power = mv["power"]
     if power < 2:
@@ -163,6 +165,13 @@ def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=N
         if dmg == 0: dmg = 1
     else:
         dmg = spa * power * (2 * level // 5 + 2) // spd // 50
+        if weather == 'rain':
+            if mtype == 'TYPE_FIRE':    dmg //= 2
+            elif mtype == 'TYPE_WATER': dmg = 15 * dmg // 10
+            if move_name == 'MOVE_SOLAR_BEAM': dmg //= 2
+        elif weather == 'sun':
+            if mtype == 'TYPE_FIRE':    dmg = 15 * dmg // 10
+            elif mtype == 'TYPE_WATER': dmg //= 2
     dmg += 2
     if crit:
         dmg *= 2
