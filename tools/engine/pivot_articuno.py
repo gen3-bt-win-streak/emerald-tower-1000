@@ -6,7 +6,7 @@
 最大乱数・必中で撃つ（先手なら「行動→被弾」、後手なら「被弾→行動」、たべのこし1/16回復）。得られる行動回数 k から
   E1  こころのめ→零度        : k>=2 で 1.00、k==1 で 0.29
   零度単体（リフ/毒/鈴の相方） : 1-0.71^k
-  リフレクター→零度           : リフ後の k' で 1-0.71^(k'-1)（リフ無しと良い方）
+  リフレクター→零度           : リフ後の k' で 1-0.71^(k'-1)（リフ無しと良い方）。軽減は ×2/3（ダブル敵2体）
   どくどく（まもる交互）       : 鋼/毒/ねむる等で不可でなければ k>=4 で 1.00（近似）
 零度無効（がんじょう／ヌケニン）は零度系 0。
 """
@@ -34,7 +34,8 @@ def maxdmg(e, defender, reflect=False):
             lo, hi = damage_range(att, defender, mk)
             a, b = evlib._hitmult(mk); hi *= b
             phys = mv["type"] in PHYSICAL
-            if reflect and phys: hi //= 2
+            # リフレクターはダブル・敵2体生存で ×2/3（pokemon.c:3269-3272）。1体なら ×1/2
+            if reflect and phys: hi = 2 * (hi // 3)
             if hi > best[0]: best = (hi, mk, phys)
     return best
 
