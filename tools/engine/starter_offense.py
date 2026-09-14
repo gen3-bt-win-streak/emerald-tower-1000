@@ -34,7 +34,8 @@ ROSTER = [
     ["MOVE_PSYCHIC","MOVE_ICE_BEAM","MOVE_THUNDERBOLT"], []),
  ("スイクン C改",  "09章", make("Suicune","Bold",{"hp":252,"df":252,"spd":4},"Chesto Berry",[]),
     ["MOVE_SURF","MOVE_ICE_BEAM"], []),
- ("サンダー v4",   "15章", make("Zapdos","Modest",{"df":84,"spa":174,"spe":252},"Lum Berry",[],ivs=iv(atk=10,df=30)),
+ # サンダーは2026-09-05にH0→H24へ振り直した後が最終（15章表・16章§4.6・18章台帳2026-09-05）
+ ("サンダー v4最終", "15章", make("Zapdos","Modest",{"hp":24,"df":84,"spa":150,"spe":252},"Lum Berry",[],ivs=iv(atk=10,df=30)),
     ["MOVE_THUNDERBOLT","MOVE_HP_ICE"], []),
  ("ラグラージ v4", "15章", make("Swampert","Adamant",{"hp":248,"atk":252,"spe":8},"Leftovers",[],ivs=iv(df=30,spd=30,spe=30)),
     ["MOVE_EARTHQUAKE","MOVE_ICE_BEAM","MOVE_HP_ROCK"], []),
