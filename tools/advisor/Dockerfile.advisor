@@ -1,12 +1,15 @@
-# v4 ブラウザ・アドバイザー / build: docker build -f battle-tower/tools/advisor/Dockerfile.advisor -t bt-advisor .
+# ブラウザ・アドバイザー（v4構成のUI。12章の条項＋2手読み）
+# ビルドコンテキストは **battle-tower ディレクトリ**（＝公開リポジトリ emerald-tower-1000 のルート）。
+#   daily-tasks から      : docker build -f battle-tower/tools/advisor/Dockerfile.advisor -t bt-advisor battle-tower
+#   公開リポジトリのルートから: docker build -f tools/advisor/Dockerfile.advisor -t bt-advisor .
 # run: docker run -p 8787:8787 bt-advisor  →  http://localhost:8787
 FROM python:3.12-slim
 ENV PYTHONHASHSEED=0 FIDELITY2=1
-WORKDIR /app
-COPY battle-tower/data /app/battle-tower/data
-COPY battle-tower/tools/engine /app/battle-tower/tools/engine
-COPY battle-tower/tools/sim /app/battle-tower/tools/sim
-COPY battle-tower/tools/advisor /app/battle-tower/tools/advisor
-WORKDIR /app/battle-tower/tools/advisor
+# data と tools/ の相対配置をリポジトリと同じに保つ（engine が ../../data を読むため）
+COPY data /app/data
+COPY tools/engine /app/tools/engine
+COPY tools/sim /app/tools/sim
+COPY tools/advisor /app/tools/advisor
+WORKDIR /app/tools/advisor
 EXPOSE 8787
 CMD ["python3","advisor_web.py"]
