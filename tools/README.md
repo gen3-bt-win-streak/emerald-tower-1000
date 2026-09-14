@@ -1,14 +1,14 @@
 # tools/ — スクリプトの置き場
 
 役割ごとに分けてある。**現行の数値を出すのは `engine/` と `xd/` の2つだけ**で、`sim/` は
-2026-09-05 に終了したマラソンの資産、`advisor/` は実機プレイ中の補助、`publish/` は公開エクスポート。
+2026-09-05 に終了したマラソンの資産、`advisor/` は**v4期の補助UIで現行では使わない（凍結）**、`publish/` は公開エクスポート。
 
 | ディレクトリ | 役割 | cwd | 現役か |
 |---|---|---|---|
 | `engine/` | 全数計算エンジン（`calc_matchups.py`・`evlib.py`）と pokeemerald 抜粋。ほぼ全ての数値の出どころ | `tools/engine` | ✅ |
 | `xd/` | XD産フリーザーの来歴検証（`xd_articuno_verify.py`・42項目） | `tools/xd` | ✅ |
 | `sim/` | シミュレータ・集計・文書検証。`legacy/` は v0期のスナップショット | `tools/sim` | 記録 |
-| `advisor/` | アドバイザー（Lambda／Docker／ブラウザコンソール） | `tools/advisor` | 任意 |
+| `advisor/` | アドバイザー（Lambda／Docker／ブラウザコンソール）。**盤面入力が v4 の4体（サンダー／メタグロス／ラティオス／ラグラージ）のままで v5 では噛み合わない＝凍結**。配備CI `deploy-advisor.yml` はリポジトリ変数 `ENABLE_ADVISOR_DEPLOY` が未設定なので既に no-op | `tools/advisor` | 凍結 |
 | `publish/` | 公開リポジトリへのエクスポート（`make_public_export.sh`） | リポジトリ直下 | ✅ |
 | `smogon/` | Smogon調査のプロンプトと回答原文、スレッド取り込み | — | 記録 |
 | `rng-oracle/` | 観測から敵生成シードを同定する試み（実機キャリブレーション待ち） | `tools/rng-oracle` | 保留 |
