@@ -118,7 +118,8 @@ TYPE_BOOST = {  # item pretty name -> (type, percent)
     "Silk Scarf": ("TYPE_NORMAL", 10), "Sea Incense": ("TYPE_WATER", 5), "Dragon Fang": ("TYPE_DRAGON", 10),
     "Deep Sea Tooth": None, "Light Ball": None}  # special-cased below
 
-def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=None, weather=None):
+def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=None, weather=None,
+                 helping_hand=False):
     """attacker/defender: dict(stats, types, ability, item, species, level). Returns (min,max) damage; 0 if immune.
     weather: None / "rain" / "sun". 第3世代では ほのお・みず は必ず特殊なので、天候補正は特殊側にだけ入る
     （pokemon.c:3331-3362。/50 のあと、+2 の前）。"""
@@ -175,6 +176,10 @@ def damage_range(attacker, defender, move_name, crit=False, assume_def_ability=N
     dmg += 2
     if crit:
         dmg *= 2
+    # てだすけ：Cmd_damagecalc の末尾で gBattleMoveDamage*15/10（CalculateBaseDamage の外・typecalc の前）
+    # battle_script_commands.c:1300-1301。ハチマキは攻撃側なので独立に乗る
+    if helping_hand:
+        dmg = dmg * 15 // 10
     # STAB
     if mtype in attacker["types"]:
         dmg = dmg * 15 // 10
