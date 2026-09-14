@@ -86,7 +86,7 @@
 | `tools/engine/` | 全数計算エンジン（`calc_matchups.py`・`evlib.py`）と pokeemerald 抜粋。ほぼ全ての数値の出どころ |
 | `tools/xd/` | XD産フリーザーの来歴検証（`xd_articuno_verify.py`・42/42 PASS） |
 | `tools/sim/` | シミュレータと検証スクリプト（`legacy/` は v0期の記録・実行不能） |
-| `tools/advisor/` | アドバイザー（Lambda／Docker／コンソール） |
+| `tools/advisor/` | アドバイザー（Lambda／Docker／コンソール）。**v4構成のUIのまま＝現行v5では使わない（凍結）** |
 | `tools/publish/` | 公開エクスポート |
 | `tools/smogon/` | GPT向け調査プロンプトと回答原文、スレッド取り込みスクリプト |
 | [tools/README.md](tools/README.md) | 各ディレクトリの役割・依存の向き・環境変数・**旧→新パス対応表** |
