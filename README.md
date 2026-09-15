@@ -41,6 +41,7 @@
 | [**16-pkhex-setup.md**](docs/current/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ✅ |
 | [**26-articuno-provenance.md**](docs/current/26-articuno-provenance.md) | XD産フリーザーの来歴証明：XDRNG導出・ロック連鎖・全数証明・入手ルート・色違い不可・証拠チェックリスト | ✅ 42/42 PASS |
 | [**27-smogon-post.md**](docs/current/27-smogon-post.md) | Smogon掲載資格の決着（時系列・原文）と提出write-up用の英語段落 | ✅ 決着 |
+| [28-perish-build.md](docs/current/28-perish-build.md) | **v6設計中**：メタグロス／ラティオス／ニョロトノ／カビゴン。しめりけで爆発を封じ、敵を残り2体にしてからほろびのうたで詰める。実機投入はまだ | 🔧 設計中 |
 | [17-smogon-legitimacy.md](docs/current/17-smogon-legitimacy.md) | Smogonルール原文・記録保持者の実態・提出チェックリスト・公開手順 | ✅ |
 | [**18-verification-ledger.md**](docs/current/18-verification-ledger.md) | 検証台帳：全主張の機械検証結果と、発見した誤り・訂正の記録 | ✅ 継続 |
 
