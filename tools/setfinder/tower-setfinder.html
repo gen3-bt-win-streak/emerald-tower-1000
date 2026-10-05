@@ -56,6 +56,7 @@ input[type=text],input[type=number],select{font:inherit;font-size:16px;color:var
 .spd-row input{width:6.5em}
 .spd-row select{width:auto}
 .x{background:none;border:0;color:var(--muted);font-size:1.1rem;padding:2px 6px}
+.sugg:empty{display:none}
 .add{align-self:flex-start;background:none;border:1px dashed var(--line);border-radius:6px;padding:3px 10px;font-size:.82rem;color:var(--muted)}
 .res{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
 .facts{display:flex;flex-direction:column;gap:3px;font-size:.88rem}
@@ -155,8 +156,9 @@ function compute(){
 
 const el=(t,a={},...kids)=>{const e=document.createElement(t);for(const[k,v]of Object.entries(a)){if(k==='class')e.className=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:document.createTextNode(c))}return e};
 const grid=document.getElementById('grid');
-const dl=el('datalist',{id:'species-list'},SPECIES.map(p=>el('option',{value:p})));
-document.body.append(dl);
+// ひらがな・半角・空白の揺れを吸収して種族名に寄せる
+const norm=s=>(s||'').normalize('NFKC').replace(/[\u3041-\u3096]/g,c=>String.fromCharCode(c.charCodeAt(0)+0x60)).replace(/\s+/g,'');
+let focusAfter=null;
 
 function update(){save();renderResults()}
 
@@ -166,9 +168,24 @@ function buildSlot(i){
   const pill=el('span',{class:'pill',id:'pill'+i},'未入力');
   card.append(el('div',{class:'slot-h'},el('span',{class:'slot-no'},'敵'+(i+1)),pill,
     el('button',{class:'clear',type:'button',onclick:()=>{state.slots[i]=blank();rebuild()}},'この枠を消す')));
-  const sp=el('input',{type:'text',id:'sp'+i,list:'species-list',placeholder:'例：カビゴン',value:slot.sp,autocomplete:'off'});
-  sp.addEventListener('change',()=>{const v=sp.value.trim();if(v!==slot.sp){Object.assign(slot,blank(),{sp:v});rebuild()}});
-  card.append(el('label',{class:'fld',for:'sp'+i},'種族',sp));
+  const sp=el('input',{type:'text',id:'sp'+i,placeholder:'例：かびごん',value:slot.sp,autocomplete:'off',autocapitalize:'off',spellcheck:'false'});
+  const sugg=el('div',{class:'chips sugg',id:'sugg'+i});
+  const choose=v=>{if(v!==slot.sp){Object.assign(slot,blank(),{sp:v});focusAfter=null;rebuild()}};
+  const showSugg=()=>{
+    const v=norm(sp.value); sugg.replaceChildren();
+    if(!v||v===slot.sp) return;
+    const hit=SPECIES.filter(s=>s.startsWith(v)).concat(SPECIES.filter(s=>!s.startsWith(v)&&s.includes(v))).slice(0,8);
+    if(!hit.length){sugg.append(el('span',{class:'empty'},'該当する種族がありません'));return}
+    hit.forEach(s=>sugg.append(el('button',{type:'button',class:'chip',onclick:()=>choose(s)},s)));
+  };
+  sp.addEventListener('input',()=>{
+    const v=norm(sp.value);
+    if(BY_SP[v]&&v!==slot.sp){Object.assign(slot,blank(),{sp:v});focusAfter=i;rebuild();return}
+    if(!v&&slot.sp){Object.assign(slot,blank());focusAfter=i;rebuild();return}
+    showSugg();
+  });
+  sp.addEventListener('keydown',e=>{if(e.key==='Enter'){const b=sugg.querySelector('button');if(b){e.preventDefault();b.click()}}});
+  card.append(el('label',{class:'fld',for:'sp'+i},'種族',sp),sugg);
   const body=el('div',{class:'sec-wrap',id:'body'+i});
   card.append(body);
   if(slot.sp&&BY_SP[slot.sp]){
@@ -261,6 +278,7 @@ function rebuild(){
   const y=window.scrollY;
   grid.replaceChildren(...state.slots.map((_,i)=>buildSlot(i)));
   update(); window.scrollTo(0,y);
+  if(focusAfter!=null){const f=document.getElementById('sp'+focusAfter);focusAfter=null;if(f){f.focus({preventScroll:true});const n=f.value.length;try{f.setSelectionRange(n,n)}catch(e){}}}
 }
 const resetBtn=document.getElementById('reset'); let undoSnap=null, undoTimer=null, labelTimer=null;
 function label(txt,cls,ms){resetBtn.textContent=txt;resetBtn.classList.toggle('undo',!!cls);clearTimeout(labelTimer);
