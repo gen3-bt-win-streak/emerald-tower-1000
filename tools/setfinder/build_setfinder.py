@@ -76,6 +76,14 @@ def main():
     html = tpl.replace('__DATA__', data)
     open(os.path.join(HERE, 'tower-setfinder.html'), 'w', encoding='utf-8').write(html)
     print(f'tower-setfinder.html: {len(html.encode())} bytes, {data.count(chr(34)+"i"+chr(34))} sets')
+    # スマホ等にファイルとして保存して直接開く版。claude.ai が公開時に足す外枠を自前で付ける。
+    standalone = ('<!doctype html><html lang="ja"><head><meta charset="utf-8">'
+                  '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
+                  '<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);'
+                  'padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}'
+                  '[hidden]{display:none!important}</style></head><body>' + html + '</body></html>')
+    open(os.path.join(HERE, 'tower-setfinder-standalone.html'), 'w', encoding='utf-8').write(standalone)
+    print(f'tower-setfinder-standalone.html: {len(standalone.encode())} bytes')
 
 
 if __name__ == '__main__':
