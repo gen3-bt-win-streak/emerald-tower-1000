@@ -8,7 +8,7 @@
 | `template.html` | ページ本体。`__DATA__` に型データが入る |
 | `build_setfinder.py` | `../engine/` から546型を日本語JSONにして埋め込み、`tower-setfinder.html` を書き出す |
 | `tower-setfinder.html` | 生成物。claude.ai に公開する版（外枠は公開時に付く） |
-| `tower-setfinder-standalone.html` | 生成物。スマホ等に保存して直接開く版（文字コード・画面幅の指定を含む） |
+| `tower-setfinder-standalone.html` | 生成物。スマホ等に保存して直接開く軽量版。文字コード・画面幅の指定を含み、Webフォントを使わず端末の標準フォントで表示する（外部への通信ゼロ・オフラインで動く） |
 
 ```bash
 cd battle-tower/tools/setfinder && PYTHONHASHSEED=0 python3 build_setfinder.py
