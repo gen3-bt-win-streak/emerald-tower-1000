@@ -52,6 +52,7 @@ input[type=text],input[type=number],select{font:inherit;font-size:16px;color:var
 .chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .chip[aria-pressed="true"] .n{color:inherit;opacity:.8}
 .chip.dead{opacity:.45}
+.chip:disabled{cursor:not-allowed}
 .spd-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
 .spd-row input{width:6.5em}
 .spd-row select{width:auto}
@@ -135,23 +136,34 @@ function fixedItem(slot,list){
   if(list&&list.length){const it=list[0].it; if(list.every(s=>s.it===it)) return it;}
   return '';
 }
+// 同じチームの敵は種族・持ち物が重複しない。入力済みの枠どうしで持ち物が重ならない組み合わせを総当たりし、
+// 1つでも組み合わせを作れる型だけを残す。作れない場合は矛盾として、原因の枠を知らせる。
 function compute(){
   const base=state.slots.map(own);
-  let cand=base.slice(), fixed=state.slots.map((sl,i)=>fixedItem(sl,cand[i])), removed=[[],[],[],[]];
-  for(let k=0;k<6;k++){
-    removed=[[],[],[],[]];
-    const next=base.map((list,i)=>{
-      if(!list) return null;
-      const others=new Set(fixed.filter((f,j)=>j!==i&&f));
-      return list.filter(s=>{if(others.has(s.it)){if(!removed[i].includes(s.it))removed[i].push(s.it);return false}return true});
-    });
-    const nf=state.slots.map((sl,i)=>fixedItem(sl,next[i]));
-    cand=next;
-    if(nf.join('|')===fixed.join('|')) break;
-    fixed=nf;
-  }
   const dupSp=state.slots.map((sl,i)=>!!sl.sp&&state.slots.some((o,j)=>j!==i&&o.sp===sl.sp));
-  return {cand,fixed,removed,dupSp};
+  const cand=base.map(l=>l?l.slice():l), removed=[[],[],[],[]], conflict=[[],[],[],[]];
+  const filled=base.map((l,i)=>l&&l.length&&!dupSp[i]?i:-1).filter(i=>i>=0);
+  if(filled.length>=2){
+    const keep=filled.map(()=>new Set()), chosen=[], used=new Set(); let found=false;
+    const rec=k=>{
+      if(k===filled.length){found=true;chosen.forEach((s,x)=>keep[x].add(s));return}
+      for(const s of base[filled[k]]){if(used.has(s.it))continue;chosen[k]=s;used.add(s.it);rec(k+1);used.delete(s.it)}
+    };
+    rec(0);
+    if(found){
+      filled.forEach((i,x)=>{cand[i]=base[i].filter(s=>keep[x].has(s));
+        base[i].forEach(s=>{if(!keep[x].has(s)&&!removed[i].includes(s.it))removed[i].push(s.it)})});
+    }else{
+      let pair=false;
+      for(let a=0;a<filled.length;a++)for(let b=a+1;b<filled.length;b++){
+        const A=base[filled[a]],B=base[filled[b]];
+        if(!A.some(s=>B.some(u=>u.it!==s.it))){pair=true;conflict[filled[a]].push(filled[b]);conflict[filled[b]].push(filled[a])}
+      }
+      if(!pair) filled.forEach(i=>conflict[i]=filled.filter(j=>j!==i));
+    }
+  }
+  const fixed=state.slots.map((sl,i)=>conflict[i].length?'':fixedItem(sl,cand[i]));
+  return {cand,fixed,removed,dupSp,conflict};
 }
 
 const el=(t,a={},...kids)=>{const e=document.createElement(t);for(const[k,v]of Object.entries(a)){if(k==='class')e.className=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:document.createTextNode(c))}return e};
@@ -159,6 +171,7 @@ const grid=document.getElementById('grid');
 // ひらがな・半角・空白の揺れを吸収して種族名に寄せる
 const norm=s=>(s||'').normalize('NFKC').replace(/[\u3041-\u3096]/g,c=>String.fromCharCode(c.charCodeAt(0)+0x60)).replace(/\s+/g,'');
 let focusAfter=null;
+const usedBy=(i,s)=>state.slots.findIndex((o,j)=>j!==i&&o.sp===s);
 
 function update(){save();renderResults()}
 
@@ -176,11 +189,12 @@ function buildSlot(i){
     if(!v||v===slot.sp) return;
     const hit=SPECIES.filter(s=>s.startsWith(v)).concat(SPECIES.filter(s=>!s.startsWith(v)&&s.includes(v))).slice(0,8);
     if(!hit.length){sugg.append(el('span',{class:'empty'},'該当する種族がありません'));return}
-    hit.forEach(s=>sugg.append(el('button',{type:'button',class:'chip',onclick:()=>choose(s)},s)));
+    hit.forEach(s=>{const j=usedBy(i,s);
+      sugg.append(el('button',{type:'button',class:'chip'+(j>=0?' dead':''),disabled:j>=0,title:j>=0?`敵${j+1}で入力済み`:false,onclick:()=>choose(s)},s,j>=0?el('span',{class:'n'},`敵${j+1}`):null))});
   };
   sp.addEventListener('input',()=>{
     const v=norm(sp.value);
-    if(BY_SP[v]&&v!==slot.sp){Object.assign(slot,blank(),{sp:v});focusAfter=i;rebuild();return}
+    if(BY_SP[v]&&v!==slot.sp&&usedBy(i,v)<0){Object.assign(slot,blank(),{sp:v});focusAfter=i;rebuild();return}
     if(!v&&slot.sp){Object.assign(slot,blank());focusAfter=i;rebuild();return}
     showSugg();
   });
@@ -224,12 +238,19 @@ function buildSlot(i){
 let current=null;
 function refreshChips(i){
   const c=current&&current.cand[i]; if(!c) return;
-  document.querySelectorAll(`#slot${i} .chip`).forEach(b=>{
+  const sl=state.slots[i];
+  // 他の枠で確定した持ち物（入力でも、候補が1種類に絞れた結果でも）は、この枠では選べない
+  const taken=new Map(); current.fixed.forEach((f,j)=>{if(j!==i&&f&&!taken.has(f))taken.set(f,j)});
+  document.querySelectorAll(`#slot${i} .chip[data-kind]`).forEach(b=>{
     const k=b.dataset.kind,v=b.dataset.v;
+    const pressed=k==='mv'?sl.moves.includes(v):k==='it'?sl.item===v:sl.ab===v;
     const n=c.filter(s=>k==='mv'?s.mv.includes(v):k==='it'?s.it===v:s.a.includes(v)).length;
-    const sl=state.slots[i];
-    b.setAttribute('aria-pressed',String(k==='mv'?sl.moves.includes(v):k==='it'?sl.item===v:sl.ab===v));
-    b.querySelector('.n').textContent=n; b.classList.toggle('dead',n===0&&b.getAttribute('aria-pressed')!=='true');
+    b.setAttribute('aria-pressed',String(pressed));
+    const byOther=k==='it'&&taken.has(v);
+    b.querySelector('.n').textContent=byOther?`敵${taken.get(v)+1}で確定`:n;
+    b.disabled=!pressed&&(byOther||n===0);
+    b.classList.toggle('dead',b.disabled);
+    b.title=byOther?`敵${taken.get(v)+1}が持っているので、この敵は持てません`:(n===0&&!pressed?'今の条件では候補にありません':'');
   });
 }
 function renderResults(){
@@ -241,10 +262,16 @@ function renderResults(){
     if(!slot.sp||!list){pill.textContent='未入力';res.append(el('div',{class:'empty'},'種族を入れると、ここに候補の型が出ます。'));return}
     refreshChips(i);
     if(current.dupSp[i]){card.classList.add('err');pill.className='pill zero';pill.textContent='重複';res.append(el('div',{class:'bad'},'同じチームに同じ種族は出ません。どちらかの枠を直してください。'));return}
+    if(current.conflict[i].length){card.classList.add('err');pill.className='pill zero';pill.textContent='矛盾';
+      const who=current.conflict[i].map(j=>'敵'+(j+1)).join('・');
+      res.append(el('div',{class:'bad'},`${who}と持ち物が必ず重なるので、同じチームとして成り立ちません。どちらかの入力を見直してください。`));
+      const its=[...new Set(list.map(s=>s.it))];
+      res.append(el('div',{class:'empty'},`この枠の候補の持ち物：${its.join('・')}`));
+      return}
     const n=list.length;
     if(n===0){card.classList.add('err');pill.className='pill zero';pill.textContent='該当なし';
       res.append(el('div',{class:'bad'},'この条件に合う型はありません。直前に入れた条件を外してください。'));
-      if(current.removed[i].length) res.append(el('div',{class:'empty'},`他の枠で確定した持ち物（${current.removed[i].join('・')}）の型は除外しています。`));
+      if(current.removed[i].length) res.append(el('div',{class:'empty'},`他の枠と持ち物が重なる型（${current.removed[i].join('・')}）は除外しています。`));
       return}
     pill.className='pill '+(n===1?'one':'some'); pill.textContent=n===1?'1型に確定':`残り${n}型`;
     const facts=el('div',{class:'facts'});
@@ -256,7 +283,7 @@ function renderResults(){
     const s31=list.map(s=>s.st[5]), s21=list.map(s=>s.s21);
     const lo=Math.min(...s31),hi=Math.max(...s31),lo2=Math.min(...s21),hi2=Math.max(...s21);
     facts.append(el('div',{class:'fact'},el('b',{},'素早さ　'),(lo===hi?`${lo}`:`${lo}〜${hi}`)+`（個体値21なら ${lo2===hi2?lo2:lo2+'〜'+hi2}）`));
-    if(current.removed[i].length) facts.append(el('div',{class:'fact empty'},`他の枠で確定した持ち物（${current.removed[i].join('・')}）の型は除外済み`));
+    if(current.removed[i].length) facts.append(el('div',{class:'fact empty'},`他の枠と持ち物が重なる型（${current.removed[i].join('・')}）は除外済み`));
     res.append(facts);
     const fastRows=slot.spd.filter(r=>r.rel==='fast'&&Number.isFinite(parseInt(r.v,10)));
     const qcKept=list.filter(s=>s.qc&&fastRows.some(r=>spMax(s)<parseInt(r.v,10)));
