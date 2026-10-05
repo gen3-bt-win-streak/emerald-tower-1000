@@ -1,0 +1,279 @@
+<title>タワー型サーチ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky battle bar on top, four enemy slots below (2 columns when wide, 1 on phones); each slot = inputs then live result. */
+:root{
+  --bg:#eef3f0; --surface:#ffffff; --ink:#15211c; --muted:#5a6a62; --line:#d3ddd8;
+  --accent:#0d7656; --accent-ink:#ffffff; --accent-soft:#d9eee5;
+  --warn:#9a5c00; --warn-soft:#fbecd2; --bad:#b0281f; --bad-soft:#f8dcd9;
+  --font-display:"DotGothic16","Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1512; --surface:#16201b; --ink:#e3ebe7; --muted:#97a89f; --line:#2a3832;
+  --accent:#45c596; --accent-ink:#06261a; --accent-soft:#163a2c;
+  --warn:#f0b357; --warn-soft:#3a2b10; --bad:#f2857c; --bad-soft:#3d1a17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1512; --surface:#16201b; --ink:#e3ebe7; --muted:#97a89f; --line:#2a3832;
+  --accent:#45c596; --accent-ink:#06261a; --accent-soft:#163a2c;
+  --warn:#f0b357; --warn-soft:#3a2b10; --bad:#f2857c; --bad-soft:#3d1a17; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 32px}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+h1{font-family:var(--font-display);font-weight:400;font-size:1.35rem;margin:0;letter-spacing:.04em}
+.bar-note{color:var(--muted);font-size:.8rem;flex:1;min-width:0}
+@media (max-width:560px){.bar-note{display:none}.reset{margin-left:auto}}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.reset{background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 16px;font-weight:700}
+.reset{touch-action:manipulation;min-width:7.5em}
+.reset.undo{background:var(--bad);color:var(--surface)}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+@media (min-width:860px){.grid{grid-template-columns:1fr 1fr}}
+.slot{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.slot.err{border-color:var(--bad)}
+.slot-h{display:flex;align-items:center;gap:10px}
+.slot-no{font-family:var(--font-display);font-size:1.05rem}
+.pill{margin-left:auto;font-variant-numeric:tabular-nums;font-size:.85rem;padding:2px 10px;border-radius:999px;background:var(--bg);color:var(--muted);white-space:nowrap}
+.pill.one{background:var(--accent);color:var(--accent-ink)}
+.pill.some{background:var(--accent-soft);color:var(--ink)}
+.pill.zero{background:var(--bad);color:var(--surface)}
+.clear{background:none;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:.8rem;color:var(--muted)}
+label.fld{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted)}
+input[type=text],input[type=number],select{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0}
+.sec{display:flex;flex-direction:column;gap:6px}
+.sec-t{font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:4px 10px;font-size:.88rem;display:inline-flex;gap:6px;align-items:baseline}
+.chip .n{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.78rem}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip[aria-pressed="true"] .n{color:inherit;opacity:.8}
+.chip.dead{opacity:.45}
+.spd-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.spd-row input{width:6.5em}
+.spd-row select{width:auto}
+.x{background:none;border:0;color:var(--muted);font-size:1.1rem;padding:2px 6px}
+.add{align-self:flex-start;background:none;border:1px dashed var(--line);border-radius:6px;padding:3px 10px;font-size:.82rem;color:var(--muted)}
+.res{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.facts{display:flex;flex-direction:column;gap:3px;font-size:.88rem}
+.fact b{font-weight:700}
+.fixed{color:var(--accent);font-weight:700}
+.warn{background:var(--warn-soft);color:var(--warn);border-radius:6px;padding:6px 10px;font-size:.84rem}
+.bad{background:var(--bad-soft);color:var(--bad);border-radius:6px;padding:6px 10px;font-size:.88rem}
+details summary{cursor:pointer;font-size:.86rem;color:var(--muted)}
+.cands{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.cand{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cand-h{display:flex;gap:8px;flex-wrap:wrap;align-items:baseline}
+.cand-id{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.8rem}
+.cand-item{font-weight:700}
+.qc{font-size:.75rem;background:var(--warn-soft);color:var(--warn);border-radius:4px;padding:0 6px}
+.cand-nat{font-size:.82rem;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;font-variant-numeric:tabular-nums;font-size:.82rem;text-align:center}
+.stats span{background:var(--bg);border-radius:4px;padding:1px 0}
+.stats i{font-style:normal;color:var(--muted);margin-right:2px}
+.mv{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.86rem}
+.mv .seen{color:var(--accent);font-weight:700}
+.empty{color:var(--muted);font-size:.86rem}
+footer{margin-top:22px;color:var(--muted);font-size:.78rem;display:flex;flex-direction:column;gap:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="bar"><div class="bar-in">
+  <h1>タワー型サーチ</h1>
+  <span class="bar-note">見えた情報から敵の型を絞り込む（50戦目以降・546型）</span>
+  <button class="reset" id="reset" type="button">リセット</button>
+</div></header>
+<div class="wrap">
+  <div class="grid" id="grid"></div>
+  <footer>
+    <span>実数値は個体値31で表示しています。トレーナーID 200〜219 の個体は個体値21で、素早さの判定は両方の値で行います。</span>
+    <span>素早さは、通常の技どうしの行動順で判定してください。せんせいのツメ持ちの型は「速い」でも消さずに残します。まひ・カムラのみ・こうそくいどうなどで素早さが変わった後の判定には使えません。</span>
+    <span>同じチームの敵は、種族と持ち物が重複しません。ある枠で持ち物が確定すると、他の枠からその持ち物の型が消えます。</span>
+    <span>出典：pokeemerald のバトルフロンティア敵データ（50戦目以降のオープンレベル定常プール）。</span>
+  </footer>
+</div>
+
+<script id="sets" type="application/json">__DATA__</script>
+<script>
+(function(){
+const SETS=JSON.parse(document.getElementById('sets').textContent);
+const SPECIES=[...new Set(SETS.map(s=>s.p))].sort((a,b)=>a.localeCompare(b,'ja'));
+const BY_SP={}; SETS.forEach(s=>{(BY_SP[s.p]=BY_SP[s.p]||[]).push(s)});
+const KEY='bt-setfinder-v1';
+const REL={fast:'より速い',slow:'より遅い',tie:'と同速'};
+const blank=()=>({sp:'',moves:[],item:'',ab:'',spd:[]});
+const empty=()=>({slots:[blank(),blank(),blank(),blank()]});
+let state=null;
+function load(){
+  try{const raw=localStorage.getItem(KEY); if(raw){const s=JSON.parse(raw); if(s&&!s.example&&Array.isArray(s.slots)&&s.slots.length===4) return s;}}catch(e){}
+  return empty();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+
+const spMax=s=>Math.max(s.st[5],s.s21), spMin=s=>Math.min(s.st[5],s.s21);
+function own(slot){
+  if(!slot.sp||!BY_SP[slot.sp]) return null;
+  return BY_SP[slot.sp].filter(s=>{
+    for(const m of slot.moves) if(!s.mv.includes(m)) return false;
+    if(slot.item&&s.it!==slot.item) return false;
+    if(slot.ab&&!s.a.includes(slot.ab)) return false;
+    for(const r of slot.spd){
+      const v=parseInt(r.v,10); if(!Number.isFinite(v)) continue;
+      if(r.rel==='fast'&&!(s.qc||spMax(s)>=v)) return false;
+      if(r.rel==='slow'&&!(spMin(s)<=v)) return false;
+      if(r.rel==='tie'&&!(s.st[5]===v||s.s21===v)) return false;
+    }
+    return true;
+  });
+}
+function fixedItem(slot,list){
+  if(slot.item) return slot.item;
+  if(list&&list.length){const it=list[0].it; if(list.every(s=>s.it===it)) return it;}
+  return '';
+}
+function compute(){
+  const base=state.slots.map(own);
+  let cand=base.slice(), fixed=state.slots.map((sl,i)=>fixedItem(sl,cand[i])), removed=[[],[],[],[]];
+  for(let k=0;k<6;k++){
+    removed=[[],[],[],[]];
+    const next=base.map((list,i)=>{
+      if(!list) return null;
+      const others=new Set(fixed.filter((f,j)=>j!==i&&f));
+      return list.filter(s=>{if(others.has(s.it)){if(!removed[i].includes(s.it))removed[i].push(s.it);return false}return true});
+    });
+    const nf=state.slots.map((sl,i)=>fixedItem(sl,next[i]));
+    cand=next;
+    if(nf.join('|')===fixed.join('|')) break;
+    fixed=nf;
+  }
+  const dupSp=state.slots.map((sl,i)=>!!sl.sp&&state.slots.some((o,j)=>j!==i&&o.sp===sl.sp));
+  return {cand,fixed,removed,dupSp};
+}
+
+const el=(t,a={},...kids)=>{const e=document.createElement(t);for(const[k,v]of Object.entries(a)){if(k==='class')e.className=v;else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);else if(v!==false&&v!=null)e.setAttribute(k,v===true?'':v)}for(const c of kids.flat()){if(c==null||c===false)continue;e.append(c.nodeType?c:document.createTextNode(c))}return e};
+const grid=document.getElementById('grid');
+const dl=el('datalist',{id:'species-list'},SPECIES.map(p=>el('option',{value:p})));
+document.body.append(dl);
+
+function update(){save();renderResults()}
+
+function buildSlot(i){
+  const slot=state.slots[i];
+  const card=el('section',{class:'slot',id:'slot'+i,'aria-label':'敵'+(i+1)});
+  const pill=el('span',{class:'pill',id:'pill'+i},'未入力');
+  card.append(el('div',{class:'slot-h'},el('span',{class:'slot-no'},'敵'+(i+1)),pill,
+    el('button',{class:'clear',type:'button',onclick:()=>{state.slots[i]=blank();rebuild()}},'この枠を消す')));
+  const sp=el('input',{type:'text',id:'sp'+i,list:'species-list',placeholder:'例：カビゴン',value:slot.sp,autocomplete:'off'});
+  sp.addEventListener('change',()=>{const v=sp.value.trim();if(v!==slot.sp){Object.assign(slot,blank(),{sp:v});rebuild()}});
+  card.append(el('label',{class:'fld',for:'sp'+i},'種族',sp));
+  const body=el('div',{class:'sec-wrap',id:'body'+i});
+  card.append(body);
+  if(slot.sp&&BY_SP[slot.sp]){
+    const pool=BY_SP[slot.sp];
+    const mvCount={}; pool.forEach(s=>s.mv.forEach(m=>mvCount[m]=(mvCount[m]||0)+1));
+    const moves=Object.keys(mvCount).sort((a,b)=>mvCount[b]-mvCount[a]||a.localeCompare(b,'ja'));
+    const items=[...new Set(pool.map(s=>s.it))];
+    const abs=[...new Set(pool.flatMap(s=>s.a))];
+    const secs=el('div',{class:'sec',style:'gap:12px'});
+    secs.append(el('div',{class:'sec'},el('span',{class:'sec-t'},'見えた技（複数可）'),
+      el('div',{class:'chips'},moves.map(m=>el('button',{type:'button',class:'chip','data-kind':'mv','data-v':m,'aria-pressed':String(slot.moves.includes(m)),
+        onclick:()=>{const k=slot.moves.indexOf(m);k<0?slot.moves.push(m):slot.moves.splice(k,1);refreshChips(i);update()}},m,el('span',{class:'n'},''))))));
+    secs.append(el('div',{class:'sec'},el('span',{class:'sec-t'},'見えた持ち物'),
+      el('div',{class:'chips'},items.map(m=>el('button',{type:'button',class:'chip','data-kind':'it','data-v':m,'aria-pressed':String(slot.item===m),
+        onclick:()=>{slot.item=slot.item===m?'':m;refreshChips(i);update()}},m,el('span',{class:'n'},''))))));
+    if(abs.length>1) secs.append(el('div',{class:'sec'},el('span',{class:'sec-t'},'表示された特性'),
+      el('div',{class:'chips'},abs.map(m=>el('button',{type:'button',class:'chip','data-kind':'ab','data-v':m,'aria-pressed':String(slot.ab===m),
+        onclick:()=>{slot.ab=slot.ab===m?'':m;refreshChips(i);update()}},m,el('span',{class:'n'},''))))));
+    const spdBox=el('div',{class:'sec'},el('span',{class:'sec-t'},'素早さ（実数値と比べて、この敵が）'));
+    slot.spd.forEach((r,ri)=>{
+      const inp=el('input',{type:'number',inputmode:'numeric',id:`spv${i}_${ri}`,'aria-label':'素早さの実数値',value:r.v,min:'1',max:'999',placeholder:'177'});
+      inp.addEventListener('input',()=>{r.v=inp.value;update()});
+      const selRel=el('select',{id:`spr${i}_${ri}`,'aria-label':'比較'},Object.entries(REL).map(([k,t])=>el('option',{value:k,selected:r.rel===k},t)));
+      selRel.addEventListener('change',()=>{r.rel=selRel.value;update()});
+      spdBox.append(el('div',{class:'spd-row'},inp,selRel,el('button',{class:'x',type:'button','aria-label':'この条件を消す',onclick:()=>{slot.spd.splice(ri,1);rebuild()}},'×')));
+    });
+    spdBox.append(el('button',{class:'add',type:'button',onclick:()=>{slot.spd.push({v:'',rel:'fast'});rebuild();const n=document.getElementById(`spv${i}_${slot.spd.length-1}`);n&&n.focus()}},'＋ 素早さの条件を追加'));
+    secs.append(spdBox);
+    body.append(secs);
+  }else if(slot.sp){
+    body.append(el('div',{class:'bad'},`「${slot.sp}」は50戦目以降の敵にいません。候補から選んでください。`));
+  }
+  card.append(el('div',{class:'res',id:'res'+i}));
+  return card;
+}
+let current=null;
+function refreshChips(i){
+  const c=current&&current.cand[i]; if(!c) return;
+  document.querySelectorAll(`#slot${i} .chip`).forEach(b=>{
+    const k=b.dataset.kind,v=b.dataset.v;
+    const n=c.filter(s=>k==='mv'?s.mv.includes(v):k==='it'?s.it===v:s.a.includes(v)).length;
+    const sl=state.slots[i];
+    b.setAttribute('aria-pressed',String(k==='mv'?sl.moves.includes(v):k==='it'?sl.item===v:sl.ab===v));
+    b.querySelector('.n').textContent=n; b.classList.toggle('dead',n===0&&b.getAttribute('aria-pressed')!=='true');
+  });
+}
+function renderResults(){
+  current=compute();
+  state.slots.forEach((slot,i)=>{
+    const res=document.getElementById('res'+i), pill=document.getElementById('pill'+i), card=document.getElementById('slot'+i);
+    res.replaceChildren(); const list=current.cand[i];
+    card.classList.remove('err'); pill.className='pill';
+    if(!slot.sp||!list){pill.textContent='未入力';res.append(el('div',{class:'empty'},'種族を入れると、ここに候補の型が出ます。'));return}
+    refreshChips(i);
+    if(current.dupSp[i]){card.classList.add('err');pill.className='pill zero';pill.textContent='重複';res.append(el('div',{class:'bad'},'同じチームに同じ種族は出ません。どちらかの枠を直してください。'));return}
+    const n=list.length;
+    if(n===0){card.classList.add('err');pill.className='pill zero';pill.textContent='該当なし';
+      res.append(el('div',{class:'bad'},'この条件に合う型はありません。直前に入れた条件を外してください。'));
+      if(current.removed[i].length) res.append(el('div',{class:'empty'},`他の枠で確定した持ち物（${current.removed[i].join('・')}）の型は除外しています。`));
+      return}
+    pill.className='pill '+(n===1?'one':'some'); pill.textContent=n===1?'1型に確定':`残り${n}型`;
+    const facts=el('div',{class:'facts'});
+    const fx=current.fixed[i];
+    const itc={}; list.forEach(s=>itc[s.it]=(itc[s.it]||0)+1);
+    facts.append(el('div',{class:'fact'},el('b',{},'持ち物　'), fx?el('span',{class:'fixed'},fx+(slot.item?'':'（確定）')):Object.entries(itc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${k} ${v}`).join('・')));
+    const common=list[0].mv.filter(m=>list.every(s=>s.mv.includes(m))&&!slot.moves.includes(m));
+    if(n>1&&common.length) facts.append(el('div',{class:'fact'},el('b',{},'全型が持つ技　'),el('span',{class:'fixed'},common.join('・'))));
+    const s31=list.map(s=>s.st[5]), s21=list.map(s=>s.s21);
+    const lo=Math.min(...s31),hi=Math.max(...s31),lo2=Math.min(...s21),hi2=Math.max(...s21);
+    facts.append(el('div',{class:'fact'},el('b',{},'素早さ　'),(lo===hi?`${lo}`:`${lo}〜${hi}`)+`（個体値21なら ${lo2===hi2?lo2:lo2+'〜'+hi2}）`));
+    if(current.removed[i].length) facts.append(el('div',{class:'fact empty'},`他の枠で確定した持ち物（${current.removed[i].join('・')}）の型は除外済み`));
+    res.append(facts);
+    const fastRows=slot.spd.filter(r=>r.rel==='fast'&&Number.isFinite(parseInt(r.v,10)));
+    const qcKept=list.filter(s=>s.qc&&fastRows.some(r=>spMax(s)<parseInt(r.v,10)));
+    if(qcKept.length) res.append(el('div',{class:'warn'},`#${qcKept.map(s=>s.i).join('・#')} は素早さでは届きませんが、せんせいのツメの発動で先に動いた可能性があるので残しています。`));
+    else if(list.some(s=>s.qc)) res.append(el('div',{class:'warn'},'せんせいのツメ持ちの型が含まれます。20%で行動順が逆転します。'));
+    const det=el('details',{open:n===1||n<=2},el('summary',{},n===1?'型の詳細':`候補 ${n}型を表示`));
+    const box=el('div',{class:'cands'});
+    list.forEach(s=>{
+      box.append(el('div',{class:'cand'},
+        el('div',{class:'cand-h'},el('span',{class:'cand-id'},'#'+s.i),el('span',{class:'cand-item'},s.it),s.qc?el('span',{class:'qc'},'ツメ'):null,
+          el('span',{class:'cand-nat'},`${s.n}（${s.nl}）${s.ev}　特性 ${s.a.join('／')}`)),
+        el('div',{class:'mv'},s.mv.map(m=>el('span',{class:slot.moves.includes(m)?'seen':''},m))),
+        el('div',{class:'stats'},['H','A','B','C','D','S'].map((k,j)=>el('span',{},el('i',{},k),String(s.st[j]))))));
+    });
+    det.append(box); res.append(det);
+  });
+}
+function rebuild(){
+  const y=window.scrollY;
+  grid.replaceChildren(...state.slots.map((_,i)=>buildSlot(i)));
+  update(); window.scrollTo(0,y);
+}
+const resetBtn=document.getElementById('reset'); let undoSnap=null, undoTimer=null, labelTimer=null;
+function label(txt,cls,ms){resetBtn.textContent=txt;resetBtn.classList.toggle('undo',!!cls);clearTimeout(labelTimer);
+  if(ms) labelTimer=setTimeout(()=>{resetBtn.textContent='リセット';resetBtn.classList.remove('undo')},ms)}
+resetBtn.addEventListener('click',()=>{
+  if(undoSnap){
+    clearTimeout(undoTimer); state=undoSnap; undoSnap=null; rebuild(); label('元に戻しました','',1200); return}
+  undoSnap=JSON.parse(JSON.stringify(state)); state=empty(); rebuild(); window.scrollTo(0,0);
+  label('もう一度で取り消し','undo',1500);
+  undoTimer=setTimeout(()=>{undoSnap=null},1500);
+});
+function start(data){state=(data&&data.slots)?data:load();rebuild()}
+window.claude?.hot?.snapshot?.(()=>state);
+window.claude?.hot?.ready?window.claude.hot.ready(start):start(window.claude?.hot?.data??{});
+})();
+</script>
