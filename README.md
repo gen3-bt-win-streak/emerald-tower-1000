@@ -3,12 +3,12 @@
 一次データ（pokeemerald逆コンパイル）と全546セットの全数計算で、構築・行動指針・個体の正当性を「感覚ではなく証拠」として積み上げる記録。
 公開リポジトリ：https://github.com/gen3-bt-win-streak/emerald-tower-1000 （英語の入口は [README_EN.md](README_EN.md)）
 
-## 現在地（2026-09-11）
+## 現在地（2026-10-07）
 
 | 項目 | 状態 |
 |---|---|
-| 構築 | **v5 確定**：メタグロス@ハチマキ／ラティオス／フリーザー（XD産・こころのめ／零度／まもる／くろいきり）／カビゴン → [25章](docs/current/25-v5-articuno-build.md) |
-| 実機 | v5で走行中。42連勝停止（バクフーン#647）→ 条項化済み。ジュゴン／トドゼルガの一撃技で停止 → 条項化済み（[12章 8.6e／8.6f](docs/current/12-playbook.md)） |
+| 構築 | **v6 実機運用中**：メタグロス@ハチマキ／ラティオス／ニョロトノ（しめりけ・ほろびのうた）／カビゴン → [28章](docs/current/28-perish-build.md)。前構築 v5（フリーザー入り）は [25章](docs/current/25-v5-articuno-build.md) |
+| 実機 | v6で走行中。v6固有の運用条項は [28章§4](docs/current/28-perish-build.md)（12章へは未反映）。v5期の停止（42連勝・バクフーン#647／ジュゴン・トドゼルガの一撃技）は条項化済み（[12章 8.6e／8.6f](docs/current/12-playbook.md)） |
 | 自己ベスト | 613連勝（v4系・Delta、未提出）。v4実機の履歴は [15章](docs/history/15-v4-real-build.md) 末尾の実戦ログ |
 | 世界記録 | オープン・ダブル 1316連勝（Jheisinho・エミュ）。1000連勝は歴代2位相当、更新ラインは1317 |
 | Smogon | PKHeXで再現したRNG実在個体は **掲載可**（2026-05-04 管理者回答で決着）。提出は現管理者の在任中（2026年内）に → [27章](docs/current/27-smogon-post.md) |
@@ -17,8 +17,9 @@
 ## 読む順番
 
 - **経緯を1枚で**：[TIMELINE.md](TIMELINE.md)（何を試し、何が没になり、なぜ今の形か。棄却・棚上げ・訂正も全部載せている）
-- **実機で戦う**：[12章 v5クイックリファレンス](docs/current/12-playbook.md)（1ページ）→ 該当条項へ。
-- **構築を理解する**：[25章§0](docs/current/25-v5-articuno-build.md)（確定表と主要指標）→ §2（フリーザーの全検討）→ §10（敵対評価）。
+- **実機で戦う**：[28章§3〜§4](docs/current/28-perish-build.md)（v6の詰め手順・運用条項）→ [12章](docs/current/12-playbook.md)（詰み系即断・名指し条項。先頭のクイックリファレンスはv5版）。
+- **対戦中に相手の型を絞る**：[タワー型サーチ](tools/setfinder/README.md)（見えた種族・技・持ち物・特性・素早さから、546型を敵4体同時に絞り込む静的HTML。スマホのブラウザで開く）。
+- **構築を理解する**：[28章§0〜§2](docs/current/28-perish-build.md)（v6の構成・勝ち筋・ニョロトノの根拠）→ 土台の [25章§0](docs/current/25-v5-articuno-build.md)（メタグロス／ラティオス／カビゴンの指標）。
 - **個体を用意する／正当性を説明する**：[16章](docs/current/16-pkhex-setup.md) → [26章](docs/current/26-articuno-provenance.md) → [17章](docs/current/17-smogon-legitimacy.md)・[27章](docs/current/27-smogon-post.md)。
 - **数字の出どころを確かめる**：[18章 検証台帳](docs/current/18-verification-ledger.md)（日付順の全主張と訂正）→ `tools/engine/`・`tools/sim/`（各ディレクトリの役割は [tools/README.md](tools/README.md)）。
 
@@ -32,16 +33,16 @@
 
 ## ドキュメント一覧
 
-### 現行（v5）で使うもの — `docs/current/`
+### 現行（v6）で使うもの — `docs/current/`
 
 | ファイル | 内容 | 状態 |
 |---|---|---|
-| [**25-v5-articuno-build.md**](docs/current/25-v5-articuno-build.md) | v5構築の確定表・主要指標・フリーザーの全検討（技構成、EV、後出し枠モデル、ギャラドス比較）・敵対評価 | ✅ 確定 |
-| [**12-playbook.md**](docs/current/12-playbook.md) | 実機プレイブック。先頭の **v5クイックリファレンス**、詰み系即断、名指し条項（8.6d〜8.6i）、付章B（v5差分） | ✅ 運用中 |
+| [**28-perish-build.md**](docs/current/28-perish-build.md) | **v6構築**：メタグロス／ラティオス／ニョロトノ／カビゴン。しめりけで爆発を封じ、敵を残り2体にしてからほろびのうたで詰める。構成表・詰めの手順・運用条項（§4） | ✅ 運用中 |
+| [**25-v5-articuno-build.md**](docs/current/25-v5-articuno-build.md) | v5構築（前構築・v6の土台）の確定表・主要指標・フリーザーの全検討（技構成、EV、後出し枠モデル、ギャラドス比較）・敵対評価 | ✅ 確定 |
+| [**12-playbook.md**](docs/current/12-playbook.md) | 実機プレイブック。先頭の **v5クイックリファレンス**、詰み系即断、名指し条項（8.6d〜8.6i）、付章B（v5差分）。v6固有の条項は28章§4 | ✅ 運用中 |
 | [**16-pkhex-setup.md**](docs/current/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ✅ |
 | [**26-articuno-provenance.md**](docs/current/26-articuno-provenance.md) | XD産フリーザーの来歴証明：XDRNG導出・ロック連鎖・全数証明・入手ルート・色違い不可・証拠チェックリスト | ✅ 42/42 PASS |
 | [**27-smogon-post.md**](docs/current/27-smogon-post.md) | Smogon掲載資格の決着（時系列・原文）と提出write-up用の英語段落 | ✅ 決着 |
-| [28-perish-build.md](docs/current/28-perish-build.md) | **v6設計中**：メタグロス／ラティオス／ニョロトノ／カビゴン。しめりけで爆発を封じ、敵を残り2体にしてからほろびのうたで詰める。実機投入はまだ | 🔧 設計中 |
 | [17-smogon-legitimacy.md](docs/current/17-smogon-legitimacy.md) | Smogonルール原文・記録保持者の実態・提出チェックリスト・公開手順 | ✅ |
 | [**18-verification-ledger.md**](docs/current/18-verification-ledger.md) | 検証台帳：全主張の機械検証結果と、発見した誤り・訂正の記録 | ✅ 継続 |
 
@@ -87,7 +88,8 @@
 | `tools/engine/` | 全数計算エンジン（`calc_matchups.py`・`evlib.py`）と pokeemerald 抜粋。ほぼ全ての数値の出どころ |
 | `tools/xd/` | XD産フリーザーの来歴検証（`xd_articuno_verify.py`・42/42 PASS） |
 | `tools/sim/` | シミュレータと検証スクリプト（`legacy/` は v0期の記録・実行不能） |
-| `tools/advisor/` | アドバイザー（Lambda／Docker／コンソール）。**v4構成のUIのまま＝現行v5では使わない（凍結）** |
+| `tools/setfinder/` | **タワー型サーチ**：対戦中に見えた情報から敵の型を絞り込む静的HTML（546型を埋め込み・外部通信なし）。仕様と再生成手順は [tools/setfinder/README.md](tools/setfinder/README.md) |
+| `tools/advisor/` | アドバイザー（Lambda／Docker／コンソール）。**v4構成のUIのまま＝v5以降では使わない（凍結）** |
 | `tools/publish/` | 公開エクスポート |
 | `tools/smogon/` | GPT向け調査プロンプトと回答原文、スレッド取り込みスクリプト |
 | [tools/README.md](tools/README.md) | 各ディレクトリの役割・依存の向き・環境変数・**旧→新パス対応表** |
@@ -109,5 +111,5 @@
 - [x] Phase 4：構築 v3→v4（100万戦シミュ）→ v5（全数計算＋走者定義の指標に切り替え、シミュマラソンは終了）
 - [x] 個体の正当性：全個体をPokeFinder実在フレーム→PKHeXで用意。XD産フリーザーの来歴証明を完成。Smogon掲載資格を決着。
 - [x] 公開：スクラブ済み履歴を `gen3-bt-win-streak/emerald-tower-1000` に公開、Actionsで自動追随。
-- [ ] **Phase 5（進行中）**：v5で実機走行。負けごとに条項化。録画とBattle Resultsのスクショを保存。
+- [ ] **Phase 5（進行中）**：実機走行（v5 → 現在は v6）。負けごとに条項化。録画とBattle Resultsのスクショを保存。
 - [ ] Smogon提出：2026年内（現管理者の在任中）に、write-up＋公開リポジトリへのリンク付きで提出。

@@ -10,18 +10,32 @@ English entry point and reproduction guide.
 
 Current world record for this category is 1316 wins (Jheisinho, emulator, Smogon Gen III Battle Frontier leaderboard).
 
-## Team (v5, September 2026)
+## Team (v6, currently in play)
 
-| | Metagross | Latios | Articuno | Snorlax |
+| | Metagross | Latios | Politoed | Snorlax |
 |---|---|---|---|---|
-| Item | Choice Band | Bright Powder | Leftovers | Chesto Berry |
-| Nature / EVs | Adamant, 252 HP / 252 Atk / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 236 HP / 208 Def / 60 SpD / 4 Spe | Adamant, 76 HP / 182 Atk / 252 Def |
-| Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Thunderbolt / Protect | Mind Reader / Sheer Cold / Protect / Haze | Body Slam / Curse / Rest / Earthquake |
-| Origin | Egg (Emerald) | Southern Island, Method 1 | **Pokémon XD Shadow Articuno** (Haze is a purify move), Calm 31/0/31/29/31/31, PID `2F3C902C`, XDRNG origin seed `ECFE3E26` | Egg (Emerald) |
+| Item | Choice Band | Leftovers | Lum Berry | Chesto Berry |
+| Ability | Clear Body | Levitate | **Damp** | Thick Fat |
+| Nature / EVs | Adamant, 252 HP / 252 Atk / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 76 HP / 182 Atk / 252 Def |
+| Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Dive / Substitute | Yawn / Rest / Return / Earthquake |
 
-Lead: Metagross + Latios. Back: Articuno (switch-in for everything Latios cannot take; both leads are immune to
-Earthquake) and Snorlax (last Pokémon, Curse win condition). Metagross's Explosion is the answer to the "no other
-sure KO" sets (OHKO-move users, Focus Band Blissey), with Articuno's Protect covering the partner slot.
+Plan: Latios and Metagross take out two enemies the normal way (Explosion included). Once the opponent is down to
+its last two Pokémon (no bench left to switch to), Politoed sings Perish Song and the team survives the three
+counting turns with Yawn, Protect and Dive. Damp also switches off all 24 enemy Explosion / Self-Destruct sets, which
+removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). Chapter 28 (`docs/current/28-perish-build.md`)
+has the full design and the play clauses.
+
+The previous team, **v5** (September 2026), ran Pokémon XD Shadow Articuno (Mind Reader / Sheer Cold / Protect /
+Haze; Calm 31/0/31/29/31/31, PID `2F3C902C`, XDRNG origin seed `ECFE3E26`) in Politoed's slot; it is documented in
+chapter 25, with the Articuno provenance dossier in chapter 26.
+
+## In-battle set finder
+
+`tools/setfinder/` is a static HTML page for use on a phone during a battle. Enter what you have seen of each enemy
+(species, moves, item, ability, and whether it outsped a given Speed stat) and it narrows the 546 possible sets for
+all four enemies at once. Because an enemy team never repeats a species or an item, it also cross-checks the four
+slots and drops sets whose item would clash. The data is embedded in the page: no server, no network requests,
+no tracking. Rebuild with `PYTHONHASHSEED=0 python3 build_setfinder.py` in that directory.
 
 ## What is in here
 
@@ -33,7 +47,8 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `README.md` | Japanese overview and chapter index |
 | `TIMELINE.md` | What was tried, what was dropped, and why the tree looks like this (Japanese) |
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
-| `docs/current/25-v5-articuno-build.md` | The current team: full-population screening, EV optimisation, the Articuno build |
+| `docs/current/28-perish-build.md` | The current team (v6): Damp + Perish Song finisher, Politoed's EVs, how to survive the perish count, play clauses |
+| `docs/current/25-v5-articuno-build.md` | The previous team (v5) and the base of v6: full-population screening, EV optimisation, the Articuno build |
 | `docs/current/12-playbook.md` | The play rules actually used at the console, with every loss so far analysed and turned into a clause |
 | `docs/current/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
 | `docs/current/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
@@ -44,6 +59,7 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `data/` | 882 Battle Frontier sets (546 in the 50+ pool), 300 trainers, danger reports (CSV/JSON) |
 | `tools/engine/` | Damage engine (`calc_matchups.py`, `evlib.py`) and the pokeemerald excerpts it reads |
 | `tools/xd/` | XD Articuno provenance verifier |
+| `tools/setfinder/` | In-battle set finder (static HTML, see above) |
 | `tools/sim/` | Simulators and verification scripts (`legacy/` = v0-era snapshots, not runnable) |
 | `tools/README.md` | What each tools directory is for, which way the dependencies point, and an old → new path table |
 
@@ -75,7 +91,7 @@ the **OHKO-risk range** if its *maximum* roll kills us. Enemy IVs are 31 (Battle
 
 ## Legitimacy of the Pokémon
 
-All four Pokémon were created in PKHeX after first finding, with PokeFinder, a PID / IV / nature combination that
+All four Pokémon of the v5 team were created in PKHeX after first finding, with PokeFinder, a PID / IV / nature combination that
 the in-game Gen 3 RNG actually produces (Method 1, egg frames, or XDRNG). PKHeX reports every Pokémon as legal,
 and for the Articuno the XDRNG derivation is re-implemented independently in `tools/xd/xd_articuno_verify.py`. This matches
 the current Smogon Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have legally

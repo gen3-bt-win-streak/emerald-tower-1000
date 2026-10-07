@@ -12,7 +12,7 @@
 
 ```bash
 cd battle-tower/tools/setfinder && PYTHONHASHSEED=0 python3 build_setfinder.py
-# → tower-setfinder.html: 173201 bytes, 546 sets
+# → tower-setfinder.html（約170KB）, 546 sets
 ```
 
 ## 仕様
