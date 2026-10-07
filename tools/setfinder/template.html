@@ -108,6 +108,8 @@ const KEY='bt-setfinder-v1';
 const REL={fast:'より速い',slow:'より遅い',tie:'と同速'};
 const blank=()=>({sp:'',moves:[],item:'',ab:'',spd:[]});
 const empty=()=>({slots:[blank(),blank(),blank(),blank()]});
+// 種族を決めた時点で素早さの入力行を1つ開いておく（不要なら × で閉じる）
+const picked=v=>Object.assign(blank(),{sp:v,spd:[{v:'',rel:'fast'}]});
 let state=null;
 function load(){
   try{const raw=localStorage.getItem(KEY); if(raw){const s=JSON.parse(raw); if(s&&!s.example&&Array.isArray(s.slots)&&s.slots.length===4) return s;}}catch(e){}
@@ -183,7 +185,7 @@ function buildSlot(i){
     el('button',{class:'clear',type:'button',onclick:()=>{state.slots[i]=blank();rebuild()}},'この枠を消す')));
   const sp=el('input',{type:'text',id:'sp'+i,placeholder:'例：かびごん',value:slot.sp,autocomplete:'off',autocapitalize:'off',spellcheck:'false'});
   const sugg=el('div',{class:'chips sugg',id:'sugg'+i});
-  const choose=v=>{if(v!==slot.sp){Object.assign(slot,blank(),{sp:v});focusAfter=null;rebuild()}};
+  const choose=v=>{if(v!==slot.sp){Object.assign(slot,picked(v));focusAfter=null;rebuild()}};
   const showSugg=()=>{
     const v=norm(sp.value); sugg.replaceChildren();
     if(!v||v===slot.sp) return;
@@ -194,7 +196,7 @@ function buildSlot(i){
   };
   sp.addEventListener('input',()=>{
     const v=norm(sp.value);
-    if(BY_SP[v]&&v!==slot.sp&&usedBy(i,v)<0){Object.assign(slot,blank(),{sp:v});focusAfter=i;rebuild();return}
+    if(BY_SP[v]&&v!==slot.sp&&usedBy(i,v)<0){Object.assign(slot,picked(v));focusAfter=i;rebuild();return}
     if(!v&&slot.sp){Object.assign(slot,blank());focusAfter=i;rebuild();return}
     showSugg();
   });
@@ -260,7 +262,7 @@ function spdInput(i,slot,list){
   if(!box||!note) return;
   const s0=list&&list.length?list[0]:null;
   const same=!!s0&&list.every(s=>s.st[5]===s0.st[5]&&s.s21===s0.s21);
-  const hide=same&&slot.spd.length===0&&!current.conflict[i].length&&!current.dupSp[i];
+  const hide=same&&slot.spd.every(r=>String(r.v).trim()==='')&&!current.conflict[i].length&&!current.dupSp[i];
   box.style.display=hide?'none':'';
   note.style.display=hide?'':'none';
   note.textContent=hide?`素早さ：${list.length===1?'この型':'残りの候補はすべて'} ${s0.st[5]}（個体値21なら ${s0.s21}）なので、入力は不要です。`:'';
