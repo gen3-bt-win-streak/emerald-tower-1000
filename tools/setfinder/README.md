@@ -9,11 +9,20 @@
 | `build_setfinder.py` | `../engine/` から546型を日本語JSONにして埋め込み、`tower-setfinder.html` を書き出す |
 | `tower-setfinder.html` | 生成物。claude.ai に公開する版（外枠は公開時に付く） |
 | `tower-setfinder-standalone.html` | 生成物。スマホ等に保存して直接開く軽量版。文字コード・画面幅の指定を含み、Webフォントを使わず端末の標準フォントで表示する（外部への通信ゼロ・オフラインで動く） |
+| `query.py` | 端末版。ページと同じ規則で絞り込んで結果を文字で出す（Claude Code の `/setfinder` スキルが使う） |
 
 ```bash
 cd battle-tower/tools/setfinder && PYTHONHASHSEED=0 python3 build_setfinder.py
 # → tower-setfinder.html（約170KB）, 546 sets
 ```
+
+端末版（チャットから使うとき）：
+
+```bash
+python3 query.py "カビゴン メガトンキック かわらわり" "サイドン >150"   # 1引数＝敵1体。/ 区切りで1引数にまとめてもよい
+```
+
+枠の中は空白区切りで、種族（前方一致）・技・持ち物（部分一致。「つめ」→せんせいのツメ）・特性、素早さ `>N`（速い）`<N`（遅い）`=N`（同速）。
 
 ## 仕様
 
