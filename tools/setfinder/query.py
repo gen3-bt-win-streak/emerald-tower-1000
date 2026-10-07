@@ -10,6 +10,8 @@
 ひらがな・カタカナ・全角半角の違いは無視する。持ち物は「つめ」「ツメ」でせんせいのツメ、「のこし」でたべのこしなど、
 部分一致で1つに決まれば受け付ける。
 
+型番号「#397」で型を直接指定してもよい（その種族の枠になる）。
+
 規則はページと同じ：
   ・素早さは個体値31と21の両方で判定し、同速は「速い」「遅い」の両方に含める。
   ・せんせいのツメ持ちは「速い」で素早さが足りなくても残す（注意を付ける）。
@@ -54,9 +56,19 @@ def pick(tok, names, partial):
 
 
 def parse(text):
-    slot = dict(sp='', moves=[], item='', ab='', spd=[], warn=[])
+    slot = dict(sp='', moves=[], item='', ab='', spd=[], ids=[], warn=[])
     for tok in text.split():
         t = unicodedata.normalize('NFKC', tok).lstrip('Ss')
+        if t[:1] == '#' and t[1:].isdigit():
+            hit = [x for x in SETS if x['i'] == int(t[1:])]
+            if not hit:
+                slot['warn'].append(f'「{tok}」は50戦目以降の546型にない番号')
+            elif slot['sp'] and slot['sp'] != hit[0]['p']:
+                slot['warn'].append(f'「{tok}」は{hit[0]["p"]}の型なので、{slot["sp"]}の枠では無視')
+            else:
+                slot['sp'] = hit[0]['p']
+                slot['ids'].append(hit[0]['i'])
+            continue
         if t[:1] in '<>=' and t[1:].isdigit():
             slot['spd'].append(({'>': 'fast', '<': 'slow', '=': 'tie'}[t[0]], int(t[1:])))
             continue
@@ -85,6 +97,8 @@ def own(slot):
     out = []
     for s in SETS:
         if s['p'] != slot['sp']:
+            continue
+        if slot['ids'] and s['i'] not in slot['ids']:
             continue
         if any(m not in s['mv'] for m in slot['moves']):
             continue
