@@ -175,7 +175,10 @@ def show(slots):
         print(head)
         lo31, hi31 = min(s['st'][5] for s in lst), max(s['st'][5] for s in lst)
         lo21, hi21 = min(s['s21'] for s in lst), max(s['s21'] for s in lst)
-        print(f'  素早さ：個体値31 {lo31}〜{hi31}／個体値21 {lo21}〜{hi21}')
+        if lo31 == hi31 and lo21 == hi21:
+            print(f'  素早さ：{"この型" if len(lst) == 1 else "全候補"} {lo31}（個体値21なら {lo21}）で共通＝素早さの比較では絞れない')
+        else:
+            print(f'  素早さ：個体値31 {lo31}〜{hi31}／個体値21 {lo21}〜{hi21}')
         for s in sorted(lst, key=lambda s: s['i']):
             st = '-'.join(map(str, s['st']))
             print(f"  #{s['i']} @{s['it']}{' ⚡ツメ' if s['qc'] else ''}｜{s['n']}（{s['nl']}）{s['ev']}｜{st}（S21={s['s21']}）"

@@ -215,7 +215,8 @@ function buildSlot(i){
     if(abs.length>1) secs.append(el('div',{class:'sec'},el('span',{class:'sec-t'},'表示された特性'),
       el('div',{class:'chips'},abs.map(m=>el('button',{type:'button',class:'chip','data-kind':'ab','data-v':m,'aria-pressed':String(slot.ab===m),
         onclick:()=>{slot.ab=slot.ab===m?'':m;refreshChips(i);update()}},m,el('span',{class:'n'},''))))));
-    const spdBox=el('div',{class:'sec'},el('span',{class:'sec-t'},'素早さ（実数値と比べて、この敵が）'));
+    // 候補の素早さが全部同じなら比べても絞れないので、入力欄を出さない（renderResults で候補に合わせて切り替える）
+    const spdBox=el('div',{class:'sec',id:'spdbox'+i},el('span',{class:'sec-t'},'素早さ（実数値と比べて、この敵が）'));
     slot.spd.forEach((r,ri)=>{
       const inp=el('input',{type:'number',inputmode:'numeric',id:`spv${i}_${ri}`,'aria-label':'素早さの実数値',value:r.v,min:'1',max:'999',placeholder:'177'});
       inp.addEventListener('input',()=>{r.v=inp.value;update()});
@@ -225,6 +226,7 @@ function buildSlot(i){
     });
     spdBox.append(el('button',{class:'add',type:'button',onclick:()=>{slot.spd.push({v:'',rel:'fast'});rebuild();const n=document.getElementById(`spv${i}_${slot.spd.length-1}`);n&&n.focus()}},'＋ 素早さの条件を追加'));
     secs.append(spdBox);
+    secs.append(el('div',{class:'sec empty',id:'spdnote'+i,style:'display:none'}));
     body.append(secs);
   }else if(slot.sp){
     body.append(el('div',{class:'bad'},`「${slot.sp}」は50戦目以降の敵にいません。候補から選んでください。`));
@@ -250,11 +252,22 @@ function refreshChips(i){
     b.title=byOther?`敵${taken.get(v)+1}が持っているので、この敵は持てません`:(n===0&&!pressed?'今の条件では候補にありません':'');
   });
 }
+function spdInput(i,slot,list){
+  const box=document.getElementById('spdbox'+i), note=document.getElementById('spdnote'+i);
+  if(!box||!note) return;
+  const s0=list&&list.length?list[0]:null;
+  const same=!!s0&&list.every(s=>s.st[5]===s0.st[5]&&s.s21===s0.s21);
+  const hide=same&&slot.spd.length===0&&!current.conflict[i].length&&!current.dupSp[i];
+  box.style.display=hide?'none':'';
+  note.style.display=hide?'':'none';
+  note.textContent=hide?`素早さ：${list.length===1?'この型':'残りの候補はすべて'} ${s0.st[5]}（個体値21なら ${s0.s21}）なので、入力は不要です。`:'';
+}
 function renderResults(){
   current=compute();
   state.slots.forEach((slot,i)=>{
     const res=document.getElementById('res'+i), pill=document.getElementById('pill'+i), card=document.getElementById('slot'+i);
     res.replaceChildren(); const list=current.cand[i];
+    spdInput(i,slot,list);
     card.classList.remove('err'); pill.className='pill';
     if(!slot.sp||!list){pill.textContent='未入力';res.append(el('div',{class:'empty'},'種族を入れると、ここに候補の型が出ます。'));return}
     refreshChips(i);
