@@ -119,7 +119,7 @@ textarea{resize:vertical;min-height:4.5em;line-height:1.45}
   </section>
 
   <section class="card" id="secTurns">
-    <div class="card-h"><h2>ターン</h2><span class="sub">上から行動順でなくてよい。結果はタグで</span></div>
+    <div class="card-h"><h2>ターン</h2><span class="sub">タグは対象に起きたこと。いない駒は「（いない）」</span></div>
     <div id="turns" style="display:flex;flex-direction:column;gap:10px"></div>
     <div class="addrow"><button class="add" id="btnAddTurn" type="button">＋ ターンを追加</button></div>
   </section>
@@ -147,10 +147,14 @@ const SETS = __DATA__;
 const TEAM = __TEAM__;
 const KEY = 'losslog.v1';
 const SLOT_NAMES = ['敵A', '敵B', '控え1', '控え2'];
-const TAGS_ME = ['倒した', '外れ', '急所', '耐えられた', 'ハチマキ', 'まもられた', '無効', 'ひるんだ', '混乱自傷', '眠り', '麻痺', '倒れた'];
-const TAGS_EN = ['倒した', '外れ', '急所', '耐えた', 'まもられた', '無効', 'ツメ', 'ハチマキ', '混乱自傷', '眠り', '麻痺', '倒れた'];
-const OTHER_EN = ['交代', '控えから登場', '行動なし', 'その他'];
-const OTHER_ME = ['交代', '控えから登場', '行動なし'];
+// タグは「対象に何が起きたか」。使い手が動けなかった場合は行動の側（動けず…）で表す
+const TAGS_ME = ['倒れた', '耐えた', 'ハチマキ', 'まもられた', '無効', '外れ', '急所', 'ひるみ', '眠り', '麻痺', '混乱', 'こおり', 'やけど', 'どく', '自滅'];
+const TAGS_EN = ['倒れた', '耐えた', 'まもられた', '無効', '外れ', '急所', 'ひるみ', '眠り', '麻痺', '混乱', 'こおり', 'やけど', 'どく', 'ツメ先制', '自滅'];
+const NOMOVE = ['動けず（ひるみ）', '動けず（眠り）', '動けず（麻痺）', '動けず（こおり）', '混乱で自傷', 'メロメロで動けず'];
+const OTHER_EN = ['交代', '控えから登場', ...NOMOVE, '行動なし', 'その他'];
+const OTHER_ME = ['交代', '控えから登場', ...NOMOVE, '行動なし'];
+const NONE = '（いない）';
+const noTarget = act => !act || act === '控えから登場' || act === '行動なし' || NOMOVE.includes(act);
 
 const norm = s => { s = (s || '').normalize('NFKC'); let o = ''; for (const c of s) { const k = c.codePointAt(0); o += (k >= 0x3041 && k <= 0x3096) ? String.fromCodePoint(k + 0x60) : c; } return o.replace(/\s+/g, ''); };
 const SPECIES = [...new Set(SETS.map(s => s.p))].sort();
@@ -160,9 +164,13 @@ const today = () => { const d = new Date(); return d.getFullYear() + '-' + Strin
 
 function blankAct(side, who) { return { side, who, act: '', tgt: '', tags: [], hp: '' }; }
 function blankTurn(prev) {
-  const me = prev ? prev.acts.filter(a => a.side === 'me').map(a => a.who) : TEAM.lead.slice();
-  const en = prev ? prev.acts.filter(a => a.side === 'en').map(a => a.who) : ['敵A', '敵B'];
-  return { acts: [blankAct('me', me[0] || TEAM.lead[0]), blankAct('me', me[1] || TEAM.lead[1]), blankAct('en', en[0] || '敵A'), blankAct('en', en[1] || '敵B')], note: '' };
+  if (!prev) return { acts: [blankAct('me', TEAM.lead[0]), blankAct('me', TEAM.lead[1]), blankAct('en', '敵A'), blankAct('en', '敵B')], note: '' };
+  // 前のターンで倒れた駒は次のターンの行から外す（空欄＝いない）
+  const dead = new Set();
+  for (const a of prev.acts) { if (a.tags.includes('倒れた') && a.tgt && a.tgt !== '全体') dead.add(a.tgt); if (a.tags.includes('自滅')) dead.add(a.who); }
+  const carry = a => blankAct(a.side, dead.has(a.who) ? '' : a.who);
+  const me = prev.acts.filter(a => a.side === 'me'), en = prev.acts.filter(a => a.side === 'en');
+  return { acts: [carry(me[0] || blankAct('me', '')), carry(me[1] || blankAct('me', '')), carry(en[0] || blankAct('en', '')), carry(en[1] || blankAct('en', ''))], note: '' };
 }
 function blank() {
   return { date: today(), streak: '', build: TEAM.build, result: '負け', trainer: '', lead: TEAM.lead.slice(),
@@ -253,7 +261,9 @@ function renderTurns() {
       const who = el('select', { class: 'who', onchange: ev => { a.who = ev.target.value; a.act = ''; save(); renderTurns(); } });
       if (a.side === 'me') for (const m of TEAM.members) who.append(opt(m.name, m.name, m.name === a.who));
       else for (let i = 0; i < 4; i++) who.append(opt(SLOT_NAMES[i], enemyLabel(i), SLOT_NAMES[i] === a.who));
+      who.append(opt('', NONE, !a.who));
       main.append(who);
+      if (!a.who) { row.append(main); card.append(row); return; }
       const moves = a.side === 'me' ? myMoves(a.who) : enemyMoves(a.who);
       const others = a.side === 'me' ? OTHER_ME : OTHER_EN;
       if (moves) {
@@ -276,7 +286,7 @@ function renderTurns() {
         if (a.side === 'me') for (const m of TEAM.members) { if (m.name !== a.who) to.append(opt(m.name, '→' + m.name, m.name === a.tgt)); }
         else for (let i = 0; i < 4; i++) { if (SLOT_NAMES[i] !== a.who) to.append(opt(SLOT_NAMES[i], '→' + enemyLabel(i), SLOT_NAMES[i] === a.tgt)); }
         main.append(to);
-      } else if (a.act && !['控えから登場', '行動なし'].includes(a.act)) {
+      } else if (!noTarget(a.act)) {
         main.append(el('span', { class: 'arrow' }, '→'));
         const tg = el('select', { class: 'tgt', onchange: ev => { a.tgt = ev.target.value; save(); } });
         tg.append(opt('', '対象', !a.tgt));
@@ -284,11 +294,11 @@ function renderTurns() {
         main.append(tg);
       }
       row.append(main);
-      if (a.act && !['控えから登場', '行動なし'].includes(a.act)) {
+      if (!noTarget(a.act)) {
         const tags = el('div', { class: 'tags' });
         for (const tg of (a.side === 'me' ? TAGS_ME : TAGS_EN)) {
-          const on = a.tags.includes(tg);
-          tags.append(el('button', { class: 'chip tag' + (tg === '倒した' ? ' ok' : ''), type: 'button', 'aria-pressed': String(on), onclick: ev => { if (on) a.tags = a.tags.filter(x => x !== tg); else a.tags.push(tg); save(); ev.target.setAttribute('aria-pressed', String(!on)); } }, tg));
+          // 押すたびに現在の状態を見て付け外しする（描画時の状態を使うと外せない）
+          tags.append(el('button', { class: 'chip tag' + (tg === '倒れた' ? ' ok' : ''), type: 'button', 'aria-pressed': String(a.tags.includes(tg)), onclick: ev => { const on = a.tags.includes(tg); a.tags = on ? a.tags.filter(x => x !== tg) : a.tags.concat(tg); save(); ev.currentTarget.setAttribute('aria-pressed', String(!on)); } }, tg));
         }
         const hp = el('input', { type: 'text', placeholder: '残りHP', value: a.hp || '', 'aria-label': '対象の残りHP' }); hp.addEventListener('input', ev => { a.hp = ev.target.value; save(); });
         tags.append(hp);
@@ -305,7 +315,7 @@ $('btnAddTurn').addEventListener('click', () => { S.turns.push(blankTurn(S.turns
 
 /* ---------- export ---------- */
 function actText(a) {
-  if (!a.act) return '';
+  if (!a.who || !a.act) return '';
   const who = a.side === 'me' ? a.who : enemyLabel(SLOT_NAMES.indexOf(a.who));
   let act = a.act === 'その他' ? (a.free || 'その他') : a.act;
   let s = who + ' ' + act;
@@ -331,7 +341,7 @@ function exportText() {
   L.push('', '- 残り: ' + (S.left || '—'), '- 所感: ' + (S.note || '—'));
   const data = { v: 1, date: S.date, streak: S.streak, build: S.build, result: S.result, trainer: S.trainer, lead: S.lead,
     enemies: S.enemies.map((e, i) => ({ slot: SLOT_NAMES[i], species: e.sp || null, set: e.id })),
-    turns: S.turns.map(t => ({ acts: t.acts.filter(a => a.act).map(a => ({ side: a.side, who: a.who, act: a.act === 'その他' ? (a.free || 'その他') : a.act, target: a.tgt || null, tags: a.tags, hp: a.hp || null })), note: t.note || null })),
+    turns: S.turns.map(t => ({ acts: t.acts.filter(a => a.who && a.act).map(a => ({ side: a.side, who: a.who, act: a.act === 'その他' ? (a.free || 'その他') : a.act, target: a.tgt || null, tags: a.tags, hp: a.hp || null })), note: t.note || null })),
     left: S.left, note: S.note };
   L.push('', '```json', JSON.stringify(data), '```');
   return L.join('\n');
