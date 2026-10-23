@@ -530,6 +530,7 @@ if (holdEffect == HOLD_EFFECT_EVASION_UP) calc = (calc * (100 - param)) / 100;  
 ## 10. 実機の負け（2026-10）
 
 v6の実機で止まった3戦。型は[タワー型サーチ](../../tools/setfinder/README.md)で確定し、数値は `tools/engine/`（2026-10-16の努力値）。
+1戦ごとの一次記録（ターン表＋json）は [logs/losses/](../../logs/losses/README.md)。以後の負けは[タワー敗戦ログ](../../tools/losslog/README.md)で書いてそこに置く。
 
 | | 連勝 | 日付 | 敵 | 経過 | 引いた確率 | 正着 |
 |---|---:|---|---|---|---|---|

@@ -1,0 +1,361 @@
+<title>タワー敗戦ログ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky bar (title + export) on top; one column of cards: 試合 → 敵 → ターン（カード列）→ 結末 → 書き出し. Phone first, 1 column everywhere. */
+:root{
+  --bg:#eff0f5; --surface:#ffffff; --ink:#1b1f2e; --muted:#5e6478; --line:#d4d7e2;
+  --accent:#3b4ea8; --accent-ink:#ffffff; --accent-soft:#dde2f6;
+  --warn:#9a5c00; --warn-soft:#fbecd2; --bad:#b0281f; --bad-soft:#f8dcd9; --good:#0d7656; --good-soft:#d9eee5;
+  --font-display:"DotGothic16","Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+  --font-mono:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12141c; --surface:#1b1e29; --ink:#e4e6ee; --muted:#9aa0b5; --line:#2e3242;
+  --accent:#8c9cf0; --accent-ink:#0f1330; --accent-soft:#262c4a;
+  --warn:#f0b357; --warn-soft:#3a2b10; --bad:#f2857c; --bad-soft:#3d1a17; --good:#45c596; --good-soft:#163a2c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12141c; --surface:#1b1e29; --ink:#e4e6ee; --muted:#9aa0b5; --line:#2e3242;
+  --accent:#8c9cf0; --accent-ink:#0f1330; --accent-soft:#262c4a;
+  --warn:#f0b357; --warn-soft:#3a2b10; --bad:#f2857c; --bad-soft:#3d1a17; --good:#45c596; --good-soft:#163a2c; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 40px;display:flex;flex-direction:column;gap:14px}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-bottom:14px}
+.bar-in{max-width:900px;margin:0 auto;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin:0;letter-spacing:.04em;flex:1 1 auto;white-space:nowrap}
+h2{font-family:var(--font-display);font-weight:400;font-size:1.05rem;margin:0;letter-spacing:.04em}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:8px 14px;font-weight:700}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--muted);font-weight:500}
+.btn.undo{background:var(--bad);color:#fff}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card-h{display:flex;align-items:center;gap:10px}
+.card-h .sub{color:var(--muted);font-size:.8rem;margin-left:auto;text-align:right}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+label.fld{display:flex;flex-direction:column;gap:4px;font-size:.78rem;color:var(--muted);min-width:0}
+input[type=text],input[type=number],input[type=date],select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;min-width:0;max-width:100%}
+textarea{resize:vertical;min-height:4.5em;line-height:1.45}
+.fld.w-s input,.fld.w-s select{width:7.5em}
+.fld.w-m input,.fld.w-m select{width:11em}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:var(--bg);border:0;padding:7px 12px;font-size:.9rem}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg button[aria-pressed="true"].bad{background:var(--bad);color:#fff}
+/* enemy slots */
+.slots{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:640px){.slots{grid-template-columns:1fr 1fr}}
+.slot{border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--bg)}
+.slot-h{display:flex;align-items:center;gap:8px}
+.slot-no{font-family:var(--font-display);font-size:1rem}
+.slot-no.bench{color:var(--muted)}
+.slot .pill{margin-left:auto;font-size:.78rem;padding:2px 10px;border-radius:999px;background:var(--surface);color:var(--muted);white-space:nowrap}
+.slot .pill.one{background:var(--accent);color:var(--accent-ink)}
+.sugg{display:flex;flex-wrap:wrap;gap:6px}
+.sugg:empty{display:none}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 10px;font-size:.86rem}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip.tag[aria-pressed="true"]{background:var(--bad);color:#fff;border-color:var(--bad)}
+.chip.tag.ok[aria-pressed="true"]{background:var(--good);color:#fff;border-color:var(--good)}
+.setinfo{font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.setinfo b{color:var(--ink);font-weight:700}
+.x{background:none;border:0;color:var(--muted);font-size:1.1rem;padding:0 6px;line-height:1}
+/* turns */
+.turn{border:1px solid var(--line);border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.turn-h{display:flex;align-items:center;gap:8px}
+.turn-no{font-family:var(--font-display);font-size:1.05rem;min-width:2.4em}
+.turn-h .x{margin-left:auto}
+.act{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 8px;align-items:center;padding:6px 8px;border-radius:8px;background:var(--bg)}
+.act.en{background:var(--bad-soft)}
+.act .side{font-size:.74rem;color:var(--muted);letter-spacing:.06em;writing-mode:horizontal-tb;white-space:nowrap}
+.act .main{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-width:0}
+.act select,.act input[type=text]{padding:5px 8px;font-size:16px}
+.act select.who{max-width:11em}
+.act select.mv,.act input.mv{flex:1 1 9em;min-width:0}
+.act select.tgt{max-width:8.5em}
+.act .arrow{color:var(--muted)}
+.tags{grid-column:2;display:flex;flex-wrap:wrap;gap:5px}
+.tags .chip{padding:2px 9px;font-size:.78rem}
+.tags input{width:6.5em;padding:3px 8px;font-size:16px}
+.addrow{display:flex;gap:8px;flex-wrap:wrap}
+.add{background:none;border:1px dashed var(--line);border-radius:8px;padding:7px 12px;font-size:.88rem;color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted)}
+/* export */
+.out textarea{font-family:var(--font-mono);font-size:12px;min-height:12em;width:100%;box-sizing:border-box;white-space:pre;overflow-x:auto}
+.toast{font-size:.84rem;color:var(--good);min-height:1.2em}
+.hint{font-size:.82rem;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.chip,.btn{transition:background .12s,color .12s}}
+</style>
+
+<header class="bar"><div class="bar-in">
+  <h1>タワー敗戦ログ</h1>
+  <button class="btn" id="btnExport" type="button">書き出し</button>
+  <button class="btn ghost" id="btnNew" type="button">新しい試合</button>
+</div></header>
+
+<main class="wrap">
+  <section class="card" id="secMeta">
+    <div class="card-h"><h2>試合</h2><span class="sub">入力はこの端末にだけ保存されます</span></div>
+    <div class="row">
+      <label class="fld w-m">日付<input type="date" id="fDate"></label>
+      <label class="fld w-s">連勝（停止時）<input type="number" id="fStreak" inputmode="numeric" placeholder="105"></label>
+      <label class="fld w-s">構築<input type="text" id="fBuild"></label>
+      <label class="fld">結果<span class="seg" id="fResult"><button type="button" class="bad" data-v="負け" aria-pressed="true">負け</button><button type="button" data-v="勝ち" aria-pressed="false">勝ち（記録用）</button></span></label>
+    </div>
+    <div class="row">
+      <label class="fld w-m">自分の先発①<select id="fLead0"></select></label>
+      <label class="fld w-m">自分の先発②<select id="fLead1"></select></label>
+      <label class="fld w-m">トレーナー（任意）<input type="text" id="fTrainer" placeholder="例：バグマニア"></label>
+    </div>
+  </section>
+
+  <section class="card" id="secEnemy">
+    <div class="card-h"><h2>敵</h2><span class="sub">種族を入れると型番号を選べます（分かる範囲で）</span></div>
+    <div class="slots" id="slots"></div>
+  </section>
+
+  <section class="card" id="secTurns">
+    <div class="card-h"><h2>ターン</h2><span class="sub">上から行動順でなくてよい。結果はタグで</span></div>
+    <div id="turns" style="display:flex;flex-direction:column;gap:10px"></div>
+    <div class="addrow"><button class="add" id="btnAddTurn" type="button">＋ ターンを追加</button></div>
+  </section>
+
+  <section class="card" id="secEnd">
+    <div class="card-h"><h2>結末</h2></div>
+    <div class="row">
+      <label class="fld" style="flex:1 1 14em">最後に残っていた駒（自分／敵）<input type="text" id="fLeft" placeholder="例：カビゴン残り1/3 ／ 敵 ラグラージ満タン"></label>
+    </div>
+    <label class="fld">所感・分岐点だと思った場面<textarea id="fNote" placeholder="例：T3のみがわりが分岐点。相方のラグラージを先に見ておくべきだった"></textarea></label>
+  </section>
+
+  <section class="card out" id="secOut">
+    <div class="card-h"><h2>書き出し</h2><span class="sub">コピーしてチャットに貼る</span></div>
+    <div class="row"><button class="btn" id="btnCopy" type="button">コピー</button><span class="toast" id="toast"></span></div>
+    <textarea id="fOut" readonly spellcheck="false"></textarea>
+    <div class="hint">本文は人が読む用、末尾の json ブロックは解析用。両方そのまま貼ってください。</div>
+  </section>
+</main>
+
+<script>
+(function(){
+'use strict';
+const SETS = __DATA__;
+const TEAM = __TEAM__;
+const KEY = 'losslog.v1';
+const SLOT_NAMES = ['敵A', '敵B', '控え1', '控え2'];
+const TAGS_ME = ['倒した', '外れ', '急所', '耐えられた', 'ハチマキ', 'まもられた', '無効', 'ひるんだ', '混乱自傷', '眠り', '麻痺', '倒れた'];
+const TAGS_EN = ['倒した', '外れ', '急所', '耐えた', 'まもられた', '無効', 'ツメ', 'ハチマキ', '混乱自傷', '眠り', '麻痺', '倒れた'];
+const OTHER_EN = ['交代', '控えから登場', '行動なし', 'その他'];
+const OTHER_ME = ['交代', '控えから登場', '行動なし'];
+
+const norm = s => { s = (s || '').normalize('NFKC'); let o = ''; for (const c of s) { const k = c.codePointAt(0); o += (k >= 0x3041 && k <= 0x3096) ? String.fromCodePoint(k + 0x60) : c; } return o.replace(/\s+/g, ''); };
+const SPECIES = [...new Set(SETS.map(s => s.p))].sort();
+const SPN = Object.fromEntries(SPECIES.map(p => [p, norm(p)]));
+const byId = Object.fromEntries(SETS.map(s => [s.i, s]));
+const today = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+
+function blankAct(side, who) { return { side, who, act: '', tgt: '', tags: [], hp: '' }; }
+function blankTurn(prev) {
+  const me = prev ? prev.acts.filter(a => a.side === 'me').map(a => a.who) : TEAM.lead.slice();
+  const en = prev ? prev.acts.filter(a => a.side === 'en').map(a => a.who) : ['敵A', '敵B'];
+  return { acts: [blankAct('me', me[0] || TEAM.lead[0]), blankAct('me', me[1] || TEAM.lead[1]), blankAct('en', en[0] || '敵A'), blankAct('en', en[1] || '敵B')], note: '' };
+}
+function blank() {
+  return { date: today(), streak: '', build: TEAM.build, result: '負け', trainer: '', lead: TEAM.lead.slice(),
+    enemies: [0, 1, 2, 3].map(() => ({ sp: '', id: null, q: '' })), turns: [blankTurn(null)], left: '', note: '' };
+}
+let S = blank();
+try { const raw = localStorage.getItem(KEY); if (raw) { const o = JSON.parse(raw); if (o && o.turns) S = Object.assign(blank(), o); } } catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+const $ = id => document.getElementById(id);
+const el = (tag, attrs, ...kids) => { const n = document.createElement(tag); for (const k in (attrs || {})) { if (k === 'class') n.className = attrs[k]; else if (k.startsWith('on')) n.addEventListener(k.slice(2), attrs[k]); else if (k === 'html') n.innerHTML = attrs[k]; else n.setAttribute(k, attrs[k]); } for (const c of kids) if (c != null) n.append(c); return n; };
+const opt = (v, label, sel) => { const o = el('option', { value: v }, label == null ? v : label); if (sel) o.selected = true; return o; };
+
+/* ---------- meta ---------- */
+function renderMeta() {
+  $('fDate').value = S.date; $('fStreak').value = S.streak; $('fBuild').value = S.build; $('fTrainer').value = S.trainer;
+  for (const b of $('fResult').querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.v === S.result));
+  for (const i of [0, 1]) { const s = $('fLead' + i); s.innerHTML = ''; for (const m of TEAM.members) s.append(opt(m.name, m.name, m.name === S.lead[i])); }
+  $('fLeft').value = S.left; $('fNote').value = S.note;
+}
+$('fDate').addEventListener('input', e => { S.date = e.target.value; save(); });
+$('fStreak').addEventListener('input', e => { S.streak = e.target.value; save(); });
+$('fBuild').addEventListener('input', e => { S.build = e.target.value; save(); });
+$('fTrainer').addEventListener('input', e => { S.trainer = e.target.value; save(); });
+$('fLeft').addEventListener('input', e => { S.left = e.target.value; save(); });
+$('fNote').addEventListener('input', e => { S.note = e.target.value; save(); });
+$('fResult').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; S.result = b.dataset.v; save(); renderMeta(); });
+$('fLead0').addEventListener('change', e => { S.lead[0] = e.target.value; save(); });
+$('fLead1').addEventListener('change', e => { S.lead[1] = e.target.value; save(); });
+
+/* ---------- enemies ---------- */
+function enemyLabel(i, withItem) {
+  const e = S.enemies[i]; if (!e.sp) return SLOT_NAMES[i];
+  const s = e.id ? byId[e.id] : null;
+  return e.sp + (s ? '#' + s.i : '') + (withItem && s ? '（' + s.it + '）' : withItem && !s ? '（型不明）' : '');
+}
+function renderSlots() {
+  const root = $('slots'); root.innerHTML = '';
+  S.enemies.forEach((e, i) => {
+    const slot = el('div', { class: 'slot' });
+    const head = el('div', { class: 'slot-h' }, el('span', { class: 'slot-no' + (i >= 2 ? ' bench' : '') }, SLOT_NAMES[i]));
+    const sets = e.sp ? SETS.filter(s => s.p === e.sp) : [];
+    if (e.sp) head.append(el('span', { class: 'pill' + (e.id ? ' one' : '') }, e.id ? '#' + e.id : sets.length + '型'));
+    if (e.sp) head.append(el('button', { class: 'x', type: 'button', 'aria-label': '消す', onclick: () => { S.enemies[i] = { sp: '', id: null, q: '' }; save(); renderSlots(); renderTurns(); } }, '×'));
+    slot.append(head);
+    if (!e.sp) {
+      const inp = el('input', { type: 'text', placeholder: '種族名（途中まででよい）', autocomplete: 'off', id: 'spq' + i, value: e.q || '' });
+      const sugg = el('div', { class: 'sugg' });
+      const refresh = () => {
+        const q = norm(inp.value); sugg.innerHTML = ''; if (!q) return;
+        const used = new Set(S.enemies.map(x => x.sp).filter(Boolean));
+        const hits = SPECIES.filter(p => SPN[p].startsWith(q) && !used.has(p)).slice(0, 10);
+        for (const p of hits) sugg.append(el('button', { class: 'chip', type: 'button', onclick: () => { S.enemies[i] = { sp: p, id: null, q: '' }; save(); renderSlots(); renderTurns(); } }, p));
+      };
+      inp.addEventListener('input', () => { S.enemies[i].q = inp.value; refresh(); });
+      slot.append(inp, sugg); refresh();
+    } else {
+      const sel = el('select', { onchange: ev => { S.enemies[i].id = ev.target.value ? Number(ev.target.value) : null; save(); renderSlots(); renderTurns(); } });
+      sel.append(opt('', '型不明', !e.id));
+      for (const s of sets) sel.append(opt(String(s.i), '#' + s.i + '　' + s.it + '　' + s.mv.join('／'), e.id === s.i));
+      slot.append(el('label', { class: 'fld' }, '型', sel));
+      if (e.id) { const s = byId[e.id]; slot.append(el('div', { class: 'setinfo' }, el('span', {}, el('b', {}, s.it), '　S' + s.s), el('span', {}, s.mv.join('／')))); }
+    }
+    root.append(slot);
+  });
+}
+
+/* ---------- turns ---------- */
+function myMoves(name) { const m = TEAM.members.find(x => x.name === name); return m ? m.moves : []; }
+function enemyMoves(who) { const i = SLOT_NAMES.indexOf(who); const e = i >= 0 ? S.enemies[i] : null; return e && e.id ? byId[e.id].mv : null; }
+function targetsFor(side) {
+  const t = [];
+  if (side === 'me') { for (let i = 0; i < 4; i++) t.push([SLOT_NAMES[i], enemyLabel(i)]); for (const m of TEAM.members) t.push([m.name, m.name]); t.push(['全体', '全体']); }
+  else { for (const m of TEAM.members) t.push([m.name, m.name]); for (let i = 0; i < 4; i++) t.push([SLOT_NAMES[i], enemyLabel(i)]); t.push(['全体', '全体']); }
+  return t;
+}
+function renderTurns() {
+  const root = $('turns'); root.innerHTML = '';
+  S.turns.forEach((t, ti) => {
+    const card = el('div', { class: 'turn' });
+    const h = el('div', { class: 'turn-h' }, el('span', { class: 'turn-no' }, 'T' + (ti + 1)));
+    if (S.turns.length > 1) h.append(el('button', { class: 'x', type: 'button', 'aria-label': 'このターンを消す', onclick: () => { S.turns.splice(ti, 1); save(); renderTurns(); } }, '×'));
+    card.append(h);
+    t.acts.forEach((a, ai) => {
+      const row = el('div', { class: 'act ' + a.side });
+      row.append(el('span', { class: 'side' }, a.side === 'me' ? '自分' : '敵'));
+      const main = el('div', { class: 'main' });
+      const who = el('select', { class: 'who', onchange: ev => { a.who = ev.target.value; a.act = ''; save(); renderTurns(); } });
+      if (a.side === 'me') for (const m of TEAM.members) who.append(opt(m.name, m.name, m.name === a.who));
+      else for (let i = 0; i < 4; i++) who.append(opt(SLOT_NAMES[i], enemyLabel(i), SLOT_NAMES[i] === a.who));
+      main.append(who);
+      const moves = a.side === 'me' ? myMoves(a.who) : enemyMoves(a.who);
+      const others = a.side === 'me' ? OTHER_ME : OTHER_EN;
+      if (moves) {
+        const mv = el('select', { class: 'mv', onchange: ev => { a.act = ev.target.value; save(); renderTurns(); } });
+        mv.append(opt('', '（行動）', !a.act));
+        for (const m of moves) mv.append(opt(m, m, m === a.act));
+        for (const o of others) mv.append(opt(o, o, o === a.act));
+        if (a.act && !moves.includes(a.act) && !others.includes(a.act)) mv.append(opt(a.act, a.act, true));
+        main.append(mv);
+        if (a.act === 'その他') { const free = el('input', { type: 'text', class: 'mv', placeholder: '技名', value: a.free || '' }); free.addEventListener('input', ev => { a.free = ev.target.value; save(); }); main.append(free); }
+      } else {
+        const free = el('input', { type: 'text', class: 'mv', placeholder: '技（型不明なので手入力）', value: a.act || '', list: 'dl' + ti + '_' + ai });
+        free.addEventListener('input', ev => { a.act = ev.target.value; save(); });
+        main.append(free);
+        const dl = el('datalist', { id: 'dl' + ti + '_' + ai }); for (const o of others) dl.append(opt(o)); main.append(dl);
+      }
+      if (a.act === '交代') {
+        const to = el('select', { class: 'tgt', onchange: ev => { a.tgt = ev.target.value; save(); } });
+        to.append(opt('', '→誰に', !a.tgt));
+        if (a.side === 'me') for (const m of TEAM.members) { if (m.name !== a.who) to.append(opt(m.name, '→' + m.name, m.name === a.tgt)); }
+        else for (let i = 0; i < 4; i++) { if (SLOT_NAMES[i] !== a.who) to.append(opt(SLOT_NAMES[i], '→' + enemyLabel(i), SLOT_NAMES[i] === a.tgt)); }
+        main.append(to);
+      } else if (a.act && !['控えから登場', '行動なし'].includes(a.act)) {
+        main.append(el('span', { class: 'arrow' }, '→'));
+        const tg = el('select', { class: 'tgt', onchange: ev => { a.tgt = ev.target.value; save(); } });
+        tg.append(opt('', '対象', !a.tgt));
+        for (const [v, l] of targetsFor(a.side)) tg.append(opt(v, l, v === a.tgt));
+        main.append(tg);
+      }
+      row.append(main);
+      if (a.act && !['控えから登場', '行動なし'].includes(a.act)) {
+        const tags = el('div', { class: 'tags' });
+        for (const tg of (a.side === 'me' ? TAGS_ME : TAGS_EN)) {
+          const on = a.tags.includes(tg);
+          tags.append(el('button', { class: 'chip tag' + (tg === '倒した' ? ' ok' : ''), type: 'button', 'aria-pressed': String(on), onclick: ev => { if (on) a.tags = a.tags.filter(x => x !== tg); else a.tags.push(tg); save(); ev.target.setAttribute('aria-pressed', String(!on)); } }, tg));
+        }
+        const hp = el('input', { type: 'text', placeholder: '残りHP', value: a.hp || '', 'aria-label': '対象の残りHP' }); hp.addEventListener('input', ev => { a.hp = ev.target.value; save(); });
+        tags.append(hp);
+        row.append(tags);
+      }
+      card.append(row);
+    });
+    const note = el('input', { type: 'text', placeholder: 'このターンのメモ（任意）', value: t.note || '' }); note.addEventListener('input', ev => { t.note = ev.target.value; save(); });
+    card.append(note);
+    root.append(card);
+  });
+}
+$('btnAddTurn').addEventListener('click', () => { S.turns.push(blankTurn(S.turns[S.turns.length - 1])); save(); renderTurns(); $('turns').lastElementChild.scrollIntoView({ block: 'nearest' }); });
+
+/* ---------- export ---------- */
+function actText(a) {
+  if (!a.act) return '';
+  const who = a.side === 'me' ? a.who : enemyLabel(SLOT_NAMES.indexOf(a.who));
+  let act = a.act === 'その他' ? (a.free || 'その他') : a.act;
+  let s = who + ' ' + act;
+  if (a.act === '交代') s += '→' + (a.side === 'me' ? a.tgt : enemyLabel(SLOT_NAMES.indexOf(a.tgt)));
+  else if (a.tgt) s += '→' + (SLOT_NAMES.includes(a.tgt) ? enemyLabel(SLOT_NAMES.indexOf(a.tgt)) : a.tgt);
+  const extra = a.tags.slice(); if (a.hp) extra.push('残り' + a.hp);
+  if (extra.length) s += '（' + extra.join('・') + '）';
+  return s;
+}
+function exportText() {
+  const L = [];
+  const title = '# ' + (S.result === '負け' ? '敗戦' : '試合') + 'ログ ' + S.date + '｜' + S.build + (S.streak ? '｜' + S.streak + '連勝' + (S.result === '負け' ? 'で停止' : '') : '');
+  L.push(title);
+  L.push('- 日付: ' + S.date + ' / 構築: ' + S.build + ' / 連勝: ' + (S.streak || '?') + ' / 結果: ' + S.result + (S.trainer ? ' / トレーナー: ' + S.trainer : ''));
+  L.push('- 自分の先発: ' + S.lead.join('／'));
+  L.push('- 敵: ' + S.enemies.map((e, i) => SLOT_NAMES[i] + ' ' + (e.sp ? enemyLabel(i, true) : '?')).join(', '));
+  L.push('', '| T | 自分 | 敵 | メモ |', '|---|---|---|---|');
+  S.turns.forEach((t, i) => {
+    const me = t.acts.filter(a => a.side === 'me').map(actText).filter(Boolean).join('／');
+    const en = t.acts.filter(a => a.side === 'en').map(actText).filter(Boolean).join('／');
+    L.push('| ' + (i + 1) + ' | ' + me + ' | ' + en + ' | ' + (t.note || '') + ' |');
+  });
+  L.push('', '- 残り: ' + (S.left || '—'), '- 所感: ' + (S.note || '—'));
+  const data = { v: 1, date: S.date, streak: S.streak, build: S.build, result: S.result, trainer: S.trainer, lead: S.lead,
+    enemies: S.enemies.map((e, i) => ({ slot: SLOT_NAMES[i], species: e.sp || null, set: e.id })),
+    turns: S.turns.map(t => ({ acts: t.acts.filter(a => a.act).map(a => ({ side: a.side, who: a.who, act: a.act === 'その他' ? (a.free || 'その他') : a.act, target: a.tgt || null, tags: a.tags, hp: a.hp || null })), note: t.note || null })),
+    left: S.left, note: S.note };
+  L.push('', '```json', JSON.stringify(data), '```');
+  return L.join('\n');
+}
+function showExport() { $('fOut').value = exportText(); $('secOut').scrollIntoView({ block: 'start' }); }
+$('btnExport').addEventListener('click', showExport);
+$('btnCopy').addEventListener('click', () => {
+  const txt = exportText(); $('fOut').value = txt; const t = $('toast');
+  const fallback = () => { $('fOut').focus(); $('fOut').select(); t.textContent = '選択しました。長押しでコピーしてください'; };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => { t.textContent = 'コピーしました'; setTimeout(() => { t.textContent = ''; }, 2500); }, fallback);
+  else fallback();
+});
+
+/* ---------- new game (with undo) ---------- */
+let undo = null, undoTimer = null;
+$('btnNew').addEventListener('click', () => {
+  const b = $('btnNew');
+  if (undo) { S = undo; undo = null; clearTimeout(undoTimer); b.textContent = '新しい試合'; b.classList.remove('undo'); save(); renderAll(); return; }
+  undo = S; S = blank(); save(); renderAll();
+  b.textContent = '取り消す'; b.classList.add('undo');
+  undoTimer = setTimeout(() => { undo = null; b.textContent = '新しい試合'; b.classList.remove('undo'); }, 4000);
+});
+
+function renderAll() { renderMeta(); renderSlots(); renderTurns(); $('fOut').value = ''; }
+renderAll();
+})();
+</script>
