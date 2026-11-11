@@ -34,7 +34,7 @@ Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316
 | Nature / EVs | Adamant, 208 HP / 252 Atk / 44 SpD / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 80 HP / 176 Atk / 248 Def / 4 Spe |
 | Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Waterfall / Hypnosis | Yawn / Rest / Double-Edge / Protect |
 
-Damp switches off all 24 enemy Explosion / Self-Destruct sets, which removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). As the finisher, Politoed sings Perish Song once the opponent is down to its last two Pokémon (no bench left to switch to), and the team rides out the three counting turns, adapting to the opponent with Protect, Hypnosis, Yawn and Waterfall.
+Damp switches off all 24 enemy Explosion / Self-Destruct sets, which removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). Perish Song is used in two ways. To flush threats: when a set-up sweeper starts using Double Team or Curse, or when very bulky Pokémon such as Suicune or Articuno are lined up, the AI switches out under the perish count and loses its boosts. And as the finisher: once the opponent is down to its last two Pokémon (no bench left to switch to), the team rides out the three counting turns, adapting to the opponent with Protect, Hypnosis, Yawn and Waterfall.
 
 ## About this repository
 
