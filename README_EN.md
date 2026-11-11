@@ -2,13 +2,30 @@
 
 日本語: [README.md](README.md)
 
-## Current team (v6)
+## Current team (v6, in play)
 
 **Metagross / Latios / Politoed / Snorlax**
 
 - Latios and Metagross take down as much of the enemy team as they can.
-- Against Pokémon that Latios and Metagross match up badly against, Snorlax and Politoed take the hits while using Yawn, and Perish Song deals with set-up sweepers and closes out the game.
+- Against bad matchups, Snorlax and Politoed take the hits, while Yawn and Perish Song handle set-up sweepers and close out games.
 - Politoed's Damp also stops enemy Explosion.
+
+Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316)
+
+## Where things are
+
+| Looking for | Go to |
+|---|---|
+| Sets and EVs | [Team details](#team-details-v6) below |
+| Full design, play clauses, losses | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
+| Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
+| Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
+| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/current/27-smogon-post.md), [17](docs/current/17-smogon-legitimacy.md), [16](docs/current/16-pkhex-setup.md) |
+| History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
+| All chapters | [docs/README.md](docs/README.md) (Japanese) |
+| Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
+
+## Team details (v6)
 
 | | Metagross | Latios | Politoed | Snorlax |
 |---|---|---|---|---|
@@ -17,19 +34,7 @@
 | Nature / EVs | Adamant, 208 HP / 252 Atk / 44 SpD / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 80 HP / 176 Atk / 248 Def / 4 Spe |
 | Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Waterfall / Hypnosis | Yawn / Rest / Double-Edge / Protect |
 
-Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316)
-
-## Where things are
-
-| Looking for | Go to |
-|---|---|
-| Full team details (sets, EVs, play clauses, losses) | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
-| Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
-| Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
-| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/current/27-smogon-post.md), [17](docs/current/17-smogon-legitimacy.md), [16](docs/current/16-pkhex-setup.md) |
-| History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
-| All chapters | [docs/README.md](docs/README.md) (Japanese) |
-| Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
+Damp switches off all 24 enemy Explosion / Self-Destruct sets, which removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). As the finisher, Politoed sings Perish Song once the opponent is down to its last two Pokémon (no bench left to switch to), and the team rides out the three counting turns, adapting to the opponent with Protect, Hypnosis, Yawn and Waterfall.
 
 ## About this repository
 
@@ -66,7 +71,7 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
 | `docs/current/28-perish-build.md` | The current team (v6): Damp + Perish Song finisher, Politoed's EVs, how to survive the perish count, play clauses |
 | `docs/current/25-v5-articuno-build.md` | The previous team (v5) and the base of v6: full-population screening, EV optimisation, the Articuno build |
-| `docs/current/12-playbook.md` | The play rules actually used at the console, with every loss so far analysed and turned into a clause |
+| `docs/current/12-playbook.md` | Play rules written in the v4/v5 era; shared clauses still apply, while v6-specific clauses and v6 losses are in chapter 28 §4 / §10 |
 | `docs/current/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
 | `docs/current/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
 | `docs/current/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
@@ -94,12 +99,14 @@ python3 xd_articuno_verify.py
 
 cd ../engine
 
-# Full-population damage tables for the team (writes matchups/report.json)
+# Full-population damage tables for the early (July 2026) candidate sets (writes matchups/report.json)
 python3 calc_matchups.py
 
 # Articuno as Latios's switch-in: which of the 245 relevant sets it survives, and what each 4th move buys
-python3 pivot_articuno.py
+python3 pivot_articuno.py   # v5 (Articuno) analysis
 ```
+
+The v6 numbers in chapter 28 come from `tools/engine/evlib.py` (`make()` / `ko_fixed_list()`) with the sets in the team table.
 
 The scripts are plain Python 3, no third-party packages. `tools/engine/evlib.py` exposes `make()`, `incoming()`, `outgoing()`,
 `ko_fixed_list()` and `risk_n_list()` for ad-hoc questions; see the docstring at the top of the file.
@@ -109,12 +116,13 @@ the **OHKO-risk range** if its *maximum* roll kills us. Enemy IVs are 31 (Battle
 
 ## Legitimacy of the Pokémon
 
-All four Pokémon of the v5 team were created in PKHeX after first finding, with PokeFinder, a PID / IV / nature combination that
+All Pokémon of the v4 and v5 teams were created in PKHeX after first finding, with PokeFinder, a PID / IV / nature combination that
 the in-game Gen 3 RNG actually produces (Method 1, egg frames, or XDRNG). PKHeX reports every Pokémon as legal,
 and for the Articuno the XDRNG derivation is re-implemented independently in `tools/xd/xd_articuno_verify.py`. This matches
 the current Smogon Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have legally
 obtainable stats and moves", leaderboard manager's clarification of May 2026). Chapter 26 documents what this does
 and does not prove: the Articuno is reachable by the real XD RNG, but it was not obtained on hardware.
+The v6 Politoed is not yet documented in chapter 16.
 
 ## License
 
