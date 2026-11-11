@@ -15,7 +15,7 @@
 | `sim_*marathon.py` | 100万戦マラソン本体（v4／v5／pivot／boomfix／firefix／hprock） |
 | `shepherd_*.sh` | マラソンを分割実行して ckpt を書き出す進行役 |
 | `aggregate_*.py` | `../../results/marathon-ckpt/` の ckpt を集計する |
-| `verify_docs.py` | 章に書かれた数値をエンジンで再計算して突き合わせる（94項目） |
+| `verify_docs.py` | 章に書かれた数値をエンジンで再計算して突き合わせる（94項目。対象は v4 期の章で、v6 の28章は入っていない） |
 | `remote_run.py` | 忠実度モードの A/B smoke 検証 |
 
 ## 走らせ方

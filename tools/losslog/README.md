@@ -34,7 +34,7 @@ python3 ingest.py pasted.txt      # または  python3 ingest.py - < pasted.txt
 
 ## 書き出しの形式
 
-```
+````
 # 敗戦ログ 2026-10-21｜v6｜105連勝で停止
 - 日付: 2026-10-21 / 構築: v6 / 連勝: 105 / 結果: 負け
 - 自分の先発: メタグロス／ラティオス
@@ -50,6 +50,6 @@ python3 ingest.py pasted.txt      # または  python3 ingest.py - < pasted.txt
 ```json
 {"v":1,"date":"2026-10-21","streak":"105",...}
 ```
-```
+````
 
 `json` の `enemies[].set` は型番号（不明なら null）、`turns[].acts[]` は `side`（me／en）・`who`・`act`・`target`・`tags`・`hp`。

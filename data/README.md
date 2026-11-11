@@ -42,7 +42,7 @@
 ### matchups_report.json — 全対面ダメージ・素早さレポート
 `../tools/engine/calc_matchups.py`（pokeemeraldのダメージ計算式を忠実移植・Lv100・敵IV31・最悪特性分岐）による
 546セット全対面の計算結果。爆発カバレッジ／各候補の与ダメ確1リスト／被確1リスト（急所込み別）／素早さ関係。
-候補の追加・努力値変更はスクリプトの `CANDS` を編集して再実行。
+（2026-07 の記録。`CANDS` は当時の候補のまま。`calc_matchups.py` は配備CIが見張っているので書き換えない。v6 の努力値・技の検討は `evlib` の `make()` で4体を作って確かめる＝[../tools/engine/README.md](../tools/engine/README.md)）
 
 ### ../tools/engine/ — 再生成スクリプト
 - `calc_matchups.py`：ダメージ計算機（CalculateBaseDamage移植）。現行エンジン。`matchups_report.json` の出どころ

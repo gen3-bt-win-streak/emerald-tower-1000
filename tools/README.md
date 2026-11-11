@@ -26,14 +26,21 @@
 | `xd/` | XD産フリーザーの来歴検証（`xd_articuno_verify.py`・42項目）。v5 の構成で使った。依存ゼロ |
 | `smogon/` | Smogon調査のプロンプトと回答原文、スレッド取り込み |
 | `sim/` | シミュレータ・集計・文書検証。`legacy/` は v0期のスナップショット |
-| `advisor/` | アドバイザー（Lambda／Docker／ブラウザコンソール）。盤面入力が v4 の4体（サンダー／メタグロス／ラティオス／ラグラージ）のままなので凍結。v6 でも使わない。配備CI `deploy-advisor.yml` はリポジトリ変数 `ENABLE_ADVISOR_DEPLOY` が未設定なので既に no-op（2026-09 時点の記載。今は確かめていない） |
+| `advisor/` | アドバイザー（Lambda／Docker／ブラウザコンソール）。盤面入力が v4 の4体（サンダー／メタグロス／ラティオス／ラグラージ）のままなので凍結。v6 でも使わない。配備CI `deploy-advisor.yml` は **no-op ではない**。2026-09-13・09-14 の push でも Lambda のコードを更新した（当時は変数 `ENABLE_ADVISOR_DEPLOY` が true。今の値は未確認）。下の「注意」の見張り対象を作業ブランチへ push すると、v4 のアドバイザーが再配備されうる。止めるならリポジトリ変数を外す（走者判断） |
 | `rng-oracle/` | 観測から敵生成シードを同定する試み（実機キャリブレーション待ちで棚上げ） |
+
+旧記載（2026-09-14。**誤り**。2026-11-11 に訂正）：「配備CI `deploy-advisor.yml` はリポジトリ変数 `ENABLE_ADVISOR_DEPLOY` が未設定なので既に no-op」。
 
 旧表の cwd 列：engine＝`tools/engine`、xd＝`tools/xd`、sim＝`tools/sim`、setfinder＝`tools/setfinder`、losslog＝`tools/losslog`、advisor＝`tools/advisor`、publish＝リポジトリ直下、smogon＝—、rng-oracle＝`tools/rng-oracle`。
 
 </details>
 
 ## 実行例
+
+v6 の4体を `evlib` で作る定義は [`engine/README.md`](engine/README.md) の折りたたみにある。
+
+<details>
+<summary>記録（v5／2026-07 の候補）</summary>
 
 `tools/` のある階層（公開版ではリポジトリの一番上）から実行する。
 
@@ -43,8 +50,9 @@ python3 tools/engine/calc_matchups.py      # → tools/engine/matchups/report.js
 python3 tools/engine/pivot_articuno.py     # v5 期の検証 → 後出し枠245セットの判定
 ```
 
-<details>
-<summary>旧表記（2026-09 時点）</summary>
+`calc_matchups.py` の `CANDS` は 2026-07 の初期候補で、v6 ではない。
+
+旧表記（2026-09 時点）：
 
 ```bash
 cd battle-tower/tools/xd     && python3 xd_articuno_verify.py    # → 42/42 checks passed
@@ -54,7 +62,7 @@ cd battle-tower/tools/engine && python3 pivot_articuno.py        # → 後出し
 
 </details>
 
-`engine/` の監査系の一部（`attack_cover.py`・`durability_audit.py`・`move_audit.py`・`dura_gross_swampert.py`）は、
+`engine/` の監査系の一部（`attack_cover.py`・`durability_audit.py`・`move_audit.py`・`dura_gross_swampert.py`。v4 期の構成で固定）は、
 `tools/engine` に入ってから実行する。`publish/` はリポジトリの一番上から。ほかのフォルダは各 README を見る。
 
 `evlib.py` は `make()` `incoming()` `outgoing()` `ko_fixed_list()` `risk_n_list()` を公開していて、
@@ -95,7 +103,8 @@ engine/calc_matchups.py   ←  engine/evlib.py           ←  engine/pivot_artic
 
 ## 注意
 
-- `advisor/` と、`engine/`・`sim/`・`data/` の一部は、非公開側の配備用ワークフロー（`deploy-advisor.yml`）が
+- **見張り対象を変えて push すると、そのまま本番の Lambda に配備されうる**（経緯は上の折りたたみの `advisor/` の行）。
+  `advisor/` と、`engine/`・`sim/`・`data/` の一部は、非公開側の配備用ワークフロー（`deploy-advisor.yml`）が
   見張っている。気軽に書き換えない。見張られているのは `engine/` の `calc_matchups.py`・`jpnames.py`・`pokeemerald/`、
   `sim/` の `sim.py`・`sim_teams.py`・`sim_z4.py`・`sim_z11.py`・`sim_zsearch.py`・`sim_v4marathon.py`、
   `data/` の `frontier_sets.csv`・`trainers.csv`。
