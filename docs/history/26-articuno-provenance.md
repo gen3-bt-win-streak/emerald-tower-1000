@@ -254,7 +254,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 ## 8. 保存チェックリスト
 
-提出の証拠の一覧は [../evidence/README.md](../evidence/README.md) にまとめた（この節は v5 期の記録）。
+提出の証拠の一覧は、非公開の evidence/ にまとめた（この節は v5 期の記録）。
 
 **【最低限保存】**
 - [ ] PKHeX Legality レポート全文（バージョン番号、"PIDType CXD"、origin seed ECFE3E26、Encounter "Shadow Articuno @ Citadark Isle"）とPK3ファイルのハッシュ

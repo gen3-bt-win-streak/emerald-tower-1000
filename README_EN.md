@@ -20,7 +20,7 @@ Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316
 | Full design, play clauses, losses | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
 | Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
 | Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
-| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, [evidence checklist](docs/evidence/README.md) (Japanese) |
+| Legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below |
 | History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
 | All chapters | [docs/README.md](docs/README.md) (Japanese) |
 | Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
@@ -58,7 +58,8 @@ no tracking. Rebuild with `PYTHONHASHSEED=0 python3 build_setfinder.py` in that 
 
 ## What is in here
 
-Chapters live in `docs/current` (v6), `docs/evidence` (submission evidence), `docs/base`, `docs/history`, `docs/shelved` and `docs/infra`.
+Chapters live in `docs/current` (v6), `docs/base`, `docs/history`, `docs/shelved` and `docs/infra`.
+Chapters 13 and 14 and the Smogon submission material (chapters 16, 17, 18, 27) are private and not in this repository.
 Chapter numbers are stable IDs and never change when a chapter moves.
 
 | File | Content |
@@ -70,9 +71,6 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `docs/current/28-perish-build.md` | The current team (v6): Damp, Perish Song to flush threats and to finish, Politoed's EVs, how to survive the perish count, play clauses |
 | `docs/history/25-v5-articuno-build.md` | The previous team (v5) and the starting point of v6 (the numbers changed in v6; current values: chapter 28 §0 / §6): full-population screening, EV optimisation, the Articuno build |
 | `docs/history/12-playbook.md` | Play rules of the v4/v5 era (frozen). The clauses still used in v6 were carried over to chapter 28 §4 |
-| `docs/evidence/16-pkhex-setup.md` | How each Pokémon was prepared in PKHeX: origin, PID and IVs (the v6 Politoed is in §4.6) |
-| `docs/evidence/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
-| `docs/evidence/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
 | `docs/history/26-articuno-provenance.md` | Provenance dossier for the XD Articuno: XDRNG derivation, lock chain, exhaustive proof that Calm 31/0/31/31/31/31 is impossible, acquisition route, shiny impossibility |
 | `docs/history/04`–`06`, `08`–`10`, `15`, `24` | Team design history (v1 → v5 transition), simulator results (1M-battle marathons, loss seeds) |
 | `docs/shelved/11`, `19`, `21`–`23` | Axes that were measured and dropped or parked |
@@ -129,10 +127,10 @@ Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have l
 leaderboard manager's clarification of May 2026). Latios, Metagross and Snorlax are the same individuals as in v5;
 Metagross and Snorlax got new EVs in October 2026 (chapter 28 §9).
 
-- **Latios**: Southern Island, Method 1. The PID / IV / nature combination was confirmed by exhaustive search and with PokeFinder (chapter 16 §4).
-- **Metagross**: bred, all IVs 31 (chapter 16 §4; chapter 17 §8 records the egg frame as checked).
+- **Latios**: Southern Island, Method 1. The PID / IV / nature combination was confirmed by exhaustive search and with PokeFinder.
+- **Metagross**: bred, all IVs 31.
 - **Snorlax**: bred, all IVs 31. The PID was chosen to give its nature, ability and shininess (chapter 24 §11).
-- **Politoed**: hatched in Littleroot Town, same OT / TID / SID as the rest of the team. Its PID matches its nature, gender, ability and shininess (chapter 16 §4.6). No PokeFinder frame was recorded for it.
+- **Politoed**: hatched in Littleroot Town, same OT / TID / SID as the rest of the team. Its PID matches its nature, gender, ability and shininess. No PokeFinder frame was recorded for it.
 
 v5 only: the XDRNG derivation of the XD Articuno is re-implemented independently in `tools/xd/xd_articuno_verify.py`.
 Chapter 26 documents what this does and does not prove: the Articuno is reachable by the real XD RNG, but it was not obtained on hardware.

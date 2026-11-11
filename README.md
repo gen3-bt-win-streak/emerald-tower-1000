@@ -20,7 +20,6 @@ v6最高 391連勝 ／ 自己ベスト 613連勝（v4時代）／ 目標 1000連
 | 実機での判断（運用条項） | [28章§4](docs/current/28-perish-build.md) |
 | 対戦中に敵の型を絞る | [タワー型サーチ](tools/setfinder/README.md) |
 | 負けた試合を記録する | [タワー敗戦ログ](tools/losslog/README.md)・[記録の一覧](logs/losses/README.md) |
-| Smogon 提出（ルール・個体の正当性・証拠） | [証拠の一覧](docs/evidence/README.md) |
 | これまでの経緯 | [TIMELINE](TIMELINE.md) |
 | 全章の一覧・設計の原則・プロジェクトの状況 | [docs/README](docs/README.md) |
 | スクリプト・データ | [tools/](tools/README.md)・[data/](data/README.md)・[results/](results/README.md) |
