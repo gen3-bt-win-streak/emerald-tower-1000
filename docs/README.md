@@ -30,18 +30,18 @@
 
 | 章 | 内容 | 状態 |
 |---|---|---|
-| [12](current/12-playbook.md) | v4/v5期の実機プレイブック。詰み系即断・名指し条項（8.6d〜8.6i）・付章B（v5差分）。v6 でも使う条項は 28章§4（13〜26）に引き継いだ | 📁 v4/v5（凍結） |
-| [25](current/25-v5-articuno-build.md) | v5構築（フリーザー入り）。確定表・主要指標・フリーザーの全検討（技構成、EV、後出し枠モデル、ギャラドス比較）・敵対評価。§0 の3体（メタグロス／ラティオス／カビゴン）の指標は v6 の土台 | 📁 v5 |
-| [26](current/26-articuno-provenance.md) | v5 のXD産フリーザーの来歴証明（42/42 PASS） | 📁 v5 |
+| [12](history/12-playbook.md) | v4/v5期の実機プレイブック。詰み系即断・名指し条項（8.6d〜8.6i）・付章B（v5差分）。v6 でも使う条項は 28章§4（13〜26）に引き継いだ | 📁 v4/v5（凍結） |
+| [25](history/25-v5-articuno-build.md) | v5構築（フリーザー入り）。確定表・主要指標・フリーザーの全検討（技構成、EV、後出し枠モデル、ギャラドス比較）・敵対評価。§0 の3体（メタグロス／ラティオス／カビゴン）の指標は v6 の土台 | 📁 v5 |
+| [26](history/26-articuno-provenance.md) | v5 のXD産フリーザーの来歴証明（42/42 PASS） | 📁 v5 |
 
 ### Smogon 提出（個体・ルール・検証）
 
 | 章 | 内容 | 状態 |
 |---|---|---|
-| [27](current/27-smogon-post.md) | Smogon掲載資格の決着（時系列・原文）と提出 write-up 用の英語段落（文面は v5 期） | ✅ 決着 |
-| [17](current/17-smogon-legitimacy.md) | Smogonルール原文・記録保持者の実態・提出チェックリスト・公開手順 | ✅ |
-| [16](current/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ⚠ v6未反映（ニョロトノ未記載。メタグロス・カビゴンの努力値は v5 のまま、v6 の値は28章§0） |
-| [18](current/18-verification-ledger.md) | 検証台帳：主張の機械検証結果と、発見した誤り・訂正の記録 | ✅ 継続 |
+| [27](evidence/27-smogon-post.md) | Smogon掲載資格の決着（時系列・原文）と提出 write-up 用の英語段落（文面は v5 期） | ✅ 決着 |
+| [17](evidence/17-smogon-legitimacy.md) | Smogonルール原文・記録保持者の実態・提出チェックリスト・公開手順 | ✅ |
+| [16](evidence/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ⚠ v6未反映（ニョロトノ未記載。メタグロス・カビゴンの努力値は v5 のまま、v6 の値は28章§0） |
+| [18](evidence/18-verification-ledger.md) | 検証台帳：主張の機械検証結果と、発見した誤り・訂正の記録 | ✅ 継続 |
 
 ### ゲームの仕様（構築に依らない） — `base/`
 
@@ -108,8 +108,8 @@
 | 項目 | 状態 |
 |---|---|
 | 世界記録 | オープン・ダブル 1316連勝（Jheisinho・エミュ）。1000連勝は歴代2位相当、更新ラインは1317 |
-| Smogon | PKHeXで再現したRNG実在個体は **掲載可**（2026-05-04 管理者回答で決着）。提出は現管理者の在任中（2026年内）に → [27章](current/27-smogon-post.md) |
-| 公開 | `battle-tower/` の履歴をスクラブして https://github.com/gen3-bt-win-streak/emerald-tower-1000 に公開。更新は `publish-public-mirror` ワークフロー（手動実行のみ。[17章§8.5](current/17-smogon-legitimacy.md)）。13・14章は旧パス・新パスとも除去される |
+| Smogon | PKHeXで再現したRNG実在個体は **掲載可**（2026-05-04 管理者回答で決着）。提出は現管理者の在任中（2026年内）に → [27章](evidence/27-smogon-post.md) |
+| 公開 | `battle-tower/` の履歴をスクラブして https://github.com/gen3-bt-win-streak/emerald-tower-1000 に公開。更新は `publish-public-mirror` ワークフロー（手動実行のみ。[17章§8.5](evidence/17-smogon-legitimacy.md)）。13・14章は旧パス・新パスとも除去される |
 
 ロードマップ：
 

@@ -20,7 +20,7 @@ Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316
 | Full design, play clauses, losses | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
 | Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
 | Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
-| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/current/27-smogon-post.md), [17](docs/current/17-smogon-legitimacy.md), [16](docs/current/16-pkhex-setup.md) |
+| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/evidence/27-smogon-post.md), [17](docs/evidence/17-smogon-legitimacy.md), [16](docs/evidence/16-pkhex-setup.md) |
 | History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
 | All chapters | [docs/README.md](docs/README.md) (Japanese) |
 | Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
@@ -60,7 +60,7 @@ no tracking. Rebuild with `PYTHONHASHSEED=0 python3 build_setfinder.py` in that 
 
 ## What is in here
 
-Chapters live in `docs/current`, `docs/base`, `docs/history`, `docs/shelved` and `docs/infra`.
+Chapters live in `docs/current` (v6), `docs/evidence` (submission evidence), `docs/base`, `docs/history`, `docs/shelved` and `docs/infra`.
 Chapter numbers are stable IDs and never change when a chapter moves.
 
 | File | Content |
@@ -70,12 +70,12 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `TIMELINE.md` | What was tried, what was dropped, and why the tree looks like this (Japanese) |
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
 | `docs/current/28-perish-build.md` | The current team (v6): Damp + Perish Song finisher, Politoed's EVs, how to survive the perish count, play clauses |
-| `docs/current/25-v5-articuno-build.md` | The previous team (v5) and the base of v6: full-population screening, EV optimisation, the Articuno build |
-| `docs/current/12-playbook.md` | Play rules of the v4/v5 era (frozen). The clauses still used in v6 were carried over to chapter 28 §4 |
-| `docs/current/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
-| `docs/current/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
-| `docs/current/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
-| `docs/current/26-articuno-provenance.md` | Provenance dossier for the XD Articuno: XDRNG derivation, lock chain, exhaustive proof that Calm 31/0/31/31/31/31 is impossible, acquisition route, shiny impossibility |
+| `docs/history/25-v5-articuno-build.md` | The previous team (v5) and the base of v6: full-population screening, EV optimisation, the Articuno build |
+| `docs/history/12-playbook.md` | Play rules of the v4/v5 era (frozen). The clauses still used in v6 were carried over to chapter 28 §4 |
+| `docs/evidence/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
+| `docs/evidence/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
+| `docs/evidence/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
+| `docs/history/26-articuno-provenance.md` | Provenance dossier for the XD Articuno: XDRNG derivation, lock chain, exhaustive proof that Calm 31/0/31/31/31/31 is impossible, acquisition route, shiny impossibility |
 | `docs/history/04`–`06`, `08`–`10`, `15`, `24` | Team design history (v1 → v4), simulator results (1M-battle marathons, loss seeds) |
 | `docs/shelved/11`, `19`, `21`–`23` | Axes that were measured and dropped or parked |
 | `data/` | 882 Battle Frontier sets (546 in the 50+ pool), 300 trainers, danger reports (CSV/JSON) |
