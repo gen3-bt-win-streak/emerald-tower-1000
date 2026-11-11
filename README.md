@@ -9,7 +9,7 @@
 |---|---|
 | 構築 | **v6 実機運用中**：メタグロス@ハチマキ／ラティオス／ニョロトノ（しめりけ・ほろびのうた）／カビゴン → [28章](docs/current/28-perish-build.md)。前構築 v5（フリーザー入り）は [25章](docs/current/25-v5-articuno-build.md) |
 | 実機 | v6で走行中（v6の最高は391連勝・2026-11-04停止。負けの記録は [28章§10](docs/current/28-perish-build.md)）。v6固有の運用条項は [28章§4](docs/current/28-perish-build.md)（12章へは未反映）。v5期の停止（42連勝・バクフーン#647／ジュゴン・トドゼルガの一撃技）は条項化済み（[12章 8.6e／8.6f](docs/current/12-playbook.md)） |
-| 自己ベスト | 613連勝（v4系・Delta、未提出）。v4実機の履歴は [15章](docs/history/15-v4-real-build.md) 末尾の実戦ログ |
+| 自己ベスト | 613連勝（v4時代・Delta、未提出）。バトルルーム成績画面（オープンレベル 前回613・最高613）で確認済み（2026-11-11）。日付・敗因は未記録。v4実機のほかの記録は [15章](docs/history/15-v4-real-build.md) 末尾の実戦ログ |
 | 世界記録 | オープン・ダブル 1316連勝（Jheisinho・エミュ）。1000連勝は歴代2位相当、更新ラインは1317 |
 | Smogon | PKHeXで再現したRNG実在個体は **掲載可**（2026-05-04 管理者回答で決着）。提出は現管理者の在任中（2026年内）に → [27章](docs/current/27-smogon-post.md) |
 | 公開 | `battle-tower/` の履歴をスクラブして公開。更新は `publish-public-mirror` ワークフロー（手動実行のみ。[17章§8.5](docs/current/17-smogon-legitimacy.md)）。13・14章は**旧パス・新パスとも**除去される |
