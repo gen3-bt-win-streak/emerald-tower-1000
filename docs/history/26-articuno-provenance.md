@@ -324,7 +324,7 @@ PKHeX `MethodFinder.cs:271-301`: 最終PIDが非色違いで、直前ペアが�
 
 **2026-09-10 に解消したもの**（GPT逐語引用＋本書の再計算）: Jheisinhoの1316／1001のフリーザーIV/EV（§6.3）、p.16最良スプレッド表の帰属（Nix_Hex #382）、Open／Lv50リーダーボードの取り違え（§6.2）、固定消費48と負け手順の出典（§4.2）、色違い不可の文書根拠（§5.1-4）、デスゴルドの送出順と再戦置換（§4.1）。
 
-- ~~Smogon運用の矛盾~~ → **解消（回答C）**: 2026-05-03 Valentino23 #2117「genned Pokemon are allowed … must have legal moves and IV combinations」で2024-12-23回答は覆り、OPも2026-06-16に整理済み。「It is your responsibility…」もOPに実在（2回確認）。残る不確実性は「GPTが2回とも同じ誤読をした」可能性のみで、提出時にOPと p.85 を走者が一度目視すれば足りる。
+- ~~Smogon運用の矛盾~~ → **解消（回答C）**: 2026-05-03（27章§0・17章§1.8 では 2026-05-04。時差）Valentino23 #2117「genned Pokemon are allowed … must have legal moves and IV combinations」で2024-12-23回答は覆り、OPも2026-06-16に整理済み。「It is your responsibility…」もOPに実在（2回確認）。残る不確実性は「GPTが2回とも同じ誤読をした」可能性のみで、提出時にOPと p.85 を走者が一度目視すれば足りる。
 - GPT引用そのものの検証: 本環境では原ページを開けない。回答A・Cは独立に開き直した2回の確認で、OP文言・#1891・#2074・#1908 の存在と要旨は一致。回答Cは著作権配慮で長文引用を避けているため、#2117 の全文と「本人責任」の正確な文言は提出時に走者が確認する。
 - 実ゲーム（逆アセンブル／RAMトレース）での仮PID2フレーム・先行シャドウ7/5フレーム配置と、CPUトレーナーTSVによる色回避判定の有無。PokeFinder／PKHeX／aldelaro5の3実装一致に依拠。Dolphin＋Luaでデスゴルド戦のRAMを採取すれば解消できる。
 - Jheisinhoのフリーザーの出自（実機XD／Dolphin／Bank of Hoenn／PKHeX）は非公開のまま。
