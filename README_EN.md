@@ -71,7 +71,7 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
 | `docs/current/28-perish-build.md` | The current team (v6): Damp + Perish Song finisher, Politoed's EVs, how to survive the perish count, play clauses |
 | `docs/current/25-v5-articuno-build.md` | The previous team (v5) and the base of v6: full-population screening, EV optimisation, the Articuno build |
-| `docs/current/12-playbook.md` | Play rules written in the v4/v5 era; shared clauses still apply, while v6-specific clauses and v6 losses are in chapter 28 §4 / §10 |
+| `docs/current/12-playbook.md` | Play rules of the v4/v5 era (frozen). The clauses still used in v6 were carried over to chapter 28 §4 |
 | `docs/current/16-pkhex-setup.md` | How each Pokémon was prepared: PokeFinder frame search first, then PKHeX |
 | `docs/current/17`, `27` | Smogon leaderboard rules (verbatim), eligibility of genned Pokémon, submission plan |
 | `docs/current/18-verification-ledger.md` | Dated log of every claim that was checked against source, and every correction |
