@@ -122,7 +122,7 @@ and for the Articuno the XDRNG derivation is re-implemented independently in `to
 the current Smogon Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have legally
 obtainable stats and moves", leaderboard manager's clarification of May 2026). Chapter 26 documents what this does
 and does not prove: the Articuno is reachable by the real XD RNG, but it was not obtained on hardware.
-The v6 Politoed's PID, nature, ability and IVs are in chapter 16 §4.6; its met data and TID/SID are not recorded yet.
+The v6 Politoed (hatched in Littleroot Town, same trainer ID as the rest of the team) is recorded in chapter 16 §4.6.
 
 ## License
 
