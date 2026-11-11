@@ -9,6 +9,7 @@
 | `xd/` | XD産フリーザーの来歴検証（`xd_articuno_verify.py`・42項目） | `tools/xd` | ✅ |
 | `sim/` | シミュレータ・集計・文書検証。`legacy/` は v0期のスナップショット | `tools/sim` | 記録 |
 | `setfinder/` | タワー型サーチ（静的HTML）。見えた種族・技・持ち物・特性・素早さから敵の型を4体同時に絞り込む | `tools/setfinder` | ✅ |
+| `losslog/` | タワー敗戦ログ（静的HTML）。負けた試合をターンごとに記録し、書き出しを `logs/losses/` に保存する（`ingest.py`） | `tools/losslog` | ✅ |
 | `advisor/` | アドバイザー（Lambda／Docker／ブラウザコンソール）。**盤面入力が v4 の4体（サンダー／メタグロス／ラティオス／ラグラージ）のままで v5 では噛み合わない＝凍結**。配備CI `deploy-advisor.yml` はリポジトリ変数 `ENABLE_ADVISOR_DEPLOY` が未設定なので既に no-op | `tools/advisor` | 凍結 |
 | `publish/` | 公開リポジトリへのエクスポート（`make_public_export.sh`） | リポジトリ直下 | ✅ |
 | `smogon/` | Smogon調査のプロンプトと回答原文、スレッド取り込み | — | 記録 |

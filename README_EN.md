@@ -1,16 +1,14 @@
-# Emerald Battle Tower (Doubles, Open Level) — 1000-win-streak project
+# Emerald Battle Tower — 1000-win Doubles streak (Open Level)
 
-Public repository: https://github.com/gen3-bt-win-streak/emerald-tower-1000
+日本語: [README.md](README.md)
 
-A research repository for a 1000-win streak in the **Pokémon Emerald Battle Tower, Doubles, Open Level (Lv100)**.
-Everything here is derived from primary sources: the `pret/pokeemerald` decompilation (battle engine, AI scripts,
-Battle Frontier trainer and set data), full-population damage calculation over all 546 enemy sets that can appear
-after win 50, and a battle simulator that replays the AI. The documents are written in Japanese; this file is the
-English entry point and reproduction guide.
+## Current team (v6)
 
-Current world record for this category is 1316 wins (Jheisinho, emulator, Smogon Gen III Battle Frontier leaderboard).
+**Metagross / Latios / Politoed / Snorlax**
 
-## Team (v6, currently in play)
+- Latios and Metagross take down as much of the enemy team as they can.
+- Against Pokémon that Latios and Metagross match up badly against, Snorlax and Politoed take the hits while using Yawn, and Perish Song deals with set-up sweepers and closes out the game.
+- Politoed's Damp also stops enemy Explosion.
 
 | | Metagross | Latios | Politoed | Snorlax |
 |---|---|---|---|---|
@@ -19,11 +17,29 @@ Current world record for this category is 1316 wins (Jheisinho, emulator, Smogon
 | Nature / EVs | Adamant, 208 HP / 252 Atk / 44 SpD / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 80 HP / 176 Atk / 248 Def / 4 Spe |
 | Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Waterfall / Hypnosis | Yawn / Rest / Double-Edge / Protect |
 
-Plan: Latios and Metagross take out two enemies the normal way (Explosion included). Once the opponent is down to
-its last two Pokémon (no bench left to switch to), Politoed sings Perish Song and the team survives the three
-counting turns with Yawn, Protect and Hypnosis. Damp also switches off all 24 enemy Explosion / Self-Destruct sets, which
-removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). Chapter 28 (`docs/current/28-perish-build.md`)
-has the full design and the play clauses.
+Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316)
+
+## Where things are
+
+| Looking for | Go to |
+|---|---|
+| Full team details (sets, EVs, play clauses, losses) | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
+| Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
+| Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
+| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/current/27-smogon-post.md), [17](docs/current/17-smogon-legitimacy.md), [16](docs/current/16-pkhex-setup.md) |
+| History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
+| All chapters | [docs/README.md](docs/README.md) (Japanese) |
+| Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
+
+## About this repository
+
+A research repository for a 1000-win streak in the **Pokémon Emerald Battle Tower, Doubles, Open Level (Lv100)**.
+Everything here is derived from primary sources: the `pret/pokeemerald` decompilation (battle engine, AI scripts,
+Battle Frontier trainer and set data), full-population damage calculation over all 546 enemy sets that can appear
+after win 50, and a battle simulator that replays the AI. The documents are written in Japanese; this file is the
+English entry point and reproduction guide.
+
+Current world record for this category is 1316 wins (Jheisinho, emulator, Smogon Gen III Battle Frontier leaderboard).
 
 The previous team, **v5** (September 2026), ran Pokémon XD Shadow Articuno (Mind Reader / Sheer Cold / Protect /
 Haze; Calm 31/0/31/29/31/31, PID `2F3C902C`, XDRNG origin seed `ECFE3E26`) in Politoed's slot; it is documented in
@@ -44,7 +60,8 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 
 | File | Content |
 |---|---|
-| `README.md` | Japanese overview and chapter index |
+| `README.md` | Japanese entry point |
+| `docs/README.md` | Chapter index, design principles, project status (Japanese) |
 | `TIMELINE.md` | What was tried, what was dropped, and why the tree looks like this (Japanese) |
 | `docs/base/00`–`03`, `20` | Rules of the facility, dangerous Pokémon / moves (full population), AI behaviour from `battle_ai_scripts.s`, Explosion digest |
 | `docs/current/28-perish-build.md` | The current team (v6): Damp + Perish Song finisher, Politoed's EVs, how to survive the perish count, play clauses |
@@ -60,6 +77,7 @@ Chapter numbers are stable IDs and never change when a chapter moves.
 | `tools/engine/` | Damage engine (`calc_matchups.py`, `evlib.py`) and the pokeemerald excerpts it reads |
 | `tools/xd/` | XD Articuno provenance verifier |
 | `tools/setfinder/` | In-battle set finder (static HTML, see above) |
+| `tools/losslog/`, `logs/losses/` | Loss log: a static HTML page to record a lost game turn by turn, and the saved games |
 | `tools/sim/` | Simulators and verification scripts (`legacy/` = v0-era snapshots, not runnable) |
 | `tools/README.md` | What each tools directory is for, which way the dependencies point, and an old → new path table |
 
