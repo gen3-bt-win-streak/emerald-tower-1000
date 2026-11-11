@@ -1,5 +1,7 @@
 # 08. 模擬想定戦シミュレータ v0（2万戦レポート）
 
+> **過去の構築（v1 期）の記録。** 今の構築は [28章](../current/28-perish-build.md)。
+
 > `tools/sim/legacy/sim.py`（対戦エンジン＋敵AIモデル＋プレイブックボット）／`tools/sim/legacy/sim_run.py`（集計ラン）。
 > 実行：`python3 sim_run.py`（calc_matchups.py・data/ と同階層で）。結果：`results/archive/sim-era/sim20k_summary.json`
 

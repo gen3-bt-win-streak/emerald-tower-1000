@@ -41,7 +41,7 @@
 |---|---|---|
 | [27](evidence/27-smogon-post.md) | Smogon掲載資格の決着（時系列・原文）と提出 write-up 用の英語段落（文面は v5 期） | ✅ 決着 |
 | [17](evidence/17-smogon-legitimacy.md) | Smogonルール原文・記録保持者の実態・提出チェックリスト・公開手順 | ✅ |
-| [16](evidence/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ⚠ v6未反映（ニョロトノ未記載。メタグロス・カビゴンの努力値は v5 のまま、v6 の値は28章§0） |
+| [16](evidence/16-pkhex-setup.md) | 各個体の入手経路・PokeFinder→PKHeXの手順・確定スプレッド表・Legality警告の読み方 | ⚠ ニョロトノは§4.6に記録（出会い・TID/SID は未記録）。メタグロス・カビゴンの努力値は v5 のまま、v6 の値は28章§0 |
 | [18](evidence/18-verification-ledger.md) | 検証台帳：主張の機械検証結果と、発見した誤り・訂正の記録 | ✅ 継続 |
 
 ### ゲームの仕様（構築に依らない） — `base/`

@@ -20,7 +20,7 @@ Best v6 streak 391 / personal best 613 (v4 era) / target 1000 (world record 1316
 | Full design, play clauses, losses | [Chapter 28](docs/current/28-perish-build.md) (Japanese) |
 | Narrowing down enemy sets during a battle | [Set finder](tools/setfinder/README.md) |
 | Logging a lost game | [Loss log](tools/losslog/README.md), [logged games](logs/losses/README.md) |
-| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, chapters [27](docs/evidence/27-smogon-post.md), [17](docs/evidence/17-smogon-legitimacy.md), [16](docs/evidence/16-pkhex-setup.md) |
+| Smogon eligibility and legitimacy of the Pokémon | [Legitimacy](#legitimacy-of-the-pokémon) below, [evidence checklist](docs/evidence/README.md) (Japanese) |
 | History of the project | [TIMELINE.md](TIMELINE.md) (Japanese) |
 | All chapters | [docs/README.md](docs/README.md) (Japanese) |
 | Reproducing the numbers | [Reproduce the key results](#reproduce-the-key-results) below, [tools/README.md](tools/README.md) |
@@ -122,7 +122,7 @@ and for the Articuno the XDRNG derivation is re-implemented independently in `to
 the current Smogon Gen III Battle Frontier rule ("genned Pokemon are allowed as long as they have legally
 obtainable stats and moves", leaderboard manager's clarification of May 2026). Chapter 26 documents what this does
 and does not prove: the Articuno is reachable by the real XD RNG, but it was not obtained on hardware.
-The v6 Politoed is not yet documented in chapter 16.
+The v6 Politoed's PID, nature, ability and IVs are in chapter 16 §4.6; its met data and TID/SID are not recorded yet.
 
 ## License
 
