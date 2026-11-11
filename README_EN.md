@@ -16,12 +16,12 @@ Current world record for this category is 1316 wins (Jheisinho, emulator, Smogon
 |---|---|---|---|---|
 | Item | Choice Band | Leftovers | Lum Berry | Chesto Berry |
 | Ability | Clear Body | Levitate | **Damp** | Thick Fat |
-| Nature / EVs | Adamant, 252 HP / 252 Atk / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 76 HP / 182 Atk / 252 Def |
-| Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Dive / Substitute | Yawn / Rest / Return / Earthquake |
+| Nature / EVs | Adamant, 208 HP / 252 Atk / 44 SpD / 4 Spe | Timid, 40 HP / 252 SpA / 216 Spe | Calm, 240 HP / 154 Def / 108 SpD / 8 Spe | Adamant, 80 HP / 176 Atk / 248 Def / 4 Spe |
+| Moves | Meteor Mash / Earthquake / Explosion / Shadow Ball | Psychic / Ice Beam / Substitute / Protect | Perish Song / Protect / Waterfall / Hypnosis | Yawn / Rest / Double-Edge / Protect |
 
 Plan: Latios and Metagross take out two enemies the normal way (Explosion included). Once the opponent is down to
 its last two Pokémon (no bench left to switch to), Politoed sings Perish Song and the team survives the three
-counting turns with Yawn, Protect and Dive. Damp also switches off all 24 enemy Explosion / Self-Destruct sets, which
+counting turns with Yawn, Protect and Hypnosis. Damp also switches off all 24 enemy Explosion / Self-Destruct sets, which
 removes the mutual-KO draw (= loss), one of the two main loss modes of the shelved perish team (chapter 19). Chapter 28 (`docs/current/28-perish-build.md`)
 has the full design and the play clauses.
 
